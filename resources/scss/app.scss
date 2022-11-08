@@ -1,0 +1,18 @@
+// User variables
+@import 'user-variables';
+
+// Configuration & utilities
+@import 'variables';
+@import 'mixins';
+@import 'utilities';
+
+// Bootstrap
+@import "bootstrap/scss/bootstrap";
+@import "@mdi/font/scss/materialdesignicons.scss";
+
+// Layout & components
+@import 'reboot';
+@import 'components';
+
+// User custom styles
+@import 'user';
