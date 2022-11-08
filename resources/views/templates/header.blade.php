@@ -22,7 +22,7 @@
                             <!-- RD Navbar Search-->
                             <div class="rd-navbar-search-wrap">
                                 <div class="rd-navbar-search">
-                                    <form action="https://www.so.com/s" target="_blank" id="so360form"
+                                    <form action="https://www.so.com/s" id="so360form"
                                           autocomplete="off" method="GET"
                                           class="rd-navbar-search-form">
                                         <label class="rd-navbar-search-form-input">
@@ -61,17 +61,17 @@
                             <li><a href="javascript:;" class="text-gray icon icon-xs fa-twitter"></a></li>
                             <li>
                                 <a href="{{url('/emails')}}" class="icon icon-xs text-base fa-envelope-o"
-                                   target="_blank"></a></li>
+                                  ></a></li>
                             <li><a class="text-gray icon icon-xs fa-weibo" data-original-title="微博扫一扫"
                                    data-toggle="popover" data-trigger="hover" title="" data-html="true"
                                    data-content="<img src='{{asset("images/weibo_qr_code.jpg")}}' alt='' class='img-responsive'>"
-                                   href="{{env('APP_URL')}}" rel="nofollow" target="_blank"
+                                   href="{{env('APP_URL')}}" rel="nofollow"
                                    data-container="body" data-placement="bottom"></a></li>
                             <li>
                                 <a class="icon icon-xs text-base fa-wechat" data-original-title="微信扫一扫"
                                    data-toggle="popover" data-trigger="hover" title="" data-html="true"
                                    data-content="<img src='{{asset("images/qrcode_for_gh_a0e3856031fe_1280.jpg")}}' alt='' class='img-responsive'>"
-                                   href="javascript:;" target="_blank" data-container="body"
+                                   href="javascript:;" data-container="body"
                                    data-placement="bottom"></a></li>
                         </ul>
                         <div class="rd-navbar-shop text-middle text-left">
@@ -99,7 +99,7 @@
                                 </h4>
                                 <a rel="nofollow"
                                    href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=gbOwsLKzsLCyt8Hw8K-i7uw"
-                                   class="btn btn-block btn-default" target="_blank">马上投稿</a>
+                                   class="btn btn-block btn-default">马上投稿</a>
                                 <a href="javascript:;" class="btn btn-block btn-primary" id="panel-cancel">取消</a>
                             </div>
                         </div>
@@ -113,7 +113,7 @@
                         </li>
                         @foreach($navs->parents() as $parent)
                             <li class="{{($parent_id == $parent->id) ? 'active' : ''}}">
-                                <a target="_blank" href="{{url('categories/'.$parent->id)}}">
+                                <a href="{{url('categories/'.$parent->id)}}">
                                     {{$parent->title}}
                                 </a>
                                 @if($parent->children)
@@ -121,7 +121,7 @@
                                         @foreach($parent->children as $children)
                                             <li>
                                                 <a href="{{url('categories/'.$children->id)}}"
-                                                   target="_blank">
+                                                  >
                                                     {{$children->title}}
                                                 </a>
                                             </li>

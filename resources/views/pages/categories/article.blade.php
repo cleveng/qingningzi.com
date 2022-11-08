@@ -31,7 +31,7 @@
                             <div class="unit-body">
                                 <h3 class="blog-post-meta-title">
                                     <a href="{{url('s/'.$item->shortcode)}}" class="text-base"
-                                       title="{{$item->title}}" target="_blank">{{$item->title}}</a></h3>
+                                       title="{{$item->title}}">{{$item->title}}</a></h3>
                                 <p class="hidden-xs">
                                     @if($item->platform)
                                         <span class='text-italic'>Posted by </span>

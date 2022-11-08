@@ -30,7 +30,7 @@
                             <div class="unit-body">
                                 <h3 class="blog-post-meta-title">
                                     <a href="{{url($item->url)}}" class="text-base"
-                                       title="{{$item->title}}" target="_blank">{{$item->username}}</a></h3>
+                                       title="{{$item->title}}">{{$item->username}}</a></h3>
                                 <p class="hidden-xs">
                                     <span class='text-italic'>Posted by </span>
                                     <a>

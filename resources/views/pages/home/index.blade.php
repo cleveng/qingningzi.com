@@ -96,7 +96,7 @@
                         @if($ha)
                             <a data-toggle="tooltip" data-trigger="hover" data-container="body"
                                data-placement="bottom"
-                               title="{{$ha->title}}" target="_blank"
+                               title="{{$ha->title}}"
                                href="{{url('p/'.$ha->title)}}"
                                class="thumbnail-variant-4 reveal-inline-block inset-md-bottom-7-p">
                                 <img alt="{{$ha->title}}" src="{{asset('uploadfile/2016/0624/woman_b.jpg')}}"
@@ -110,7 +110,7 @@
                         @if($hb)
                             <a data-toggle="tooltip" data-trigger="hover" data-container="body"
                                data-placement="bottom"
-                               title="{{$hb->title}}" target="_blank"
+                               title="{{$hb->title}}"
                                href="{{url('p/'.$hb->shortcode)}}"
                                class="thumbnail-variant-4 reveal-inline-block inset-md-bottom-7-p">
                                 <img alt="{{$hb->title}}" src="{{asset('uploadfile/2016/0624/woman_a.jpg')}}"
@@ -133,7 +133,7 @@
                     <?php $tf = $articles->find(247); ?>
                     @if($tf)
                         <a data-toggle="tooltip" data-trigger="hover" data-container="body" data-placement="top"
-                           title="{{$tf->title}}" target="_blank" href="{{url('p/'.$tf->shortcode)}}"
+                           title="{{$tf->title}}" href="{{url('p/'.$tf->shortcode)}}"
                            class="thumbnail-variant-4 reveal-inline-block">
                             <img alt="{{$tf->title}}" data-original="{{asset('uploadfile/2016/0624/lover_a.jpg')}}"
                                  width="370"
@@ -145,7 +145,7 @@
                     <?php $ts = $articles->find(242); ?>
                     @if($ts)
                         <a data-toggle="tooltip" data-trigger="hover" data-container="body" data-placement="left"
-                           title="{{$ts->title}}" target="_blank" href="{{url('p/'.$ts->shortcode)}}"
+                           title="{{$ts->title}}" href="{{url('p/'.$ts->shortcode)}}"
                            class="thumbnail-variant-4 reveal-inline-block">
                             <img alt="{{$ts->title}}"
                                  data-original="{{asset('/uploadfile/2016/0624/lover_d.jpg')}}" width="370"
@@ -161,7 +161,7 @@
                             @if($th)
                                 <a data-toggle="tooltip" data-trigger="hover" data-container="body"
                                    data-placement="right"
-                                   title="{{$th->title}}" target="_blank"
+                                   title="{{$th->title}}"
                                    href="{{url('p/'.$th->shortcode)}}"
                                    class="thumbnail-variant-4 reveal-inline-block inset-md-bottom-7-p">
                                     <img alt="{{$th->title}}"
@@ -175,7 +175,7 @@
                             @if($ts)
                                 <a data-toggle="tooltip" data-trigger="hover" data-container="body"
                                    data-placement="bottom"
-                                   title="{{$ts->title}}" target="_blank"
+                                   title="{{$ts->title}}"
                                    href="{{url('p/'.$ts->shortcode)}}"
                                    class="thumbnail-variant-4 reveal-inline-block">
                                     <img alt="{{$ts->title}}"
@@ -198,7 +198,7 @@
                 @foreach($articles->items(13,4) as $key=>$item)
                     <div class="cell-md-3 cell-xs-6 @if($key > 0) offset-xs-top-0 @endif">
                         <a data-toggle="tooltip" data-trigger="hover" data-container="body" data-placement="bottom"
-                           target="_blank" href="{{url('s/'.$item->shortcode)}}"
+                           href="{{url('s/'.$item->shortcode)}}"
                            class="thumbnail-variant-1" title="{{$item->title}}">
                             <img alt="{{$item->title}}"
                                  data-original="{{asset($item->thumb)}}"
@@ -230,7 +230,7 @@
                                      class="img-responsive">
                             </a>
                             <div class="product-overlay">
-                                <a target="_blank" title="{{$item->title}}"
+                                <a title="{{$item->title}}"
                                    href="{{url('s/'.$item->shortcode)}}"
                                    class="icon icon-circle icon-base fl-line-icon-set-magnification3"></a>
                             </div>
@@ -370,7 +370,7 @@
             <div class="range offset-top-30">
                 @foreach($articles->items(25,4) as $item)
                     <div class="cell-md-3 cell-xs-6">
-                        <a target="_blank" href="{{url('p/'.$item->shortcode)}}"
+                        <a href="{{url('p/'.$item->shortcode)}}"
                            class="post-img" title="{{$item->title}}">
                             <img alt="{{$item->title}}" data-original="{{$item->thumb}}"
                                  class="img-responsive animated">
@@ -390,7 +390,7 @@
                     <ul class="list-marked offset-top-20">
                         @foreach($articles->items(13,10) as $item)
                             <li class="text-limit">
-                                <a href="{{url('s/'.$item->shortcode)}}" target="_blank" title="{{$item->title}}">
+                                <a href="{{url('s/'.$item->shortcode)}}" title="{{$item->title}}">
                                     {{$item->title}}
                                 </a>
                             </li>
@@ -403,7 +403,7 @@
                     <ul class="list-ordered list-unstyled offset-top-20">
                         @foreach($articles->items(29,10) as $item)
                             <li class="text-limit">
-                                <a href="{{url('p/'.$item->shortcode)}}" target="_blank" title="{{$item->title}}">
+                                <a href="{{url('p/'.$item->shortcode)}}" title="{{$item->title}}">
                                     {{$item->title}}
                                 </a>
                             </li>
@@ -419,7 +419,7 @@
                                 @if($key==0)
                                     <div class="unit unit-horizontal unit-spacing-21">
                                         <div class="unit-left">
-                                            <a href="{{url('p/'.$item->shortcode)}}" target="_blank"
+                                            <a href="{{url('p/'.$item->shortcode)}}"
                                                title="{{$item->title}}">
                                                 <img alt="{{$item->title}}" width="168px" src="{{asset($item->thumb)}}">
                                             </a>
@@ -434,7 +434,7 @@
                                     </div>
                                 @else
                                     <p class="text-limit offset-top-10">
-                                        <a href="{{url('p/'.$item->shortcode)}}" target="_blank"
+                                        <a href="{{url('p/'.$item->shortcode)}}"
                                            title="{{$item->title}}">
                                             {{$item->title}}
                                         </a>
