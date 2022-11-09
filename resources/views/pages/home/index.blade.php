@@ -9,7 +9,7 @@
                     <div class="swiper-wrapper">
                         <?php $sa = $articles->item(12); ?>
                         @if($sa)
-                            <div data-slide-bg="{{asset('uploadfile/2016/0624/advert-a.jpg')}}"
+                            <div data-slide-bg="{{asset('uploadfile/2016/0624/PBBSPxhQsp0CzbP2iLMe2kofh3IQZP74.jpg')}}"
                                  class="slide-mobile-overlay swiper-slide">
                                 <div class="swiper-slide-caption">
                                     <div class="container text-sm-left">
@@ -36,7 +36,7 @@
                         @endif
                         <?php $sb = $articles->item(17); ?>
                         @if($sb)
-                            <div data-slide-bg="{{asset('uploadfile/2016/0624/advert-b.jpg')}}"
+                            <div data-slide-bg="{{asset('uploadfile/2016/0624/diTRvUaksOju3EijkJPfZy1SqAaLf51I.jpg')}}"
                                  class="bg-position-left bg-position-center slide-mobile-overlay swiper-slide">
                                 <div class="swiper-slide-caption text-sm-left">
                                     <div class="container">
@@ -62,7 +62,7 @@
                         @endif
                         <?php $sc = $articles->item(18); ?>
                         @if($sc)
-                            <div data-slide-bg="{{asset('uploadfile/2016/0624/advert-c.jpg')}}"
+                            <div data-slide-bg="{{asset('uploadfile/2016/0624/xnSkKb1ZZCR4JUEWWqbwUmo3iOlpkYYl.jpg')}}"
                                  class="bg-position-center-sm slide-mobile-overlay swiper-slide">
                                 <div class="swiper-slide-caption text-sm-left">
                                     <div class="container">
