@@ -71,7 +71,7 @@
         @inject('category', 'App\Services\CategoriesService')
         <p class="offset-top-20 text-muted">
             <span class='text-bold'><a href="{{env('APP_URL')}}">Qingningzi v{{getPackageVersion()}}</a></span>
-            <i class="fa fa-copyright"></i> 2015 - 2018 |
+            <i class="fa fa-copyright"></i> 2015 - {{\Carbon\Carbon::now()->year}} |
             @if($category->about())
                 <a href='{{url($category->about()->url)}}' rel="nofollow">{{$category->about()->title}}</a> |
             @endif
