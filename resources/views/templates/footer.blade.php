@@ -54,7 +54,7 @@
             <li>
                 <a data-original-title="微博关注" data-toggle="popover"
                    data-trigger="hover" data-html="true"
-                   data-content="<img src='{{asset("images/weibo_qr_code.png")}}' alt='微博关注' class='img-responsive'>"
+                   data-content="<img src='{{asset("images/weibo_qr_code.jpg")}}' alt='微博关注' class='img-responsive'>"
                    href="javascript:;" target="_blank" data-placement="top">
                     <i class="icon icon-xs text-base fa-weibo"></i>
                 </a>
