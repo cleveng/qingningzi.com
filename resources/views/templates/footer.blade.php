@@ -20,8 +20,8 @@
         <p>{{env('APP_NAME')}}网上提供的所有内容（除有注明原创之外）均由网络转载或网友提供，{{env('APP_NAME')}}网只是一个展示方，
             <br class='veil reveal-lg-block'>
             仅为社交团体提供健康、合理、绿色等方面的内容，不承担任何法律责任。 <a
-                href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
-                rel="nofollow" target="_blank">CC BY-NC-ND 4.0</a>
+                    href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
+                    rel="nofollow" target="_blank">CC BY-NC-ND 4.0</a>
         </p>
         <ul class="elements-group-20 offset-top-20 hidden-xs hidden-sm">
             <li>
@@ -80,10 +80,14 @@
                target="_blank"><i class="beian"></i> 粤公网安备 44010602001797号</a>
         </p>
         <p class="offset-top-10 text-muted hidden-xs hidden-sm">
-            Powered By <a href="https://www.laravel.com">Laravel v{{app()->version()}}</a> | {{env('APP_NAME')}}网由 <a
-                href="https://portal.qiniu.com/signup?code=3lid1ik02lidu" rel="nofollow" target="_blank">七牛云加速</a>、
-            <a href="https://www.bootcdn.cn/" rel="nofollow" target="_blank">BootCDN</a>
-            提供CDN服务
+            Powered By <a href="https://www.laravel.com">Laravel v{{app()->version()}}</a> |
+            <a href="https://github.com/cleveng/qingningzi.com" class="text-dark" rel="nofollow" target="_blank">
+                <i class="icon icon-xs fa-github"></i> Github
+            </a> |
+            {{env('APP_NAME')}}网由 <a
+                    href="https://portal.qiniu.com/signup?code=3lid1ik02lidu" rel="nofollow"
+                    target="_blank">七牛云加速</a>、
+            <a href="https://www.bootcdn.cn/" rel="nofollow" target="_blank">BootCDN</a> 提供CDN服务
         </p>
     </div>
 </footer>
