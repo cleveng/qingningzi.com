@@ -1,5 +1,5 @@
 <?php $parent_id = isset($parent_id) ? $parent_id : null ?>
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-Hans-CN" class="wide wow-animation">
 <head>
     <meta charset="utf-8">
@@ -10,27 +10,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Cache-Control" content="max-age=7200"/>
     {!! SEO::generate() !!}
-    <link href="{{asset('images/favicon.ico')}}" rel="shortcut icon"/>
+    <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}"/>
     <link rel="apple-touch-icon-precomposed" href="{{asset('images/favicon.png')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/mdi-icon.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-theme.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/select2.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/select2-bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/animate.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/rd-navbar.css')}}">
     <link rel="stylesheet" href="{{asset('css/swiper.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/swiper-bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/easy-responsive-tabs.css')}}">
-    <link rel="stylesheet" href="{{asset('css/slick.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/slick-theme.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/TimeCircles.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/magnific-popup.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/rd-range.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery.countdown.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/qingningzi.min.css')}}">
     <!--[if lt IE 10]>
     <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;">
         <a href="https://windows.microsoft.com/en-US/internet-explorer/">
@@ -68,7 +62,6 @@
 <script src="//cdn.bootcss.com/jquery_lazyload/1.9.5/jquery.lazyload.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="//cdn.bootcss.com/jquery-cookie/1.3.1/jquery.cookie.min.js"></script>
-<script src="//cdn.bootcss.com/device.js/0.2.6/device.min.js"></script>
 <script src="//cdn.bootcss.com/jquery-resize/1.0/jquery.ba-resize.min.js"></script>
 <script src="//cdn.bootcss.com/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="//cdn.bootcss.com/jquery.touchswipe/1.6.16/jquery.touchSwipe.min.js"></script>
@@ -77,9 +70,7 @@
 <script src="//cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
 <script src="//cdn.bootcss.com/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
 <script src="//cdn.bootcss.com/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
-<script src="//cdn.bootcss.com/slick-carousel/1.5.9/slick.min.js"></script>
 <script src="//cdn.bootcss.com/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
-<script src="//cdn.bootcss.com/select2/4.0.2/js/select2.min.js"></script>
 <script src="//cdn.bootcss.com/progressbar.js/0.9.0/progressbar.min.js"></script>
 <script src="//cdn.bootcss.com/timecircles/1.5.3/TimeCircles.min.js"></script>
 <script src="//cdn.bootcss.com/jquery-countdown/2.0.2/jquery.plugin.min.js"></script>

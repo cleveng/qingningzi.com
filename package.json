@@ -13,9 +13,13 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
-        "@mdi/font": "^7.0.96",
+        "@mdi/font": "^7.2.96",
+        "@popperjs/core": "^2.11.6",
+        "animate.css": "^4.1.1",
         "bootstrap": "^5.2.2",
+        "device.js": "^2.3.0",
         "node-sass": "^7.0.3",
-        "sass": "^1.55.0"
+        "sass": "^1.55.0",
+        "slick-slider": "^1.8.2"
     }
 }

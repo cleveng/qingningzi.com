@@ -1,0 +1,36 @@
+//
+// user.scss
+// Use this to write your custom SCSS
+//
+@import "user/space";
+
+a.post-img {
+  position: relative;
+  display: inline-block
+}
+
+i.beian {
+  background-image: url(asset("../images/beian.png"));
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (max-width: 420px) {
+  .unit-left {
+    display: none;
+  }
+
+  .unit-body {
+    padding-left: 0px !important;
+  }
+
+  .unit-body > p {
+    display: none;
+  }
+}
+
+.offset-sm-top-0 {
+  padding-top: 0 !important;
+}

@@ -583,7 +583,7 @@ $document.ready(function () {
   if (isDesktop) {
     $().UItoTop({
       easingType: 'easeOutQuart',
-      containerClass: 'ui-to-top fa fa-long-arrow-up'
+      containerClass: 'ui-to-top mdi mdi-chevron-double-up'
     });
   }
 
