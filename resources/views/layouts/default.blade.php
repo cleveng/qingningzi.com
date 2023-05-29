@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="{{asset('css/rd-navbar.css')}}">
     <link rel="stylesheet" href="{{asset('css/swiper.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/swiper-bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/easy-responsive-tabs.css')}}">
     <link rel="stylesheet" href="{{asset('css/magnific-popup.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/rd-range.min.css')}}">
@@ -75,7 +74,6 @@
 <script src="//cdn.bootcss.com/jquery-countdown/2.0.2/jquery.countdown.min.js"></script>
 <script src="//cdn.bootcss.com/OwlCarousel2/2.1.6/owl.carousel.min.js"></script>
 <script src="{{asset('js/jquery.ui.totop.min.js')}}"></script>
-<script src="{{asset('js/easyResponsiveTabs.min.js')}}"></script>
 <script src="{{asset('js/jquery.countTo.js')}}"></script>
 <script src="{{asset('js/rd-calendar.min.js')}}"></script>
 <script src="{{asset('js/stacktable.min.js')}}"></script>
