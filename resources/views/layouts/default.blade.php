@@ -13,8 +13,6 @@
     <link href="{{asset('images/favicon.ico')}}" rel="shortcut icon"/>
     <link rel="apple-touch-icon-precomposed" href="{{asset('images/favicon.png')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/fl-line-icon.css')}}">
     <link rel="stylesheet" href="{{asset('css/mdi-icon.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-theme.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/select2.min.css')}}">
