@@ -1026,20 +1026,6 @@ $document.ready(function () {
       });
     }
   }
-  /**
-   * @module       jquery mousewheel plugin
-   * @description  Enables jquery mousewheel plugin
-   */
-  if (plugins.scroller.length) {
-    for (i = 0; i < plugins.scroller.length; i++) {
-      var scrollerItem = $(plugins.scroller[i]);
-
-      scrollerItem.mCustomScrollbar({
-        scrollInertia: 200,
-        scrollButtons: {enable: true}
-      });
-    }
-  }
   // let c = 'color: #0f0; font-size: 1.5em; line-height: 3em; padding: 1em; background: rgba(10, 10, 10, 1);';
   // console.log("%c Maybe, You will see the site on the one day. If you a good guys, please visit the site: http://dwz.cn/hr2013",c);
 
