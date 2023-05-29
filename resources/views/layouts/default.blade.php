@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="{{asset('css/swiper.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/swiper-bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/easy-responsive-tabs.css')}}">
-    <link rel="stylesheet" href="{{asset('css/TimeCircles.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/magnific-popup.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/rd-range.min.css')}}">
@@ -72,7 +71,6 @@
 <script src="//cdn.bootcss.com/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
 <script src="//cdn.bootcss.com/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
 <script src="//cdn.bootcss.com/progressbar.js/0.9.0/progressbar.min.js"></script>
-<script src="//cdn.bootcss.com/timecircles/1.5.3/TimeCircles.min.js"></script>
 <script src="//cdn.bootcss.com/jquery-countdown/2.0.2/jquery.plugin.min.js"></script>
 <script src="//cdn.bootcss.com/jquery-countdown/2.0.2/jquery.countdown.min.js"></script>
 <script src="//cdn.bootcss.com/OwlCarousel2/2.1.6/owl.carousel.min.js"></script>
