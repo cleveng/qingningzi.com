@@ -7,5 +7,7 @@ import './bootstrap';
 import { device } from 'device.js';
 device.addClasses(document.documentElement);
 
-// https://github.com/solodev/slick-slider
+// [slick-slider](https://github.com/solodev/slick-slider
 import 'slick-slider/slick/slick.min.js';
+
+// [magnificPopup](http://dimsemenov.com/plugins/magnific-popup/) 使用cdn

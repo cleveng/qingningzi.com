@@ -42,7 +42,7 @@
                     <ol class="breadcrumb">
                         <li>
                             <a href="{{url('/')}}" class="text-primary" rel="nofollow">
-                                <i class="icon icon-sm fa-home"></i> 首页
+                                <i class="icon icon-sm mdi mdi-home"></i> 首页
                             </a>
                         </li>
                         @section('breadcrumb')
@@ -66,6 +66,7 @@
 <script src="//cdn.bootcss.com/Swiper/3.1.7/js/swiper.jquery.min.js"></script>
 <script src="//cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
 <script src="//cdn.bootcss.com/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+<script src="//cdn.bootcss.com/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
 <script src="//cdn.bootcss.com/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
 <script src="//cdn.bootcss.com/progressbar.js/0.9.0/progressbar.min.js"></script>
 <script src="//cdn.bootcss.com/jquery-countdown/2.0.2/jquery.plugin.min.js"></script>
