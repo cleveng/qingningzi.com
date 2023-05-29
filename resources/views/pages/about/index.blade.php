@@ -73,21 +73,21 @@
                     <li>“给我留言” 版块不会收集、泄露用户隐私。</li>
                     <li>青柠子矜网 ({{env('APP_URL')}}) 已在公安部备案[粤公网安备44010602001797号]，遵守互联网相关规定。
                     </li>
-                    <li>违法和不良信息举报电话 <i class="fa fa-phone"></i>：110 、 010-12321 、12377。</li>
-                    <li>违法和不良信息举报邮箱 <i class="fa fa-envelope-o"></i>：jubao@12377.cn 。</li>
+                    <li>违法和不良信息举报电话 <i class="mdi mdi-cellphone"></i>：110 、 010-12321 、12377。</li>
+                    <li>违法和不良信息举报邮箱 <i class="mdi mdi-email-outline"></i>：jubao@12377.cn 。</li>
                     <li><a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎
                             4.0 国际许可协议</a></li>
                 </ol>
                 <hr class="divider divider-gray divider-offset-lg">
                 <h4>联系方式：</h4>
                 <dl class="list-terms offset-top-10">
-                    <dt>邮箱 <i class="fa fa-envelope-o" aria-hidden="true"></i></dt>
+                    <dt>邮箱 <i class="mdi mdi-email-outline" aria-hidden="true"></i></dt>
                     <dd><a rel="nofollow" target="_blank"
                            href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=gbOwsLKzsLCyt8Hw8K-i7uw"
                            class="text-base">给我写信</a></dd>
                 </dl>
                 <dl class="list-terms">
-                    <dt>扣扣 <i class="fa fa-qq" aria-hidden="true"></i></dt>
+                    <dt>扣扣 <i class="mdi mdi-qqchat" aria-hidden="true"></i></dt>
                     <dd><a rel="nofollow" href="http://wpa.qq.com/msgrd?v=3&uin=211321136&site=qq&menu=yes"
                            class="text-base" data-original-title="QQ扫一扫" data-toggle="popover" data-trigger="hover"
                            data-html="true"
@@ -95,21 +95,21 @@
                            target="_blank" data-placement="right">211321136</a></dd>
                 </dl>
                 <dl class="list-terms">
-                    <dt>微信 <i class="fa fa-wechat" aria-hidden="true"></i></dt>
+                    <dt>微信 <i class="mdi mdi-wechat" aria-hidden="true"></i></dt>
                     <dd><a class="text-base" data-original-title="微信扫一扫" data-toggle="popover" data-trigger="hover"
                            data-html="true"
                            data-content="<img src='{{asset("images/qrcode_for_gh_a0e3856031fe_1280.jpg")}}' alt='' class='img-responsive'>"
                            href="javascript:;" target="_blank" data-placement="right">qingningzijin(微信号)</a></dd>
                 </dl>
                 <dl class="list-terms">
-                    <dt>微博 <i class="fa fa-weibo" aria-hidden="true"></i></dt>
+                    <dt>微博 <i class="mdi mdi-sina-weibo" aria-hidden="true"></i></dt>
                     <dd><a rel="nofollow" href="https://www.weibo.com/qingningzi" data-original-title="微博扫一扫"
                            data-toggle="popover" data-trigger="hover" data-html="true"
                            data-content="<img src='{{asset("images/weibo_qr_code.jpg")}}' alt='' class='img-responsive'>"
                            target="_blank" data-placement="right">青柠子矜</a></dd>
                 </dl>
                 <dl class="list-terms">
-                    <dt>聚合 <i class="fa fa-rss" aria-hidden="true"></i></dt>
+                    <dt>聚合 <i class="mdi mdi-rss" aria-hidden="true"></i></dt>
                     <dd><a href="{{url('rss')}}" target="_blank">我要订阅</a></dd>
                 </dl>
                 @include('components.changyan')

@@ -2,6 +2,6 @@
     @inject('mood', 'App\Services\MoodService')
     <p class="text-gray text-regular">
         {{$mood->random()->description}}
-        <span class='text-light text-italic'>- {{$mood->random()->author}}</span>
+        <span class='text-muted text-italic'>- {{$mood->random()->author}}</span>
     </p>
 </div>

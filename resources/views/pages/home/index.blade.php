@@ -232,7 +232,7 @@
                             <div class="product-overlay">
                                 <a title="{{$item->title}}"
                                    href="{{url('s/'.$item->shortcode)}}"
-                                   class="icon icon-circle icon-base fl-line-icon-set-magnification3"></a>
+                                   class="icon icon-circle icon-base mdi mdi-magnify"></a>
                             </div>
                             <div class="product-overlay-variant-2">
                                 <a href="{{url('category/'.$item->category_id)}}" class="label label-default"
@@ -373,7 +373,7 @@
                         <a href="{{url('p/'.$item->shortcode)}}"
                            class="post-img" title="{{$item->title}}">
                             <img alt="{{$item->title}}" data-original="{{$item->thumb}}"
-                                 class="img-responsive animated">
+                                 class="img-responsive animate__animated">
                         </a>
                     </div>
                 @endforeach

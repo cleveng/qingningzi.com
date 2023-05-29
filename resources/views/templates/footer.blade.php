@@ -26,29 +26,29 @@
         <ul class="elements-group-20 offset-top-20 hidden-xs hidden-sm">
             <li>
                 <a href="javascript:;">
-                    <i class="icon icon-xs text-base fa-facebook"></i>
+                    <i class="text-base mdi mdi-facebook fs-2"></i>
                 </a>
             </li>
             <li>
                 <a href="javascript:;">
-                    <i class="icon icon-xs text-base fa-twitter"></i>
+                    <i class="text-base mdi mdi-twitter fs-2"></i>
                 </a>
             </li>
             <li>
                 <a target="_blank" data-original-title="给我打赏" data-toggle="tooltip" data-trigger="hover"
                    href="https://www.paypal.me/qingningzi" rel="nofollow">
-                    <i class="icon icon-xs text-base fa-paypal"></i>
+                    <i class="text-base mdi mdi-currency-usd fs-2"></i>
                 </a>
             </li>
             <li>
                 <a data-original-title="邮件订阅" data-toggle="tooltip" data-trigger="hover"
                    href="{{url('emails')}}"
                    target="_blank">
-                    <i class="icon icon-xs text-base fa-envelope-o"></i>
+                    <i class="text-base mdi mdi-email-outline fs-2"></i>
                 </a>
             </li>
             <li><a data-original-title="合作媒体" data-toggle="tooltip" data-trigger="hover" target="_blank">
-                    <i class="icon icon-xs text-base fa-link"></i>
+                    <i class="text-base mdi mdi-link-variant fs-2"></i>
                 </a>
             </li>
             <li>
@@ -56,7 +56,7 @@
                    data-trigger="hover" data-html="true"
                    data-content="<img src='{{asset("images/weibo_qr_code.jpg")}}' alt='微博关注' class='img-responsive'>"
                    href="javascript:;" target="_blank" data-placement="top">
-                    <i class="icon icon-xs text-base fa-weibo"></i>
+                    <i class="text-base mdi mdi-sina-weibo fs-2"></i>
                 </a>
             </li>
             <li>
@@ -64,14 +64,14 @@
                    data-trigger="hover" data-html="true"
                    data-content="<img src='{{asset("images/weichat_pay.jpg")}}' alt='微信打赏' class='img-responsive'>"
                    href="javascript:;" target="_blank" data-placement="top">
-                    <i class="icon icon-xs text-base fa-wechat"></i>
+                    <i class="text-base mdi mdi-wechat fs-2"></i>
                 </a>
             </li>
         </ul>
         @inject('category', 'App\Services\CategoriesService')
         <p class="offset-top-20 text-muted">
             <span class='text-bold'><a href="{{env('APP_URL')}}">Qingningzi v{{getPackageVersion()}}</a></span>
-            <i class="fa fa-copyright"></i> 2015 - {{\Carbon\Carbon::now()->year}} |
+            <i class="mdi mdi-copyright"></i> 2015 - {{\Carbon\Carbon::now()->year}} |
             @if($category->about())
                 <a href='{{url($category->about()->url)}}' rel="nofollow">{{$category->about()->title}}</a> |
             @endif
@@ -82,7 +82,7 @@
         <p class="offset-top-10 text-muted hidden-xs hidden-sm">
             Powered By <a href="https://www.laravel.com">Laravel v{{app()->version()}}</a> |
             <a href="https://github.com/cleveng/qingningzi.com" class="text-dark" rel="nofollow" target="_blank">
-                <i class="icon icon-xs fa-github"></i> Github
+                <i class="icon icon-xs mdi mdi-github"></i> Github
             </a> |
             {{env('APP_NAME')}}网由 <a
                     href="https://portal.qiniu.com/signup?code=3lid1ik02lidu" rel="nofollow"

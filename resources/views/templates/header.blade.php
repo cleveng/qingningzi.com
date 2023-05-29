@@ -58,17 +58,17 @@
                     </div>
                     <div class="rd-navbar-elements-wrap text-right">
                         <ul class="rd-navbar-socials elements-group-18 reveal-inline-block text-middle">
-                            <li><a href="javascript:;" class="text-gray icon icon-xs fa-twitter"></a></li>
+                            <li><a href="javascript:;" class="text-gray mdi mdi-twitter fs-2"></a></li>
                             <li>
-                                <a href="{{url('/emails')}}" class="icon icon-xs text-base fa-envelope-o"
+                                <a href="{{url('/emails')}}" class="text-base mdi mdi-email-outline fs-2"
                                   ></a></li>
-                            <li><a class="text-gray icon icon-xs fa-weibo" data-original-title="微博扫一扫"
+                            <li><a class="text-gray mdi mdi-sina-weibo fs-2" data-original-title="微博扫一扫"
                                    data-toggle="popover" data-trigger="hover" title="" data-html="true"
                                    data-content="<img src='{{asset("images/weibo_qr_code.jpg")}}' alt='' class='img-responsive'>"
                                    href="{{env('APP_URL')}}" rel="nofollow"
                                    data-container="body" data-placement="bottom"></a></li>
                             <li>
-                                <a class="icon icon-xs text-base fa-wechat" data-original-title="微信扫一扫"
+                                <a class="text-base mdi mdi-wechat fs-2" data-original-title="微信扫一扫"
                                    data-toggle="popover" data-trigger="hover" title="" data-html="true"
                                    data-content="<img src='{{asset("images/qrcode_for_gh_a0e3856031fe_1280.jpg")}}' alt='' class='img-responsive'>"
                                    href="javascript:;" data-container="body"
@@ -77,7 +77,7 @@
                         <div class="rd-navbar-shop text-middle text-left">
                             <div class="rd-navbar-shop-toggle">
                                 <a href="javascript:;" data-rd-navbar-toggle=".rd-navbar-shop"
-                                   class="text-middle icon icon-primary fl-line-icon-set-drawing4"></a>
+                                   class="text-middle mdi mdi-pencil display-3"></a>
                                 <span class="text-middle label label-circle label-primary">1</span>
                             </div>
                             <div class="rd-navbar-shop-panel">

@@ -23,7 +23,7 @@
             <div class="cell-md-8 text-xs-left">
                 <div class="blog-post">
                     <div
-                        class="blog-post-meta unit unit-xs-horizontal unit-sm-horizontal unit-md-horizontal unit-lg-horizontal">
+                            class="blog-post-meta unit unit-xs-horizontal unit-sm-horizontal unit-md-horizontal unit-lg-horizontal">
                         <div class="unit-left">
                             <div class="center-block blog-post-meta-date">
                                     <span class='blog-post-meta-date-big reveal-block'>
@@ -124,7 +124,7 @@
                     @if($data->file_type === \App\Enums\FileType::LINK)
                         <a href="{{$data->file_url}}" rel="nofollow" target="_blank"
                            class="hidden-xs hidden-sm btn btn-primary">
-                            <i class="fa fa-search"></i> 获取资源
+                            <i class="mdi mdi-magnify"></i> 获取资源
                         </a>
                     @endif
 

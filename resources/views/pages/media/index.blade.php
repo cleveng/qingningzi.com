@@ -43,7 +43,7 @@
                                                 <a href='javascript:;' data-toggle="tooltip"
                                                    data-placement="right"
                                                    title="质量度：{{ceil(abs($media->id - 17)/3)}}"
-                                                   class="fa fa-heart"></a>
+                                                   class="mdi mdi-heart"></a>
                                             </p>
                                         </div>
                                         @if(!stripos($media->url,'qingningzi'))
