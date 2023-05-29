@@ -75,7 +75,6 @@
 <script src="{{asset('js/jquery.ui.totop.min.js')}}"></script>
 <script src="{{asset('js/jquery.countTo.js')}}"></script>
 <script src="{{asset('js/rd-calendar.min.js')}}"></script>
-<script src="{{asset('js/stacktable.min.js')}}"></script>
 <script src="{{asset('js/rd-toggle.min.js')}}"></script>
 <script src="{{asset('js/rd-navbar.min.js')}}"></script>
 <script src="{{asset('js/core.min.js')}}" type="text/javascript"></script>
