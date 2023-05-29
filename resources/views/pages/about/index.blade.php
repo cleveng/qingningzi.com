@@ -52,7 +52,7 @@
                     <li>青柠子矜网承诺对于授权的文章不用于商业、盈利、非法性质等，仅适用于青柠子矜网。</li>
                     <li>青柠子矜网“仅”对提供文章授权的个体/企业提供便利性著作权保护，其中体现于手机端浏览时具有独特<a
                             data-placement="top" target="_blank" href="{APP_PATH}"
-                            data-content="<img src='{IMG_PATH}qr_right.jpg' alt='青柠子矜' class='img-responsive'>"
+                            data-content="<img src='{{asset("images/weichat_pay.jpg")}}' alt='青柠子矜' class='img-responsive'>"
                             data-html="true" data-trigger="hover" data-toggle="popover" data-original-title="青柠子矜">二维码</a>(<small>鼠标移入</small>)展示。
                     </li>
                     <li>
@@ -105,7 +105,7 @@
                     <dt>微博 <i class="fa fa-weibo" aria-hidden="true"></i></dt>
                     <dd><a rel="nofollow" href="https://www.weibo.com/qingningzi" data-original-title="微博扫一扫"
                            data-toggle="popover" data-trigger="hover" data-html="true"
-                           data-content="<img src='{{asset("images/weibo_qr_code.png")}}' alt='' class='img-responsive'>"
+                           data-content="<img src='{{asset("images/weibo_qr_code.jpg")}}' alt='' class='img-responsive'>"
                            target="_blank" data-placement="right">青柠子矜</a></dd>
                 </dl>
                 <dl class="list-terms">
