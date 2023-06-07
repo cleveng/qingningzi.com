@@ -6,7 +6,6 @@
         "build": "vite build"
     },
     "devDependencies": {
-        "axios": "^1.1.2",
         "laravel-vite-plugin": "^0.7.0",
         "lodash": "^4.17.19",
         "postcss": "^8.4.17",
@@ -18,9 +17,12 @@
         "animate.css": "^4.1.1",
         "bootstrap": "^5.2.2",
         "device.js": "^2.3.0",
+        "jquery": "^3.7.0",
         "magnific-popup": "^1.1.0",
         "node-sass": "^7.0.3",
+        "owl.carousel": "^2.3.4",
         "sass": "^1.55.0",
-        "slick-slider": "^1.8.2"
+        "smooth-scroll": "^16.1.3",
+        "swiper": "^9.3.2"
     }
 }
