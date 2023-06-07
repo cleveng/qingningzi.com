@@ -4,7 +4,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 9.37.0.
+ * Generated for Laravel 9.33.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -1685,17 +1685,6 @@
         {            //Method inherited from \Illuminate\Foundation\Console\Kernel         
                         /** @var \App\Console\Kernel $instance */
                         $instance->bootstrap();
-        }
-                    /**
-         * Bootstrap the application without booting service providers.
-         *
-         * @return void 
-         * @static 
-         */ 
-        public static function bootstrapWithoutBootingProviders()
-        {            //Method inherited from \Illuminate\Foundation\Console\Kernel         
-                        /** @var \App\Console\Kernel $instance */
-                        $instance->bootstrapWithoutBootingProviders();
         }
                     /**
          * Set the Artisan application instance.
@@ -10648,12 +10637,12 @@
          * Clones a request and overrides some of its parameters.
          *
          * @return static 
-         * @param array $query The GET parameters
-         * @param array $request The POST parameters
-         * @param array $attributes The request attributes (parameters parsed from the PATH_INFO, ...)
-         * @param array $cookies The COOKIE parameters
-         * @param array $files The FILES parameters
-         * @param array $server The SERVER parameters
+         * @param array|null $query The GET parameters
+         * @param array|null $request The POST parameters
+         * @param array|null $attributes The request attributes (parameters parsed from the PATH_INFO, ...)
+         * @param array|null $cookies The COOKIE parameters
+         * @param array|null $files The FILES parameters
+         * @param array|null $server The SERVER parameters
          * @static 
          */ 
         public static function duplicate($query = null, $request = null, $attributes = null, $cookies = null, $files = null, $server = null)
@@ -10979,6 +10968,7 @@
                     /**
          * Gets the list of trusted proxies.
          *
+         * @return string[] 
          * @static 
          */ 
         public static function getTrustedProxies()
@@ -11010,6 +11000,7 @@
                     /**
          * Gets the list of trusted host patterns.
          *
+         * @return string[] 
          * @static 
          */ 
         public static function getTrustedHosts()
@@ -11424,6 +11415,7 @@
                     /**
          * Gets the mime types associated with the format.
          *
+         * @return string[] 
          * @static 
          */ 
         public static function getMimeTypes($format)
@@ -11443,7 +11435,7 @@
                     /**
          * Associates a format with mime types.
          *
-         * @param string|array $mimeTypes The associated mime types (the preferred one must be the first as it will be used as the content type)
+         * @param string|string[] $mimeTypes The associated mime types (the preferred one must be the first as it will be used as the content type)
          * @static 
          */ 
         public static function setFormat($format, $mimeTypes)
@@ -11479,14 +11471,26 @@
                         return $instance->setRequestFormat($format);
         }
                     /**
-         * Gets the format associated with the request.
+         * Gets the usual name of the format associated with the request's media type (provided in the Content-Type header).
          *
+         * @deprecated since Symfony 6.2, use getContentTypeFormat() instead
          * @static 
          */ 
         public static function getContentType()
         {            //Method inherited from \Symfony\Component\HttpFoundation\Request         
                         /** @var \Illuminate\Http\Request $instance */
                         return $instance->getContentType();
+        }
+                    /**
+         * Gets the usual name of the format associated with the request's media type (provided in the Content-Type header).
+         *
+         * @see Request::$formats
+         * @static 
+         */ 
+        public static function getContentTypeFormat()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Request         
+                        /** @var \Illuminate\Http\Request $instance */
+                        return $instance->getContentTypeFormat();
         }
                     /**
          * Sets the default locale.
@@ -11592,6 +11596,7 @@
          *
          * @param bool $asResource If true, a resource will be returned
          * @return string|resource 
+         * @psalm-return ($asResource is true ? resource : string)
          * @static 
          */ 
         public static function getContent($asResource = false)
@@ -11648,6 +11653,7 @@
                     /**
          * Gets a list of languages acceptable by the client browser ordered in the user browser preferences.
          *
+         * @return string[] 
          * @static 
          */ 
         public static function getLanguages()
@@ -11658,6 +11664,7 @@
                     /**
          * Gets a list of charsets acceptable by the client browser in preferable order.
          *
+         * @return string[] 
          * @static 
          */ 
         public static function getCharsets()
@@ -11668,6 +11675,7 @@
                     /**
          * Gets a list of encodings acceptable by the client browser in preferable order.
          *
+         * @return string[] 
          * @static 
          */ 
         public static function getEncodings()
@@ -11678,6 +11686,7 @@
                     /**
          * Gets a list of content types acceptable by the client browser in preferable order.
          *
+         * @return string[] 
          * @static 
          */ 
         public static function getAcceptableContentTypes()
@@ -12748,7 +12757,6 @@
      * @method static \Illuminate\Routing\RouteRegistrar scopeBindings()
      * @method static \Illuminate\Routing\RouteRegistrar where(array $where)
      * @method static \Illuminate\Routing\RouteRegistrar withoutMiddleware(array|string $middleware)
-     * @method static \Illuminate\Routing\RouteRegistrar withoutScopedBindings()
      * @see \Illuminate\Routing\Router
      */ 
         class Route {
@@ -15159,18 +15167,6 @@
                         return $instance->size($path);
         }
                     /**
-         * Get the checksum for a file.
-         *
-         * @return string|false 
-         * @throws UnableToProvideChecksum
-         * @static 
-         */ 
-        public static function checksum($path, $options = [])
-        {
-                        /** @var \Illuminate\Filesystem\FilesystemAdapter $instance */
-                        return $instance->checksum($path, $options);
-        }
-                    /**
          * Get the mime-type of a given file.
          *
          * @param string $path
@@ -17083,17 +17079,6 @@
      */ 
         class Vite {
                     /**
-         * Get the preloaded assets.
-         *
-         * @var array
-         * @static 
-         */ 
-        public static function preloadedAssets()
-        {
-                        /** @var \Illuminate\Foundation\Vite $instance */
-                        return $instance->preloadedAssets();
-        }
-                    /**
          * Get the Content Security Policy nonce applied to all generated tags.
          *
          * @return string|null 
@@ -17198,18 +17183,6 @@
         {
                         /** @var \Illuminate\Foundation\Vite $instance */
                         return $instance->useStyleTagAttributes($attributes);
-        }
-                    /**
-         * Use the given callback to resolve attributes for preload tags.
-         *
-         * @param \Illuminate\Foundation\(callable(string,  string, ?array, ?array): array)|array  $attributes
-         * @return \Illuminate\Foundation\Vite 
-         * @static 
-         */ 
-        public static function usePreloadTagAttributes($attributes)
-        {
-                        /** @var \Illuminate\Foundation\Vite $instance */
-                        return $instance->usePreloadTagAttributes($attributes);
         }
                     /**
          * Generate React refresh runtime script.
@@ -17442,7 +17415,7 @@
          * Add a custom meta tag.
          *
          * @param string|array $meta
-         * @param string $value
+         * @param string|null $value
          * @param string $name
          * @return static 
          * @static 
@@ -17859,7 +17832,7 @@
                     /**
          * Add Video properties.
          *
-         * @param string $source
+         * @param string|null $source
          * @param array $attributes
          * @return static 
          * @static 
@@ -17872,7 +17845,7 @@
                     /**
          * Add audio properties.
          *
-         * @param string $source
+         * @param string|null $source
          * @param array $attributes
          * @return static 
          * @static 
@@ -17896,6 +17869,8 @@
         }
                     /**
          * Set product properties.
+         * 
+         * Reference: https://developers.facebook.com/docs/marketing-api/catalog/reference/#example-feeds
          *
          * @param array $attributes opengraph product attributes
          * @return \Artesaos\SEOTools\Contracts\OpenGraph 
@@ -18430,6 +18405,52 @@
         {
                         /** @var \Artesaos\SEOTools\SEOTools $instance */
                         return $instance->generate($minify);
+        }
+                    /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param object|callable $macro
+         * @return void 
+         * @static 
+         */ 
+        public static function macro($name, $macro)
+        {
+                        \Artesaos\SEOTools\SEOTools::macro($name, $macro);
+        }
+                    /**
+         * Mix another object into the class.
+         *
+         * @param object $mixin
+         * @param bool $replace
+         * @return void 
+         * @throws \ReflectionException
+         * @static 
+         */ 
+        public static function mixin($mixin, $replace = true)
+        {
+                        \Artesaos\SEOTools\SEOTools::mixin($mixin, $replace);
+        }
+                    /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasMacro($name)
+        {
+                        return \Artesaos\SEOTools\SEOTools::hasMacro($name);
+        }
+                    /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {
+                        \Artesaos\SEOTools\SEOTools::flushMacros();
         }
          
     }
@@ -20708,7 +20729,7 @@ namespace  {
                 /**
              * Set the table which the query is targeting.
              *
-             * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string $table
+             * @param \Closure|\Illuminate\Database\Query\Builder|string $table
              * @param string|null $as
              * @return \Illuminate\Database\Query\Builder 
              * @static 
@@ -22219,20 +22240,6 @@ namespace  {
             {
                                 /** @var \Illuminate\Database\Query\Builder $instance */
                                 return $instance->toSql();
-            }
-             
-                /**
-             * Get a single expression value from the first result of a query.
-             *
-             * @param string $expression
-             * @param array $bindings
-             * @return mixed 
-             * @static 
-             */ 
-            public static function rawValue($expression, $bindings = [])
-            {
-                                /** @var \Illuminate\Database\Query\Builder $instance */
-                                return $instance->rawValue($expression, $bindings);
             }
              
                 /**
