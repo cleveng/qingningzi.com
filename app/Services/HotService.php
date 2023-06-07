@@ -12,8 +12,8 @@ class HotService extends BaseService
     {
         $max = ($star > 5) ? 5 : $star;
         return Cache::remember('h_' . $catid . '_' . $id, $this->expiredAt, function () use ($max) {
-            $result = str_repeat("<i class='fa fa-star'></i>", $max);
-            $result .= str_repeat("<i class='fa fa-star-o'></i>", 5 - $max);
+            $result = str_repeat("<i class='mdi mdi-star'></i>", $max);
+            $result .= str_repeat("<i class='mdi mdi-star-outline'></i>", 5 - $max);
             return $result;
         });
     }
