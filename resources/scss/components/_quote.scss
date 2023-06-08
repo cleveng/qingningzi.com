@@ -1,0 +1,86 @@
+.quote {
+  position: relative;
+  margin-top: 31px;
+  margin-bottom: 20px;
+  padding-left: 24px
+}
+
+@media (min-width: 480px) {
+  .quote {
+    padding-left: 40px
+  }
+}
+
+.quote:before {
+  position: absolute;
+  top: 14px;
+  content: "“";
+  left: 0;
+  font-weight: 900;
+  font-size: 60px;
+  color: #7fcbc9;
+  line-height: .6
+}
+
+.quote h4 + p {
+  margin-top: 20px
+}
+
+.quote q:before {
+  content: none
+}
+
+.quote q:after {
+  content: none
+}
+
+.quote cite {
+  font-style: normal
+}
+
+@media (min-width: 768px) {
+  .quote {
+    padding-left: 60px
+  }
+
+  .quote:before {
+    font-size: 100px
+  }
+}
+
+.quote-variant-1 {
+  padding-left: 20px;
+  padding-right: 20px
+}
+
+@media (min-width: 992px) {
+  .quote-variant-1 {
+    padding-left: 160px;
+    padding-right: 160px
+  }
+}
+
+.quote-variant-1:before {
+  content: none
+}
+
+.quote img {
+  display: inline-block !important;
+  width: 97px !important;
+  height: 97px !important;
+}
+
+.bg-primary .owl-next, .bg-primary .owl-prev{
+  background-color: transparent !important;
+  color: #fff!important;
+  border: 1px solid #eeeeee !important;
+}
+
+.bg-primary .owl-next:hover, .bg-primary .owl-prev:hover{
+  color: #fff!important;
+  border: 1px solid #fff!important;
+}
+
+.owl-nav-center .owl-next, .owl-nav-center .owl-prev{
+  top: 50%;
+}

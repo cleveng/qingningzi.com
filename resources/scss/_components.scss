@@ -2,15 +2,27 @@
 // Theme Components
 // --------------------------------------------------
 @import "components/animate";
+@import "components/icons";
+
+@import "components/carousel";
+
+@import "components/pagination";
+@import "components/breadcrumb";
+@import "components/badge";
+
+@import "components/blog";
+@import "components/buttons";
+
+@import "components/thumbnail";
+
 @import "components/rd-navbar";
+@import "components/divider";
+
+@import "components/quote";
+@import "components/socials";
 
 // magnific-popup
 @import "components/magnific-popup";
 
-// owl-carousel
-@import "components/owl-carousel";
-
-// icon
-@import "components/icons";
-@import "components/slick-slider";
-@import "components/ui-totop";
+// swiper
+@import "components/swiper";

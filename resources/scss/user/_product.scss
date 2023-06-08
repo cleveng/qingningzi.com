@@ -1,0 +1,283 @@
+
+.veil {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .veil-sm {
+    display: none !important
+  }
+}
+
+// fix class from rich text code
+.img-responsive {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.list-ordered {
+  counter-reset: li
+}
+
+.list-ordered > li:before {
+  content: counter(li, decimal-leading-zero) ".  ";
+  counter-increment: li;
+  color: #7fcbc9;
+  margin-right: 4px
+}
+
+.list-ordered > li + li {
+  margin-top: 8px
+}
+
+.list-marked > li {
+  position: relative;
+  padding-left: 12px
+}
+
+.list-marked > li:before {
+  content: '';
+  background-color: #7fcbc9;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%)
+}
+
+.list-marked > li + li {
+  margin-top: 8px
+}
+
+// product
+.product {
+  position: relative;
+  padding-bottom: 38px;
+  will-change: transform
+}
+
+html body .page .product-remove a:hover {
+  color: #141414
+}
+
+.product-comment .unit-body {
+  padding-left: 0 !important
+}
+
+@media (min-width: 480px) {
+  .product-comment .unit-body {
+    padding-left: 21px !important
+  }
+}
+
+.product-details-heading {
+  font-weight: 400
+}
+
+.product-details-heading + * {
+  margin-top: 20px
+}
+
+.product-details-rating {
+  margin-right: 14px
+}
+
+.product-details-price-big {
+  font-size: 40px;
+  font-weight: 400;
+  color: #7fcbc9
+}
+
+.product-details-price-small {
+  margin-left: 14px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 300
+}
+
+.product-price {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: .04em;
+  color: #7fcbc9
+}
+
+.product-rating {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  transition: .3s;
+  will-change: opacity
+}
+
+.product-actions {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+  will-change: opacity
+}
+
+.product-media {
+  position: relative;
+  display: inline-block
+}
+
+.product-media > a {
+  display: inline-block
+}
+
+.product-media .product-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: .3s;
+  will-change: transform
+}
+
+.product-media .product-overlay-variant-2 {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none
+}
+
+.product-media .product-overlay-variant-2 > * {
+  pointer-events: all
+}
+
+.product-media .product-overlay-variant-2 .countdown {
+  align-self: center
+}
+
+.product:hover .product-media .product-overlay {
+  transform: translate(-50%, -50%) scale(1)
+}
+
+.product:hover .product-rating {
+  opacity: 0;
+  visibility: hidden
+}
+
+.product:hover .product-actions {
+  opacity: 1;
+  visibility: visible
+}
+
+.well-variant-1 {
+  padding: 12% 10%
+}
+
+@media (min-width: 2000px) {
+  .well-variant-1 {
+    padding: 240px 120px
+  }
+}
+
+.thumbnail-variant-1 {
+  position: relative;
+  display: inline-block
+}
+
+.thumbnail-variant-1 .caption {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background-color: rgba(255, 255, 255, .5);
+  transition: .3s;
+  color: #141414
+}
+
+.thumbnail-variant-1 .caption .caption-title {
+  text-transform: uppercase;
+  transform: translateY(50%);
+  font-size: 14px;
+  line-height: 1.42857;
+  letter-spacing: .1em;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.thumbnail-variant-1 .caption .caption-descr {
+  margin-top: 0;
+  opacity: 0;
+  font-size: 14px;
+  line-height: 1.42857;
+  margin-bottom: 0;
+}
+
+.thumbnail-variant-1:hover .caption {
+  background-color: rgba(20, 20, 20, .9);
+  color: #fff;
+  bottom: 50%;
+  transform: translateY(50%)
+}
+
+.thumbnail-variant-1:hover .caption .caption-title {
+  transform: translateY(0)
+}
+
+.thumbnail-variant-1:hover .caption .caption-descr {
+  opacity: 1
+}
+
+.thumbnail-variant-3 {
+  position: relative
+}
+
+.thumbnail-variant-3 .caption {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%)
+}
+
+.thumbnail-variant-4 img {
+  background-color: #141414;
+  transition: .3s
+}
+
+.thumbnail-variant-4:hover img {
+  opacity: .8
+}
+
+.btn-link {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color: #7fcbc9;
+  transition: 0s
+}
+
+.btn-link:after {
+  content: '\F19B0';
+  font-family: $mdi-font-family;
+  font-size: 19px;
+  vertical-align: middle;
+  transition: .3s
+}
+
+.btn-link .btn-text {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  transition: .3s;
+  vertical-align: middle
+}

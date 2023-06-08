@@ -1,0 +1,49 @@
+@each $prop,
+$abbrev in (width: w, height: h) {
+  @include media-breakpoint-up(sm) {
+
+    @each $size,
+    $length in $sizes {
+      .#{$abbrev}-sm-#{$size} {
+        #{$prop}: $length !important;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+
+    @each $size,
+    $length in $sizes {
+      .#{$abbrev}-md-#{$size} {
+        #{$prop}: $length !important;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+
+    @each $size,
+    $length in $sizes {
+      .#{$abbrev}-lg-#{$size} {
+        #{$prop}: $length !important;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+
+    @each $size,
+    $length in $sizes {
+      .#{$abbrev}-xl-#{$size} {
+        #{$prop}: $length !important;
+      }
+    }
+  }
+
+  @each $size,
+  $length in $sizes {
+    .#{$abbrev}-#{$size} {
+      #{$prop}: $length !important;
+    }
+  }
+}

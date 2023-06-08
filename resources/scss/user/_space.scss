@@ -1,3 +1,119 @@
-//
-// Space
-// --------------------------------------------------
+@each $name,
+$size in $spaces {
+  .#{$name} {
+    padding-top: $size;
+    padding-bottom: $size;
+
+    @include media-breakpoint-down(sm) {
+      padding-top: $size * 0.32;
+      padding-bottom: $size * 0.32;
+    }
+
+    &--xl {
+      @media (min-width: 1200px) {
+        padding-top: $size;
+        padding-bottom: $size;
+      }
+    }
+
+    &--lg {
+      @media (min-width: 992px) {
+        padding-top: $size;
+        padding-bottom: $size;
+      }
+    }
+
+    &--md {
+      @media (min-width: 768px) {
+        padding-top: $size;
+        padding-bottom: $size;
+      }
+    }
+
+    &--sm {
+      @media (min-width: 576px) {
+        padding-top: $size;
+        padding-bottom: $size;
+      }
+    }
+  }
+
+  .#{$name}-top {
+    padding-top: $size;
+
+    @include media-breakpoint-down(sm) {
+      padding-top: $size * 0.32;
+    }
+
+    &--xl {
+      @media (min-width: 1200px) {
+        padding-top: $size;
+      }
+    }
+
+    &--lg {
+      @media (min-width: 992px) {
+        padding-top: $size;
+      }
+    }
+
+    &--md {
+      @media (min-width: 768px) {
+        padding-top: $size;
+      }
+    }
+
+    &--sm {
+      @media (min-width: 576px) {
+        padding-top: $size;
+      }
+    }
+  }
+
+  .#{$name}-bottom {
+    padding-bottom: $size;
+
+    @include media-breakpoint-down(sm) {
+      padding-bottom: $size * 0.32;
+    }
+
+    &--xl {
+      @media (min-width: 1200px) {
+        padding-bottom: $size;
+      }
+    }
+
+    &--lg {
+      @media (min-width: 992px) {
+        padding-bottom: $size;
+      }
+    }
+
+    &--md {
+      @media (min-width: 768px) {
+        padding-bottom: $size;
+      }
+    }
+
+    &--sm {
+      @media (min-width: 576px) {
+        padding-bottom: $size;
+      }
+    }
+  }
+}
+
+$ms: sm,
+md,
+lg,
+xl;
+
+@each $i in $ms {
+  @for $j from 2 through 5 {
+    .space-#{$j}-bottom-0--md {
+      @media (min-width: 768px) {
+        padding-bottom: 0;
+      }
+    }
+  }
+}

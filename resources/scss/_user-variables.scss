@@ -23,3 +23,23 @@ $sizes: (5: 5%,
         95: 95%,
         100: 100%,
         auto: auto);
+
+// Space
+$spaces: (space-1: 2rem,
+        space-2: 4rem,
+        space-3: 8rem,
+        space-4: 12.5rem,
+        space-5: 15rem);
+
+// Mdi font
+$mdi-font-family: "Material Design Icons";
+$mdi-menu: "\F0BAB";
+$mdi-menu-open: "\F035C";
+
+$mdi-chevron-left: "\F0141";
+$mdi-chevron-right: "\F0142";
+
+$mdi-chevron-double-left: "\F013D";
+$mdi-chevron-double-right: "\F013E";
+
+$mdi-search: "\F0349";

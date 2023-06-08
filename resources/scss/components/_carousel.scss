@@ -1,0 +1,53 @@
+// owl.carousel
+@import 'owl.carousel';
+
+// custom
+.owl-next, .owl-prev {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: calc(50% - 59px);
+  transform: translateY(-50%);
+  font: 400 18px/49px "Material Design Icons" !important;
+  transition: .3s;
+  background-color: #fff !important;
+  text-align: center;
+
+  &:hover {
+    background: rgba(0, 0, 0, 1) !important;
+    color: white !important;
+  }
+}
+
+.owl-prev {
+  left: 10px;
+
+  &:before {
+    margin-left: -1px;
+    content: $mdi-chevron-left;
+  }
+}
+
+.owl-next {
+  right: 10px;
+
+  &:before {
+    margin-right: -2px;
+    content: $mdi-chevron-right;
+  }
+}
+
+.owl-nav-position-top {
+  & .owl-next, & .owl-prev {
+    top: 24%;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .owl-prev {
+    left: 20px
+  }
+  .owl-next {
+    right: 20px
+  }
+}

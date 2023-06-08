@@ -51,12 +51,11 @@
   transition: none !important
 }
 
-.brand-name, .rd-navbar, .rd-navbar-brand, .rd-navbar-collapse-items, .rd-navbar-dropdown, .rd-navbar-live-search-results, .rd-navbar-megamenu, .rd-navbar-nav, .rd-navbar-panel, .rd-navbar-search-form, .rd-navbar-search-form-input, .rd-navbar-search-form-submit, .rd-navbar-search-toggle, .rd-navbar-slogan, .rd-navbar-wrap {
+.navbar-brand, .rd-navbar, .rd-navbar-brand, .rd-navbar-collapse-items, .rd-navbar-dropdown, .rd-navbar-live-search-results, .rd-navbar-megamenu, .rd-navbar-nav, .rd-navbar-panel, .rd-navbar-search-form, .rd-navbar-search-form-input, .rd-navbar-search-form-submit, .rd-navbar-search-toggle, .rd-navbar-slogan, .rd-navbar-wrap {
   transition: .3s all ease
 }
 
 .rd-navbar-collapse-toggle {
-  display: inline-block;
   position: relative;
   width: 48px;
   height: 48px;
@@ -134,7 +133,6 @@
 }
 
 .rd-navbar-toggle {
-  display: inline-block;
   position: relative;
   width: 48px;
   height: 48px;
@@ -174,7 +172,6 @@
 }
 
 .rd-navbar-toggle span {
-  -webkit-transform: rotate(180deg);
   transform: rotate(180deg)
 }
 
@@ -203,7 +200,7 @@
   outline: 0
 }
 
-.rd-navbar-brand .brand-name {
+.rd-navbar-brand .navbar-brand {
   color: #474747;
   font-size: 25px;
   line-height: 40px;
@@ -222,7 +219,7 @@
   margin-left: 4px;
   content: '\F0140';
   font-size: 16px;
-  font-family: "Material Design Icons";
+  font-family: $mdi-font-family;
 }
 
 .rd-navbar-dropdown {
@@ -246,7 +243,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  font-family: FontAwesome;
+  font-family: $mdi-font-family;
   transition: .3s all ease;
   width: 48px;
   height: 100%;
@@ -255,23 +252,19 @@
 
 .rd-navbar-search-toggle:before {
   content: '\f002';
-  -webkit-transform: scale(1) rotate(0);
   transform: scale(1) rotate(0)
 }
 
 .rd-navbar-search-toggle:after {
   content: '\f00d';
-  -webkit-transform: scale(0) rotate(-90deg);
   transform: scale(0) rotate(-90deg)
 }
 
 .rd-navbar-search-toggle.active:before {
-  -webkit-transform: scale(0) rotate(90deg);
   transform: scale(0) rotate(90deg)
 }
 
 .rd-navbar-search-toggle.active:after {
-  -webkit-transform: scale(1) rotate(0);
   transform: scale(1) rotate(0)
 }
 
@@ -294,7 +287,7 @@
 
 .rd-navbar-search-form-submit:before {
   content: "\F0349";
-  font: normal normal normal 24px/1 "Material Design Icons";
+  font: normal normal normal 24px/1 $mdi-font-family;
 }
 
 .rd-navbar-search-form-submit.active {
@@ -392,7 +385,6 @@
 }
 
 .rd-navbar-live-search-results {
-  -webkit-transform: translateY(-100%);
   transform: translateY(-100%)
 }
 
@@ -450,16 +442,17 @@
   position: relative
 }
 
-.rd-navbar-shop-product-delete {
+.rd-navbar-shop-close {
   position: absolute;
   right: 0;
   top: 0;
-  font-size: 18px;
-  color: #7fcbc9;
-  transition: .3s
+  font-size: 20px;
+  color: $primary;
+  transition: .3s;
+  cursor: pointer;
 }
 
-.rd-navbar-shop-product-delete:hover {
+.rd-navbar-shop-close:hover {
   color: #141414
 }
 
@@ -480,11 +473,7 @@
 .rd-navbar-toppanel-inner {
   display: flex;
   justify-content: space-between;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px
+  align-items: center
 }
 
 .rd-navbar-toppanel .rd-navbar-toppanel-wrapper {
@@ -494,7 +483,7 @@
 
 .rd-navbar-toppanel .rd-navbar-toppanel-submenu {
   position: relative;
-  height: 50px
+  height: 50px;
 }
 
 .rd-navbar-toppanel .rd-navbar-toppanel-submenu-toggle {
@@ -509,18 +498,18 @@
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  font-family: "Material Design Icons";
+  font-family: $mdi-font-family;
   color: #141414;
   font-size: 18px
 }
 
 .rd-navbar-toppanel .rd-navbar-toppanel-submenu-toggle:before {
-  content: "\f35c";
+  content: $mdi-menu-open;
   opacity: 1
 }
 
 .rd-navbar-toppanel .rd-navbar-toppanel-submenu-toggle:after {
-  content: "\f39f";
+  content: $mdi-menu;
   opacity: 0
 }
 
@@ -586,7 +575,7 @@
   margin-left: 10px;
   content: '\f140';
   font-size: 14px;
-  font-family: "Material Design Icons"
+  font-family: $mdi-font-family
 }
 
 .rd-navbar-currency > ul {
@@ -689,7 +678,7 @@
   top: 50%;
   transform: translateY(-50%);
   content: "\f142";
-  font-family: "Material Design Icons";
+  font-family: $mdi-font-family;
   font-size: 16px;
   color: #141414
 }
@@ -706,7 +695,6 @@
 .rd-navbar-fullwidth .rd-navbar-nav > .rd-navbar-submenu > .rd-navbar-dropdown, .rd-navbar-fullwidth .rd-navbar-nav > .rd-navbar-submenu > .rd-navbar-megamenu, .rd-navbar-static .rd-navbar-nav > .rd-navbar-submenu > .rd-navbar-dropdown, .rd-navbar-static .rd-navbar-nav > .rd-navbar-submenu > .rd-navbar-megamenu {
   opacity: 0;
   visibility: hidden;
-  -webkit-transform: translateY(30px);
   transform: translateY(30px)
 }
 
@@ -723,11 +711,6 @@
 
 .rd-navbar-fullwidth .rd-navbar-inner, .rd-navbar-static .rd-navbar-inner {
   position: relative;
-  max-width: 1200px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto
 }
 
 .rd-navbar-fullwidth .rd-navbar-nav > li > .rd-navbar-dropdown, .rd-navbar-static .rd-navbar-nav > li > .rd-navbar-dropdown {
@@ -832,7 +815,6 @@
 
 .rd-navbar-fullwidth.rd-navbar--is-clone, .rd-navbar-static.rd-navbar--is-clone {
   display: none;
-  -webkit-transform: translateY(-110%);
   transform: translateY(-110%)
 }
 
@@ -878,7 +860,6 @@
   position: absolute;
   right: 50px;
   top: 50%;
-  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   color: #fff;
   background-color: transparent;
@@ -895,7 +876,6 @@
 
 .rd-navbar-fullwidth .rd-navbar-search.active .rd-navbar-search-form, .rd-navbar-static .rd-navbar-search.active .rd-navbar-search-form {
   visibility: visible;
-  -webkit-transform: rotateX(0);
   transform: rotateX(0)
 }
 
@@ -923,7 +903,6 @@
 
 .rd-navbar-fullwidth .rd-navbar-dropdown, .rd-navbar-fullwidth .rd-navbar-megamenu, .rd-navbar-static .rd-navbar-dropdown, .rd-navbar-static .rd-navbar-megamenu {
   position: absolute;
-  -webkit-transform: translateY(30px);
   transform: translateY(30px);
   text-align: left;
   visibility: hidden;
@@ -1169,7 +1148,6 @@
 }
 
 .rd-navbar-fixed .rd-navbar-search-form-submit, .rd-navbar-sidebar .rd-navbar-search-form-submit {
-  -webkit-transform: scale(.7);
   transform: scale(.7)
 }
 
@@ -1247,7 +1225,7 @@
 }
 
 .rd-navbar-static * + .rd-navbar-shop {
-  margin-left: 40px
+  margin-left: 32px
 }
 
 .rd-navbar-static .rd-navbar-nav {
@@ -1374,33 +1352,27 @@
 
 .rd-navbar-fixed .rd-navbar-brand {
   position: relative;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center
 }
 
-.rd-navbar-fixed .rd-navbar-brand .brand-name {
+.rd-navbar-fixed .rd-navbar-brand .navbar-brand {
   display: inline-block;
   font-size: 20px;
   line-height: 48px;
   color: #fff
 }
 
-.rd-navbar-fixed .rd-navbar-brand .brand-name img {
-  max-width: 120px
-}
-
-@media (min-width: 480px) {
-  .rd-navbar-fixed .rd-navbar-brand .brand-name img {
-    max-width: none
+@include media-breakpoint-up(xs) {
+  .navbar-brand img {
+    max-width: 120px
   }
 }
 
-.rd-navbar-fixed .rd-navbar-brand .brand-slogan {
-  display: none
+@include media-breakpoint-up(md) {
+  .navbar-brand img {
+    max-width: 168px
+  }
 }
 
 .rd-navbar-fixed .rd-navbar-elements-wrap {
@@ -1481,12 +1453,10 @@
   color: #fff;
   background: #fff;
   z-index: 15;
-  -webkit-transform: translateX(-120%);
   transform: translateX(-120%)
 }
 
 .rd-navbar-fixed .rd-navbar-nav-wrap.active {
-  -webkit-transform: translateX(0);
   transform: translateX(0)
 }
 
@@ -1572,7 +1542,7 @@
   top: 4px;
   pointer-events: all;
   right: 52px;
-  font-family: 'Material Icons';
+  font-family: $mdi-font-family;
   width: 48px;
   height: 48px;
   z-index: 18
@@ -1649,7 +1619,7 @@
 }
 
 @media (min-width: 480px) {
-  .rd-navbar-fixed .rd-navbar-search .rd-navbar-brand .brand-name {
+  .rd-navbar-fixed .rd-navbar-search .rd-navbar-brand .navbar-brand {
     font-size: 24px
   }
 }
@@ -1681,7 +1651,6 @@
 }
 
 .rd-navbar-fixed .rd-navbar-nav li.opened > .rd-navbar-submenu-toggle::after {
-  -webkit-transform: rotate(180deg);
   transform: rotate(180deg)
 }
 
@@ -1693,7 +1662,7 @@
   margin-top: -22px;
   width: 65px;
   height: 44px;
-  font: 400 14px FontAwesome;
+  font: 400 14px $mdi-font-family;
   line-height: 42px;
   text-align: center;
   transition: .4s all ease;
@@ -1705,7 +1674,7 @@
   display: block
 }
 
-.rd-navbar-fixed .rd-navbar-toppanel .rd-navbar-contact-info, .rd-navbar-fixed .rd-navbar-toppanel .rd-navbar-currency {
+.rd-navbar-fixed .rd-navbar-toppanel .rd-navbar-mood, .rd-navbar-fixed .rd-navbar-toppanel .rd-navbar-currency {
   display: none
 }
 
@@ -1745,15 +1714,13 @@
 }
 
 .rd-navbar-fixed.active .rd-navbar-nav {
-  -webkit-transform: translateX(0);
   transform: translateX(0)
 }
 
 @media (max-width: 1199px) {
-  .rd-navbar-fixed.rd-navbar--on-search .brand-name {
+  .rd-navbar-fixed.rd-navbar--on-search .navbar-brand {
     opacity: 0;
     visibility: hidden;
-    -webkit-transform: scale(.7);
     transform: scale(.7)
   }
 }
@@ -1763,12 +1730,10 @@
 }
 
 .rd-navbar-fixed.rd-navbar--is-clone .rd-navbar-panel {
-  -webkit-transform: translateY(-110%);
   transform: translateY(-110%)
 }
 
 .rd-navbar-fixed.rd-navbar--is-clone.rd-navbar--is-stuck .rd-navbar-panel {
-
   transform: translateY(0)
 }
 
@@ -1828,7 +1793,6 @@ html.rd-navbar-sidebar-linked body {
 }
 
 .rd-navbar-sidebar .rd-navbar-nav li.opened > .rd-navbar-submenu-toggle::after {
-  -webkit-transform: rotate(180deg);
   transform: rotate(180deg)
 }
 
@@ -1840,7 +1804,7 @@ html.rd-navbar-sidebar-linked body {
   margin-top: -22px;
   width: 65px;
   height: 44px;
-  font: 400 14px FontAwesome;
+  font: 400 14px $mdi-font-family;
   line-height: 42px;
   text-align: center;
   transition: .4s all ease;
@@ -1853,7 +1817,7 @@ html.rd-navbar-sidebar-linked body {
   padding: 10%
 }
 
-.rd-navbar-sidebar .rd-navbar-brand .brand-name {
+.rd-navbar-sidebar .rd-navbar-brand .navbar-brand {
   font-size: 30px
 }
 
@@ -1876,12 +1840,10 @@ html.rd-navbar-sidebar-linked body {
 }
 
 .rd-navbar-sidebar .rd-navbar-live-search-results {
-  -webkit-transform: translateY(30px);
   transform: translateY(30px)
 }
 
 .rd-navbar-sidebar .rd-navbar-live-search-results.active {
-
   transform: translateY(0)
 }
 
@@ -1893,11 +1855,7 @@ html.rd-navbar-sidebar-linked body {
   top: 0;
   left: 0;
   padding-top: 45px;
-  -webkit-transform: scale(.7);
   transform: scale(.7);
-  -webkit-transform-origin: 0 0;
-  -moz-transform-origin: 0 0;
-  -ms-transform-origin: 0 0;
   transform-origin: 0 0;
   opacity: 0;
   visibility: hidden
@@ -1914,7 +1872,6 @@ html.rd-navbar-sidebar-linked body {
 .rd-navbar-sidebar .rd-navbar-collapse.active .rd-navbar-collapse-items {
   opacity: 1;
   visibility: visible;
-  -webkit-transform: scale(1);
   transform: scale(1)
 }
 
@@ -1965,7 +1922,6 @@ ol ol, ol ul, ul ol, ul ul {
 .rd-parallax-inner {
   position: relative;
   overflow: hidden;
-  -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   z-index: 1
 }
@@ -2098,7 +2054,7 @@ ol ol, ol ul, ul ol, ul ul {
   opacity: 0;
   visibility: hidden;
   transition: .3s all ease;
-  background: url(asset("images/preloader.gif")) no-repeat rgba(255, 255, 255, .8) center center;
+  //background: url("images/preloader.gif") no-repeat rgba(255, 255, 255, .8) center center;
   z-index: 6
 }
 
@@ -2297,7 +2253,6 @@ ol ol, ol ul, ul ol, ul ul {
   right: 0;
   position: absolute;
   transform: translateY(-34%);
-  -webkit-transform: translateY(calc(-50% + 7px));
   z-index: -1;
   background-color: #7fcbc9;
   border-radius: 50%
@@ -2382,12 +2337,12 @@ ol ol, ol ul, ul ol, ul ul {
 
 .rd-audio.state-playing .rd-audio-play-pause:before {
   content: '\f04c';
-  font-family: FontAwesome
+  font-family: $mdi-font-family
 }
 
 .rd-audio.muted .rd-audio-volume:before {
   content: '\f04c';
-  font-family: FontAwesome
+  font-family: $mdi-font-family;
 }
 
 .rd-audio-current-time, .rd-audio-duration {

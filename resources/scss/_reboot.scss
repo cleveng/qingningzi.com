@@ -4,18 +4,39 @@
 
 
 // Links
-a:focus { outline: none; }
-a { transition: $link-transition; }
+a:focus {
+  outline: none;
+}
+
+a {
+  transition: $link-transition;
+}
+
+// ul,ol
+ul, ol {
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
 
 // Images
 // Responsive images (ensure images don't scale beyond their parents)
 img,
 figure {
-  max-width: 100%;
+  //max-width: 100%;
   height: auto;
   vertical-align: middle;
 }
-svg { max-width: 100%; }
+
+svg {
+  max-width: 100%;
+}
+
+code {
+  background-color: $dark;
+  color: $white;
+  padding: .25rem .65rem;
+}
 
 // Responsive iframes
 iframe {
@@ -28,6 +49,7 @@ iframe {
   min-height: 18rem;
   overflow: hidden;
 }
+
 .iframe-full-height {
   position: absolute;
   top: 0;
@@ -42,6 +64,7 @@ iframe {
 ::selection {
   background: rgba($accent, .15);
 }
+
 ::-moz-selection {
   background: rgba($accent, .15);
 }
@@ -54,11 +77,15 @@ iframe {
   }
 }
 
-small { font-weight: inherit; }
+small {
+  font-weight: inherit;
+}
 
 // Remove top padding from body when screen size below lg (992px)
 @include media-breakpoint-down(lg) {
-  body { padding-top: 0 !important; }
+  body {
+    padding-top: 0 !important;
+  }
 }
 
 // Disable button :focus outline

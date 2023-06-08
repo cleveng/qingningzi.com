@@ -1,0 +1,31 @@
+// rd-socials
+.rd-navbar-socials {
+  transform: translateY(-13px);
+}
+
+.rd-navbar-socials, .rd-share-socials {
+  vertical-align: middle;
+  display: inline-block;
+
+  & > * {
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 15px;
+  }
+
+  & > :first-child {
+    margin-left: 0;
+  }
+}
+
+@include media-breakpoint-up(xs) {
+  .rd-share-socials {
+    display: none;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .rd-share-socials {
+    display: inline-block;
+  }
+}

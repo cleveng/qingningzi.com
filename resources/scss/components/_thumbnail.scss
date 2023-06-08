@@ -1,0 +1,142 @@
+
+.thumbnail {
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  position: relative
+}
+
+.thumbnail .caption {
+  padding: 0;
+  color: #141414;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0
+}
+
+.thumbnail .caption:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: scale(0) translate(-50%, -50%);
+  transform-origin: 0 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  content: $mdi-search;
+  line-height: 50px;
+  font-family: "Material Design Icons";
+  font-size: 29px;
+  text-align: center;
+  color: #fff;
+  background-color: #141414;
+  transition: .2s ease-out
+}
+
+.thumbnail:hover .caption:before {
+  transform: scale(1) translate(-50%, -50%)
+}
+
+.thumbnail-variant-1 {
+  position: relative;
+  display: inline-block
+}
+
+.thumbnail-variant-1 .caption {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background-color: rgba(255, 255, 255, .5);
+  transition: .3s;
+  color: #141414
+}
+
+.thumbnail-variant-1 .caption .caption-title {
+  text-transform: uppercase;
+  transform: translateY(50%)
+}
+
+.thumbnail-variant-1 .caption .caption-descr {
+  margin-top: 0;
+  opacity: 0
+}
+
+.thumbnail-variant-1:hover .caption {
+  background-color: rgba(20, 20, 20, .9);
+  color: #fff;
+  bottom: 50%;
+  transform: translateY(50%)
+}
+
+.thumbnail-variant-1:hover .caption .caption-title {
+  color: white;
+  transform: translateY(0)
+}
+
+.thumbnail-variant-1:hover .caption .caption-descr {
+  opacity: 1
+}
+
+.thumbnail-variant-2 {
+  position: relative;
+  display: inline-block
+}
+
+.thumbnail-variant-2 .caption {
+  position: absolute;
+  top: 21px;
+  left: 21px
+}
+
+.thumbnail-variant-2 .caption-variant-1 {
+  position: absolute;
+  bottom: 10px;
+  right: 10px
+}
+
+.thumbnail-variant-2 .icon.icon-circle {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 29px
+}
+
+.thumbnail-variant-3 {
+  position: relative
+}
+
+.thumbnail-variant-3 .caption {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%)
+}
+
+.thumbnail-variant-4 img {
+  background-color: #141414;
+  transition: .3s
+}
+
+.thumbnail-variant-4:hover img {
+  opacity: .8
+}
+
+.img-thumbnail, .thumbnail {
+  box-shadow: none
+}
+
+.thumbnail-block {
+  display: block
+}
+
+.thumbnail-block a > img, .thumbnail-block > img {
+  width: 100%;
+  height: auto
+}

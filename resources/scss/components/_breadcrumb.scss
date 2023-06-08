@@ -1,0 +1,37 @@
+//
+// Breadcrumb
+// --------------------------------------------------
+.breadcrumb {
+  font-size: 14px;
+  background-color: transparent;
+  padding: 2.6em 0 1.15em 0;
+  margin: 0;
+  letter-spacing: .04em;
+
+  & > li:not(:last-child):after {
+    content: "/ ";
+    padding: 0 5px;
+    color: $dark;
+  }
+
+  & > li + li:before {
+    content: none
+  }
+
+  & a {
+    color: $primary;
+    &:hover {
+      text-decoration: underline
+    }
+  }
+
+  & .active {
+    color: $dark;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .breadcrumb {
+    text-align: left
+  }
+}
