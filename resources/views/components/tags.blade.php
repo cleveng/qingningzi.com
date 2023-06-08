@@ -1,6 +1,6 @@
-<div class="cell-md-12 text-left text-center text-md-left cell-md-push-5 offset-top-0 offset-sm-top-45 offset-md-top-0">
+<div class="cell-md-12 text-start text-center text-md-left cell-md-push-5 offset-top-0 offset-sm-top-45 offset-md-top-0">
     <h4>Hot Tags</h4>
-    <div class="offset-top-20">
+    <div class="space-1-top">
         <ul class="elements-group-10">
             @inject('tags', 'App\Services\TagService')
             @foreach($tags->tags() as $keyword)
@@ -14,5 +14,5 @@
             @endforeach
         </ul>
     </div>
-    <hr class="divider divider-offset-lg divider-gray veil-sm reveal-md-block">
+    <hr class="my-5 veil-sm reveal-md-block">
 </div>

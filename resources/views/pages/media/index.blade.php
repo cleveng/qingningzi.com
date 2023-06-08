@@ -25,23 +25,23 @@
                                                href="@if($media->qrcode){{asset($media->qrcode)}} @else {{asset($media->thumb)}} @endif"
                                                class="thumbnail">
                                                 <img alt="{{$media->name}}"
-                                                     data-original="{{asset($media->thumb)}}"
-                                                     class="img-responsive">
+                                                     src="{{asset($media->thumb)}}"
+                                                     class="img-fluid">
                                                 <span class="caption"></span>
                                             </a>
                                         </div>
                                         <div class="blog-post-meta">
                                             <p>
                                                 @if($media->name)
-                                                    <span class='text-italic'>Called </span>
+                                                    <span class='fst-italic'>Called </span>
                                                     <a class="text-primary" href="{{url($url.'/'.$media->id)}}"
                                                        target="_blank">
                                                         {{$media->name}}
                                                     </a> &#8226;
                                                 @endif
-                                                <span class='text-italic'>View </span>
-                                                <a href='javascript:;' data-toggle="tooltip"
-                                                   data-placement="right"
+                                                <span class='fst-italic'>View </span>
+                                                <a href='javascript:;' data-bs-toggle="tooltip"
+                                                   data-bs-placement="right"
                                                    title="质量度：{{ceil(abs($media->id - 17)/3)}}"
                                                    class="mdi mdi-heart"></a>
                                             </p>
@@ -61,7 +61,7 @@
                                                 <span class="btn-text">查看更多</span>
                                             </a>
                                         </div>
-                                        <hr class="divider divider-offset-lg divider-gray">
+                                        <hr class="my-5">
                                     </div>
                                     @endforeach
                                     <div class="text-center offset-top-45">

@@ -1,7 +1,7 @@
-<div class="rd-navbar-contact-info">
+<div class="rd-navbar-mood">
     @inject('mood', 'App\Services\MoodService')
-    <p class="text-gray text-regular">
+    <p class="text-gray fs-sm mb-0">
         {{$mood->random()->description}}
-        <span class='text-muted text-italic'>- {{$mood->random()->author}}</span>
+        <span class='text-muted fst-italic'>- {{$mood->random()->author}}</span>
     </p>
 </div>

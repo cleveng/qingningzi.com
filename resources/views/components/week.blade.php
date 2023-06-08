@@ -4,15 +4,15 @@
     <h4>{{$week->name(13)}}</h4>
     <ul class="list-unstyled list-ordered list-terms offset-top-10">
         @foreach($week->len(13,6) as $day)
-            <li class="text-limit">
-                <a href="{{$url->pos_url($day->id,$day->catid)}}" class="text-base" data-toggle="tooltip"
-                   data-trigger="hover"
-                   target="_blank" data-container="body" data-placement="bottom"
-                   data-original-title="{{$day->title}}">
+            <li class="text-truncate">
+                <a href="{{$url->pos_url($day->id,$day->catid)}}" class="text-base" data-bs-toggle="tooltip"
+                   data-bs-trigger="hover"
+                   target="_blank" data-bs-container="body" data-bs-placement="bottom"
+                   data-bs-original-title="{{$day->title}}">
                     {{$day->title}}
                 </a>
             </li>
         @endforeach
     </ul>
-    <hr class="divider divider-offset-lg divider-gray veil-sm reveal-md-block">
+    <hr class="my-5 veil-sm reveal-md-block">
 </div>

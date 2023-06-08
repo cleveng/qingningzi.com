@@ -1,7 +1,7 @@
 <div class="cell-md-12 cell-sm-8 cell-sm-preffix-2 cell-md-preffix-0">
     <h4>文章搜索</h4>
     <form action="https://www.so.com/s" id="so360form" autocomplete="off" method="GET"
-          class="text-center offset-top-20 form-inline-flex reveal-xs-flex reveal-md-block reveal-lg-flex">
+          class="text-center space-1-top form-inline-flex reveal-xs-flex reveal-md-block reveal-lg-flex">
         <div class="fullwidth">
             <div class="form-group">
                 <input type="text" class="form-control" autocomplete="off" name="q" placeholder="吻戏..."
@@ -17,5 +17,5 @@
             搜一搜
         </button>
     </form>
-    <hr class="divider divider-offset-lg divider-gray veil-sm reveal-md-block">
+    <hr class="my-5 veil-sm reveal-md-block">
 </div>

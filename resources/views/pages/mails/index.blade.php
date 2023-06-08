@@ -19,8 +19,8 @@
                         @if($key%3 == 0)
                             <a href="{{url($path.'/'.$email->id)}}" title="{{$email->title}}" target="_blank">
                                 <img alt="{{$email->title}}" width="770" height="562"
-                                     data-original="{{$email->thumb}}"
-                                     class="img-responsive">
+                                     src="{{$email->thumb}}"
+                                     class="img-fluid">
                                 <div class="blog-post-caption">
                                     <div class="blog-post-meta-date">
                                         <span
@@ -32,7 +32,7 @@
                             <a title="{{$email->title}}" rel="help" data-lightbox="image"
                                href="{{$email->thumb}}" class="thumbnail">
                                 <img alt="{{$email->title}}" width="770" height="564"
-                                     data-original="{{$email->thumb}}" class="img-responsive">
+                                     src="{{$email->thumb}}" class="img-fluid">
                                 <span class="caption"></span>
                             </a>
                             <div class="blog-post-caption">
@@ -50,13 +50,13 @@
                                target="_blank">{{$email->title}}</a>
                         </h5>
                         <p>
-                            <span class='text-italic'>Writer by </span>
+                            <span class='fst-italic'>Writer by </span>
                             <span class="text-primary">
                           {{$email->original}}
                     </span> &#8226;
-                            <span class='text-italic'>View </span>
-                            <a href='javascript:;' data-toggle="tooltip"
-                               data-placement="right" title="好评：{{$email->status}} 星级"
+                            <span class='fst-italic'>View </span>
+                            <a href='javascript:;' data-bs-toggle="tooltip"
+                               data-bs-placement="right" title="好评：{{$email->status}} 星级"
                                class="mdi mdi-mdi-heart-outline"></a>
                         </p>
                     </div>
@@ -67,7 +67,7 @@
                             <span class="btn-text">read more</span>
                         </a>
                     </div>
-                    <hr class="divider divider-offset-lg divider-gray">
+                    <hr class="my-5">
                 </div>
             @endforeach
         </div>

@@ -195,7 +195,7 @@
                 display: none !important;
             }
 
-            *[class="text-left"] {
+            *[class="text-start"] {
                 text-align: left !important;
             }
 
@@ -999,7 +999,7 @@
             <!-- end container --></td>
     </tr>
     <!--END LAYOUT-12 ( 3-COL IMAGE / TEXT / BUTTON ) --></tbody>
-    <!--START LAYOUT-16 ( IMAGE-LEFT / TEXT-RIGHT ) -->
+    <!--START LAYOUT-16 ( IMAGE-LEFT / text-end ) -->
     <tbody>
     <tr>
         <td align="center" valign="top" class="container"

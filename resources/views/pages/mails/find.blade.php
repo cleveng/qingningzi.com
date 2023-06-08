@@ -4,7 +4,7 @@
     @inject('hot', 'App\Services\HotService')
     <h4>{{$love->name(25)}}</h4>
     @foreach($love->len(25,6,true) as $cont)
-        <div class="offset-top-20 p fst-italic">
+        <div class="space-1-top p fst-italic">
             @if($cont->stars)
                 推荐星级：
                 <span class="text-primary">

@@ -51,9 +51,9 @@
                     </li>
                     <li>青柠子矜网承诺对于授权的文章不用于商业、盈利、非法性质等，仅适用于青柠子矜网。</li>
                     <li>青柠子矜网“仅”对提供文章授权的个体/企业提供便利性著作权保护，其中体现于手机端浏览时具有独特<a
-                            data-placement="top" target="_blank" href="{APP_PATH}"
-                            data-content="<img src='{{asset("images/weichat_pay.jpg")}}' alt='青柠子矜' class='img-responsive'>"
-                            data-html="true" data-trigger="hover" data-toggle="popover" data-original-title="青柠子矜">二维码</a>(<small>鼠标移入</small>)展示。
+                            data-bs-placement="top" target="_blank" href="{APP_PATH}"
+                            data-bs-content="<img src='{{asset("images/weichat_pay.jpg")}}' alt='青柠子矜' class='img-fluid'>"
+                            data-bs-html="true" data-bs-trigger="hover" data-bs-toggle="popover" data-bs-original-title="青柠子矜">二维码</a>(<small>鼠标移入</small>)展示。
                     </li>
                     <li>
                         青柠子矜网文章授权为双方洽谈所得，取消授权需双方同意，作者(个体/企业)单方面取消，必须提前72小时联系站长；对于授权之前的文章，站长拥有保留不做删除的权利。
@@ -89,24 +89,24 @@
                 <dl class="list-terms">
                     <dt>扣扣 <i class="mdi mdi-qqchat" aria-hidden="true"></i></dt>
                     <dd><a rel="nofollow" href="http://wpa.qq.com/msgrd?v=3&uin=211321136&site=qq&menu=yes"
-                           class="text-base" data-original-title="QQ扫一扫" data-toggle="popover" data-trigger="hover"
-                           data-html="true"
-                           data-content="<img src='{{asset("images/qq.jpg")}}' alt='' class='img-responsive'>"
-                           target="_blank" data-placement="right">211321136</a></dd>
+                           class="text-base" data-bs-original-title="QQ扫一扫" data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-html="true"
+                           data-bs-content="<img src='{{asset("images/qq.jpg")}}' alt='' class='img-fluid'>"
+                           target="_blank" data-bs-placement="right">211321136</a></dd>
                 </dl>
                 <dl class="list-terms">
                     <dt>微信 <i class="mdi mdi-wechat" aria-hidden="true"></i></dt>
-                    <dd><a class="text-base" data-original-title="微信扫一扫" data-toggle="popover" data-trigger="hover"
-                           data-html="true"
-                           data-content="<img src='{{asset("images/qrcode_for_gh_a0e3856031fe_1280.jpg")}}' alt='' class='img-responsive'>"
-                           href="javascript:;" target="_blank" data-placement="right">qingningzijin(微信号)</a></dd>
+                    <dd><a class="text-base" data-bs-original-title="微信扫一扫" data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-html="true"
+                           data-bs-content="<img src='{{asset("images/qrcode_for_gh_a0e3856031fe_1280.jpg")}}' alt='' class='img-fluid'>"
+                           href="javascript:;" target="_blank" data-bs-placement="right">qingningzijin(微信号)</a></dd>
                 </dl>
                 <dl class="list-terms">
                     <dt>微博 <i class="mdi mdi-sina-weibo" aria-hidden="true"></i></dt>
-                    <dd><a rel="nofollow" href="https://www.weibo.com/qingningzi" data-original-title="微博扫一扫"
-                           data-toggle="popover" data-trigger="hover" data-html="true"
-                           data-content="<img src='{{asset("images/weibo_qr_code.jpg")}}' alt='' class='img-responsive'>"
-                           target="_blank" data-placement="right">青柠子矜</a></dd>
+                    <dd><a rel="nofollow" href="https://www.weibo.com/qingningzi" data-bs-original-title="微博扫一扫"
+                           data-bs-toggle="popover" data-bs-trigger="hover" data-bs-html="true"
+                           data-bs-content="<img src='{{asset("images/weibo_qr_code.jpg")}}' alt='' class='img-fluid'>"
+                           target="_blank" data-bs-placement="right">青柠子矜</a></dd>
                 </dl>
                 <dl class="list-terms">
                     <dt>聚合 <i class="mdi mdi-rss" aria-hidden="true"></i></dt>

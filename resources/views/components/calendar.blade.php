@@ -1,7 +1,7 @@
 <div class="cell-md-12 cell-sm-6 offset-top-45 cell-md-push-9 cell-sm-preffix-3 cell-md-preffix-0">
     <h4>Calendar</h4>
     <!-- RD Calendar-->
-    <div class="rd-calendar offset-top-20">
+    <div class="rd-calendar space-1-top">
         <div class="rdc-table">
             <div class="rdc-panel text-center bg-gray-lighter">
                 <div class="h5">

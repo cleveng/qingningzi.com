@@ -13,14 +13,14 @@
                 {{$category->title}}
             </a>
         </li>
-        <li>
+        <li class="d-none d-md-inline-block">
             {{$data->title}}
         </li>
     @endsection
     @inject('article', 'App\Services\ArticlesService')
-    <div class="shell section-bottom-60">
-        <div class="range">
-            <div class="cell-md-8 text-xs-left">
+    <div class="container space-2-bottom">
+        <div class="row">
+            <div class="col-md-8 text-xs-start">
                 <div class="blog-post">
                     <div
                             class="blog-post-meta unit unit-xs-horizontal unit-sm-horizontal unit-md-horizontal unit-lg-horizontal">
@@ -34,24 +34,24 @@
                         </div>
                         <div class="unit-body">
                             <h3 class="blog-post-meta-title">{{$data->title}}</h3>
-                            <p class="hidden-xs">
+                            <p class="d-none d-sm-block">
                                 @if($data->platform)
-                                    <span class='text-italic'>Posted by </span>
+                                    <span class='fst-italic'>Posted by </span>
                                     <span>{{$data->platform->name}}</span>
                                     &#8226;
                                 @endif
                                 @if($data->rate)
-                                    <span class='text-italic'>Hot：</span>
+                                    <span class='fst-italic'>Hot：</span>
                                     <span class="text-primary">
                                        {!! $article->rates($data->url,$data->rate) !!}
                                     </span>
                                     &#8226;
                                 @endif
-                                <span class='text-italic'>Views：</span>
+                                <span class='fst-italic'>Views：</span>
                                 <span id="hits">{{$data->views_count}} 次</span>
                                 &#8226;
                                 @if($data->author)
-                                    <span class='text-italic'>Writer：{{$data->author}}</span>
+                                    <span class='fst-italic'>Writer：{{$data->author}}</span>
                                 @endif
                             </p>
                         </div>
@@ -64,7 +64,7 @@
                                     {{Str::limit($data->description,168)}}
                                 </q>
                             </h6>
-                            <p class="hidden-xs hidden-sm text-limit">
+                            <p class="d-none d-sm-block text-truncate">
                                 相关资源：<cite class="text-muted">-
                                     @if($data->file_url)
                                         <a href="{{$data->file_url}}" rel="nofollow" target="_blank">点击获取</a>
@@ -84,8 +84,8 @@
                                     <a data-lightbox="image" href="{{asset($medium['display_url'])}}" class="thumbnail"
                                        title="{{$medium['display_name']}}">
                                         <img width="770" height="564" alt="{{$medium['display_name']}}"
-                                             data-original="{{asset($medium['display_url'])}}"
-                                             class="img-responsive">
+                                             src="{{asset($medium['display_url'])}}"
+                                             class="img-fluid">
                                         <div class="caption"></div>
                                     </a>
                                 @endforeach
@@ -95,7 +95,7 @@
 
                     @if($data->file_type === \App\Enums\FileType::BOOK)
                         <div class="blog-post-media blog-post-media-link thumbnail-variant-3">
-                            <img alt="{{$data->title}}" src="{{asset($data->thumb)}}" class="img-responsive"
+                            <img alt="{{$data->title}}" src="{{asset($data->thumb)}}" class="img-fluid"
                                  style="opacity: 0.9;width:100%;">
                             <div class="caption">
                                 <h4 class="text-center"><span class="icon icon-white"></span>
@@ -122,22 +122,20 @@
                     </div>
 
                     @if($data->file_type === \App\Enums\FileType::LINK)
-                        <a href="{{$data->file_url}}" rel="nofollow" target="_blank"
-                           class="hidden-xs hidden-sm btn btn-primary">
+                        <a href="{{$data->file_url}}" rel="nofollow" target="_blank" class="btn btn-primary">
                             <i class="mdi mdi-magnify"></i> 获取资源
                         </a>
                     @endif
 
                     @inject('tag', 'App\Services\TagsService')
-                    <p class="offset-top-20 hidden-xs hidden-sm">相关热词:
+                    <p class="space-1-top d-none d-sm-block">相关热词:
                         @foreach($tag->keywords($data->keywords, $data->shortcode) as $item)
-                            <a href="{{url('search?keyword='.urlencode($item))}}">
+                            <a target="_blank" rel="nofollow" title="{{$item}}" href="{{url('search?keyword='.urlencode($item))}}">
                                 {{$item}}
                             </a>
                         @endforeach
                     </p>
-                    @include('components.social')
-                    <hr class="divider divider-offset-lg divider-gray @if($data->platform->qrcode) hidden-xs hidden-sm @endif">
+                    @include('components.social', ['item'=>$data])
                     @include('components.author')
                     @include('components.changyan')
                 </div>

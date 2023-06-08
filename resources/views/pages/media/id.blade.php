@@ -9,8 +9,8 @@
     <div class="shell section-bottom-60 offset-top-10">
         <div class="range range-center">
             <div class="cell-md-8">
-                <h1 class="offset-top-45 text-limit">{{$data->name}}</h1>
-                <h2 class="offset-top-0 text-limit">{{$data->url}}</h2>
+                <h1 class="offset-top-45 text-truncate">{{$data->name}}</h1>
+                <h2 class="offset-top-0 text-truncate">{{$data->url}}</h2>
                 <p><span class="badge badge-primary">{{$data->id}}</span> 秒后跳转</p>
                 <script type="application/javascript">
                     +jQuery(function () {

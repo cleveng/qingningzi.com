@@ -18,7 +18,7 @@
                 @foreach($data as $key=>$item)
                     <div class="blog-post">
                         <div
-                            class="blog-post-meta unit unit-xs-horizontal unit-sm-horizontal unit-md-horizontal unit-lg-horizontal">
+                                class="blog-post-meta unit unit-xs-horizontal unit-sm-horizontal unit-md-horizontal unit-lg-horizontal">
                             <div class="unit-left">
                                 <div class="center-block blog-post-meta-date">
                                     <span class='blog-post-meta-date-big reveal-block'>
@@ -31,12 +31,12 @@
                                 <h3 class="blog-post-meta-title">
                                     <a href="{{url($item->url)}}" class="text-base"
                                        title="{{$item->title}}">{{$item->username}}</a></h3>
-                                <p class="hidden-xs">
-                                    <span class='text-italic'>Posted by </span>
+                                <p class="d-none d-sm-block">
+                                    <span class='fst-italic'>Posted by </span>
                                     <a>
                                         {{env('APP_NAME')}}
                                     </a> &#8226;
-                                    <span class='text-italic'>Date at</span>
+                                    <span class='fst-italic'>Date at</span>
                                     <span class="text-primary">{{$item->created_at->diffForHumans()}}</span>
                                 </p>
                             </div>
@@ -46,42 +46,27 @@
                                 <a title="{{$item->title}}" data-lightbox="image" href="{{$item->thumb}}"
                                    class="thumbnail">
                                     <img width="770" height="564" alt="{{$item->title}}"
-                                         data-original="{{$item->thumb}}" class="img-responsive"><span
-                                        class="caption"></span></a>
+                                         src="{{$item->thumb}}" class="img-fluid"><span
+                                            class="caption"></span></a>
                             @else
                                 <a href="{{url($item->url)}}"
                                    title="{{$item->title}}">
                                     <img width="770" height="562" alt="{{$item->title}}"
-                                         data-original="{{$item->thumb}}"
-                                         class="img-responsive">
+                                         src="{{$item->thumb}}"
+                                         class="img-fluid">
                                 </a>
                             @endif
                         </div>
                         <p class="desc">{{$item->description}}</p>
                         <div class="reveal-xs-flex range-xs-bottom range-xs-justify">
-                            <div class="veil reveal-xs-block">
-                                <ul class="rd-navbar-socials elements-group-18 reveal-inline-block text-middle">
-                                    <li><a href="javascript:;" data-toggle="tooltip" data-placement="top" title="不支持"
-                                           class="text-gray icon icon-xs mdi mdi-linkedin"></a></li>
-                                    <li><a href="javascript:;" data-toggle="tooltip" data-placement="top" title="不支持"
-                                           class="text-gray icon icon-xs mdi mdi-qqchat"></a></li>
-                                    <li><a href="javascript:;" data-toggle="tooltip" data-placement="top" title="不支持"
-                                           class="text-gray icon icon-xs mdi mdi-sina-weibo"></a></li>
-                                    <li><a href="javascript:;" data-toggle="tooltip" data-placement="top" title="不支持"
-                                           class="text-gray icon icon-xs mdi mdi-wechat"></a></li>
-                                    <li><a href="javascript:;" data-toggle="tooltip" data-placement="top" title="不支持"
-                                           class="text-gray icon icon-xs mdi mdi-plus"></a></li>
-                                </ul>
-                            </div>
+                            @include('components.social')
                             <div><a href="{{url($item->url)}}" class="btn btn-primary"
                                     rel="nofollow">马上围观</a></div>
                         </div>
                     </div>
-                    <hr class="divider divider-offset-lg divider-gray">
+                    <hr class="my-5">
                 @endforeach
-                <ul class="pagination">
-                    {{$data->render()}}
-                </ul>
+                {{$data->render()}}
             </div>
             @include('components.sidebar')
         </div>
