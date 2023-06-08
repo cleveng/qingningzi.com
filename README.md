@@ -25,10 +25,7 @@ chmod -R 755 bootstrap/cache
 
 #### 更新
 ```
-php artisan config:clear #清除配置缓存
-php artisan route:clear #清除路由缓存
-php artisan view:clear #清除视图缓存
-php artisan cache:clear #清除应用程序缓存
+make build
 ```
 
 #### TODO

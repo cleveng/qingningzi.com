@@ -139,3 +139,4 @@ auth.json
 npm-debug.log
 yarn-error.log
 _custom.scss
+composer.lock
