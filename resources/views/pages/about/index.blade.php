@@ -5,9 +5,9 @@
             {{$category->title}}
         </li>
     @endsection
-    <div class="shell section-bottom-60">
-        <div class="range">
-            <div class="cell-md-8 text-xs-left">
+    <div class="container space-2-bottom">
+        <div class="row">
+            <div class="col-md-8 text-xs-start">
                 <h4>免责声明</h4>
                 <p class="list-terms">
                     1、青柠子矜网上提供的所有内容（除有注明原创之外）均由网络转载或网友提供，青柠子矜网只是一个展示方，仅为社交团体提供健康、合理、绿色等方面的内容，不承担任何法律责任。</p>

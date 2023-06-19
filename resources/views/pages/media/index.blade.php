@@ -10,15 +10,15 @@
             合作媒体列表(部分有二维码展示)
         </li>
     @endsection
-    <div class="shell section-bottom-60 offset-top-10">
-        <div class="range">
+    <div class="container space-2-bottom offset-top-10">
+        <div class="row">
             @foreach($data as $key=>$media)
                 @if($key == 0)
-                    <div class="offset-top-0 cell-sm-6 cell-md-3 blog-post blog-post-grid">
+                    <div class="offset-top-0 col-sm-6 col-md-3 blog-post blog-post-grid">
                         @elseif($key>0 && $key <=3 )
-                            <div class="offset-top-60 offset-sm-top-0 cell-sm-6 cell-md-3 blog-post blog-post-grid">
+                            <div class="offset-top-60 offset-sm-top-0 col-sm-6 col-md-3 blog-post blog-post-grid">
                                 @elseif($key>3)
-                                    <div class="offset-top-60 cell-sm-6 cell-md-3 blog-post blog-post-grid">
+                                    <div class="offset-top-60 col-sm-6 col-md-3 blog-post blog-post-grid">
                                         @endif
                                         <div class="blog-post-media">
                                             <a title="{{$media->name}}" rel="help" data-lightbox="image"

@@ -4,9 +4,9 @@
         <li><a href="{{url('links?t='.$data->link_type)}}" rel="nofollow">友情链接</a></li>
         <li class="active">{{$data->name}}</li>
     @endsection
-    <div class="shell section-bottom-60">
-        <div class="range range-center">
-            <div class="cell-md-8">
+    <div class="container space-2-bottom">
+        <div class="row mx-auto text-center">
+            <div class="col-md-8">
                 <h1 class="offset-top-45 text-truncate">{{$data->name}}</h1>
                 <h2 class="offset-top-0 text-truncate">{{$data->url}}</h2>
                 <p><span class="badge badge-primary">8</span> 秒后跳转</p>
@@ -66,7 +66,7 @@
                     </div>
                 </section>
             </div>
-            <div class="cell-md-3 cell-md-preffix-1 sidebar sidebar-sm sidebar-right text-md-left">
+            <div class="col-md-3 cell-md-preffix-1 sidebar sidebar-sm sidebar-right text-md-left">
                 <div class="range">
                     @include('components.search')
                     @include('components.rightbar')

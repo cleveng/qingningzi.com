@@ -10,8 +10,8 @@
             最新资讯
         </li>
     @endsection
-    <div class="shell section-bottom-60 offset-top-10">
-        <div class="range">
+    <div class="container space-2-bottom offset-top-10">
+        <div class="row">
             @foreach($data as $key=>$email)
                 <div
                     class="@if($key>0) offset-top-60 @else offset-top-0 @endif @if($key>0 && $key < 3) offset-sm-top-0 @endif cell-sm-6 cell-md-4 blog-post blog-post-grid">

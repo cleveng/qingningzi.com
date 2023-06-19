@@ -1,4 +1,4 @@
-<div class="cell-md-12 cell-sm-6 cell-md-push-6 offset-top-0 offset-sm-top-45 offset-md-top-0">
+<div class="col-md-12 col-sm-6 col-md-push-6 offset-top-0 offset-sm-top-45 offset-md-top-0">
     @inject('love', 'App\Services\PositionService')
     @inject('url', 'App\Services\UrlService')
     @inject('hot', 'App\Services\HotService')
