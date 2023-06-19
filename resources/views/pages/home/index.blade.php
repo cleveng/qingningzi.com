@@ -160,7 +160,7 @@
                                 </a>
                             @endif
                         </div>
-                        <div class="col-sm-6 col-md-12 offset-top-30 offset-sm-top-0">
+                        <div class="col-sm-6 col-md-12 mt-4">
                             <?php $ts = $articles->find(2); ?>
                             @if($ts)
                                 <a data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"

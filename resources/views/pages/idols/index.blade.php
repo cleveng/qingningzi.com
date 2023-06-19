@@ -12,9 +12,9 @@
             {{$category->title}}
         </li>
     @endsection
-    <div class="shell section-bottom-60">
-        <div class="range">
-            <div class="cell-md-8 text-xs-left">
+    <div class="container section-bottom-60">
+        <div class="row">
+            <div class="col-md-8 text-xs-start">
                 @foreach($data as $key=>$item)
                     <div class="blog-post">
                         <div
