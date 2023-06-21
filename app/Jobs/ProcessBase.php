@@ -24,6 +24,7 @@ class ProcessBase implements ShouldQueue
      */
     public function __construct()
     {
+        // 需要设置 uploadfile 可读可写
         $this->dir_name = "uploadfile/qrcodes";
         $dir_path = public_path($this->dir_name);
         if (!File::exists($dir_path)) {

@@ -39,4 +39,5 @@ vim .env
 QUEUE_CONNECTION=redis
 
 php artisan make:job ProcessPodcast
+php artisan queue:work --verbose [systemctl service]
 ```

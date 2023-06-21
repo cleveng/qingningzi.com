@@ -18,16 +18,17 @@ class PostsController extends BaseController
             abort(404);
         }
 
+        $anonicalURL = url('p/' . $data->shortcode);
         SEOMeta::setTitle($data->title);
         SEOMeta::addKeyword($data->keywords);
         SEOMeta::setDescription($data->description);
-        SEOMeta::setCanonical(url('p/' . $data->shortcode));
+        SEOMeta::setCanonical($anonicalURL);
 
         // 处理二维码
         if (!$data->qrcode) {
             try {
                 $resp = Http::post(env('API_QRCODE_URL'), [
-                    'content' => url($data->shortcode),
+                    'content' => $anonicalURL,
                 ]);
                 $result = $resp->json();
                 ProcessQrcode::dispatch($data, $result["file_url"])->delay(now()->addMinute());
@@ -44,7 +45,7 @@ class PostsController extends BaseController
             'data' => $data,
             'category' => $data->category,
             'parent_id' => $parentId,
-            'url' => 'p/' . $data->shortcode,
+            'url' => $anonicalURL,
         ]);
     }
 }
