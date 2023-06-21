@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Models\Post;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostsController extends BaseController
 {
@@ -19,6 +20,13 @@ class PostsController extends BaseController
         SEOMeta::addKeyword($data->keywords);
         SEOMeta::setDescription($data->description);
         SEOMeta::setCanonical(url('p/' . $data->shortcode));
+
+        # TODO: 数据清洗后 需要移除
+        $search = "<p>&nbsp;</p>\r\n";
+        if (Str::contains($data->content, $search)) {
+            $data->content = Str::replace($search, "", $data->content);
+            $data->save();
+        }
 
         $data->increment('views_count');
         $parentId = $data->category->parent_id === 0 ? $data->category->id : $data->category->parent_id;

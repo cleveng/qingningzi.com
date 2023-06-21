@@ -20,6 +20,7 @@ class IdolsController extends BaseController
         SEOMeta::setCanonical(url($category->url));
 
         $data = Idol::where('status', true)->orderBy('id', 'desc')->paginate();
+
         return view('pages.idols.index', [
             'data' => $data,
             'category' => $category,

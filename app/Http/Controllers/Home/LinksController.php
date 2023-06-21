@@ -56,6 +56,7 @@ class LinksController extends BaseController
         if (!$data) {
             abort(404);
         }
+
         return view('pages.links.id', [
             'data' => $data,
         ]);

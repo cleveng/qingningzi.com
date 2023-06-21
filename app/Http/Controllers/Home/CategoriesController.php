@@ -20,12 +20,6 @@ class CategoriesController extends BaseController
 {
     public function index(Request $request)
     {
-        set_time_limit(0);
-
-        $data = PositionData::first();
-        dd(json_decode($data->data, true));
-        dd("updated success");
-
         return redirect('/', 301);
     }
 
@@ -38,11 +32,11 @@ class CategoriesController extends BaseController
 
         // 免责声明
         if ($category->content_type === ContentType::IDOL) {
-            return redirect(url('/idols'), 301);
+            return redirect($this->idolURL);
         }
 
         if ($category->content_type === ContentType::DEFAULT) {
-            return redirect('about', 301);
+            return redirect($this->aboutURL);
         }
 
         // 设置SEO

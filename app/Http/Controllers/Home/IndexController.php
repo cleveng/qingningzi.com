@@ -9,13 +9,6 @@ use Illuminate\Http\Request;
 class IndexController extends BaseController
 {
 
-    const __TITLE__ = '首页',
-        __TYPE__ = '官方活动',
-        __FLAG__ = 2,
-        __PAGE__ = 12,
-        __FONT__ = 'fa-align-justify',
-        __URL__ = '/announces';
-
     public function index(Request $request)
     {
         $domain = env('APP_DOMAIN') ? env('APP_DOMAIN') : env('APP_URL');
@@ -24,7 +17,7 @@ class IndexController extends BaseController
             return redirect(url($url), 301);
         }
 
-        SEOMeta::setTitle(self::__TITLE__);
+        SEOMeta::setTitle($this->title);
         SEOMeta::addKeyword($this->keywords);
         SEOMeta::setDescription($this->description);
         SEOMeta::setCanonical(url('/'));
