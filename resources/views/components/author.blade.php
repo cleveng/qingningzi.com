@@ -1,11 +1,14 @@
 @if($data->platform && $data->platform->qrcode)
-    <div class="space-1-top text-center d-block d-sm-none">
-        <div class="img-thumbnail" style="border-radius: 3px;">
-            <img src="{{$data->platform->qrcode}}" alt="微信扫一扫" class="img-fluid" style="max-width: 214px;">
-            <div>微信扫一扫</div>
+    <section class="d-sm-none d-xs-block">
+        <div class="space-1-top text-center">
+            <div class="img-thumbnail" style="border-radius: 3px;">
+                <img src="{{asset($data->platform->qrcode)}}" alt="微信扫一扫" class="img-fluid"
+                     style="max-width: 214px;">
+                <div>微信扫一扫</div>
+            </div>
         </div>
-    </div>
-    <hr class="divider divider-gray divider-offset-md d-none d-md-block">
+        <hr class="divider divider-gray divider-offset-md">
+    </section>
 @endif
 @inject('category', 'App\Services\CategoriesService')
 <div class="unit unit-xs-horizontal unit-sm-horizontal unit-md-horizontal unit-lg-horizontal">
