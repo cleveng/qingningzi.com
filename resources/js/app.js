@@ -1,10 +1,8 @@
 'use strict'
 
-// Popper
-import * as Popper from '@popperjs/core'
 // 导入 jQuery
 import $ from 'jquery'
-// window.jQuery = window.$ = $
+
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
 
@@ -22,8 +20,6 @@ import 'owl.carousel'
 
 // 导入 Swiper 的 JavaScript 文件
 import Swiper from 'swiper/bundle'
-
-window.Popper = Popper
 
 (function () {
     'use strict'
