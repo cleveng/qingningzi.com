@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Http\Controllers\Controller;
+use App\Jobs\ProcessQrcode;
 use App\Models\Article;
-use App\Models\Post;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class ArticlesController extends BaseController
 {
@@ -21,6 +22,21 @@ class ArticlesController extends BaseController
         SEOMeta::addKeyword($data->keywords);
         SEOMeta::setDescription($data->description);
         SEOMeta::setCanonical(url('p/' . $data->shortcode));
+
+        // 处理二维码
+        if (!$data->qrcode) {
+            try {
+                $resp = Http::post(env('API_QRCODE_URL'), [
+                    'content' => url($data->shortcode),
+                ]);
+                $result = $resp->json();
+                ProcessQrcode::dispatch($data, $result["file_url"])->delay(now()->addMinute());
+            } catch (\Illuminate\Http\Client\RequestException $e) {
+                Log::error("[Articles] RequestException error: " . $e->getMessage());
+            } catch (\Exception $e) {
+                Log::error("[Articles] Exception error: " . $e->getMessage());
+            }
+        }
 
         $data->increment('views_count');
         $parentId = $data->category->parent_id === 0 ? $data->category->id : $data->category->parent_id;

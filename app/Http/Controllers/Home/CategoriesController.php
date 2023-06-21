@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\Home;
 
 use App\Enums\ContentType;
-use App\Jobs\ProcessQrcode;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Post;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 
 class CategoriesController extends BaseController
 {

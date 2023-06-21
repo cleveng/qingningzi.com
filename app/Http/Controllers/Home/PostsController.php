@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Jobs\ProcessQrcode;
 use App\Models\Post;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class PostsController extends BaseController
 {
@@ -21,11 +23,19 @@ class PostsController extends BaseController
         SEOMeta::setDescription($data->description);
         SEOMeta::setCanonical(url('p/' . $data->shortcode));
 
-        # TODO: 数据清洗后 需要移除
-        $search = "<p>&nbsp;</p>\r\n";
-        if (Str::contains($data->content, $search)) {
-            $data->content = Str::replace($search, "", $data->content);
-            $data->save();
+        // 处理二维码
+        if (!$data->qrcode) {
+            try {
+                $resp = Http::post(env('API_QRCODE_URL'), [
+                    'content' => url($data->shortcode),
+                ]);
+                $result = $resp->json();
+                ProcessQrcode::dispatch($data, $result["file_url"])->delay(now()->addMinute());
+            } catch (\Illuminate\Http\Client\RequestException $e) {
+                Log::error("[Posts] RequestException error: " . $e->getMessage());
+            } catch (\Exception $e) {
+                Log::error("[Posts] Exception error: " . $e->getMessage());
+            }
         }
 
         $data->increment('views_count');

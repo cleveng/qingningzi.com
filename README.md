@@ -31,3 +31,12 @@ make build
 #### TODO
 + 内容自动入库(多个源)，计划内
 + 图文视频自动推广到短视频平台，待定
+
+
+#### [队列](https://laravel.com/docs/10.x/queues)
+```
+vim .env
+QUEUE_CONNECTION=redis
+
+php artisan make:job ProcessPodcast
+```
