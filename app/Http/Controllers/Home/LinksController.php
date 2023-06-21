@@ -4,9 +4,9 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Home;
 
 use App\Enums\LinkType;
-use Illuminate\Http\Request;
 use App\Models\Link;
 use Artesaos\SEOTools\Facades\SEOMeta;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
 class LinksController extends BaseController

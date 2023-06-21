@@ -3,21 +3,17 @@
 namespace App\Http\Controllers\Home;
 
 use App\Enums\ContentType;
-use App\Enums\FileType;
+use App\Jobs\ProcessQrcode;
 use App\Models\Article;
 use App\Models\Category;
-use App\Models\Idol;
-use App\Models\Platform;
-use App\Models\PositionData;
 use App\Models\Post;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Str;
-use Vinkla\Hashids\Facades\Hashids;
+use Illuminate\Support\Facades\Http;
 
 class CategoriesController extends BaseController
 {
+
     public function index(Request $request)
     {
         return redirect('/', 301);

@@ -1,4 +1,4 @@
-<ul class="rd-share-socials">
+<ul class="rd-share-socials d-none d-lg-block">
     <li><a href="javascript:;" data-bs-toggle="tooltip" data-bs-placement="top"
            title="不支持"
            class="text-gray icon icon-xs mdi mdi-linkedin"></a></li>

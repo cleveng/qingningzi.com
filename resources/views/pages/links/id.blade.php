@@ -4,9 +4,9 @@
         <li><a href="{{url('links?t='.$data->link_type)}}" rel="nofollow">友情链接</a></li>
         <li class="active">{{$data->name}}</li>
     @endsection
-    <div class="container space-2-bottom">
+    <div class="container space-2-bottom--lg">
         <div class="row mx-auto text-center">
-            <div class="col-md-8">
+            <div class="col-md-12 col-lg-8">
                 <h1 class="offset-top-45 text-truncate">{{$data->name}}</h1>
                 <h2 class="offset-top-0 text-truncate">{{$data->url}}</h2>
                 <p><span class="badge badge-primary">8</span> 秒后跳转</p>

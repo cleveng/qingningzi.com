@@ -5,9 +5,9 @@
             {{$category->title}}
         </li>
     @endsection
-    <div class="container space-2-bottom">
+    <div class="container space-2-bottom--lg">
         <div class="row">
-            <div class="col-md-8 text-xs-start">
+            <div class="col-md-12 col-lg-8">
                 <h4>免责声明</h4>
                 <p class="list-terms">
                     1、青柠子矜网上提供的所有内容（除有注明原创之外）均由网络转载或网友提供，青柠子矜网只是一个展示方，仅为社交团体提供健康、合理、绿色等方面的内容，不承担任何法律责任。</p>
@@ -36,24 +36,25 @@
                     青柠子矜网适用中华人民共和国法律。我们保留随时更改我们的网站和上述免责及条款的权利。如果您对本免责声明在使用中的问题有任何意见和建议请和我们联系(QQ:211321136)，我们真诚期待各位的通力合作，共同打造一个干净良好的上网环境。</p>
                 <p class="list-terms">6、图片版权</p>
                 <p class="list-terms">青柠子矜网使用的任何图片，包含但不局限于人物、场景、写真、艺术等，所有版权都归于 <a
-                        title="图片版权" href="https://pixabay.com/zh/users/AdinaVoicu-485024/" rel="copyright">AdinaVoicu</a>
+                            title="图片版权" href="https://pixabay.com/zh/users/AdinaVoicu-485024/" rel="copyright">AdinaVoicu</a>
                     所有，青柠子矜网获得授权，<span
-                        class="text-danger">任何未经青柠子矜网或原作者授权，禁止转载任何图片</span>，青柠子矜网保留法律诉讼权利！
+                            class="text-danger">任何未经青柠子矜网或原作者授权，禁止转载任何图片</span>，青柠子矜网保留法律诉讼权利！
                 </p>
                 <p class="list-terms">7、文章授权规约与转授权</p>
                 <ol class="list-marked offset-top-10">
                     <li>青柠子矜网一般会对授权的文章出处进行标注、作者署名。</li>
                     <li>青柠子矜网一般会对授权的文章中内容进行二次演绎，编译幅度不超过5%。<br/>其中所具有的独特样式、展现风格、图片(<span
-                            class="badge" style="background: #7FCBC9">遵循免责声明6</span>)归青柠子矜网所有，文字、文章为作者所有。
+                                class="badge" style="background: #7FCBC9">遵循免责声明6</span>)归青柠子矜网所有，文字、文章为作者所有。
                     </li>
                     <li>
                         青柠子矜网演绎后的文章禁止任何个体/企业转载(版权同上)，青柠子矜网不授权、不提供二次授权，对于非法采集、抄袭、转载、仿站等行为，保留法律诉讼权利。
                     </li>
                     <li>青柠子矜网承诺对于授权的文章不用于商业、盈利、非法性质等，仅适用于青柠子矜网。</li>
                     <li>青柠子矜网“仅”对提供文章授权的个体/企业提供便利性著作权保护，其中体现于手机端浏览时具有独特<a
-                            data-bs-placement="top" target="_blank" href="{APP_PATH}"
-                            data-bs-content="<img src='{{asset("images/weichat_pay.jpg")}}' alt='青柠子矜' class='img-fluid'>"
-                            data-bs-html="true" data-bs-trigger="hover" data-bs-toggle="popover" data-bs-original-title="青柠子矜">二维码</a>(<small>鼠标移入</small>)展示。
+                                data-bs-placement="top" target="_blank" href="{APP_PATH}"
+                                data-bs-content="<img src='{{asset("images/weichat_pay.jpg")}}' alt='青柠子矜' class='img-fluid'>"
+                                data-bs-html="true" data-bs-trigger="hover" data-bs-toggle="popover"
+                                data-bs-original-title="青柠子矜">二维码</a>(<small>鼠标移入</small>)展示。
                     </li>
                     <li>
                         青柠子矜网文章授权为双方洽谈所得，取消授权需双方同意，作者(个体/企业)单方面取消，必须提前72小时联系站长；对于授权之前的文章，站长拥有保留不做删除的权利。
@@ -89,14 +90,16 @@
                 <dl class="list-terms">
                     <dt>扣扣 <i class="mdi mdi-qqchat" aria-hidden="true"></i></dt>
                     <dd><a rel="nofollow" href="http://wpa.qq.com/msgrd?v=3&uin=211321136&site=qq&menu=yes"
-                           class="text-base" data-bs-original-title="QQ扫一扫" data-bs-toggle="popover" data-bs-trigger="hover"
+                           class="text-base" data-bs-original-title="QQ扫一扫" data-bs-toggle="popover"
+                           data-bs-trigger="hover"
                            data-bs-html="true"
                            data-bs-content="<img src='{{asset("images/qq.jpg")}}' alt='' class='img-fluid'>"
                            target="_blank" data-bs-placement="right">211321136</a></dd>
                 </dl>
                 <dl class="list-terms">
                     <dt>微信 <i class="mdi mdi-wechat" aria-hidden="true"></i></dt>
-                    <dd><a class="text-base" data-bs-original-title="微信扫一扫" data-bs-toggle="popover" data-bs-trigger="hover"
+                    <dd><a class="text-base" data-bs-original-title="微信扫一扫" data-bs-toggle="popover"
+                           data-bs-trigger="hover"
                            data-bs-html="true"
                            data-bs-content="<img src='{{asset("images/qrcode_for_gh_a0e3856031fe_1280.jpg")}}' alt='' class='img-fluid'>"
                            href="javascript:;" target="_blank" data-bs-placement="right">qingningzijin(微信号)</a></dd>

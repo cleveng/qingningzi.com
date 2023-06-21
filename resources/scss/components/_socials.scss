@@ -17,15 +17,3 @@
     margin-left: 0;
   }
 }
-
-@include media-breakpoint-up(xs) {
-  .rd-share-socials {
-    display: none;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .rd-share-socials {
-    display: inline-block;
-  }
-}

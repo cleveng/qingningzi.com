@@ -26,7 +26,7 @@
                          class="d-inline-block img-fluid">
                 </a>
             </div>
-            <p class="mt-3 fs-sm text-dark">{{env('APP_NAME')}}
+            <p class="mt-3 fs-sm text-dark d-none d-md-block">{{env('APP_NAME')}}
                 网上提供的所有内容（除有注明原创之外）均由网络转载或网友提供，{{env('APP_NAME')}}网只是一个展示方，
                 <br class='d-none d-md-inline-block'>
                 仅为社交团体提供健康、合理、绿色等方面的内容，不承担任何法律责任。
@@ -97,7 +97,7 @@
                 </a>
             </p>
 
-            <p class="d-none d-sm-block fs-sm">
+            <p class="d-none d-sm-block fs-sm mb-0">
                 Powered By <a href="https://www.laravel.com" class="text-base">Laravel v{{app()->version()}}</a> |
                 <a href="https://github.com/cleveng/qingningzi.com" rel="nofollow" target="_blank" class="text-base">
                     <i class="mdi mdi-github"></i> Github

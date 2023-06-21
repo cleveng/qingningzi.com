@@ -18,9 +18,9 @@
         </li>
     @endsection
     @inject('article', 'App\Services\ArticlesService')
-    <div class="container space-2-bottom">
+    <div class="container space-2-bottom--lg">
         <div class="row">
-            <div class="col-md-8 text-xs-start">
+            <div class="col-md-12 col-lg-8">
                 <div class="blog-post">
                     <div
                             class="blog-post-meta unit unit-xs-horizontal unit-sm-horizontal unit-md-horizontal unit-lg-horizontal">

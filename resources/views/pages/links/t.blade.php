@@ -3,7 +3,7 @@
     @section('breadcrumb')
         <li class="active"><a href="{{url('links')}}">友情链接</a></li>
     @endsection
-    <div class="container space-2-bottom">
+    <div class="container space-2-bottom--lg">
         <div class="row">
             <div class="col-md-12">
                 <h3>
@@ -30,4 +30,3 @@
         @include('pages.links.apply')
     </div>
 @endsection
-

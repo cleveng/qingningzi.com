@@ -3,7 +3,7 @@
     @section('breadcrumb')
         <li class="active">友情链接</li>
     @endsection
-    <div class="container space-2-bottom">
+    <div class="container space-2-bottom--lg">
         <div class="row">
             <div class="col-md-12">
                 @foreach($types as $key=>$type)
@@ -36,4 +36,3 @@
         @include('pages.links.apply')
     </div>
 @endsection
-

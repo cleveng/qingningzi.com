@@ -10,7 +10,7 @@
             合作媒体列表(部分有二维码展示)
         </li>
     @endsection
-    <div class="container space-2-bottom offset-top-10">
+    <div class="container space-2-bottom--lg offset-top-10">
         <div class="row">
             @foreach($data as $key=>$media)
                 @if($key == 0)
@@ -40,7 +40,7 @@
                                                     </a> &#8226;
                                                 @endif
                                                 <span class='fst-italic'>View </span>
-                                                <a href='javascript:;' data-bs-toggle="tooltip"
+                                                <a href="javascript:" data-bs-toggle="tooltip"
                                                    data-bs-placement="right"
                                                    title="质量度：{{ceil(abs($media->id - 17)/3)}}"
                                                    class="mdi mdi-heart"></a>

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Http\Controllers\Controller;
 use App\Models\Email;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
