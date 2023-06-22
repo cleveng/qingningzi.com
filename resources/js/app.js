@@ -118,7 +118,7 @@ import Swiper from 'swiper/bundle'
     let Magnific = function () {
         let mfp = $('[data-lightbox]').not('[data-lightbox="gallery"][data-lightbox]'),
             mfpGallery = $('[data-lightbox^="gallery"]')
-        if (mfp.length === 0 || mfpGallery.length === 0) return
+        if (mfp.length === 0 && mfpGallery.length === 0) return
 
         if (mfp.length) {
             for (let i = 0; i < mfp.length; i++) {
@@ -134,7 +134,6 @@ import Swiper from 'swiper/bundle'
                 for (let c = 0; c < mfpGalleryItem.length; c++) {
                     $(mfpGalleryItem).addClass('mfp-' + $(mfpGalleryItem).attr('data-lightbox'))
                 }
-
                 mfpGalleryItem.end()
                     .magnificPopup({
                         delegate: '[data-lightbox]',

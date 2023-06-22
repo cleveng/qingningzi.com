@@ -1,7 +1,7 @@
 <footer class="page-footer space-1--md mx-auto text-center">
     <div class="container">
         <div class="row">
-            <div class="d-none d-sm-block">
+            <div class="px-0 d-none d-sm-block">
                 <ul class="breadcrumb">
                     <li class="active"><a href="{{url('links')}}">友情链接</a>：</li>
                     @inject('links', 'App\Services\LinksService')

@@ -19,10 +19,9 @@
                                             <div class="col-sm-6 offset-sm-6 col-md-5 offset-md-7">
                                                 <hr class="divider divider-primary divider-sm-left divider-bold">
                                                 <h2 class="text-white mt-3 display-1 fw-normal">分开的旅行</h2>
-                                                <h3 class="text-white mt-2 fs-lg fw-light">
-                                                    《天堂电影院》那被放逐的梦！</h3>
-                                                <a title="《天堂电影院》那被放逐的梦！"
-                                                   href="https://www.qingningzi.com/p/mq8zNp6Vn6b"
+                                                <h3 class="text-white mt-2 fs-lg">{{$sa->title}}</h3>
+                                                <a title="{{$sa->title}}"
+                                                   href="{{url($sa->shortcode)}}"
                                                    class="offset-top-45 btn btn-primary">马上围观!</a>
                                             </div>
                                         </div>
@@ -42,10 +41,9 @@
                                             <div class="offset-sm-2 col-sm-10 offset-md-2 col-md-10">
                                                 <hr class="divider-sm-left divider divider-white divider-bold fadeInDown animated">
                                                 <h2 class="text-white mt-3 display-1 fw-normal">爱过，始终</h2>
-                                                <h3 class="text-white mt-2 fs-lg fw-light">
-                                                    当你遇上你的挚爱时，时间会暂停</h3>
-                                                <a title="当你遇上你的挚爱时，时间会暂停"
-                                                   href="https://www.qingningzi.com/p/NeGVmXwVqL3"
+                                                <h3 class="text-white mt-2 fs-lg">{{$sb->title}}</h3>
+                                                <a title="{{$sb->title}}"
+                                                   href="{{url($sb->shortcode)}}"
                                                    class="offset-top-45 btn btn-primary fadeInUp animated">马上围观!</a>
                                             </div>
                                         </div>
@@ -64,9 +62,9 @@
                                         <div class="row">
                                             <div class="offset-sm-6 col-sm-6 offset-lg-5 col-lg-8">
                                                 <hr class="divider divider-white divider-sm-left divider-bold">
-                                                <h2 class="text-white mt-2 fs-lg fw-normal">当你遇上你的挚爱时，...</h2>
-                                                <a title="当你遇上你的挚爱时，时间会暂停"
-                                                   href="https://www.qingningzi.com/p/NeGVmXwVqL3"
+                                                <h2 class="text-white mt-2 fs-lg fw-normal text-truncate">{{$sc->title}}</h2>
+                                                <a title="{{$sc->title}}"
+                                                   href="{{url($sc->shortcode)}}"
                                                    class="offset-top-45 btn btn-primary fadeInUp animated">马上围观!</a>
                                             </div>
                                         </div>
@@ -117,7 +115,7 @@
             <h3 class="fw-light">情感的森林</h3>
             <hr class="divider divider-base divider-bold mx-auto">
             <div class="row offset-top-30">
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 flex-fill">
                     <div class="row">
                         <?php $tf = $articles->find(247); ?>
                         @if($tf)
@@ -131,7 +129,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 col-md-push-1">
+                <div class="col-md-4 col-sm-6 col-md-push-1 flex-fill">
                     <?php $ts = $articles->find(242); ?>
                     @if($ts)
                         <a data-bs-toggle="tooltip" data-bs-placement="left"
@@ -144,8 +142,8 @@
                         </a>
                     @endif
                 </div>
-                <div class="col-md-4">
-                    <div class="row">
+                <div class="col-md-4 flex-fill">
+                    <div class="row h-100 flex-column">
                         <div class="col-sm-6 col-md-12">
                             <?php $th = $articles->find(252); ?>
                             @if($th)
@@ -160,7 +158,7 @@
                                 </a>
                             @endif
                         </div>
-                        <div class="col-sm-6 col-md-12 mt-4">
+                        <div class="col-sm-6 col-md-12 mt-auto">
                             <?php $ts = $articles->find(2); ?>
                             @if($ts)
                                 <a data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
@@ -182,17 +180,15 @@
 
     <section class="space-2-top text-center">
         <div class="container">
-            <h3 class="fw-light">放空心灵去旅行</h3>
+            <h3 class="fw-normal">放空心灵去旅行</h3>
             <hr class="divider divider-base divider-bold mx-auto">
             <div class="row offset-top-30">
                 @foreach($articles->items(13,4) as $key=>$item)
-                    <div class="col-md-3 col-xs-6 @if($key > 0) offset-xs-top-0 @endif">
+                    <div class="col-md-3 col-sm-12 col-xs-12 @if($key > 0) mt-2 mt-md-0 @endif">
                         <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="{{$item->title}}"
                            href="{{url('s/'.$item->shortcode)}}"
                            class="thumbnail-variant-1">
-                            <img alt="{{$item->title}}"
-                                 src="{{asset($item->thumb)}}"
-                                 width="270" height="363" class="img-fluid">
+                            <img alt="{{$item->title}}" src="{{asset($item->thumb)}}" class="img-fluid">
                             <div class="caption">
                                 <h5 class="caption-title">{{$item->category->title}}</h5>
                                 <p class="caption-descr">
@@ -208,7 +204,7 @@
 
     <section class="space-2-top text-center">
         <div class="container">
-            <h3 class="fw-light">每周推荐视频</h3>
+            <h3 class="fw-normal">每周推荐视频</h3>
             <hr class="divider divider-base divider-bold mx-auto">
             <div class="row offset-top-30">
                 <div data-mouse-drag="false" data-autoplay="true" data-md-items="3" data-sm-items="3" data-xs-items="2"
@@ -216,7 +212,7 @@
                     @foreach($articles->items(13,6) as $item)
                         <div class="product reveal-inline-block" style="width:100%;overflow: hidden;">
                             <div class="product-media">
-                                <a href="{{url('s/'.$item->shortcode)}}">
+                                <a href="{{url('s/'.$item->shortcode)}}" class="d-block w-100">
                                     <img alt="{{$item->title}}" src="{{asset($item->thumb)}}"
                                          class="img-fluid">
                                 </a>
@@ -328,7 +324,7 @@
 
     <section>
         <div class="container">
-            <h3 class="text-center fw-light">
+            <h3 class="text-center fw-normal">
                 人物志
             </h3>
             <hr class="divider divider-base divider-bold mx-auto">
@@ -358,9 +354,9 @@
         <div class="container">
             <h3>爱情，惹的祸</h3>
             <hr class="divider divider-base divider-bold mx-auto">
-            <div class="row offset-top-30">
-                @foreach($articles->items(25,4) as $item)
-                    <div class="col-md-3 col-xs-6">
+            <div class="row">
+                @foreach($articles->items(25,4) as $key=>$item)
+                    <div class="col-md-3 col-sm-6 col-xs-12 @if($key> 0) mt-2 mt-md-0 @endif">
                         <a href="{{url('p/'.$item->shortcode)}}" title="{{$item->title}}" class="animate__link">
                             <img alt="{{$item->title}}" src="{{$item->thumb}}"
                                  class="img-fluid animate__animated">
@@ -371,7 +367,7 @@
         </div>
     </section>
 
-    <section class="space-2--md">
+    <section class="space-3 space-2--md">
         <div class="container">
             <div class="row fs-sm">
                 <div class="col-md-4 col-sm-6">

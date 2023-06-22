@@ -1,6 +1,3 @@
-.divider {
-  margin-top: 20px;
-}
 
 .divider-gray {
   border-color: #e8e8eb
@@ -33,7 +30,6 @@
 .divider-bold {
   border-top-width: 2px;
   width: 132px;
-  margin-bottom: 26px
 }
 
 @media (min-width: 768px) {
@@ -60,4 +56,24 @@
 .divider-offset-20 {
   margin-top: 20px;
   margin-bottom: 20px
+}
+
+@include media-breakpoint-up(xs) {
+  .divider {
+    margin-top: 8px;
+
+    &-bold {
+      margin-bottom: 11px;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .divider {
+    margin-top: 20px;
+
+    &-bold {
+      margin-bottom: 26px
+    }
+  }
 }
