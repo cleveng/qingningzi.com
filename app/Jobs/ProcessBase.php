@@ -28,7 +28,10 @@ class ProcessBase implements ShouldQueue
         $this->dir_name = "uploadfile/qrcodes";
         $dir_path = public_path($this->dir_name);
         if (!File::exists($dir_path)) {
-            File::makeDirectory($dir_path, 0755, true, true);
+            $isOK = File::makeDirectory($dir_path, 0755, true, true);
+            if (!$isOK) {
+                \Log::error("创建目录失败，请检查 uploadfile 是否有可写的权限!!!");
+            }
         }
     }
 }
