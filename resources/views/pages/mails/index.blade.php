@@ -18,8 +18,7 @@
                     <div class="blog-post-media">
                         @if($key%3 == 0)
                             <a href="{{url($path.'/'.$email->id)}}" title="{{$email->title}}" target="_blank">
-                                <img alt="{{$email->title}}" width="770" height="562"
-                                     src="{{$email->thumb}}"
+                                <img alt="{{$email->title}}" src="{{$email->thumb}}"
                                      class="img-fluid">
                                 <div class="blog-post-caption">
                                     <div class="blog-post-meta-date">
@@ -31,8 +30,7 @@
                         @else
                             <a title="{{$email->title}}" rel="help" data-lightbox="image"
                                href="{{$email->thumb}}" class="thumbnail">
-                                <img alt="{{$email->title}}" width="770" height="564"
-                                     src="{{$email->thumb}}" class="img-fluid">
+                                <img alt="{{$email->title}}" src="{{$email->thumb}}" class="img-fluid">
                                 <span class="caption"></span>
                             </a>
                             <div class="blog-post-caption">

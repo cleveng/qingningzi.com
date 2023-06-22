@@ -83,7 +83,7 @@
                                 @foreach($data->media as $medium)
                                     <a data-lightbox="image" href="{{asset($medium['display_url'])}}" class="thumbnail"
                                        title="{{$medium['display_name']}}">
-                                        <img width="770" height="564" alt="{{$medium['display_name']}}"
+                                        <img alt="{{$medium['display_name']}}"
                                              src="{{asset($medium['display_url'])}}"
                                              class="img-fluid">
                                         <div class="caption"></div>

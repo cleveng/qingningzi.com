@@ -45,23 +45,21 @@
                             @if($key%3 == 0)
                                 <a title="{{$item->title}}" data-lightbox="image" href="{{$item->thumb}}"
                                    class="thumbnail">
-                                    <img width="770" height="564" alt="{{$item->title}}"
-                                         src="{{$item->thumb}}" class="img-fluid"><span
-                                            class="caption"></span></a>
+                                    <img alt="{{$item->title}}" src="{{$item->thumb}}" class="img-fluid">
+                                    <span class="caption"></span>
+                                </a>
                             @else
-                                <a href="{{url($item->url)}}"
-                                   title="{{$item->title}}">
-                                    <img width="770" height="562" alt="{{$item->title}}"
-                                         src="{{$item->thumb}}"
-                                         class="img-fluid">
+                                <a href="{{url($item->url)}}" title="{{$item->title}}">
+                                    <img alt="{{$item->title}}" src="{{$item->thumb}}" class="img-fluid">
                                 </a>
                             @endif
                         </div>
                         <p class="desc">{{$item->description}}</p>
                         <div class="reveal-xs-flex range-xs-bottom range-xs-justify">
                             @include('components.social')
-                            <div><a href="{{url($item->url)}}" class="btn btn-primary"
-                                    rel="nofollow">马上围观</a></div>
+                            <div>
+                                <a href="{{url($item->url)}}" class="btn btn-primary" rel="nofollow">马上围观</a>
+                            </div>
                         </div>
                     </div>
                     <hr class="my-5">
