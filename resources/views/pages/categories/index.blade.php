@@ -16,6 +16,7 @@
     <div class="container space-2-bottom--lg">
         <div class="row">
             <div class="col-md-12 col-lg-8">
+{{--                {{dd($data->total())}}--}}
                 @foreach($data as $key=>$item)
                     <div class="blog-post">
                         <div
@@ -30,8 +31,7 @@
                             </div>
                             <div class="unit-body">
                                 <h3 class="blog-post-meta-title">
-                                    <a href="{{url('p/'.$item->shortcode)}}" class="text-base"
-                                       title="{{$item->title}}">{{$item->title}}</a></h3>
+                                    <a href="{{url($url_prefix.$item->shortcode)}}" class="text-base" title="{{$item->title}}">{{$item->title}}</a></h3>
                                 <p class="d-none d-sm-block mb-0">
                                     @if($item->platform)
                                         <span class='fst-italic'>Posted by </span>
@@ -65,14 +65,16 @@
                             @endif
                         </div>
                         <p class="blog-post-desc">{{$item->description}}</p>
-                        <div class="d-flex justify-content-between align-content-center">
+                        <div class="d-flex justify-content-end justify-content-md-between align-content-center">
                             @include('components.social',['item'=>$item])
                             <div>
                                 <a href="{{url('p/'.$item->shortcode)}}" class="btn btn-primary">马上围观</a>
                             </div>
                         </div>
                     </div>
+
                     <hr class="my-5">
+
                 @endforeach
                 {{$data->render()}}
             </div>
