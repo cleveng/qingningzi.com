@@ -48,12 +48,15 @@ class CategoriesController extends BaseController
             $url_prefix = "p/";
         }
 
+        // level 1 category parent_id is itself
+        $parent_id = $category->parent_id === 0 ? $category->id : $category->parent_id;
+
         return view('pages.categories.index', [
             'data' => $data,
             'category' => $category,
             'url' => $category->url,
             'url_prefix' => $url_prefix,
-            'parent_id' => $category->parent_id,
+            'parent_id' => $parent_id,
         ]);
     }
 }
