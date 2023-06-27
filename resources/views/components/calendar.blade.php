@@ -1,4 +1,4 @@
-<div class="cell-md-12 cell-sm-6 offset-top-45 cell-md-push-9 cell-sm-preffix-3 cell-md-preffix-0">
+<div class="col-md-12 col-sm-6 offset-top-45 col-md-push-9 col-sm-preffix-3 col-md-preffix-0">
     <h4>Calendar</h4>
     <!-- RD Calendar-->
     <div class="rd-calendar space-1-top">

@@ -33,7 +33,7 @@
                         <h3 style="color:darkgray;">灰色轨迹</h3>
                         <hr class="divider divider-base divider-bold">
                         <div class="range offset-top-30">
-                            <div class="cell-md-4 cell-xs-6">
+                            <div class="col-md-4 col-xs-6">
                                 <a target="_blank" href="" class="post-img"
                                    title="最完美的状态，是像烟灰一样松散">
                                     <img alt="最完美的状态，是像烟灰一样松散"
@@ -42,7 +42,7 @@
 
                                 </a>
                             </div>
-                            <div class="offset-top-30 offset-xs-top-0 cell-md-4 cell-xs-6">
+                            <div class="offset-top-30 offset-xs-top-0 col-md-4 col-xs-6">
                                 <a target="_blank" href="" class="post-img"
                                    title="人生和电影不同，人生辛苦多了">
                                     <img alt="人生和电影不同，人生辛苦多了"
@@ -52,7 +52,7 @@
                                          class="img-fluid animate__animated">
                                 </a>
                             </div>
-                            <div class="offset-top-30 offset-xs-top-0 cell-md-4 cell-xs-6">
+                            <div class="offset-top-30 offset-xs-top-0 col-md-4 col-xs-6">
                                 <a target="_blank" href="" class="post-img"
                                    title="《乱世佳人》：斯佳丽，我爱你胜过爱任何女人">
                                     <img alt="《乱世佳人》：斯佳丽，我爱你胜过爱任何女人"
@@ -66,11 +66,11 @@
                     </div>
                 </section>
             </div>
-            <div class="col-md-3 cell-md-preffix-1 sidebar sidebar-sm sidebar-right text-md-left">
+            <div class="col-md-3 col-md-preffix-1 sidebar sidebar-sm sidebar-right text-md-left">
                 <div class="range">
                     @include('components.search')
                     @include('components.rightbar')
-                    <div class="cell-md-12 cell-sm-6 cell-md-push-6 offset-top-0 offset-sm-top-45 offset-md-top-0">
+                    <div class="col-md-12 col-sm-6 col-md-push-6 offset-top-0 offset-sm-top-45 offset-md-top-0">
                         <h4>爱情，惹的祸</h4>
                         <div class="space-1-top p fst-italic">
                             推荐星级：<span class="text-primary"></span>
@@ -122,9 +122,9 @@
                         </p>
                         <hr class="my-5 veil-sm">
                     </div>
-                    <div class="cell-md-12 cell-sm-6 offset-top-0 offset-sm-top-45 offset-md-top-0">
+                    <div class="col-md-12 col-sm-6 offset-top-0 offset-sm-top-45 offset-md-top-0">
                         <h4>蓝色忧郁</h4>
-                        <ul class="list-unstyled list-ordered list-terms offset-top-10">
+                        <ul class="list-unstyled list-ordered list-terms mt-3">
                             <li class="text-truncate">
                                 <a href="" class="text-base" data-bs-toggle="tooltip"
                                    data-bs-trigger="hover" title="为什么你的脸配不上你的心？" target="_blank"
@@ -159,10 +159,10 @@
                         </ul>
                         <hr class="my-5 veil-sm reveal-md-block">
                     </div>
-                    <div class="cell-md-12 offset-top-0 offset-sm-top-45 text-start offset-md-top-0">
+                    <div class="col-md-12 offset-top-0 offset-sm-top-45 text-start offset-md-top-0">
                         <h4 class="text-center text-md-left">橘色的梦境</h4>
                         <div class="range space-1-top">
-                            <div class="cell-md-12 cell-sm-6 offset-top-30">
+                            <div class="col-md-12 col-sm-6 offset-top-30">
                                 <div class="unit unit-horizontal unit-spacing-21">
                                     <a href="" target="_blank" data-bs-toggle="tooltip"
                                        data-bs-trigger="hover" title="哪啊哪啊神去村" data-bs-container="body"
@@ -173,7 +173,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="cell-md-12 cell-sm-6 offset-top-30">
+                            <div class="col-md-12 col-sm-6 offset-top-30">
                                 <div class="unit unit-horizontal unit-spacing-21">
                                     <a href="" target="_blank" data-bs-toggle="tooltip"
                                        data-bs-trigger="hover" title="青柠推荐:电影《巴尔扎克和小裁缝》"
@@ -184,7 +184,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="cell-md-12 cell-sm-6 offset-top-30">
+                            <div class="col-md-12 col-sm-6 offset-top-30">
                                 <div class="unit unit-horizontal unit-spacing-21">
                                     <a href="" target="_blank" data-bs-toggle="tooltip"
                                        data-bs-trigger="hover" title="唯独爱情，我不想将就" data-bs-container="body"
@@ -195,7 +195,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="cell-md-12 cell-sm-6 offset-top-30">
+                            <div class="col-md-12 col-sm-6 offset-top-30">
                                 <div class="unit unit-horizontal unit-spacing-21">
                                     <a href="" target="_blank" data-bs-toggle="tooltip"
                                        data-bs-trigger="hover" title="林青霞：十四年后看懂了东邪西毒" data-bs-container="body"
@@ -206,7 +206,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="cell-md-12 cell-sm-6 offset-top-30">
+                            <div class="col-md-12 col-sm-6 offset-top-30">
                                 <div class="unit unit-horizontal unit-spacing-21">
                                     <a href="" target="_blank" data-bs-toggle="tooltip"
                                        data-bs-trigger="hover" title="错过了黄昏，便错过了她的寂寞和美丽"
@@ -217,7 +217,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="cell-md-12 cell-sm-6 offset-top-30">
+                            <div class="col-md-12 col-sm-6 offset-top-30">
                                 <div class="unit unit-horizontal unit-spacing-21">
                                     <a href="" target="_blank" data-bs-toggle="tooltip"
                                        data-bs-trigger="hover" title="《移魂女郎》：光照在黑暗里，黑暗却不接受光"
@@ -231,9 +231,9 @@
                         </div>
                         <hr class="my-5 veil-sm reveal-md-block">
                     </div>
-                    <div class="cell-md-12 cell-sm-6 offset-top-0 offset-sm-top-45 offset-md-top-0">
+                    <div class="col-md-12 col-sm-6 offset-top-0 offset-sm-top-45 offset-md-top-0">
                         <h4>零落的点滴</h4>
-                        <ul class="list-marked offset-top-10">
+                        <ul class="list-marked mt-3">
                             <li class="text-truncate">
                                 <a href="" class="text-base" data-bs-toggle="tooltip"
                                    data-bs-trigger="hover" title="我大好一个人，凭什么跑进别人的生命里做插曲？"

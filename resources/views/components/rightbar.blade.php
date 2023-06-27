@@ -1,4 +1,4 @@
-<div class="cell-md-12 cell-sm-6 offset-top-0 offset-sm-top-45 offset-md-top-0">
+<div class="col-md-12 col-sm-6 offset-top-0 offset-sm-top-45 offset-md-top-0">
     <h4>
         青柠搜索
     </h4>

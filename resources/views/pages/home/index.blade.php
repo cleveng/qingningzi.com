@@ -114,7 +114,7 @@
         <div class="container">
             <h3 class="fw-light">情感的森林</h3>
             <hr class="divider divider-base divider-bold mx-auto">
-            <div class="row offset-top-30">
+            <div class="row space-1-top">
                 <div class="col-md-4 col-sm-6 flex-fill">
                     <div class="row">
                         <?php $tf = $articles->find(247); ?>
@@ -182,7 +182,7 @@
         <div class="container">
             <h3 class="fw-normal">放空心灵去旅行</h3>
             <hr class="divider divider-base divider-bold mx-auto">
-            <div class="row offset-top-30">
+            <div class="row space-1-top">
                 @foreach($articles->items(13,4) as $key=>$item)
                     <div class="col-md-3 col-sm-12 col-xs-12 @if($key > 0) mt-2 mt-md-0 @endif">
                         <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="{{$item->title}}"
@@ -206,7 +206,7 @@
         <div class="container">
             <h3 class="fw-normal">每周推荐视频</h3>
             <hr class="divider divider-base divider-bold mx-auto">
-            <div class="row offset-top-30">
+            <div class="row space-1-top">
                 <div data-mouse-drag="false" data-autoplay="true" data-md-items="3" data-sm-items="3" data-xs-items="2"
                      data-margin="30" data-nav="true" class="owl-carousel">
                     @foreach($articles->items(13,6) as $item)
@@ -415,7 +415,7 @@
                                                title="{{$item->title}}">
                                                 {{$item->title}}
                                             </a>
-                                            <p class="offset-top-10">[ {{$item->category->title}} ]</p>
+                                            <p class="mt-3">[ {{$item->category->title}} ]</p>
                                         </div>
                                     </div>
                                 @else

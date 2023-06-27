@@ -17,3 +17,21 @@
     margin-left: 0;
   }
 }
+
+// social share items list
+.rd-share-socials {
+  display: none;
+}
+
+@include media-breakpoint-up(sm) {
+  .rd-share-socials {
+    display: block;
+    padding-bottom: 2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .rd-share-socials {
+    padding-bottom: 2.25rem;
+  }
+}

@@ -1,23 +1,19 @@
 <footer class="page-footer space-1--md mx-auto text-center">
     <div class="container">
-        <div class="row">
-            <div class="px-0 d-none d-sm-block">
-                <ul class="breadcrumb">
-                    <li class="active"><a href="{{url('links')}}">友情链接</a>：</li>
-                    @inject('links', 'App\Services\LinksService')
-                    @foreach($links->items() as $item)
-                        <li>
-                            <a @if($item->typeid == 56) rel="nofollow"
-                               @endif data-bs-original-title="{{$item->introduce}}"
-                               data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
-                               href="{{$item->url}}" target="_blank">
-                                {{$item->name}}
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
+        <ul class="breadcrumb d-none d-md-flex">
+            <li class="active"><a href="{{url('links')}}">友情链接</a>：</li>
+            @inject('links', 'App\Services\LinksService')
+            @foreach($links->items() as $item)
+                <li>
+                    <a @if($item->typeid == 56) rel="nofollow"
+                       @endif data-bs-original-title="{{$item->introduce}}"
+                       data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
+                       href="{{$item->url}}" target="_blank">
+                        {{$item->name}}
+                    </a>
+                </li>
+            @endforeach
+        </ul>
 
         <div class="row">
             <div class="d-flex justify-content-center align-content-center">

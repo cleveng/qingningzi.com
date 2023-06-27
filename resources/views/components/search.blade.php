@@ -1,4 +1,4 @@
-<div class="cell-md-12 cell-sm-8 cell-sm-preffix-2 cell-md-preffix-0">
+<div class="col-md-12 col-sm-8 col-sm-preffix-2 col-md-preffix-0">
     <h4>文章搜索</h4>
     <form action="https://www.so.com/s" id="so360form" autocomplete="off" method="GET"
           class="text-center space-1-top form-inline-flex reveal-xs-flex reveal-md-block reveal-lg-flex">
@@ -13,7 +13,7 @@
             </div>
         </div>
         <button type="submit" id="so360_submit"
-                class="btn btn-primary offset-xs-left-10 offset-top-10 offset-xs-top-0 offset-md-top-10 offset-lg-top-0">
+                class="btn btn-primary offset-xs-left-10 mt-3 offset-xs-top-0 offset-md-top-10 offset-lg-top-0">
             搜一搜
         </button>
     </form>

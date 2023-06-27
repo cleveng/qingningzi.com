@@ -1,5 +1,5 @@
-<div class="space-2-top--md fs-md">
-    <h4 class="fw-light">友情链接申请须知！</h4>
+<div class="fs-md">
+    <h4 class="fw-normal">友情链接申请须知！</h4>
     <p class="text-dark">请务必先挂上本站链接（<strong>{{env('APP_URL')}}</strong> 关键词:
         <strong>{{env('APP_NAME')}}</strong>
         ），并通知 <a

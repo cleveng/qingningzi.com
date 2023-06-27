@@ -1,15 +1,15 @@
 @extends('layouts.default')
 @section('content')
     @section('breadcrumb')
-        <li class="active">友情链接</li>
+        <li>
+            <a href="{{url('links')}}">友情链接</a>
+        </li>
     @endsection
-    <div class="container space-2-bottom--lg">
+    <div class="container space-2-bottom">
         <div class="row">
             <div class="col-md-12">
                 @foreach($types as $key=>$type)
-                    <h3>
-                        <a href="{{url('links?t='.$key)}}" class="text-muted fw-light">{{$type}}</a>
-                    </h3>
+                    <h3 class="fw-normal">{{$type}}</h3>
                     <p class="list-terms">
                         @foreach($data as $item)
                             @if($item->link_type == $key)
@@ -33,6 +33,6 @@
                 @endforeach
             </div>
         </div>
-        @include('pages.links.apply')
+        @include('components.apply_link')
     </div>
 @endsection

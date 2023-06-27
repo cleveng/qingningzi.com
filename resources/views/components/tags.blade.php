@@ -1,4 +1,4 @@
-<div class="cell-md-12 text-start text-center text-md-left cell-md-push-5 offset-top-0 offset-sm-top-45 offset-md-top-0">
+<div class="col-md-12 text-start text-center text-md-left col-md-push-5 offset-top-0 offset-sm-top-45 offset-md-top-0">
     <h4>Hot Tags</h4>
     <div class="space-1-top">
         <ul class="elements-group-10">

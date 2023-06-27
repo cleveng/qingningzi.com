@@ -1,4 +1,4 @@
-<div class="cell-md-3 cell-md-preffix-1 sidebar sidebar-right text-md-left">
+<div class="col-md-3 col-md-preffix-1 sidebar sidebar-right text-md-left">
     <div class="range">
 {{--        @include('components.search')--}}
 {{--        @include('components.rightbar')--}}

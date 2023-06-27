@@ -41,7 +41,7 @@
                             class="text-danger">任何未经青柠子矜网或原作者授权，禁止转载任何图片</span>，青柠子矜网保留法律诉讼权利！
                 </p>
                 <p class="list-terms">7、文章授权规约与转授权</p>
-                <ol class="list-marked offset-top-10">
+                <ol class="list-marked mt-3">
                     <li>青柠子矜网一般会对授权的文章出处进行标注、作者署名。</li>
                     <li>青柠子矜网一般会对授权的文章中内容进行二次演绎，编译幅度不超过5%。<br/>其中所具有的独特样式、展现风格、图片(<span
                                 class="badge" style="background: #7FCBC9">遵循免责声明6</span>)归青柠子矜网所有，文字、文章为作者所有。
@@ -68,8 +68,8 @@
                     <li>青柠子矜网除非运营不下去或面临转型(非商业)，不会主动取消对授权方的合作。</li>
                     <li>文章授权及联系方式(<span class="badge" style="background: #7FCBC9">同下</span>)</li>
                 </ol>
-                <p class="list-terms offset-top-10">8、补充声明 [2016/09/12 ]</p>
-                <ol class="list-marked offset-top-10">
+                <p class="list-terms mt-3">8、补充声明 [2016/09/12 ]</p>
+                <ol class="list-marked mt-3">
                     <li>青柠子矜网 “给我留言” 版块由 www.olark.com 提供，旨在给在网用户一个反馈机制。</li>
                     <li>“给我留言” 版块不会收集、泄露用户隐私。</li>
                     <li>青柠子矜网 ({{env('APP_URL')}}) 已在公安部备案[粤公网安备44010602001797号]，遵守互联网相关规定。
@@ -81,7 +81,7 @@
                 </ol>
                 <hr class="divider divider-gray divider-offset-lg">
                 <h4>联系方式：</h4>
-                <dl class="list-terms offset-top-10">
+                <dl class="list-terms mt-3">
                     <dt>邮箱 <i class="mdi mdi-email-outline" aria-hidden="true"></i></dt>
                     <dd><a rel="nofollow" target="_blank"
                            href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=gbOwsLKzsLCyt8Hw8K-i7uw"

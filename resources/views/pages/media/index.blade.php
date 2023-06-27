@@ -10,7 +10,7 @@
             合作媒体列表(部分有二维码展示)
         </li>
     @endsection
-    <div class="container space-2-bottom--lg offset-top-10">
+    <div class="container space-2-bottom--lg mt-3">
         <div class="row">
             @foreach($data as $key=>$media)
                 @if($key == 0)

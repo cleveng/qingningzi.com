@@ -6,7 +6,7 @@
             {{$data->name}}
         </li>
     @endsection
-    <div class="container space-2-bottom offset-top-10">
+    <div class="container space-2-bottom mt-3">
         <div class="row mx-auto text-center">
             <div class="col-md-8">
                 <h1 class="offset-top-45 text-truncate">{{$data->name}}</h1>
