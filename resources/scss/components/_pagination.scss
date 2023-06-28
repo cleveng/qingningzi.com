@@ -33,6 +33,7 @@
 
 .page-item {
   margin: .15rem;
+  border: 1px solid #e3e9ef;
 
   &.active {
     position: relative;
@@ -97,5 +98,29 @@
   &:hover {
     color: $entry-navigation-hover-color;
     text-decoration: none;
+  }
+}
+
+.pagination {
+  margin: 0 auto 1rem;
+
+  > .page-item {
+    display: none;
+
+    &:first-child, &:last-child {
+      display: flex;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .pagination {
+    margin: 0 auto;
+    padding-top: 2.5rem;
+
+    > .page-item {
+      border: 0;
+      display: flex;
+    }
   }
 }

@@ -1,4 +1,4 @@
-// rd-socials
+// rd-socials items list
 .rd-navbar-socials {
   transform: translateY(-13px);
 }
@@ -33,5 +33,10 @@
 @include media-breakpoint-up(md) {
   .rd-share-socials {
     padding-bottom: 2.25rem;
+  }
+
+  // category index list
+  .d-flex .rd-share-socials {
+    padding-bottom: 0 !important;
   }
 }
