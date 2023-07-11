@@ -57,7 +57,7 @@
                                         <span class="caption"></span>
                                     </a>
                                 @else
-                                    <a href="{{url('p/'.$item->shortcode)}}"
+                                    <a href="{{url($url_prefix.$item->shortcode)}}"
                                        title="{{$item->title}}">
                                         <img alt="{{$item->title}}"
                                              src="{{$item->thumb}}"
@@ -69,7 +69,7 @@
                             <div class="d-flex justify-content-end justify-content-md-between align-content-center">
                                 @include('components.social',['item'=>$item])
                                 <div>
-                                    <a href="{{url('p/'.$item->shortcode)}}" class="btn btn-primary">马上围观</a>
+                                    <a href="{{url($url_prefix.$item->shortcode)}}" class="btn btn-primary">马上围观</a>
                                 </div>
                             </div>
                         </div>
