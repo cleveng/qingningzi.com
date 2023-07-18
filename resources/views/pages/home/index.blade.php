@@ -80,19 +80,18 @@
             </div>
             <div class="col-md-4">
                 <div class="row">
-                    <div class="col-sm-6 col-md-12 d-block d-md-none">
+                    <div class="col-sm-6 col-md-12 d-block d-md-none mt-3 mt-md-0">
                         <?php $ha = $articles->item(14); ?>
                         @if($ha)
                             <a data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
                                data-bs-placement="bottom"
                                title="{{$ha->title}}"
                                href="{{url('p/'.$ha->title)}}">
-                                <img alt="{{$ha->title}}" src="{{asset('uploadfile/2016/0624/woman_b.jpg')}}"
-                                     height="336">
+                                <img alt="{{$ha->title}}" src="{{asset('uploadfile/2016/0624/woman_b.jpg')}}" class="img-fluid">
                             </a>
                         @endif
                     </div>
-                    <div class="col-sm-6 col-md-12">
+                    <div class="col-sm-6 col-md-12 mt-3 mt-md-0">
                         <?php $hb = $articles->item(10); ?>
                         @if($hb)
                             <a data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"

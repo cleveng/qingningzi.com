@@ -1,16 +1,21 @@
 'use strict'
 
+// [document](https://laravel.com/docs/10.x/vite#blade-processing-static-assets)
+import.meta.glob([
+    '../fonts/**',
+]);
+
 // 导入 jQuery
 import $ from 'jquery'
 
-// Import all of Bootstrap's JS
-import * as bootstrap from 'bootstrap'
+// Common (required)
+import './modules/bootstrap'
+import './modules/scroll-top-button'
+import './modules/sticky-navbar'
 
-import { device } from 'device.js'
-
-import './libs/rd-navbar.min'
-
-import SmoothScroll from 'smooth-scroll'
+// Common (optional)
+import './modules/carousel'
+import './modules/device'
 
 // magnificPopup
 import 'magnific-popup'
@@ -18,100 +23,8 @@ import 'magnific-popup'
 // owl.carousel
 import 'owl.carousel'
 
-// 导入 Swiper 的 JavaScript 文件
-import Swiper from 'swiper/bundle'
-
 (function () {
     'use strict'
-    /**
-     * Anchor smooth scrolling
-     * @requires https://github.com/cferdinandi/smooth-scroll/
-     */
-    let smoothScroll = function () {
-        let selector = '[data-scroll]',
-            fixedHeader = '[data-scroll-header]',
-            scroll = new SmoothScroll(selector, {
-                speed: 800,
-                speedAsDuration: true,
-                offset: 40,
-                header: fixedHeader,
-                updateURL: false
-            })
-    }()
-
-    /**
-     * Animate scroll to top button in/off view
-     */
-    let scrollTopButton = function () {
-        var element = document.querySelector('.ui-to-top'),
-            scrollOffset = 600
-        if (element == null) return
-        var offsetFromTop = parseInt(scrollOffset, 10)
-        window.addEventListener('scroll', function (e) {
-            if (e.currentTarget.pageYOffset > offsetFromTop) {
-                element.classList.add('active')
-            } else {
-                element.classList.remove('active')
-            }
-        })
-    }()
-
-    /**
-     * Tooltip
-     * @requires https://getbootstrap.com
-     * @requires https://popper.js.org/
-     */
-    let tooltip = function () {
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl, {
-                trigger: 'hover'
-            })
-        })
-    }()
-
-    /**
-     * Popover
-     * @requires https://getbootstrap.com
-     * @requires https://popper.js.org/
-     */
-    let popover = function () {
-        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-            return new bootstrap.Popover(popoverTriggerEl)
-        })
-    }()
-
-    /**
-     * Toast
-     * @requires https://getbootstrap.com
-     */
-    let toast = function () {
-        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-        var toastList = toastElList.map(function (toastEl) {
-            return new bootstrap.Toast(toastEl)
-        })
-    }()
-
-    /**
-     * Shop    投稿
-     */
-    let shopButton = function () {
-        let element = document.querySelector('.rd-navbar-shop')
-        if (element == null) return
-        element.addEventListener('click', function (event) {
-            let el = event.target,
-                closeOrCancel = el.classList.contains('rd-navbar-shop-close') || el.classList.contains('rd-navbar-shop-cancel')
-            if (closeOrCancel) {
-                element.classList.remove('active')
-            }
-        })
-    }()
-
-    let deviceEvent = function () {
-        device.addClasses(document.documentElement)
-    }()
-
     /**
      * Magnific
      */
@@ -146,27 +59,6 @@ import Swiper from 'swiper/bundle'
         }
     }()
 
-
-    /**
-     * swiper
-     */
-    let swiperEvent = function () {
-        let element = document.querySelector('.swiper')
-        if (element == null) return
-
-        let swiper = new Swiper('.swiper', {
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            }
-        })
-    }()
-
-
 })()
 
 // [magnificPopup](http://dimsemenov.com/plugins/magnific-popup/) 使用cdn
@@ -180,16 +72,6 @@ let userAgent = navigator.userAgent.toLowerCase(),
     i = 0
 
 $document.ready(function () {
-    /**
-     * @module       RD Navbar
-     */
-    if (plugins.navbar.length) {
-        plugins.navbar.RDNavbar({
-            stickUpClone: false,
-            stickUpOffset: plugins.navbar.data('stick-up-offset') || 1
-        })
-    }
-
     function preventScroll(e) {
         e.preventDefault()
     }

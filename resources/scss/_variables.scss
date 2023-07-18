@@ -226,9 +226,8 @@ $blockquote-footer-font-size: $font-size-sm !default;
 
 
 // Icons
-
-//$icons-font-family: 'cartzilla-icons' !default;
-//$icons-font-path: '../../fonts' !default;
+$icons-font-family: 'cartzilla-icons' !default;
+$icons-font-path: '../fonts' !default;
 
 
 // Tables
@@ -520,7 +519,7 @@ $navbar-tool-transition: color .25s ease-in-out !default;
 $navbar-tool-icon-box-size: 2.875rem !default;
 $navbar-tool-icon-font-size: 1.25rem !default;
 $navbar-tool-label-size: 1.25rem !default;
-$navbar-tool-label-bg: var(--#{$prefix}primary) !default;
+$navbar-tool-label-bg: var(--#{$prefix}danger) !default;
 $navbar-tool-label-color: $white !default;
 $navbar-tool-label-font-size: $font-size-xs !default;
 $navbar-tool-label-font-weight: $font-weight-medium !default;
@@ -546,7 +545,7 @@ $topbar-light-color: rgba($gray-700, .9) !default;
 $topbar-light-muted-color: rgba($gray-600, .9) !default;
 $topbar-light-hover-color: $gray-800 !default;
 $topbar-light-active-color: $gray-800 !default;
-$topbar-light-icon-color: var(--#{$prefix}primary) !default;
+$topbar-light-icon-color: var(--#{$prefix}dark) !default;
 
 $topbar-dark-color: rgba($white, .65) !default;
 $topbar-dark-muted-color: rgba($white, .45) !default;

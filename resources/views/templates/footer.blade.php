@@ -60,19 +60,11 @@
                     </a>
                 </li>
                 <li class="px-3">
-                    <a data-bs-original-title="微博关注" data-bs-toggle="popover"
-                       data-bs-trigger="hover" data-bs-html="true"
-                       data-bs-content="<img src='{{asset("images/weibo_qr_code.jpg")}}' alt='微博关注' class='img-fluid'>"
-                       href="javascript:;" target="_blank" data-bs-placement="top">
-                        <i class="text-base mdi mdi-sina-weibo"></i>
-                    </a>
-                </li>
-                <li class="px-3">
                     <a data-bs-original-title="微信打赏" data-bs-toggle="popover"
                        data-bs-trigger="hover" data-bs-html="true"
                        data-bs-content="<img src='{{asset("images/weichat_pay.jpg")}}' alt='微信打赏' class='img-fluid'>"
                        href="javascript:;" target="_blank" data-bs-placement="top">
-                        <i class="text-base mdi mdi-wechat"></i>
+                        <i class="text-base ci-wechat"></i>
                     </a>
                 </li>
             </ul>
