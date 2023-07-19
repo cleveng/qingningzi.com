@@ -1,6 +1,3 @@
-// import $ from 'jquery'
-// import '../libs/rd-navbar.min'
-//
 document.addEventListener('DOMContentLoaded', () => {
     let navbar = document.querySelector('.navbar-sticky');
     if (navbar == null) return;
