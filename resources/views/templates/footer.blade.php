@@ -31,32 +31,45 @@
             </p>
             <ul class="d-none d-md-flex justify-content-center list-unstyled">
                 <li class="px-3">
-                    <a href="javascript:;">
-                        <i class="text-base mdi mdi-facebook"></i>
+                    <a data-bs-original-title="Tiktok" data-bs-toggle="tooltip" data-bs-trigger="hover" target="_blank">
+                        <i class="text-base ci-tiktok"></i>
                     </a>
                 </li>
                 <li class="px-3">
-                    <a href="javascript:;">
-                        <i class="text-base mdi mdi-twitter"></i>
+                    <a data-bs-original-title="Pinterest" data-bs-toggle="tooltip" data-bs-trigger="hover"
+                       target="_blank">
+                        <i class="text-base ci-pinterest"></i>
+                    </a>
+                </li>
+                <li class="px-3">
+                    <a data-bs-original-title="Google" data-bs-toggle="tooltip" data-bs-trigger="hover" target="_blank">
+                        <i class="text-base ci-google"></i>
+                    </a>
+                </li>
+                <li class="px-3">
+                    <a data-bs-original-title="Linkedin" data-bs-toggle="tooltip" data-bs-trigger="hover"
+                       target="_blank">
+                        <i class="text-base ci-linkedin"></i>
                     </a>
                 </li>
                 <li class="px-3">
                     <a target="_blank" data-bs-original-title="给我打赏" data-bs-toggle="tooltip"
                        data-bs-trigger="hover"
                        href="https://www.paypal.me/qingningzi" rel="nofollow">
-                        <i class="text-base mdi mdi-currency-usd"></i>
+                        <i class="text-base ci-paypal"></i>
                     </a>
                 </li>
                 <li class="px-3">
                     <a data-bs-original-title="邮件订阅" data-bs-toggle="tooltip" data-bs-trigger="hover"
                        href="{{url('emails')}}"
                        target="_blank">
-                        <i class="text-base mdi mdi-email-outline"></i>
+                        <i class="text-base ci-mail"></i>
                     </a>
                 </li>
-                <li class="px-3"><a data-bs-original-title="合作媒体" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                    target="_blank">
-                        <i class="text-base mdi mdi-link-variant"></i>
+                <li class="px-3">
+                    <a data-bs-original-title="合作媒体" data-bs-toggle="tooltip" data-bs-trigger="hover"
+                       target="_blank">
+                        <i class="text-base ci-sound-waves"></i>
                     </a>
                 </li>
                 <li class="px-3">
@@ -72,7 +85,7 @@
             @inject('category', 'App\Services\CategoriesService')
             <p class="fs-sm my-1">
                 <span class='text-bold text-dark'>Qingningzi v{{getPackageVersion()}}</span>
-                <i class="mdi mdi-copyright"></i> 2015 - {{\Carbon\Carbon::now()->year}} |
+                &copy; 2015 - {{\Carbon\Carbon::now()->year}} |
                 @if($category->about())
                     <a href='{{url($category->about()->url)}}' rel="nofollow"
                        class="text-base">{{$category->about()->title}}</a> |
@@ -88,7 +101,7 @@
             <p class="d-none d-sm-block fs-sm mb-0">
                 Powered By <a href="https://www.laravel.com" class="text-base">Laravel v{{app()->version()}}</a> |
                 <a href="https://github.com/cleveng/qingningzi.com" rel="nofollow" target="_blank" class="text-base">
-                    <i class="mdi mdi-github"></i> Github
+                    Github
                 </a> |
                 {{env('APP_NAME')}}网由 <a
                         href="https://portal.qiniu.com/signup?code=3lid1ik02lidu" rel="nofollow"
@@ -98,5 +111,7 @@
             </p>
         </div>
     </div>
-    <a href="#top" class="ui-to-top mdi mdi-chevron-double-up" data-scroll></a>
+    <a href="#top" class="ui-to-top" data-scroll>
+        <i class="ci-arrow-up"></i>
+    </a>
 </footer>

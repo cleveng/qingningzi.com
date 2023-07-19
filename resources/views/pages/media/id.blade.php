@@ -14,18 +14,17 @@
                 <p><span class="badge badge-primary">{{$data->id}}</span> 秒后跳转</p>
                 <script type="application/javascript">
                     +jQuery(function () {
-                        "use strict";
-                        jshref("{{$data->id}}", "{{$data->url}}");
-                    });
+                        'use strict'
+                        jshref("{{$data->id}}", "{{$data->url}}")
+                    })
 
                     function jshref(secs, surl) {
-                        var jumpTo = jQuery("span.badge-primary");
-                        jumpTo.text(secs);
+                        var jumpTo = jQuery('span.badge-primary')
+                        jumpTo.text(secs)
                         if (--secs > 0) {
-                            setTimeout("jshref(" + secs + ",'" + surl + "')", 1000);
-                        }
-                        else {
-                            location.href = surl;
+                            setTimeout('jshref(' + secs + ',\'' + surl + '\')', 1000)
+                        } else {
+                            location.href = surl
                         }
                     }
                 </script>

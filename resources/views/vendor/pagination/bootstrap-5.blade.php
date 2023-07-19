@@ -5,13 +5,13 @@
             @if ($paginator->onFirstPage())
                 <li class="page-item disabled">
                     <span class="page-link">
-                        <i class="mdi mdi-chevron-double-left"></i> <span class="d-inline-block d-md-none">上一页</span>
+                        <i class="ci-arrow-left"></i> <span class="d-inline-block d-md-none">上一页</span>
                     </span>
                 </li>
             @else
                 <li class="page-item">
                     <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="Previous">
-                        <i class="mdi mdi-chevron-double-left"></i> <span class="d-inline-block d-md-none">上一页</span>
+                        <i class="ci-arrow-left"></i> <span class="d-inline-block d-md-none">上一页</span>
                     </a>
                 </li>
             @endif
@@ -45,13 +45,13 @@
             @if ($paginator->hasMorePages())
                 <li class="page-item">
                     <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">
-                        <span class="d-inline-block d-md-none">下一页</span> <i class="mdi mdi-chevron-double-right"></i>
+                        <span class="d-inline-block d-md-none">下一页</span> <i class="ci-arrow-right"></i>
                     </a>
                 </li>
             @else
                 <li class="page-item disabled">
                     <span class="page-link">
-                        <span class="d-inline-block d-md-none">下一页</span> <i class="mdi mdi-chevron-double-right"></i>
+                        <span class="d-inline-block d-md-none">下一页</span> <i class="ci-arrow-right"></i>
                     </span>
                 </li>
             @endif

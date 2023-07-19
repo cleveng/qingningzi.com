@@ -267,8 +267,8 @@ html body .page .product-remove a:hover {
 }
 
 .btn-link:after {
-  content: '\F19B0';
-  font-family: $mdi-font-family;
+  content: $ci-link;
+  font-family: $icons-font-family;
   font-size: 19px;
   vertical-align: middle;
   transition: .3s

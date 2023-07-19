@@ -55,7 +55,7 @@
                             <span class='fst-italic'>View </span>
                             <a href='javascript:;' data-bs-toggle="tooltip"
                                data-bs-placement="right" title="好评：{{$email->status}} 星级"
-                               class="mdi mdi-mdi-heart-outline"></a>
+                               class="ci-heart"></a>
                         </p>
                     </div>
                     <p>{{Str::limit($email->description,86)}}</p>

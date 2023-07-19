@@ -31,7 +31,7 @@
                 <ol class="breadcrumb space-2 text-xs-center">
                     <li>
                         <a href="{{url('/')}}" rel="nofollow">
-                            <i class="mdi mdi-home"></i> 首页
+                            <i class="ci-home"></i> 首页
                         </a>
                     </li>
                     @section('breadcrumb')

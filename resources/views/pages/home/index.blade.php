@@ -218,7 +218,7 @@
                                 <div class="product-overlay">
                                     <a title="{{$item->title}}"
                                        href="{{url('s/'.$item->shortcode)}}"
-                                       class="icon icon-circle icon-base mdi mdi-magnify"></a>
+                                       class="icon icon-circle icon-base ci-search"></a>
                                 </div>
                                 <div class="product-overlay-variant-2">
                                     <a href="{{url('category/'.$item->category_id)}}" class="badge bg-secondary"
@@ -246,7 +246,7 @@
                             <div class="product-actions elements-group-10">
                                 <a href='javascript:;' data-bs-toggle="tooltip" data-bs-placement="right"
                                    title="好评：{{$item->views_count}}"
-                                   class="icon mdi mdi-heart-outline icon-gray icon-sm">
+                                   class="icon ci-heart icon-gray icon-sm">
                                 </a>
                             </div>
                         </div>
@@ -306,7 +306,7 @@
                                 </a> &#8226;
                                 <a href='javascript:;' data-bs-toggle="tooltip" data-bs-placement="right"
                                    title="好评：{{$item->views_count}}"
-                                   class="icon mdi mdi-heart-outline icon-gray icon-sm text-primary"></a>
+                                   class="icon ci-heart icon-gray icon-sm text-primary"></a>
                             </p>
                         </div>
                         <p class="fs-sm text-muted">{{Str::limit($item->description,84)}}</p>

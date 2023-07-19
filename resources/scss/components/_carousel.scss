@@ -8,7 +8,7 @@
   height: 50px;
   top: calc(50% - 59px);
   transform: translateY(-50%);
-  font: 400 18px/49px "Material Design Icons" !important;
+  font: 400 18px/49px $icons-font-family !important;
   transition: .3s;
   background-color: #fff !important;
   text-align: center;
@@ -24,7 +24,7 @@
 
   &:before {
     margin-left: -1px;
-    content: $mdi-chevron-left;
+    content: $ci-arrow-left;
   }
 }
 
@@ -33,7 +33,7 @@
 
   &:before {
     margin-right: -2px;
-    content: $mdi-chevron-right;
+    content: $ci-arrow-right;
   }
 }
 

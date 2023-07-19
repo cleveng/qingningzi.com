@@ -123,7 +123,7 @@
 
                     @if($data->file_type === \App\Enums\FileType::LINK)
                         <a href="{{$data->file_url}}" rel="nofollow" target="_blank" class="btn btn-primary">
-                            <i class="mdi mdi-magnify"></i> 获取资源
+                            <i class="ci-search"></i> 获取资源
                         </a>
                     @endif
 

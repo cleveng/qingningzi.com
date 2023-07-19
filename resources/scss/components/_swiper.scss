@@ -4,7 +4,7 @@
   left: 20px;
 
   &:before {
-    content: $mdi-chevron-left;
+    content: $ci-arrow-left;
   }
 }
 
@@ -12,7 +12,7 @@
   right: 20px;
 
   &:before {
-    content: $mdi-chevron-right;
+    content: $ci-arrow-right;
   }
 }
 
