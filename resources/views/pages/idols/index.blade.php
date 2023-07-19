@@ -17,17 +17,14 @@
             <div class="col-md-12 col-lg-8">
                 @foreach($data as $key=>$item)
                     <div class="blog-post">
-                        <div
-                                class="blog-post-meta unit unit-xs-horizontal unit-sm-horizontal unit-md-horizontal unit-lg-horizontal">
-                            <div class="unit-left">
-                                <div class="center-block blog-post-meta-date">
-                                    <span class='blog-post-meta-date-big reveal-block'>
+                        <div class="blog-post-meta">
+                            <div class="blog-post-meta-date">
+                                    <span class='blog-post-meta-date-big'>
                                         {{$item->created_at->format('d')}}
                                     </span>
-                                    <span>{{$item->created_at->format('M')}}</span>
-                                </div>
+                                <span>{{$item->created_at->format('M')}}</span>
                             </div>
-                            <div class="unit-body">
+                            <div class="blog-post-meta-body">
                                 <h3 class="blog-post-meta-title">
                                     <a href="{{url($item->url)}}" class="text-base"
                                        title="{{$item->title}}">{{$item->username}}</a></h3>
