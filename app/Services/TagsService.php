@@ -11,13 +11,7 @@ class TagsService extends BaseService
 
     public function tags()
     {
-//        $videos = Video::inRandomOrder()->take(10)->select(['keywords'])->get()->toArray();
-        $result = [];
-//        foreach ($videos as $k => $v) {
-//            $keywords = explode(",", $v['keywords']);
-//            $result = array_merge($result, $keywords);
-//        }
-        return array_unique($result);
+        return [];
     }
 
     public function keywords(string $keywords, string $url): array

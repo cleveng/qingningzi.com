@@ -27,11 +27,9 @@ class ArticlesService extends BaseService
         return Cache::remember('item_' . $category->url, $this->duration, function () use ($category) {
             if ($category->content_type === ContentType::ARTICLE) {
                 $record = Article::where('category_id', $category->id)->inRandomOrder()->first();
-                $record->shortcode = "s/" . $record->shortcode;
                 return $record;
             }
             $record = Post::where('category_id', $category->id)->inRandomOrder()->first();
-            $record->shortcode = "p/" . $record->shortcode;
             return $record;
         });
     }

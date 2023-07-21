@@ -86,7 +86,7 @@
                             <a data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
                                data-bs-placement="bottom"
                                title="{{$ha->title}}"
-                               href="{{url('p/'.$ha->title)}}">
+                               href="{{url($ha->title)}}">
                                 <img alt="{{$ha->title}}" src="{{asset('uploadfile/2016/0624/woman_b.jpg')}}" class="img-fluid">
                             </a>
                         @endif
@@ -97,7 +97,7 @@
                             <a data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
                                data-bs-placement="bottom"
                                title="{{$hb->title}}"
-                               href="{{url('p/'.$hb->shortcode)}}"
+                               href="{{url($hb->shortcode)}}"
                                class="thumbnail-variant-4 d-block">
                                 <img alt="{{$hb->title}}" src="{{asset('uploadfile/2016/0624/woman_a.jpg')}}"
                                      height="336" class="w-100">
@@ -119,7 +119,7 @@
                         <?php $tf = $articles->find(247); ?>
                         @if($tf)
                             <a data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="{{$tf->title}}" href="{{url('p/'.$tf->shortcode)}}"
+                               title="{{$tf->title}}" href="{{url($tf->shortcode)}}"
                                class="thumbnail-variant-4 reveal-inline-block">
                                 <img alt="{{$tf->title}}" src="{{asset('uploadfile/2016/0624/lover_a.jpg')}}"
                                      width="370"
@@ -132,7 +132,7 @@
                     <?php $ts = $articles->find(242); ?>
                     @if($ts)
                         <a data-bs-toggle="tooltip" data-bs-placement="left"
-                           title="{{$ts->title}}" href="{{url('p/'.$ts->shortcode)}}"
+                           title="{{$ts->title}}" href="{{url($ts->shortcode)}}"
                            class="thumbnail-variant-4 reveal-inline-block">
                             <img alt="{{$ts->title}}"
                                  src="{{asset('/uploadfile/2016/0624/lover_d.jpg')}}" width="370"
@@ -149,7 +149,7 @@
                                 <a data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
                                    data-bs-placement="right"
                                    title="{{$th->title}}"
-                                   href="{{url('p/'.$th->shortcode)}}"
+                                   href="{{url($th->shortcode)}}"
                                    class="thumbnail-variant-4 reveal-inline-block inset-md-bottom-7-p">
                                     <img alt="{{$th->title}}"
                                          src="{{asset('uploadfile/2016/0624/lover_b.jpg')}}" width="370"
@@ -163,7 +163,7 @@
                                 <a data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
                                    data-bs-placement="bottom"
                                    title="{{$ts->title}}"
-                                   href="{{url('p/'.$ts->shortcode)}}"
+                                   href="{{url($ts->shortcode)}}"
                                    class="thumbnail-variant-4 reveal-inline-block">
                                     <img alt="{{$ts->title}}"
                                          src="{{asset('uploadfile/2016/0624/lover_c.jpg')}}" width="370"
@@ -185,7 +185,7 @@
                 @foreach($articles->items(13,4) as $key=>$item)
                     <div class="col-md-3 col-sm-12 col-xs-12 @if($key > 0) mt-2 mt-md-0 @endif">
                         <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="{{$item->title}}"
-                           href="{{url('s/'.$item->shortcode)}}"
+                           href="{{url($item->shortcode)}}"
                            class="thumbnail-variant-1">
                             <img alt="{{$item->title}}" src="{{asset($item->thumb)}}" class="img-fluid">
                             <div class="caption">
@@ -211,13 +211,13 @@
                     @foreach($articles->items(13,6) as $item)
                         <div class="product reveal-inline-block" style="width:100%;overflow: hidden;">
                             <div class="product-media">
-                                <a href="{{url('s/'.$item->shortcode)}}" class="d-block w-100">
+                                <a href="{{url($item->shortcode)}}" class="d-block w-100">
                                     <img alt="{{$item->title}}" src="{{asset($item->thumb)}}"
                                          class="img-fluid">
                                 </a>
                                 <div class="product-overlay">
                                     <a title="{{$item->title}}"
-                                       href="{{url('s/'.$item->shortcode)}}"
+                                       href="{{url($item->shortcode)}}"
                                        class="icon icon-circle icon-base ci-search"></a>
                                 </div>
                                 <div class="product-overlay-variant-2">
@@ -228,7 +228,7 @@
                                 </div>
                             </div>
                             <div class="product-price text-bold text-truncate">
-                                <a href="{{url('s/'.$item->shortcode)}}" class="text-primary text-truncate"
+                                <a href="{{url($item->shortcode)}}" class="text-primary text-truncate"
                                    title="{{$item->title}}">
                                     {{$item->title}}
                                 </a>
@@ -264,7 +264,7 @@
             <hr class="divider divider-base divider-bold mx-auto">
             <?php $l = $articles->item(16) ?>
             <div class="text-regular text-uppercase text-white">
-                有些人的爱，像风，看不到，却感受的到 - <a href="{{url('p/'.$l->shortcode)}}">{{$l->title}}</a>
+                有些人的爱，像风，看不到，却感受的到 - <a href="{{url($l->shortcode)}}">{{$l->title}}</a>
             </div>
             <p class="mt-1 text-white fs-sm">
                 等待太久得来的东西，多半已经不是当初自己想要的样子了。世上最珍贵的不是永远得不到或已经得到的，而是你已经得到并且随时都有可能失去的东西！</p>
@@ -281,7 +281,7 @@
                 @foreach($articles->items(15, 10) as $item)
                     <div class="blog-post blog-post-grid">
                         <div class="blog-post-media">
-                            <a href="{{url('p/'.$item->shortcode)}}" title="{{$item->title}}">
+                            <a href="{{url($item->shortcode)}}" title="{{$item->title}}">
                                 <img width="1170" height="854" alt="{{$item->title}}"
                                      src="{{$item->thumb}}" class="img-fluid">
                                 <div class="blog-post-caption">
@@ -296,7 +296,7 @@
                         </div>
                         <div class="blog-post-meta">
                             <h5 class="blog-post-meta-title blog-post-limit-title">
-                                <a href="{{url('p/'.$item->shortcode)}}" class="text-base"
+                                <a href="{{url($item->shortcode)}}" class="text-base"
                                    title="{{$item->title}}">
                                     {{$item->title}}
                                 </a>
@@ -311,7 +311,7 @@
                         </div>
                         <p class="fs-sm text-muted">{{Str::limit($item->description,84)}}</p>
                         <div>
-                            <a href="{{url('p/'.$item->shortcode)}}" class="btn btn-link" rel="nofollow">
+                            <a href="{{url($item->shortcode)}}" class="btn btn-link" rel="nofollow">
                                 <span class="btn-text">阅读更多</span>
                             </a>
                         </div>
@@ -356,7 +356,7 @@
             <div class="row">
                 @foreach($articles->items(25,4) as $key=>$item)
                     <div class="col-md-3 col-sm-6 col-xs-12 @if($key> 0) mt-2 mt-md-0 @endif">
-                        <a href="{{url('p/'.$item->shortcode)}}" title="{{$item->title}}" class="animate__link">
+                        <a href="{{url($item->shortcode)}}" title="{{$item->title}}" class="animate__link">
                             <img alt="{{$item->title}}" src="{{$item->thumb}}"
                                  class="img-fluid animate__animated">
                         </a>
@@ -375,7 +375,7 @@
                     <ul class="list-marked">
                         @foreach($articles->items(13,10) as $item)
                             <li class="text-truncate">
-                                <a href="{{url('s/'.$item->shortcode)}}" title="{{$item->title}}">
+                                <a href="{{url($item->shortcode)}}" title="{{$item->title}}">
                                     {{$item->title}}
                                 </a>
                             </li>
@@ -388,7 +388,7 @@
                     <ul class="list-ordered list-unstyled">
                         @foreach($articles->items(29,10) as $item)
                             <li class="text-truncate">
-                                <a href="{{url('p/'.$item->shortcode)}}" title="{{$item->title}}">
+                                <a href="{{url($item->shortcode)}}" title="{{$item->title}}">
                                     {{$item->title}}
                                 </a>
                             </li>
@@ -404,13 +404,13 @@
                                 @if($key==0)
                                     <div class="unit unit-horizontal unit-spacing-21 mb-2">
                                         <div class="unit-left">
-                                            <a href="{{url('p/'.$item->shortcode)}}"
+                                            <a href="{{url($item->shortcode)}}"
                                                title="{{$item->title}}">
                                                 <img alt="{{$item->title}}" width="168px" src="{{asset($item->thumb)}}">
                                             </a>
                                         </div>
                                         <div class="unit-body">
-                                            <a href="{{url('p/'.$item->shortcode)}}"
+                                            <a href="{{url($item->shortcode)}}"
                                                title="{{$item->title}}">
                                                 {{$item->title}}
                                             </a>
@@ -419,7 +419,7 @@
                                     </div>
                                 @else
                                     <p class="text-truncate mb-2">
-                                        <a href="{{url('p/'.$item->shortcode)}}"
+                                        <a href="{{url($item->shortcode)}}"
                                            title="{{$item->title}}">
                                             {{$item->title}}
                                         </a>

@@ -47,10 +47,8 @@
                         <div class="dropdown-menu dropdown-menu-end">
                             <div class="widget widget-cart px-3 pt-2 pb-3" style="width: 20rem;">
                                 <h4>我要投稿</h4>
-                                <div class="unit unit-spacing-15 unit-horizontal rd-navbar-shop-product">
-                                    <div class="unit-left">
-                                        <img alt="扫码联系" src="{{asset('images/qq.jpg')}}" class="img-fluid">
-                                    </div>
+                                <div>
+                                    <img alt="扫码联系" src="{{asset('images/qq.jpg')}}" class="img-fluid">
                                 </div>
                                 <hr class="my-3">
                                 <h4>
@@ -59,7 +57,7 @@
                                 <div class="d-flex align-content-center justify-content-start">
                                     <a rel="nofollow"
                                        href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=gbOwsLKzsLCyt8Hw8K-i7uw"
-                                       class="btn btn-primary btn-sm me-2">马上投稿</a>
+                                       class="btn btn-primary">马上投稿</a>
                                 </div>
                             </div>
                         </div>

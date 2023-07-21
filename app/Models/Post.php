@@ -10,6 +10,13 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $prefix;
+
+    public function __construct()
+    {
+        $this->prefix = "p/";
+    }
+
     protected $fillable = [
         'media'
     ];
@@ -30,5 +37,10 @@ class Post extends Model
     public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo('App\Models\Category', 'category_id', 'id');
+    }
+
+    public function getShortcodeAttribute(): string
+    {
+        return $this->prefix . $this->attributes['shortcode'];
     }
 }

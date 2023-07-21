@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="blog-post-meta-body">
                                     <h3 class="blog-post-meta-title">
-                                        <a href="{{url($url_prefix.$item->shortcode)}}" class="text-base"
+                                        <a href="{{url($item->shortcode)}}" class="text-base"
                                            title="{{$item->title}}">{{$item->title}}</a></h3>
                                     <p class="d-none d-sm-block mb-0">
                                         @if($item->platform)
@@ -54,7 +54,7 @@
                                         <span class="caption"></span>
                                     </a>
                                 @else
-                                    <a href="{{url($url_prefix.$item->shortcode)}}"
+                                    <a href="{{url($item->shortcode)}}"
                                        title="{{$item->title}}">
                                         <img alt="{{$item->title}}"
                                              src="{{$item->thumb}}"
@@ -66,7 +66,7 @@
                             <div class="d-flex justify-content-end justify-content-sm-between align-content-center">
                                 @include('components.social',['item'=>$item])
                                 <div>
-                                    <a href="{{url($url_prefix.$item->shortcode)}}" class="btn btn-primary">马上围观</a>
+                                    <a href="{{url($item->shortcode)}}" class="btn btn-primary">马上围观</a>
                                 </div>
                             </div>
                         </div>

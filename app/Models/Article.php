@@ -9,6 +9,13 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $prefix;
+
+    public function __construct()
+    {
+        $this->prefix = "s/";
+    }
+
     public function platform(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo('App\Models\Platform', 'platform_id', 'id');
@@ -17,5 +24,10 @@ class Article extends Model
     public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo('App\Models\Category', 'category_id', 'id');
+    }
+
+    public function getShortcodeAttribute(): string
+    {
+        return $this->prefix . $this->attributes['shortcode'];
     }
 }

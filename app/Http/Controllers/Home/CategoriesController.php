@@ -39,13 +39,11 @@ class CategoriesController extends BaseController
         SEOMeta::setDescription($category->description);
         SEOMeta::setCanonical(url($category->url));
 
-        $url_prefix = "s/";
         $cid = $category->parent_id === 0 ? $category->children()->pluck('id')->toArray() : [$category->id];
         if ($category->content_type === ContentType::ARTICLE) {
             $data = Article::whereIn('category_id', $cid)->orderBy('order', 'desc')->paginate();
         } else {
             $data = Post::whereIn('category_id', $cid)->orderBy('created_at', 'desc')->paginate();
-            $url_prefix = "p/";
         }
 
         // level 1 category parent_id is itself
@@ -55,7 +53,6 @@ class CategoriesController extends BaseController
             'data' => $data,
             'category' => $category,
             'url' => $category->url,
-            'url_prefix' => $url_prefix,
             'parent_id' => $parent_id,
         ]);
     }
