@@ -11,6 +11,8 @@ class Article extends Model
 
     protected $prefix;
 
+    protected $guarded = [];
+
     public function __construct()
     {
         $this->prefix = "s/";
