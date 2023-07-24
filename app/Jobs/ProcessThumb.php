@@ -5,10 +5,13 @@ namespace App\Jobs;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use mysql_xdevapi\Exception;
+use Vinkla\Hashids\Facades\Hashids;
 
-class ProcessQrcode extends ProcessBase
+/**
+ *
+ */
+class ProcessThumb extends ProcessBase
 {
-
     /**
      * Create a new job instance.
      *
@@ -29,7 +32,6 @@ class ProcessQrcode extends ProcessBase
      */
     public function handle()
     {
-        // TODO: record是一个泛型啊
         $record = $this->record;
 
         try {
@@ -43,12 +45,13 @@ class ProcessQrcode extends ProcessBase
             }
 
             // 图片下载成功，保存图片到本地
-            $filename = $this->dir_qrcode . '/' . $record->shortcode . '.jpg';
+            $shortcode = Hashids::encode($record->id);
+            $filename = $this->dir_thumb . '/' . $shortcode . '.jpg';
             $filepath = public_path($filename);
 
             // 保存图片数据到本地文件
             if (file_put_contents($filepath, $response->body())) {
-                $record->qrcode = $filename;
+                $record->thumb = $filename;
                 $record->save();
             }
         } catch (Exception $e) {
