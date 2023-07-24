@@ -17,8 +17,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "predis/predis": "^2.0",
-        "vinkla/hashids": "^10.0",
-        "ext-mysql_xdevapi": "*"
+        "vinkla/hashids": "^10.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
