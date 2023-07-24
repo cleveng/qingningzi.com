@@ -3,9 +3,9 @@
         青柠搜索
     </h4>
     <ul class="space-1-top list-dividers">
-        @inject('rightbar', 'App\Services\MenuService')
-        @foreach($rightbar->menus() as $right)
-            <li><a href="{{url('category/'.$right->catid)}}" target="_blank">{{$right->catname}}</a></li>
+        @inject('menu', 'App\Services\MenuService')
+        @foreach($menu->menus() as $m)
+            <li><a href="{{url($m->url)}}" target="_blank">{{$m->title}}</a></li>
         @endforeach
     </ul>
     <hr class="my-5 veil-sm reveal-md-block">

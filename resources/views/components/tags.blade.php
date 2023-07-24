@@ -2,7 +2,7 @@
     <h4>Hot Tags</h4>
     <div class="space-1-top">
         <ul class="elements-group-10">
-            @inject('tags', 'App\Services\TagService')
+            @inject('tags', 'App\Services\TagsService')
             @foreach($tags->tags() as $keyword)
                 <li>
                     <a target="_blank"

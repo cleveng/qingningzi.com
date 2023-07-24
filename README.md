@@ -37,6 +37,7 @@ make build
 ```
 vim .env
 QUEUE_CONNECTION=redis
+REDIS_QUEUE=qrcode,thumb // 队列任务
 
 php artisan make:job ProcessPodcast
 php artisan queue:work --verbose [systemctl service]
