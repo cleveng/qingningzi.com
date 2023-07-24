@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\WebhookSignature;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,13 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('/p/{id?}', [\App\Http\Controllers\Home\PostsController::class, 'show']);
 
     Route::get('/search', [\App\Http\Controllers\Home\SearchController::class, 'index']);
+});
+
+/*
+|--------------------------------------------------------------------------
+| Webhook Routes
+|--------------------------------------------------------------------------
+*/
+Route::group(['namespace' => 'Webhook'], function () {
+    Route::post('/article/callback', [\App\Http\Controllers\Webhook\ArticleController::class, 'callback'])->middleware(WebhookSignature::class);
 });

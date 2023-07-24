@@ -31,7 +31,7 @@ class ArticlesController extends BaseController
                     'content' => $anonicalURL,
                 ]);
                 $result = $resp->json();
-                ProcessQrcode::dispatch($data, $result["file_url"])->delay(now()->addMinute());
+                ProcessQrcode::dispatch($data, $result["file_url"])->delay(now()->addMinute())->onQueue('qrcode');
             } catch (\Illuminate\Http\Client\RequestException $e) {
                 Log::error("[Articles] RequestException error: " . $e->getMessage());
             } catch (\Exception $e) {

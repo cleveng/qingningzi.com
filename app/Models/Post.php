@@ -11,6 +11,7 @@ class Post extends Model
     use HasFactory;
 
     protected $prefix;
+    protected $guarded = [];
 
     public function __construct()
     {
