@@ -395,13 +395,11 @@
     display: flex;
   }
 
-  .navbar-stuck-barnd {
+  .navbar-stuck-brand {
     display: block !important;
   }
 
   .navbar-stuck-menu {
-    display: none;
-
     &.show {
       display: block;
     }
