@@ -40,7 +40,7 @@
                     </a>
 
                     <div class="navbar-tool dropdown ms-3 d-none d-md-flex">
-                        <a class="navbar-tool-icon-box bg-primary dropdown-toggle" href="javascript:;">
+                        <a class="navbar-tool-icon-box bg-primary dropdown-toggle" href="#">
                             <span class="navbar-tool-label">99</span>
                             <i class="navbar-tool-icon ci-edit text-white"></i>
                         </a>
