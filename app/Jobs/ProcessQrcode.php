@@ -4,8 +4,10 @@ namespace App\Jobs;
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
-use mysql_xdevapi\Exception;
 
+/**
+ *
+ */
 class ProcessQrcode extends ProcessBase
 {
 
@@ -51,7 +53,7 @@ class ProcessQrcode extends ProcessBase
                 $record->qrcode = $filename;
                 $record->save();
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             Log::error("An error occurred: " . $e->getMessage());
         }
     }

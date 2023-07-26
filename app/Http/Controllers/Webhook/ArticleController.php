@@ -48,7 +48,6 @@ class ArticleController extends Controller
         unset($data['platform']);
         $data['platform_id'] = $platform->id;
 
-        // TODO: 图片保存到本地
         $result = $category->id === 13 ? Article::create($data) : Post::create($data);
         if (!$result) {
             return response()->json([
@@ -56,6 +55,8 @@ class ArticleController extends Controller
             ], 404);
         }
 
+        // TODO: 批量图片保存到本地
+        // TODO: 封面图片尺寸调整
         if ($data['thumb'] && \Str::contains($data['thumb'], 'http')) {
             ProcessThumb::dispatch($result, $result['thumb'])->onQueue('thumb');
         }

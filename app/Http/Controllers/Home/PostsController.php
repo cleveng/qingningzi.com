@@ -5,12 +5,20 @@ namespace App\Http\Controllers\Home;
 use App\Jobs\ProcessQrcode;
 use App\Models\Post;
 use Artesaos\SEOTools\Facades\SEOMeta;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
 class PostsController extends BaseController
 {
+    /**
+     * @param Request $request
+     * @param $id
+     * @return Factory|View|Application
+     */
     public function show(Request $request, $id): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $data = Post::where('shortcode', $id)->first();

@@ -8,6 +8,7 @@ use App\Models\Link;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\View\View;
 
 class LinksController extends BaseController
 {
@@ -21,6 +22,10 @@ class LinksController extends BaseController
         $this->linkTypes = LinkType::asSelectArray();
     }
 
+    /**
+     * @param Request $request
+     * @return View
+     */
     public function index(Request $request): \Illuminate\View\View
     {
         SEOMeta::setTitle($this->title);
@@ -50,6 +55,11 @@ class LinksController extends BaseController
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return View
+     */
     public function show(Request $request, $id): \Illuminate\View\View
     {
         $data = Link::find($id);

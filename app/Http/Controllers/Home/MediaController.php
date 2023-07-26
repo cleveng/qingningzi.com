@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Home;
 
 use App\Models\Platform;
 use Artesaos\SEOTools\Facades\SEOMeta;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -14,7 +17,11 @@ class MediaController extends BaseController
         __KEYWORDS__ = '合作媒体,合作媒体列表,青柠合作媒体,青柠子矜合作媒体',
         __DESCRIPTION__ = '青柠子矜合作媒体，目前合作的友商有银幕穿越者、时光网、哔哩梦工厂、前瞻网、十点阅读、光明网、知乎、新华网、豆瓣电影、北晚新视觉、暴风影音、一点资讯、阅读时间、AcFUN、 北京时间、有书等等';
 
-    public function index(Request $request)
+    /**
+     * @param Request $request
+     * @return Factory|View|Application
+     */
+    public function index(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         SEOMeta::setTitle(self::__TITLE__);
         SEOMeta::addKeyword(self::__KEYWORDS__);
@@ -32,7 +39,12 @@ class MediaController extends BaseController
         ]);
     }
 
-    public function show(Request $request, $id)
+    /**
+     * @param Request $request
+     * @param $id
+     * @return Factory|View|Application
+     */
+    public function show(Request $request, $id): Factory|View|Application
     {
         SEOMeta::setTitle(self::__TITLE__);
         SEOMeta::addKeyword(self::__KEYWORDS__);

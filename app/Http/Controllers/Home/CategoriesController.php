@@ -7,16 +7,30 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Post;
 use Artesaos\SEOTools\Facades\SEOMeta;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 
 class CategoriesController extends BaseController
 {
 
-    public function index(Request $request)
+    /**
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
+     */
+    public function index(Request $request): Redirector|RedirectResponse|Application
     {
         return redirect('/', 301);
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return View|Factory|Redirector|RedirectResponse|Application
+     */
     public function show(Request $request, $id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
         $category = Category::find($id);

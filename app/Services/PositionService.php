@@ -2,14 +2,10 @@
 
 namespace App\Services;
 
-use App\Models\Category;
 use App\Models\Hit;
 use App\Models\iModel;
 use App\Models\Position;
-use App\Models\PositionData;
 use App\Models\Video;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 
 class PositionService extends BaseService
 {

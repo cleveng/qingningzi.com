@@ -4,7 +4,6 @@ namespace App\Jobs;
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
-use mysql_xdevapi\Exception;
 use Vinkla\Hashids\Facades\Hashids;
 
 /**
@@ -40,7 +39,7 @@ class ProcessThumb extends ProcessBase
             // 获取响应状态码
             $statusCode = $response->status();
             if ($statusCode !== 200) {
-                Log::error("Failed to download image ");
+                Log::error('Failed to download image ');
                 return;
             }
 
@@ -54,8 +53,8 @@ class ProcessThumb extends ProcessBase
                 $record->thumb = $filename;
                 $record->save();
             }
-        } catch (Exception $e) {
-            Log::error("An error occurred: " . $e->getMessage());
+        } catch (\Exception $e) {
+            Log::error('An error occurred: ' . $e->getMessage());
         }
     }
 }

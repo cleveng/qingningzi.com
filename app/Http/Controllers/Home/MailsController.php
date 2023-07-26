@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Home;
 
 use App\Models\Email;
 use Artesaos\SEOTools\Facades\SEOMeta;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -15,7 +18,11 @@ class MailsController extends BaseController
         __KEYWORDS__ = '邮件订阅,最新邮件订阅,青柠邮件订阅,青柠子矜邮件订阅',
         __DESCRIPTION__ = '青柠邮件订阅，是由青柠子矜网开发的一款免费邮件订阅服务，用户只需要输入自己的邮箱地址即可收到最新的青柠资讯，青柠子矜网不会主动推广邮件订阅服务，不会收集用户隐私敏感问题，若需要定期发送邮件服务，在线留言即可。';
 
-    public function index(Request $request)
+    /**
+     * @param Request $request
+     * @return Factory|View|Application
+     */
+    public function index(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         SEOMeta::setTitle(self::__TITLE__);
         SEOMeta::addKeyword(self::__KEYWORDS__);
@@ -36,7 +43,12 @@ class MailsController extends BaseController
         ]);
     }
 
-    public function show(Request $request, $id)
+    /**
+     * @param Request $request
+     * @param $id
+     * @return Factory|View|Application
+     */
+    public function show(Request $request, $id): Factory|View|Application
     {
         $email = Email::find($id);
         if (!$email) {

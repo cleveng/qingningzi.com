@@ -9,7 +9,10 @@ use Illuminate\Support\Facades\Cache;
  * 得到 npm 项目版本
  */
 if (!function_exists('getPackageVersion')) {
-    function getPackageVersion()
+    /**
+     * @return mixed
+     */
+    function getPackageVersion(): mixed
     {
         return Cache::remember("package_version", 3600 * 24, function () {
             $config = json_decode(file_get_contents(base_path() . "/package.json"), true);
