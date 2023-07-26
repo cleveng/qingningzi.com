@@ -9,12 +9,13 @@ use Illuminate\Http\Request;
 class WebhookSignature
 {
 
+
     /**
      * @param Request $request
      * @param Closure $next
-     * @return JsonResponse|mixed
+     * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): mixed
     {
         // WEBHOOK_NAME => 自定义请求头本身有下划线_的，则要配置 underscores_in_headers on;
         $name = $request->header('WEBHOOK-NAME');

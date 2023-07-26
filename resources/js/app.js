@@ -17,6 +17,9 @@ import './modules/sticky-navbar'
 import './modules/carousel'
 import './modules/device'
 
+// Sentry
+import './modules/sentry'
+
 // magnificPopup
 import 'magnific-popup'
 

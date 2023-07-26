@@ -17,6 +17,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "predis/predis": "^2.0",
+        "sentry/sentry-laravel": "^3.6",
         "vinkla/hashids": "^10.0"
     },
     "require-dev": {
@@ -74,7 +75,8 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
         }
     },
     "minimum-stability": "dev",
