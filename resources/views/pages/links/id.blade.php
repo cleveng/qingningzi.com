@@ -69,7 +69,7 @@
             <div class="col-md-3 col-md-preffix-1 sidebar sidebar-sm sidebar-right text-md-left">
                 <div class="range">
                     @include('components.search')
-                    @include('components.rightbar')
+                    @include('components.right-bar')
                     <div class="col-md-12 col-sm-6 col-md-push-6 offset-top-0 offset-sm-top-45 offset-md-top-0">
                         <h4>爱情，惹的祸</h4>
                         <div class="space-1-top p fst-italic">

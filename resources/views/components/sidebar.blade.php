@@ -1,7 +1,7 @@
-<div class="col-md-3 sidebar sidebar-right text-md-left">
+<div class="col-md-12 col-lg-4">
     <div class="row">
         @include('components.search')
-{{--        @include('components.rightbar')--}}
+        @include('components.right-bar')
 {{--        @include('components.find')--}}
 {{--        @include('components.week')--}}
 {{--        @include('components.travel')--}}

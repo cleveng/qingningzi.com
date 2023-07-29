@@ -1,4 +1,4 @@
-<div class="col-md-12 col-sm-8">
+<div class="col-md-12 col-sm-12">
     <h4 class="fw-normal">文章搜索</h4>
     <form action="https://www.so.com/s" id="so360form" autocomplete="off" method="GET" target="_blank">
         <div class="input-group">
@@ -12,5 +12,4 @@
             <button type="submit" id="so360_submit" class="btn btn-primary ms-1">搜一搜</button>
         </div>
     </form>
-    <hr class="my-5 veil-sm reveal-md-block">
 </div>
