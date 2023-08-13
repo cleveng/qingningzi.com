@@ -26,9 +26,6 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('/categories', [\App\Http\Controllers\Home\CategoriesController::class, 'index']);
     Route::get('/categories/{id}', [\App\Http\Controllers\Home\CategoriesController::class, 'show']);
 
-    Route::get('/media', [\App\Http\Controllers\Home\MediaController::class, 'index']);
-    Route::get('/media/{id}', [\App\Http\Controllers\Home\MediaController::class, 'show']);
-
     Route::get('/about', [\App\Http\Controllers\Home\AboutController::class, 'index']);
     Route::get('/idols', [\App\Http\Controllers\Home\IdolsController::class, 'index']);
 
@@ -37,6 +34,8 @@ Route::group(['namespace' => 'Home'], function () {
 
     Route::get('/search', [\App\Http\Controllers\Home\SearchController::class, 'index']);
     Route::get('/redirect', [\App\Http\Controllers\Home\RedirectController::class, 'index']);
+
+    Route::get('/platforms', [\App\Http\Controllers\Home\PlatformsController::class, 'index']);
 });
 
 /*

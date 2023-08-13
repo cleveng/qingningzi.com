@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers\Home;
 
+use Illuminate\Http\Request;
+
 class PlatformsController extends BaseController
 {
-    // TODO: methods of PlatformsController
+    public function index(Request $request)
+    {
+        // TODO: Platforms
+        return redirect(url('/'), 302);
+    }
 }
