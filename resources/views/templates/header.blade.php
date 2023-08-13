@@ -31,9 +31,16 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
+                    <a class="navbar-tool navbar-stuck-toggler" href="#">
+                        <span class="navbar-tool-tooltip">显示/隐藏菜单</span>
+                        <div class="navbar-tool-icon-box">
+                            <i class="navbar-tool-icon ci-menu"></i>
+                        </div>
+                    </a>
+
                     <a class="navbar-tool d-none d-lg-flex" data-bs-original-title="微信扫一扫"
                        data-bs-toggle="popover" data-bs-trigger="hover" title="" data-bs-html="true"
-                       data-bs-content="<img src='{{asset("images/qrcode_for_gh_a0e3856031fe_1280.jpg")}}' alt='' class='img-fluid'>"
+                       data-bs-content="<img src='{{asset("images/qrcode_for_gh_a0e3856031fe_1280.jpg")}}' alt='微信扫一扫' class='img-fluid'>"
                        href="javascript:;" data-bs-container="body"
                        data-bs-placement="bottom">
                         <span class="navbar-tool-tooltip">微信分享</span>
@@ -75,8 +82,8 @@
                         <form action="{{url('/search')}}" class="w-100" autocomplete="off">
                             @csrf
                             <div class="input-group">
-                                <i class="ci-search position-absolute top-50 start-0 translate-middle-y text-muted fs-base ms-3"></i>
                                 <label for="mobile-keyword" class="sr-only"></label>
+                                <i class="ci-search position-absolute top-50 start-0 translate-middle-y text-muted fs-base ms-3"></i>
                                 <input id="mobile-keyword" name="keyword" class="form-control rounded-start" type="text" placeholder="搜索你喜欢的内容.." />
                             </div>
                         </form>
