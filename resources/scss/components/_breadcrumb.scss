@@ -1,37 +1,44 @@
 //
 // Breadcrumb
 // --------------------------------------------------
-.breadcrumb {
-  font-size: 14px;
-  background-color: transparent;
-  padding: 2.6em 0 1.15em 0;
-  margin: 0;
-  letter-spacing: .04em;
 
-  & > li:not(:last-child):after {
-    content: "/ ";
-    padding: 0 5px;
-    color: $dark;
+.breadcrumb-item {
+  &::before {
+    margin-top: .0625rem;
+    font: {
+      family: 'cartzilla-icons';
+      size: .9em;
+    }
+    vertical-align: middle;
   }
-
-  & > li + li:before {
-    content: none
-  }
-
-  & a {
-    color: $primary;
+  > a {
+    transition: $nav-link-transition;
+    color: $breadcrumb-color;
     &:hover {
-      text-decoration: underline
+      color: $breadcrumb-hover-color;
+    }
+    > i {
+      margin: {
+        top: -.175rem;
+        right: .375rem;
+      }
+      font-size: 1.05em;
+      vertical-align: middle;
     }
   }
-
-  & .active {
-    color: $dark;
-  }
+  &.active { cursor: default; }
 }
 
-@include media-breakpoint-up(md) {
-  .breadcrumb {
-    text-align: left
+
+// Light version
+
+.breadcrumb-light .breadcrumb-item  {
+  &::before { color: $breadcrumb-light-divider-color; }
+  > a {
+    color: $breadcrumb-light-color;
+    &:hover {
+      color: $breadcrumb-light-hover-color;
+    }
   }
+  &.active { color: $breadcrumb-light-active-color; }
 }

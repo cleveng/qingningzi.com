@@ -395,11 +395,14 @@
     display: flex;
   }
 
-  .navbar-stuck-brand {
+  .navbar-stuck-barnd {
     display: block !important;
   }
 
   .navbar-stuck-menu {
+    // FIXME: mobile size device show dropdown menu
+    // display: none;
+
     &.show {
       display: block;
     }
@@ -635,8 +638,6 @@
 
 // Dark links against a light background
 .topbar-light {
-  border-bottom: 1px solid #f7f8f8;
-
   .topbar-text,
   .topbar-link {
     color: $topbar-light-color;
