@@ -1,78 +1,76 @@
 @extends('layouts.default')
 @section('content')
-    @section('breadcrumb')
-        @if($category->parent())
-            <li>
-                <a rel="nofollow" href="{{url('categories/'.$category->parent()->id)}}">
-                    {{$category->parent()->title}}
-                </a>
-            </li>
-        @endif
-        <li class="active">
-            {{$category->title}}
-        </li>
-    @endsection
     @inject('article', 'App\Services\ArticlesService')
-    <div class="container space-2-bottom--lg">
+    <div class="container space-2">
         <div class="row">
             <div class="col-md-12 col-lg-8">
-                <div>
-                    @foreach($data as $key=>$item)
-                        <div class="blog-post">
-                            <div class="blog-post-meta">
-                                <div class="blog-post-meta-date">
-                                    <span class='blog-post-meta-date-big'>
-                                        {{$item->created_at->format('d')}}
-                                    </span>
-                                    <span>{{$item->created_at->format('M')}}</span>
+                <div class="space-1-bottom">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-start">
+                            <li class="breadcrumb-item">
+                                <a href="{{ url('/') }}" class="text-nowrap" rel="nofollow">
+                                    <i class="ci-home"></i> 首页
+                                </a>
+                            </li>
+                            @if ($category->parent())
+                                <li class="breadcrumb-item text-nowrap">
+                                    <a rel="nofollow" href="{{ url('categories/' . $category->parent()->id) }}">
+                                        {{ $category->parent()->title }}
+                                    </a>
+                                </li>
+                            @endif
+                            <li class="breadcrumb-item text-nowrap active">
+                                {{ $category->title }}
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <div class="mb-5 mb-md-0">
+                    @foreach ($data as $key => $item)
+                        <article class="@if($key > 0) mt-5 pt-5 border-top @endif">
+                            <div class="d-flex align-items-start">
+                                <div class="blog-entry-meta-label">
+                                    <span class='date'>{{ $item->created_at->format('d') }}</span>
+                                    <span class="year">{{ $item->created_at->format('M') }}</span>
                                 </div>
-                                <div class="blog-post-meta-body">
-                                    <h3 class="blog-post-meta-title">
-                                        <a href="{{url($item->shortcode)}}" class="text-base"
-                                           title="{{$item->title}}">{{$item->title}}</a></h3>
-                                    <p class="d-none d-sm-block mb-0">
-                                        @if($item->platform)
-                                            <span class='fst-italic'>Posted by </span>
-                                            <span>{{$item->platform->name}}</span>
-                                            &#8226;
+                                <div class="blog-entry-meta-title">
+                                    <h2 class="h4 blog-entry-title mb-0">
+                                        <a href="{{ url($item->shortcode) }}">{{ $item->title }}</a>
+                                    </h2>
+                                    <div class="d-flex align-items-center fs-sm">
+                                        @if ($item->platform)
+                                            <div>
+                                                <span class='fst-italic'>Posted by：</span>
+                                                <span>{{ $item->platform->name }}</span>
+                                            </div>
                                         @endif
-                                        @if($item->rate)
-                                            <span class='fst-italic'>Hot：</span>
-                                            <span class="text-primary">
-                                            {!! $article->rates($item->url,$item->rate) !!}
-                                        </span>
+                                        @if ($item->rate)
+                                            <div class="d-none d-md-inline-flex">
+                                                <span class="blog-entry-meta-divider"></span>
+                                                <span class='fst-italic'>Hot：</span>
+                                                <span class="text-primary">
+                                                {!! $article->rates($item->url, $item->rate) !!}
+                                            </span>
+                                            </div>
                                         @endif
-                                    </p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="blog-post-media">
-                                @if($key%3 == 0)
-                                    <a title="{{$item->title}}" data-lightbox="image" href="{{$item->thumb}}"
-                                       class="thumbnail">
-                                        <img alt="{{$item->title}}"
-                                             src="{{$item->thumb}}" class="img-fluid w-100"/>
-                                        <span class="caption"></span>
-                                    </a>
-                                @else
-                                    <a href="{{url($item->shortcode)}}"
-                                       title="{{$item->title}}">
-                                        <img alt="{{$item->title}}"
-                                             src="{{$item->thumb}}"
-                                             class="img-fluid w-100">
-                                    </a>
-                                @endif
-                            </div>
-                            <p class="blog-post-desc">{{$item->description}}</p>
+                            <a class="blog-entry-thumb mb-3 mt-1" href="{{ url($item->shortcode) }}">
+                                <img alt="{{ $item->title }}"
+                                     @if($key >= 2) class="lazy" data-src="{{ $item->thumb }}"
+                                     @else src="{{ $item->thumb }}" @endif >
+                            </a>
+                            <p class="fs-md">{{ $item->description }}</p>
                             <div class="d-flex justify-content-end justify-content-sm-between align-content-center">
-                                @include('components.social',['item'=>$item])
-                                <div>
-                                    <a href="{{url($item->shortcode)}}" class="btn btn-primary">马上围观</a>
-                                </div>
+                                @include('components.social', ['item' => $item])
+                                <a href="{{ url($item->shortcode) }}" class="btn btn-primary rounded-0">马上围观</a>
                             </div>
-                        </div>
+                        </article>
                     @endforeach
                 </div>
-                {{$data->render()}}
+                {{ $data->render() }}
             </div>
             @include('components.sidebar')
         </div>

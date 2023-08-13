@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Promotion;
 use Illuminate\Http\Request;
 
+/**
+ * @Controller: RedirectController
+ */
 class RedirectController extends Controller
 {
     public function index(Request $request)

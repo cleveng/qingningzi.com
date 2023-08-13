@@ -1,3 +1,7 @@
+/*
+ * Theme styles
+ */
+
 // User variables
 @import 'user-variables';
 
@@ -7,7 +11,7 @@
 @import 'utilities';
 
 // Bootstrap
-@import "bootstrap/scss/bootstrap";
+@import 'bootstrap/scss/bootstrap';
 
 // Layout & components
 @import 'reboot';

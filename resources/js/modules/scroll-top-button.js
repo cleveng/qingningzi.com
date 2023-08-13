@@ -1,7 +1,7 @@
 import SmoothScroll from 'smooth-scroll'
 
 document.addEventListener('DOMContentLoaded', () => {
-    const ele = document.querySelector('.ui-to-top'),
+    const ele = document.querySelector('.btn-scroll-top'),
         scrollOffset = 600,
         selector = '[data-scroll]',
         fixedHeader = '[data-scroll-header]'
@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ele == null) return
     window.addEventListener('scroll', function (e) {
         if (e.currentTarget.pageYOffset > scrollOffset) {
-            ele.classList.add('active')
+            ele.classList.add('show')
         } else {
-            ele.classList.remove('active')
+            ele.classList.remove('show')
         }
     })
 })

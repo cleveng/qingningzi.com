@@ -37,7 +37,7 @@ class ArticlesService extends BaseService
     public function items($id, $len)
     {
         $category = Category::find($id);
-        $direction = $len < 10 ? 'asc' : 'desc';
+        $direction = $len <= 4 ? 'asc' : 'desc';
         return Cache::remember($category->url . $len, $this->duration, function () use ($category, $len, $direction) {
             if ($category->content_type === ContentType::ARTICLE) {
                 return Article::where('category_id', $category->id)->orderBy('created_at', $direction)->take($len)->get();

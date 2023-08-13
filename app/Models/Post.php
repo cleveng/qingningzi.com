@@ -44,4 +44,9 @@ class Post extends Model
     {
         return $this->prefix . $this->attributes['shortcode'];
     }
+
+    public function tags()
+    {
+        return $this->morphMany('App\Models\Tag', 'taggable');
+    }
 }

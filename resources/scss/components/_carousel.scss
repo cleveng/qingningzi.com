@@ -1,53 +1,322 @@
-// owl.carousel
-@import 'owl.carousel';
+//
+// Carousel
+// Based on https://github.com/ganlanyuan/tiny-slider
+// --------------------------------------------------
+@import 'tiny-slider/dist/tiny-slider.css';
 
-// custom
-.owl-next, .owl-prev {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  top: calc(50% - 59px);
-  transform: translateY(-50%);
-  font: 400 18px/49px $icons-font-family !important;
-  transition: .3s;
-  background-color: #fff !important;
-  text-align: center;
+// Base style
 
-  &:hover {
-    background: rgba(0, 0, 0, 1) !important;
-    color: white !important;
-  }
+.tns-carousel {
+    position: relative;
+
+    .tns-carousel-inner {
+        position: relative;
+        display: flex;
+        overflow: hidden;
+        touch-action: manipulation;
+        opacity: 0;
+
+        &:active {
+            cursor: grab;
+        }
+
+        &.tns-slider {
+            display: block;
+            opacity: 1;
+        }
+
+        > * {
+            backface-visibility: hidden;
+        }
+    }
 }
 
-.owl-prev {
-  left: 10px;
 
-  &:before {
-    margin-left: -1px;
-    content: $ci-arrow-left;
-  }
+// Carousel controls (prev/next buttons)
+
+.tns-carousel {
+
+    .tns-controls:focus {
+        outline: none;
+    }
+
+    [data-controls] {
+        position: absolute;
+        top: 50%;
+        width: $carousel-control-size;
+        height: $carousel-control-size;
+        margin-top: -($carousel-control-size * .5);
+        transition: all .3s ease-in-out;
+        border: $carousel-control-border-width solid $carousel-control-border-color;
+        border-radius: 50%;
+        background-color: $carousel-control-bg;
+        font-size: $carousel-control-size * .294;
+        line-height: $carousel-control-size - .125rem;
+        text-align: center;
+        z-index: 10;
+
+        &[disabled] {
+            opacity: 0 !important;
+        }
+    }
+
+    [data-controls='prev'] {
+        left: 1.75rem;
+    }
+
+    [data-controls='next'] {
+        right: 1.75rem;
+    }
+
+    &.tns-controls-lg [data-controls] {
+        width: $carousel-control-size-lg;
+        height: $carousel-control-size-lg;
+        margin-top: -($carousel-control-size-lg * .5);
+        font-size: $carousel-control-size-lg * .294;
+        line-height: $carousel-control-size-lg - .125rem;
+    }
+
+    &.tns-controls-sm [data-controls] {
+        width: $carousel-control-size-sm;
+        height: $carousel-control-size-sm;
+        margin-top: -($carousel-control-size-sm * .5);
+        font-size: $carousel-control-size-sm * .294;
+        line-height: $carousel-control-size-sm - .125rem;
+    }
+
+    &:not(.tns-controls-static) {
+        [data-controls] {
+            opacity: 0;
+        }
+
+        [data-controls='prev'] {
+            transform: translateX(1rem);
+        }
+
+        [data-controls='next'] {
+            transform: translateX(-1rem);
+        }
+
+        &:hover [data-controls] {
+            transform: none;
+            opacity: 1;
+        }
+    }
+
+    &.tns-controls-outside {
+        padding: 0 ($carousel-control-size * .5);
+
+        [data-controls='prev'] {
+            left: 0;
+        }
+
+        [data-controls='next'] {
+            right: 0;
+        }
+
+        &.tns-controls-lg {
+            padding: 0 ($carousel-control-size-lg * .5);
+        }
+
+        &.tns-controls-sm {
+            padding: 0 ($carousel-control-size-sm * .5);
+        }
+    }
+
+    &.tns-nav-enabled:not(.tns-nav-inside) {
+        [data-controls] {
+            margin-top: -(($carousel-control-size * .5) + $carousel-dot-size + 1.375rem);
+        }
+
+        &.tns-controls-lg [data-controls] {
+            margin-top: -(($carousel-control-size-lg * .5) + $carousel-dot-size + 1.375rem);
+        }
+
+        &.tns-controls-sm [data-controls] {
+            margin-top: -(($carousel-control-size-sm * .5) + $carousel-dot-size + 1.375rem);
+        }
+    }
 }
 
-.owl-next {
-  right: 10px;
 
-  &:before {
-    margin-right: -2px;
-    content: $ci-arrow-right;
-  }
+// Carousel dots (nav)
+
+.tns-carousel {
+
+    .tns-nav {
+        padding: {
+            bottom: $spacer * 1;
+        }
+        text-align: center;
+    }
+
+    &.tns-nav-start .tns-nav {
+        text-align: left;
+    }
+
+    &.tns-nav-end .tns-nav {
+        text-align: right;
+    }
+
+    [data-nav] {
+        display: inline-block;
+        width: $carousel-dot-size;
+        height: $carousel-dot-size;
+        margin: 0 .375rem;
+        padding: 0;
+        transition: width .2s ease-in-out, background-color .2s ease-in-out;
+        border: 0;
+        border-radius: $carousel-dot-size * .5;
+        background-color: $carousel-dot-dark-color;
+
+        &:focus {
+            outline: none;
+        }
+
+        &.tns-nav-active {
+            width: $carousel-dot-size * 4;
+            background-color: $carousel-dot-active-color;
+        }
+    }
+
+    &.tns-nav-light {
+        [data-nav] {
+            background-color: $carousel-dot-light-color;
+        }
+    }
+
+    &.tns-nav-inside .tns-nav {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        bottom: $spacer;
+    }
 }
 
-.owl-nav-position-top {
-  & .owl-next, & .owl-prev {
-    top: 24%;
-  }
+
+// External carousel controls
+
+.tns-carousel-controls {
+    white-space: nowrap;
+
+    button {
+        display: none;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    [data-controls] {
+        display: inline-block;
+        width: $carousel-control-size-sm;
+        height: $carousel-control-size-sm;
+        margin: .0625rem;
+        transition: all .3s ease-in-out;
+        border: $carousel-control-border-width solid $carousel-control-border-color;
+        border-radius: 50%;
+        background-color: $carousel-control-bg;
+        font-size: $carousel-control-size-sm * .294;
+        line-height: $carousel-control-size-sm - .125rem;
+        text-align: center;
+        z-index: 10;
+
+        &[disabled] {
+            opacity: 0 !important;
+        }
+    }
 }
 
-@include media-breakpoint-up(lg) {
-  .owl-prev {
-    left: 20px
-  }
-  .owl-next {
-    right: 20px
-  }
+// Layer animations
+.tns-item {
+    user-select: none;
+
+    .from-top, .from-bottom,
+    .from-start, .from-end,
+    .scale-up, .scale-down {
+        transition: all .45s .3s ease-in-out;
+        opacity: 0;
+        backface-visibility: hidden;
+    }
+
+    .from-top {
+        transform: translateY(-45px);
+    }
+
+    .from-bottom {
+        transform: translateY(45px);
+    }
+
+    .from-start {
+        transform: translateX(-45px);
+    }
+
+    .from-end {
+        transform: translateX(45px);
+    }
+
+    .scale-up {
+        transform: scale(0.8);
+    }
+
+    .scale-down {
+        transform: scale(1.2);
+    }
+
+    .delay-1 {
+        transition-delay: .5s;
+    }
+
+    .delay-2 {
+        transition-delay: .7s;
+    }
+
+    .delay-3 {
+        transition-delay: .9s;
+    }
+
+    .delay-4 {
+        transition-delay: 1.1s;
+    }
+
+    &.tns-slide-active {
+        .from-top, .from-bottom {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .from-start, .from-end {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .scale-up, .scale-down {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+}
+
+
+.tns-carousel-caption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.tns-carousel-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    display: block;
 }

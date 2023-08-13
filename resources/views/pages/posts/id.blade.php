@@ -1,143 +1,188 @@
 @extends('layouts.default')
 @section('content')
-    @section('breadcrumb')
-        @if($category->parent())
-            <li>
-                <a rel="nofollow" href="{{url('categories/'.$category->parent()->id)}}">
-                    {{$category->parent()->title}}
-                </a>
-            </li>
-        @endif
-        <li>
-            <a rel="nofollow" href="{{url('categories/'.$category->id)}}">
-                {{$category->title}}
-            </a>
-        </li>
-        <li class="d-none d-md-inline-block">
-            {{$data->title}}
-        </li>
-    @endsection
     @inject('article', 'App\Services\ArticlesService')
-    <div class="container space-2-bottom--lg">
+    <div class="container space-2">
         <div class="row">
             <div class="col-md-12 col-lg-8">
+                <div class="space-1-bottom">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-start">
+                            <li class="breadcrumb-item">
+                                <a href="{{url('/')}}" class="text-nowrap" rel="nofollow">
+                                    <i class="ci-home"></i> 首页
+                                </a>
+                            </li>
+                            @if($category->parent())
+                                <li class="breadcrumb-item text-nowrap">
+                                    <a rel="nofollow" href="{{url('categories/'.$category->parent()->id)}}">
+                                        {{$category->parent()->title}}
+                                    </a>
+                                </li>
+                            @endif
+                            <li class="breadcrumb-item text-nowrap">
+                                <a rel="nofollow" href="{{url('categories/'.$category->id)}}">
+                                    {{$category->title}}
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item text-nowrap active">
+                                {{$data->title}}
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+
+                {{-- Banner预留广告位置 --}}
+
                 <div class="blog-post">
-                    <div
-                            class="blog-post-meta unit unit-xs-horizontal unit-sm-horizontal unit-md-horizontal unit-lg-horizontal">
-                        <div class="unit-left">
-                            <div class="center-block blog-post-meta-date">
-                                    <span class='blog-post-meta-date-big reveal-block'>
-                                        {{$data->created_at->format('d')}}
-                                    </span>
-                                <span>{{$data->created_at->format('M')}}</span>
-                            </div>
+
+                    <div class="d-flex align-items-start">
+                        <div class="blog-entry-meta-label">
+                            <span class='date'>{{ $data->created_at->format('d') }}</span>
+                            <span class="year">{{ $data->created_at->format('M') }}</span>
                         </div>
-                        <div class="unit-body">
-                            <h3 class="blog-post-meta-title">{{$data->title}}</h3>
-                            <p class="d-none d-sm-block">
-                                @if($data->platform)
-                                    <span class='fst-italic'>Posted by </span>
-                                    <span>{{$data->platform->name}}</span>
-                                    &#8226;
+                        <div class="blog-entry-meta-title">
+                            <h2 class="h3 blog-entry-title mb-0">{{ $data->title }}</h2>
+                            <div class="d-none d-md-flex align-items-center fs-sm">
+                                @if ($data->platform)
+                                    <span class='fst-italic'>Posted by：</span>
+                                    <span>{{ $data->platform->name }}</span>
+                                    <span class="blog-entry-meta-divider"></span>
                                 @endif
-                                @if($data->rate)
+                                @if ($data->rate)
                                     <span class='fst-italic'>Hot：</span>
                                     <span class="text-primary">
-                                       {!! $article->rates($data->url,$data->rate) !!}
+                                        {!! $article->rates($data->url, $data->rate) !!}
                                     </span>
-                                    &#8226;
+                                    <span class="blog-entry-meta-divider"></span>
                                 @endif
                                 <span class='fst-italic'>Views：</span>
-                                <span id="hits">{{$data->views_count}} 次</span>
-                                &#8226;
-                                @if($data->author)
-                                    <span class='fst-italic'>Writer：{{$data->author}}</span>
+                                <span id="hits">{{ $data->views_count }} 次</span>
+                                @if ($data->author)
+                                    <span class="blog-entry-meta-divider"></span>
+                                    <span class='fst-italic'>Writer：{{ $data->author }}</span>
                                 @endif
-                            </p>
+                            </div>
                         </div>
                     </div>
 
-                    @if($data->file_type === \App\Enums\FileType::LINK)
-                        <blockquote class="quote">
-                            <h6>
-                                <q>
-                                    {{Str::limit($data->description,168)}}
-                                </q>
-                            </h6>
-                            <p class="d-none d-sm-block text-truncate">
-                                相关资源：<cite class="text-muted">-
-                                    @if($data->file_url)
-                                        <a href="{{$data->file_url}}" rel="nofollow" target="_blank">点击获取</a>
-                                    @else
-                                        暂无内容
-                                    @endif
-                                </cite>
-                            </p>
-                        </blockquote>
-                    @endif
+                    <div class="mt-3">
+                        @if($data->file_type === \App\Enums\FileType::LINK)
+                            <blockquote class="quote">
+                                <h6>
+                                    <q>
+                                        {{Str::limit($data->description,168)}}
+                                    </q>
+                                </h6>
+                                <p class="d-none d-sm-block text-truncate">
+                                    相关资源：<cite class="text-muted">-
+                                        @if($data->file_url)
+                                            <a href="{{$data->file_url}}" rel="nofollow" target="_blank">点击获取</a>
+                                        @else
+                                            暂无内容
+                                        @endif
+                                    </cite>
+                                </p>
+                            </blockquote>
+                        @endif
 
-                    @if($data->file_type === \App\Enums\FileType::CAROUSEL)
-                        <div class="blog-post-media">
-                            <div data-nav="true" data-items="1" data-lightbox="gallery"
-                                 class="owl-nav-center owl-carousel">
-                                @foreach($data->media as $medium)
-                                    <a data-lightbox="image" href="{{asset($medium['display_url'])}}" class="thumbnail"
-                                       title="{{$medium['display_name']}}">
+                        @if($data->file_type === \App\Enums\FileType::CAROUSEL)
+                            <div class="tns-carousel tns-nav-enabled">
+                                <div class="tns-carousel-inner"
+                                     data-carousel-options='{"mode": "gallery", "speed": 1000}'>
+                                    @foreach($data->media as $medium)
                                         <img alt="{{$medium['display_name']}}"
                                              src="{{asset($medium['display_url'])}}"
                                              class="img-fluid">
-                                        <div class="caption"></div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
+
+                        @if($data->file_type === \App\Enums\FileType::BOOK)
+                            <div class="card product-card-alt">
+                                <div class="product-thumb">
+                                    <a href="{{$data->file_url}}" class="badge bg-secondary rounded-0" rel="nofollow">
+                                        书籍链接
                                     </a>
-                                @endforeach
+                                    <a class="product-thumb-overlay" href="http://127.0.0.1:8000/s/yEqVgWql3LG" title="奥地利影片《爱》斩获第65届戛纳电影节金棕榈奖"></a>
+                                    <img src="{{asset($data->thumb)}}" alt="{{$data->title}}">
+                                </div>
                             </div>
-                        </div>
-                    @endif
+                        @endif
 
-                    @if($data->file_type === \App\Enums\FileType::BOOK)
-                        <div class="blog-post-media blog-post-media-link thumbnail-variant-3">
-                            <img alt="{{$data->title}}" src="{{asset($data->thumb)}}" class="img-fluid"
-                                 style="opacity: 0.9;width:100%;">
-                            <div class="caption">
-                                <h4 class="text-center"><span class="icon icon-white"></span>
-                                    <a rel="nofollow" href="{{$data->file_url}}">{{$data->title}} 书籍链接</a>
-                                </h4>
+                        @if($data->file_type === \App\Enums\FileType::MP4)
+                            <div class="blog-post-media">
+                                <video src="{{$data->file_url}}" style="width: 100%;height: auto"
+                                       poster="{{$data->thumb}}" controls=""
+                                       webkit-playsinline=""></video>
                             </div>
-                        </div>
-                    @endif
+                        @endif
 
-                    @if($data->file_type === \App\Enums\FileType::MP4)
-                        <div class="blog-post-media">
-                            <video src="{{$data->file_url}}" style="width: 100%;height: auto"
-                                   poster="{{$data->thumb}}" controls=""
-                                   webkit-playsinline=""></video>
+                        <div class="blog-post-media mt-3">
+                            @if($data->content)
+                                {!! $data->content !!}
+                            @else
+                                {{$data->description}}
+                            @endif
                         </div>
-                    @endif
 
-                    <div class="blog-post-media">
-                        @if($data->content)
-                            {!! $data->content !!}
-                        @else
-                            {{$data->description}}
+                        @if($data->file_type === \App\Enums\FileType::LINK)
+                            <a href="{{$data->file_url}}" rel="nofollow" target="_blank"
+                               class="btn btn-primary rounded-0">
+                                <i class="ci-search"></i> 获取资源
+                            </a>
                         @endif
                     </div>
 
-                    @if($data->file_type === \App\Enums\FileType::LINK)
-                        <a href="{{$data->file_url}}" rel="nofollow" target="_blank" class="btn btn-primary">
-                            <i class="ci-search"></i> 获取资源
-                        </a>
-                    @endif
-
-                    @inject('tag', 'App\Services\TagsService')
-                    <p class="space-1-top d-none d-sm-block">相关热词:
-                        @foreach($tag->keywords($data->keywords, $data->shortcode) as $item)
-                            <a target="_blank" rel="nofollow" title="{{$item}}" href="{{url('search?keyword='.urlencode($item))}}">
-                                {{$item}}
+                    <!-- Post tags + sharing-->
+                    <div class="d-flex flex-wrap justify-content-between pt-2 pb-4 mb-1">
+                        <div class="mt-3 me-3">
+                            @foreach($tags as $tag)
+                                <a class="btn-tag me-2 mb-2" href="{{ url('search?keyword=' . urlencode($tag)) }}">
+                                    {{ $tag }}
+                                </a>
+                            @endforeach
+                        </div>
+                        <div class="mt-3">
+                            <span class="d-inline-block align-middle text-muted fs-sm me-3 mt-1 mb-2">内容分享:</span>
+                            @if ($data->qrcode)
+                                <a class="btn-social bs-wechat me-2 mb-2" data-bs-original-title="微信扫一扫"
+                                   data-bs-toggle="popover" data-bs-trigger="hover" title="" data-bs-html="true"
+                                   data-bs-content="<img src='{{ asset($data->qrcode) }}' alt='' class='img-fluid'>"
+                                   href="javascript:;" data-bs-container="body" data-bs-placement="bottom">
+                                    <i class="ci-wechat"></i>
+                                </a>
+                            @endif
+                            <a class="btn-social bs-google me-2 mb-2" href="javascript:;" data-bs-toggle="tooltip"
+                               data-bs-placement="right" title="阅读数：{{ $data->views_count }}">
+                                <i class="ci-heart"></i>
                             </a>
-                        @endforeach
-                    </p>
-                    @include('components.social', ['item'=>$data])
+                        </div>
+                    </div>
+                    <!-- Post navigation-->
+                    <nav class="entry-navigation" aria-label="Post navigation">
+                        <a data-bs-original-title="{{ $previous ? $previous->title : '暂无上一条' }}"
+                           data-bs-toggle="tooltip"
+                           data-bs-trigger="hover" data-bs-container="body" data-bs-placement="top"
+                           class="entry-navigation-link"
+                           href=" {{ $previous ? url($previous->shortcode) : 'javascript:;' }}">
+                            <i class="ci-arrow-left me-2"></i>
+                            <span class="d-none d-sm-inline">上一条</span>
+                        </a>
+
+                        <a class="entry-navigation-link" href="{{ url('categories/' . $data->category_id) }}">
+                            <i class="ci-view-list me-2"></i>
+                            <span class="d-none d-sm-inline">所有文章</span>
+                        </a>
+                        <a data-bs-original-title="{{ $next ? $next->title : '暂无下一条' }}" data-bs-toggle="tooltip"
+                           data-bs-trigger="hover" data-bs-container="body" data-bs-placement="top"
+                           class="entry-navigation-link" href="{{ $next ? url($next->shortcode) : 'javascript:;' }} ">
+                            <span class="d-none d-sm-inline">下一条</span>
+                            <i class="ci-arrow-right ms-2"></i>
+                        </a>
+                    </nav>
                     @include('components.author')
-                    @include('components.changyan')
+                    @include('components.comments')
                 </div>
             </div>
             @include('components.sidebar')

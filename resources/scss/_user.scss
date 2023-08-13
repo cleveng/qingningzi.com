@@ -1,9 +1,47 @@
 //
 // user.scss
 // Use this to write your custom SCSS
-@import "user/space";
-@import "user/sizing";
-@import "user/ie";
-@import "user/layout";
-@import "user/product";
-@import "user/override";
+//
+@import './user/sizing';
+@import './user/space';
+
+.img-responsive {
+    width: 100%;
+    height: auto;
+}
+
+.list-ordered {
+    counter-reset: li
+}
+
+.list-ordered > li:before {
+    content: counter(li, decimal-leading-zero) ".  ";
+    counter-increment: li;
+    color: #7fcbc9;
+    margin-right: 4px
+}
+
+.list-ordered > li + li {
+    margin-top: 8px
+}
+
+.list-marked > li {
+    position: relative;
+    padding-left: 12px
+}
+
+.list-marked > li:before {
+    content: '';
+    background-color: #7fcbc9;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+.list-marked > li + li {
+    margin-top: 8px
+}

@@ -14,13 +14,16 @@
                 {{-- logo end --}}
                 {{-- search start --}}
                 <div class="input-group d-none d-lg-flex mx-4">
+                    @section('search')
                     <form action="{{url('/search')}}" class="w-100" autocomplete="off">
+                        @csrf
                         <div class="input-group">
                             <label for="keyword" class="sr-only"></label>
                             <input id="keyword" name="keyword" class="form-control rounded-end pe-5" type="text" placeholder="搜索你喜欢的内容.."/>
                             <i class="ci-search position-absolute top-50 end-0 translate-middle-y text-muted fs-base me-3"></i>
                         </div>
                     </form>
+                    @show
                 </div>
                 {{-- search end --}}
                 <div class="navbar-toolbar d-flex flex-shrink-0 align-items-center">
@@ -56,8 +59,8 @@
                                 </h4>
                                 <div class="d-flex align-content-center justify-content-start">
                                     <a rel="nofollow"
-                                       href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=gbOwsLKzsLCyt8Hw8K-i7uw"
-                                       class="btn btn-primary">马上投稿</a>
+                                       href="mailto:{{env('MAIL_MONITOR')}}"
+                                       class="btn btn-primary rounded-0">马上投稿</a>
                                 </div>
                             </div>
                         </div>
@@ -70,6 +73,7 @@
                 <div class="navbar-collapse collapse" id="navbarCollapse">
                     <div class="input-group d-lg-none my-3">
                         <form action="{{url('/search')}}" class="w-100" autocomplete="off">
+                            @csrf
                             <div class="input-group">
                                 <i class="ci-search position-absolute top-50 start-0 translate-middle-y text-muted fs-base ms-3"></i>
                                 <label for="mobile-keyword" class="sr-only"></label>
@@ -98,11 +102,6 @@
                                 @endif
                             </li>
                         @endforeach
-                        @if($navs->about())
-                        <li class="nav-item d-md-none {{Request::is('/about') ? 'active' : ''}}">
-                            <a class="nav-link" href="{{url($navs->about()->url)}}">{{$navs->about()->title}}</a>
-                        </li>
-                        @endif
                     </ul>
                 </div>
             </div>
