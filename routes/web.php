@@ -18,7 +18,6 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('/', [\App\Http\Controllers\Home\IndexController::class, 'index']);
 
     Route::get('/links', [\App\Http\Controllers\Home\LinksController::class, 'index']);
-    Route::get('/links/{id}', [\App\Http\Controllers\Home\LinksController::class, 'show']);
 
     Route::get('/emails', [\App\Http\Controllers\Home\MailsController::class, 'index']);
     Route::get('/emails/{id?}', [\App\Http\Controllers\Home\MailsController::class, 'show']);
