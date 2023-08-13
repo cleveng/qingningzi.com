@@ -115,3 +115,8 @@
         <i class="ci-arrow-up"></i>
     </a>
 </footer>
+
+<!-- Back To Top Button-->
+<a class="btn-scroll-top" href="#top" data-scroll><span
+        class="btn-scroll-top-tooltip text-dark fs-sm me-2">Top</span><i
+        class="btn-scroll-top-icon ci-arrow-up"> </i></a>

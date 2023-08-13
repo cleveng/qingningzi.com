@@ -1,5 +1,5 @@
-<?php $parent_id = isset($parent_id) ? $parent_id : null ?>
-<!DOCTYPE html>
+<?php $parent_id = isset($parent_id) ? $parent_id : null; ?>
+    <!DOCTYPE html>
 <html lang="zh-Hans-CN" class="wide ">
 <head>
     <meta charset="utf-8">
@@ -10,13 +10,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Cache-Control" content="max-age=7200"/>
     {!! SEO::generate() !!}
-    <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}"/>
-    <link rel="apple-touch-icon-precomposed" href="{{asset('images/favicon.png')}}">
-    @vite('resources/scss/app.scss')
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}"/>
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('images/favicon.png') }}">
+    @vite('resources/scss/theme.scss')
     <!--[if lt IE 10]>
     <div class="lt-ie-10">
         <a href="https://windows.microsoft.com/en-US/internet-explorer/">
-            <img src="{{asset('images/warning_bar_0000_us.jpg')}}" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+            <img src="{{ asset('images/warning_bar_0000_us.jpg') }}" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
     </div>
     <script src="//cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
     <![endif]-->
@@ -25,20 +25,7 @@
 <body>
 <div class="page">
     @include('templates.header')
-    <main class="page-content">
-        @unless(Request::is('/'))
-            <div class="container">
-                <ol class="breadcrumb space-2 text-xs-center">
-                    <li>
-                        <a href="{{url('/')}}" rel="nofollow">
-                            <i class="ci-home"></i> 首页
-                        </a>
-                    </li>
-                    @section('breadcrumb')
-                    @show
-                </ol>
-            </div>
-        @endunless
+    <main>
         @section('content')
         @show
     </main>
