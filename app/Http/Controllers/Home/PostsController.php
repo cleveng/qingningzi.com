@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Enums\FileType;
 use App\Jobs\ProcessQrcode;
 use App\Models\Article;
 use App\Models\Post;
@@ -13,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class PostsController extends BaseController
 {
@@ -31,6 +33,13 @@ class PostsController extends BaseController
         // update tags views_count
         $tags = $data->tags()->pluck('name');
         $data->tags()->increment('views_count');
+
+        // FIXME: the browser not support .swf video, file_url
+        // 2023/08/13 17:45:00 PM
+        if ($data->file_type === FileType::LINK && Str::contains($data->file_url, ".swf")) {
+            $data->file_url = "https://www.baidu.com/s?wd=" . urlencode($data->title);
+            $data->save();
+        }
 
         SEOMeta::setTitle($data->title);
         SEOMeta::addKeyword($data->keywords);

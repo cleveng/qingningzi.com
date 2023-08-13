@@ -34,7 +34,6 @@
                 {{-- Banner预留广告位置 --}}
 
                 <div class="blog-post">
-
                     <div class="d-flex align-items-start">
                         <div class="blog-entry-meta-label">
                             <span class='date'>{{ $data->created_at->format('d') }}</span>
@@ -98,18 +97,6 @@
                             </div>
                         @endif
 
-                        @if($data->file_type === \App\Enums\FileType::BOOK)
-                            <div class="card product-card-alt">
-                                <div class="product-thumb">
-                                    <a href="{{$data->file_url}}" class="badge bg-secondary rounded-0" rel="nofollow">
-                                        书籍链接
-                                    </a>
-                                    <a class="product-thumb-overlay" href="http://127.0.0.1:8000/s/yEqVgWql3LG" title="奥地利影片《爱》斩获第65届戛纳电影节金棕榈奖"></a>
-                                    <img src="{{asset($data->thumb)}}" alt="{{$data->title}}">
-                                </div>
-                            </div>
-                        @endif
-
                         @if($data->file_type === \App\Enums\FileType::MP4)
                             <div class="blog-post-media">
                                 <video src="{{$data->file_url}}" style="width: 100%;height: auto"
@@ -126,15 +113,14 @@
                             @endif
                         </div>
 
-                        @if($data->file_type === \App\Enums\FileType::LINK)
-                            <a href="{{$data->file_url}}" rel="nofollow" target="_blank"
-                               class="btn btn-primary rounded-0">
+                        @if(in_array($data->file_type, [\App\Enums\FileType::LINK, \App\Enums\FileType::BOOK]))
+                            <a href="{{$data->file_url}}" rel="nofollow" target="_blank" class="btn btn-primary rounded-0">
                                 <i class="ci-search"></i> 获取资源
                             </a>
                         @endif
                     </div>
 
-                    <!-- Post tags + sharing-->
+                    <!-- Post tags + sharing -->
                     <div class="d-flex flex-wrap justify-content-between pt-2 pb-4 mb-1">
                         <div class="mt-3 me-3">
                             @foreach($tags as $tag)
