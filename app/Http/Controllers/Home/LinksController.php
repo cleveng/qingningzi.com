@@ -54,21 +54,4 @@ class LinksController extends BaseController
             'url' => $this->url
         ]);
     }
-
-    /**
-     * @param Request $request
-     * @param $id
-     * @return View
-     */
-    public function show(Request $request, $id): \Illuminate\View\View
-    {
-        $data = Link::find($id);
-        if (!$data) {
-            abort(404);
-        }
-
-        return view('pages.links.id', [
-            'data' => $data,
-        ]);
-    }
 }

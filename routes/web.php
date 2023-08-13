@@ -20,7 +20,7 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('/links', [\App\Http\Controllers\Home\LinksController::class, 'index']);
 
     Route::get('/emails', [\App\Http\Controllers\Home\MailsController::class, 'index']);
-    Route::get('/emails/{id?}', [\App\Http\Controllers\Home\MailsController::class, 'show']);
+    Route::get('/emails/{id?}', [\App\Http\Controllers\Home\MailsController::class, 'index']);
 
     Route::get('/categories', [\App\Http\Controllers\Home\CategoriesController::class, 'index']);
     Route::get('/categories/{id}', [\App\Http\Controllers\Home\CategoriesController::class, 'show']);
