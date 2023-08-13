@@ -9,9 +9,13 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * @Controller: ArticlesController
+ */
 class ArticlesController extends BaseController
 {
     /**
@@ -26,17 +30,21 @@ class ArticlesController extends BaseController
             abort(404);
         }
 
-        $anonicalURL = url('s/' . $data->shortcode);
+        // update tags views_count
+        $tags = $data->tags()->pluck('name');
+        $data->tags()->increment('views_count');
+
+        // seo
         SEOMeta::setTitle($data->title);
-        SEOMeta::addKeyword($data->keywords);
+        SEOMeta::addKeyword($tags->join(','));
         SEOMeta::setDescription($data->description);
-        SEOMeta::setCanonical($anonicalURL);
+        SEOMeta::setCanonical(url($data->shortcode));
 
         // 处理二维码
         if (!$data->qrcode) {
             try {
                 $resp = Http::post(env('API_QRCODE_URL'), [
-                    'content' => $anonicalURL,
+                    'content' => url($data->shortcode),
                 ]);
                 $result = $resp->json();
                 ProcessQrcode::dispatch($data, $result["file_url"])->delay(now()->addMinute())->onQueue('qrcode');
@@ -49,11 +57,22 @@ class ArticlesController extends BaseController
 
         $data->increment('views_count');
         $parentId = $data->category->parent_id === 0 ? $data->category->id : $data->category->parent_id;
+
+        // get previous and next records
+        $previous = Cache::remember('previous_article_' . $data->shortcode, $this->duration, function () use ($data) {
+            return Article::where('id', '<', $data->id)->orderBy('id', 'desc')->first();
+        });
+        $next = Cache::remember('next_article_' . $data->shortcode, $this->duration, function () use ($data) {
+            return Article::where('id', '>', $data->id)->orderBy('id', 'asc')->first();
+        });
+
         return view('pages.articles.id', [
             'data' => $data,
             'category' => $data->category,
             'parent_id' => $parentId,
-            'url' => $anonicalURL,
+            'tags' => $tags,
+            'previous' => $previous,
+            'next' => $next,
         ]);
     }
 }
