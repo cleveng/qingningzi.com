@@ -25,17 +25,23 @@
                             <p class="list-terms">
                                 @foreach($data as $item)
                                     @if($item->link_type == $key)
-                                        @if(!$item->logo)
-                                            <a data-bs-original-title="{{$item->name}}" data-bs-toggle="tooltip"
-                                               data-bs-trigger="hover"
-                                               href="{{$item->url}}" target="_blank" rel="nofollow"
-                                               data-bs-placement="top">{{$item->name}}</a>
-                                        @else
+                                        @if($item->logo)
                                             <a data-bs-original-title="{{$item->name}}" data-bs-toggle="popover"
                                                data-bs-trigger="hover"
                                                data-bs-html="true"
                                                data-bs-content="<img src='{{asset($item->logo)}}' alt='{{$item->name}}' class='img-fluid'>"
-                                               href="{{$item->url}}" target="_blank" rel="nofollow"
+                                               href="{{$item->url}}"
+                                               target="_blank"
+                                               @if($item->link_type !== \App\Enums\LinkType::EMOTION) rel="nofollow"
+                                               @endif
+                                               data-bs-placement="top">{{$item->name}}</a>
+                                        @else
+                                            <a data-bs-original-title="{{$item->name}}" data-bs-toggle="tooltip"
+                                               data-bs-trigger="hover"
+                                               href="{{$item->url}}"
+                                               target="_blank"
+                                               @if($item->link_type !== \App\Enums\LinkType::EMOTION) rel="nofollow"
+                                               @endif
                                                data-bs-placement="top">{{$item->name}}</a>
                                         @endif
                                     @endif
@@ -50,7 +56,7 @@
                     <p class="text-dark">请务必先挂上本站链接（<strong>{{env('APP_URL')}}</strong> 关键词:
                         <strong>{{env('APP_NAME')}}</strong>
                         ），并通知 <a
-                            href="mailto:{{env('MAIL_USERNAME')}}" title="联系管理员" target="_blank">本站管理员</a>，管理员看到后会在24小时内回复是否互链。
+                            href="mailto:{{env('MAIL_MONITOR')}}" title="联系管理员">本站管理员</a>，管理员看到后会在24小时内回复是否互链。
                     </p>
                     <ul class="list-marked list-unstyled fs-sm">
                         <li>优先互换收录正常，没有被百度拔毛；</li>

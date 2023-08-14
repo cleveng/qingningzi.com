@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Home;
 
 use App\Enums\FileType;
 use App\Jobs\ProcessQrcode;
-use App\Models\Article;
 use App\Models\Post;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Contracts\Foundation\Application;
