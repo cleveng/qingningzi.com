@@ -27,4 +27,29 @@ class PlatformsController extends BaseController
             'data' => $data,
         ]);
     }
+
+
+    public function show(Request $request, $id)
+    {
+        $platform = Platform::where('id', $id)->first();
+        if (!$platform) {
+            abort(404);
+        }
+
+        $platform->increment('views_count');
+
+        // seo
+        SEOMeta::setTitle($platform->name);
+        SEOMeta::addKeyword($platform->name);
+        SEOMeta::setDescription($platform->name);
+        SEOMeta::setCanonical($request->getRequestUri());
+
+        // TODO: ContentType::asSelectArray() tabs
+        //       articles() right-bar
+        $data = $platform->posts()->orderBy('id', 'desc')->paginate(3);
+        return view('pages.platforms.id', [
+            'data' => $data,
+            'platform' => $platform,
+        ]);
+    }
 }

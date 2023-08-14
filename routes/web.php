@@ -35,6 +35,7 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('/redirect', [\App\Http\Controllers\Home\RedirectController::class, 'index']);
 
     Route::get('/platforms', [\App\Http\Controllers\Home\PlatformsController::class, 'index']);
+    Route::get('/platforms/{id}', [\App\Http\Controllers\Home\PlatformsController::class, 'show']);
 });
 
 /*

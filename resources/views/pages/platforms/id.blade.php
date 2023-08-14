@@ -1,34 +1,70 @@
-<?php $catid = null; ?>
 @extends('layouts.default')
 @section('content')
-    @section('breadcrumb')
-        <li class="active">
-            {{$data->name}}
-        </li>
-    @endsection
-    <div class="container space-2-bottom mt-3">
-        <div class="row mx-auto text-center">
-            <div class="col-md-8">
-                <h1 class="offset-top-45 text-truncate">{{$data->name}}</h1>
-                <h2 class="offset-top-0 text-truncate">{{$data->url}}</h2>
-                <p><span class="badge badge-primary">{{$data->id}}</span> 秒后跳转</p>
-                <script type="application/javascript">
-                    +jQuery(function () {
-                        'use strict'
-                        jshref("{{$data->id}}", "{{$data->url}}")
-                    })
+    @inject('article', 'App\Services\ArticlesService')
+    <div class="container space-2">
+        <div class="row">
+            <div class="col-md-12 col-lg-8">
+                <div class="space-1-bottom">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-start">
+                            <li class="breadcrumb-item">
+                                <a href="{{ url('/') }}" class="text-nowrap" rel="nofollow">
+                                    <i class="ci-home"></i> 首页
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item text-nowrap">
+                                <a href="{{url('platforms')}}">合作媒体</a>
+                            </li>
+                            <li class="breadcrumb-item text-nowrap active" aria-current="page">
+                                {{$platform->name}}
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
 
-                    function jshref(secs, surl) {
-                        var jumpTo = jQuery('span.badge-primary')
-                        jumpTo.text(secs)
-                        if (--secs > 0) {
-                            setTimeout('jshref(' + secs + ',\'' + surl + '\')', 1000)
-                        } else {
-                            location.href = surl
-                        }
-                    }
-                </script>
-                <a rel="nofollow" href="{{url(env('APP_URL'))}}" class="offset-top-30 btn btn-primary">返回首页</a>
+                <div class="mb-5 mb-md-0">
+                    @foreach ($data as $key => $item)
+                        <article class="@if($key > 0) mt-5 pt-5 border-top @endif">
+                            <div class="d-flex align-items-start">
+                                <div class="blog-entry-meta-label">
+                                    <span class='date'>{{ $item->created_at->format('d') }}</span>
+                                    <span class="year">{{ $item->created_at->format('M') }}</span>
+                                </div>
+                                <div class="blog-entry-meta-title">
+                                    <h2 class="h4 blog-entry-title mb-0">
+                                        <a href="{{ url($item->shortcode) }}">{{ $item->title }}</a>
+                                    </h2>
+                                    <div class="d-flex align-items-center fs-sm">
+                                        <div>
+                                            <span class='fst-italic'>Posted by：</span>
+                                            <span>{{ $platform->name }}</span>
+                                        </div>
+                                        @if ($item->rate)
+                                            <div class="d-none d-md-inline-flex">
+                                                <span class="blog-entry-meta-divider"></span>
+                                                <span class='fst-italic'>Hot：</span>
+                                                <span class="text-primary">
+                                                {!! $article->rates($item->url, $item->rate) !!}
+                                            </span>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="blog-entry-thumb mb-3 mt-1" href="{{ url($item->shortcode) }}">
+                                <img alt="{{ $item->title }}"
+                                     @if($key >= 2) class="lazy" data-src="{{ $item->thumb }}"
+                                     @else src="{{ $item->thumb }}" @endif >
+                            </a>
+                            <p class="fs-md">{{ $item->description }}</p>
+                            <div class="d-flex justify-content-end justify-content-sm-between align-content-center">
+                                @include('components.social', ['item' => $item])
+                                <a href="{{ url($item->shortcode) }}" class="btn btn-primary rounded-0">马上围观</a>
+                            </div>
+                        </article>
+                    @endforeach
+                </div>
+                {{ $data->render() }}
             </div>
             @include('components.sidebar')
         </div>

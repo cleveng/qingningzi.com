@@ -21,7 +21,7 @@
                     <div class="col-sm-12 col-md-3 mb-3">
                         <div class="card border-1">
                             <div class="card-img-top position-relative overflow-hidden">
-                                <a class="d-block" target="_blank" rel="nofollow" href="{{$item->url}}">
+                                <a class="d-block" href="{{'/platforms/'.$item->id}}">
                                     <img src="{{asset($item->thumb)}}" alt="{{$item->name}}" class="w-100">
                                 </a>
                             </div>
