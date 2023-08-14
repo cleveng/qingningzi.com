@@ -1,6 +1,6 @@
 <?php $parent_id = isset($parent_id) ? $parent_id : null; ?>
     <!DOCTYPE html>
-<html lang="zh-Hans-CN" class="wide ">
+<html lang="zh-Hans-CN">
 <head>
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">

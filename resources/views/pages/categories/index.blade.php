@@ -42,7 +42,7 @@
                                         @if ($item->platform)
                                             <div>
                                                 <span class='fst-italic'>Posted by：</span>
-                                                <span>{{ $item->platform->name }}</span>
+                                                <a rel="nofollow" href="{{url('/platforms/'.$item->platform_id)}}">{{ $item->platform->name }}</a>
                                             </div>
                                         @endif
                                         @if ($item->rate)

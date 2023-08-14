@@ -41,7 +41,7 @@
                             <div class="d-none d-md-flex align-items-center fs-sm">
                                 @if ($data->platform)
                                     <span class='fst-italic'>Posted by：</span>
-                                    <span>{{ $data->platform->name }}</span>
+                                    <a href="{{url('/platforms/'.$data->platform_id)}}">{{ $data->platform->name }}</a>
                                     <span class="blog-entry-meta-divider"></span>
                                 @endif
                                 @if ($data->rate)
