@@ -7,7 +7,6 @@ use App\Models\Post;
 use App\Models\Tag;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class SearchController extends BaseController
 {

@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Models\Email;
-use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 
 class MailsController extends BaseController
 {
