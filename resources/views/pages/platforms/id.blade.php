@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="mb-5 mb-md-0">
-                    @foreach ($data as $key => $item)
+                    @forelse($data as $key => $item)
                         <article class="@if($key > 0) mt-5 pt-5 border-top @endif">
                             <div class="d-flex align-items-start">
                                 <div class="blog-entry-meta-label">
@@ -62,7 +62,15 @@
                                 <a href="{{ url($item->shortcode) }}" class="btn btn-primary rounded-0">马上围观</a>
                             </div>
                         </article>
-                    @endforeach
+                    @empty
+                        <div class="alert alert-secondary py-5 px-lg-5 text-center mb-5">
+                            <h1 class="h4 pb-2">O(∩_∩)O~</h1>
+                            <p class="fs-md pb-2">列表为空，访问受限</p>
+                            <a class="btn btn-primary rounded-0" href="{{url('/')}}">
+                                <i class="ci-arrow-left mt-n1 me-2"></i> 返回首页
+                            </a>
+                        </div>
+                    @endforelse
                 </div>
                 {{ $data->render() }}
             </div>
