@@ -31,9 +31,16 @@
                     </nav>
                 </div>
 
-                {{-- Banner预留广告位置 --}}
+                @inject('prom', 'App\Services\PromotionsService')
+                <?php $topBar = $prom->item(\App\Enums\PromotionType::TopBar); ?>
+                @if ($topBar)
+                    <a href="{{ url('/redirect?target_id=' . $topBar->id) }}" rel="nofollow" target="_blank"
+                       class="card" title="{{ $topBar->title }}">
+                        <img alt="{{ $topBar->title }}" src="{{ asset($topBar->cover_image) }}" class="card-img">
+                    </a>
+                @endif
 
-                <div class="blog-post">
+                <div class="blog-post mt-4">
                     <div class="d-flex align-items-start">
                         <div class="blog-entry-meta-label">
                             <span class='date'>{{ $data->created_at->format('d') }}</span>
@@ -145,8 +152,17 @@
                             </a>
                         </div>
                     </div>
+
+                    <?php $bottomBar = $prom->item(\App\Enums\PromotionType::TopBar, $topBar->id); ?>
+                    @if ($bottomBar)
+                        <a href="{{ url('/redirect?target_id=' . $bottomBar->id) }}" rel="nofollow" target="_blank"
+                           class="card" title="{{ $bottomBar->title }}">
+                            <img alt="{{ $bottomBar->title }}" src="{{ asset($bottomBar->cover_image) }}" class="card-img">
+                        </a>
+                    @endif
+
                     <!-- Post navigation-->
-                    <nav class="entry-navigation" aria-label="Post navigation">
+                    <nav class="entry-navigation mt-4" aria-label="Post navigation">
                         <a data-bs-original-title="{{ $previous ? $previous->title : '暂无上一条' }}"
                            data-bs-toggle="tooltip"
                            data-bs-trigger="hover" data-bs-container="body" data-bs-placement="top"
