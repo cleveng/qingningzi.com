@@ -33,12 +33,17 @@ class LinksController extends BaseController
         SEOMeta::setDescription($this->description);
         SEOMeta::setCanonical($this->url);
 
-        $data = Cache::remember('link_data_all', $this->duration, function () {
-            return Link::orderBy('order', 'desc')->get();
+        $data = Cache::remember('link_fetch_all', $this->duration, function () {
+            $data = [];
+            foreach ($this->linkTypes as $key => $value) {
+                $data[$key]['title'] = $value;
+                $data[$key]['items'] = Link::where('status', true)->where('link_type', $key)->orderBy('order', 'desc')->get();
+            }
+            return $data;
         });
+
         return view('pages.links.index', [
             'data' => $data,
-            'types' => $this->linkTypes,
         ]);
     }
 }

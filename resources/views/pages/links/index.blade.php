@@ -19,31 +19,29 @@
                 </div>
 
                 <section>
-                    @foreach($types as $key=>$type)
+                    @foreach($data as $key=>$value)
                         <div class="space-1 border-bottom">
-                            <h3>{{$type}}</h3>
+                            <h3>{{$value['title']}}</h3>
                             <p class="list-terms">
-                                @foreach($data as $item)
-                                    @if($item->link_type == $key)
-                                        @if($item->logo)
-                                            <a data-bs-original-title="{{$item->name}}" data-bs-toggle="popover"
-                                               data-bs-trigger="hover"
-                                               data-bs-html="true"
-                                               data-bs-content="<img src='{{asset($item->logo)}}' alt='{{$item->name}}' class='img-fluid'>"
-                                               href="{{$item->url}}"
-                                               target="_blank"
-                                               @if($item->link_type !== \App\Enums\LinkType::EMOTION) rel="nofollow"
-                                               @endif
-                                               data-bs-placement="top">{{$item->name}}</a>
-                                        @else
-                                            <a data-bs-original-title="{{$item->name}}" data-bs-toggle="tooltip"
-                                               data-bs-trigger="hover"
-                                               href="{{$item->url}}"
-                                               target="_blank"
-                                               @if($item->link_type !== \App\Enums\LinkType::EMOTION) rel="nofollow"
-                                               @endif
-                                               data-bs-placement="top">{{$item->name}}</a>
-                                        @endif
+                                @foreach($value['items'] as $item)
+                                    @if($item->logo)
+                                        <a data-bs-original-title="{{$item->name}}" data-bs-toggle="popover"
+                                           data-bs-trigger="hover"
+                                           data-bs-html="true"
+                                           data-bs-content="<img src='{{asset($item->logo)}}' alt='{{$item->name}}' class='img-fluid'>"
+                                           href="{{$item->url}}"
+                                           target="_blank"
+                                           @if($item->link_type !== \App\Enums\LinkType::EMOTION) rel="nofollow"
+                                           @endif
+                                           data-bs-placement="top">{{$item->name}}</a>
+                                    @else
+                                        <a data-bs-original-title="{{$item->name}}" data-bs-toggle="tooltip"
+                                           data-bs-trigger="hover"
+                                           href="{{$item->url}}"
+                                           target="_blank"
+                                           @if($item->link_type !== \App\Enums\LinkType::EMOTION) rel="nofollow"
+                                           @endif
+                                           data-bs-placement="top">{{$item->name}}</a>
                                     @endif
                                 @endforeach
                             </p>

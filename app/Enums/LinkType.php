@@ -10,6 +10,7 @@ final class LinkType extends Enum
     const INFORMATION = 2;
     const SOCIAL = 3;
     const EMOTION = 4;
+    const PROMOTION = 5;
 
     public static function getDescription($value): string
     {
@@ -24,6 +25,9 @@ final class LinkType extends Enum
         }
         if ($value === self::EMOTION) {
             return '情感交友';
+        }
+        if ($value === self::PROMOTION) {
+            return '促销推广';
         }
         return parent::getDescription($value);
     }
@@ -41,6 +45,9 @@ final class LinkType extends Enum
         }
         if ($key === '情感交友') {
             return self::EMOTION;
+        }
+        if ($key === '促销推广') {
+            return self::PROMOTION;
         }
         return parent::getValue($key);
     }
