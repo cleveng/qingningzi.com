@@ -95,7 +95,7 @@
                 <dl class="list-style mt-3">
                     <dt>邮箱 <i class="ci-mail" aria-hidden="true"></i></dt>
                     <dd><a rel="nofollow" target="_blank"
-                           href="mailto:{{env('MAIL_MONITOR')}}w"
+                           href="mailto:{{env('MAIL_MONITOR')}}"
                            class="text-base">给我写信</a></dd>
                 </dl>
             </div>
