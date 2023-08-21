@@ -55,7 +55,7 @@ class CategoriesController extends BaseController
 
         $cid = $category->parent_id === 0 ? $category->children()->pluck('id')->toArray() : [$category->id];
         if ($category->content_type === ContentType::ARTICLE) {
-            $data = Article::whereIn('category_id', $cid)->orderBy('order', 'desc')->paginate();
+            $data = Article::whereIn('category_id', $cid)->orderBy('updated_at', 'desc')->paginate();
         } else {
             $data = Post::whereIn('category_id', $cid)->orderBy('created_at', 'desc')->paginate();
         }

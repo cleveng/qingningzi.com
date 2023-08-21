@@ -34,13 +34,15 @@
     <h3 class="widget-title">精彩内容</h3>
     @foreach ($tags->lastest(Request::getRequestUri(), 5) as $tag)
         <div class="d-flex align-items-start mb-3">
-            <a class="flex-shrink-0" href="{{url($tag->taggable->shortcode)}}" title="{{$tag->taggable->title}}">
-                <img alt="{{$tag->taggable->title}}"
-                     class="lazy img-fluid"
-                     data-src="{{asset($tag->taggable->thumb)}}"
-                     width="64">
-            </a>
-            <div class="ps-3">
+            @if($tag->taggable->thumb|| $tag->taggable->cover_image)
+                <a class="flex-shrink-0" href="{{url($tag->taggable->shortcode)}}" title="{{$tag->taggable->title}}">
+                    <img alt="{{$tag->taggable->title}}"
+                         class="lazy img-fluid"
+                         data-src="{{asset($tag->taggable->thumb ?  : $tag->taggable->cover_image)}}"
+                         width="64">
+                </a>
+            @endif
+            <div class="@if($tag->taggable->thumb|| $tag->taggable->cover_image)) ps-3 @endif">
                 <h6 class="blog-entry-title fs-sm mb-0">
                     <a href="{{url($tag->taggable->shortcode)}}"
                        title="{{$tag->taggable->title}}">{{$tag->taggable->title}}</a>
