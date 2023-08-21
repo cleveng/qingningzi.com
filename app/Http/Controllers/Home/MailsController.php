@@ -7,13 +7,12 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
+/**
+ * @controller: mails
+ */
 class MailsController extends BaseController
 {
-    /**
-     * @param Request $request
-     * @return Factory|View|Application
-     */
-    public function index(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function index(Request $request): \Illuminate\Routing\Redirector|Application|\Illuminate\Http\RedirectResponse
     {
         return redirect(url('/'), 302);
     }
