@@ -28,94 +28,17 @@
 
                 <div class="mb-5 mb-md-0">
                     @foreach ($data as $key => $item)
-                        @if($item->cover_image)
-                            <article class="blog-list @if($key > 0) mt-5 pt-5 border-top @endif">
-                                <div class="blog-start-column">
-                                    <div class="d-flex align-items-center fs-sm pb-2 mb-1">
-                                        @if ($item->platform)
-                                            <div>
-                                                <span class='fst-italic'>Posted by：</span>
-                                                <a rel="nofollow"
-                                                   href="{{url('/platforms/'.$item->platform_id)}}">{{ $item->platform->name }}</a>
-                                            </div>
-                                        @endif
-                                        @if ($item->rate)
-                                            <div class="d-none d-md-inline-flex">
-                                                <span class="blog-entry-meta-divider"></span>
-                                                <span class='fst-italic'>Hot：</span>
-                                                <span class="text-primary">
-                                                {!! $article->rates($item->url, $item->rate) !!}
-                                            </span>
-                                            </div>
-                                        @endif
-                                        <span class="blog-entry-meta-divider"></span>
-                                        <span class="blog-entry-meta-link">{{ $item->created_at->format('M d') }}</span>
-                                    </div>
-                                    <h2 class="h5 blog-entry-title">
-                                        <a href="{{ url($item->shortcode) }}">
-                                            {{$item->title}}
-                                        </a>
+                        <article class="@if($key > 0) mt-5 pt-5 border-top @endif">
+                            <div class="d-flex align-items-start">
+                                <div class="blog-entry-meta-label">
+                                    <span class='date'>{{ $item->created_at->format('d') }}</span>
+                                    <span class="year">{{ $item->created_at->format('M') }}</span>
+                                </div>
+                                <div class="blog-entry-meta-title">
+                                    <h2 class="h4 blog-entry-title mb-0">
+                                        <a href="{{ url($item->shortcode) }}">{{ $item->title }}</a>
                                     </h2>
-                                </div>
-                                <div class="blog-end-column">
-                                    <a class="blog-entry-thumb mb-3" href="{{ url($item->shortcode) }}">
-                                        <img
-                                            src="{{asset($item->cover_image)}}"
-                                            alt="Post">
-                                    </a>
-                                    <p class="fs-sm">{{ $item->description }}
-                                        <a href="{{ url($item->shortcode) }}" class="blog-entry-meta-link fw-medium">
-                                            [Read more]
-                                        </a>
-                                    </p>
-                                </div>
-                            </article>
-                        @elseif($item->thumb)
-                            <article class="@if($key > 0) mt-5 pt-5 border-top @endif">
-                                <div class="d-flex align-items-start">
-                                    <div class="blog-entry-meta-label">
-                                        <span class='date'>{{ $item->created_at->format('d') }}</span>
-                                        <span class="year">{{ $item->created_at->format('M') }}</span>
-                                    </div>
-                                    <div class="blog-entry-meta-title">
-                                        <h2 class="h4 blog-entry-title mb-0">
-                                            <a href="{{ url($item->shortcode) }}">{{ $item->title }}</a>
-                                        </h2>
-                                        <div class="d-flex align-items-center fs-sm">
-                                            @if ($item->platform)
-                                                <div>
-                                                    <span class='fst-italic'>Posted by：</span>
-                                                    <a rel="nofollow"
-                                                       href="{{url('/platforms/'.$item->platform_id)}}">{{ $item->platform->name }}</a>
-                                                </div>
-                                            @endif
-                                            @if ($item->rate)
-                                                <div class="d-none d-md-inline-flex">
-                                                    <span class="blog-entry-meta-divider"></span>
-                                                    <span class='fst-italic'>Hot：</span>
-                                                    <span class="text-primary">
-                                                {!! $article->rates($item->url, $item->rate) !!}
-                                            </span>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-                                <a class="blog-entry-thumb mb-3 mt-1" href="{{ url($item->shortcode) }}">
-                                    <img alt="{{ $item->title }}"
-                                         @if($key >= 2) class="lazy" data-src="{{ $item->thumb }}"
-                                         @else src="{{ $item->thumb }}" @endif >
-                                </a>
-                                <p class="fs-md">{{ $item->description }}</p>
-                                <div class="d-flex justify-content-end justify-content-sm-between align-content-center">
-                                    @include('components.social', ['item' => $item])
-                                    <a href="{{ url($item->shortcode) }}" class="btn btn-primary rounded-0">马上围观</a>
-                                </div>
-                            </article>
-                        @else
-                            <article class="blog-list @if($key > 0) mt-5 pt-5 border-top @endif">
-                                <div class="blog-start-column">
-                                    <div class="d-flex align-items-center fs-sm pb-2 mb-1">
+                                    <div class="d-flex align-items-center fs-sm">
                                         @if ($item->platform)
                                             <div>
                                                 <span class='fst-italic'>Posted by：</span>
@@ -132,17 +55,22 @@
                                             </span>
                                             </div>
                                         @endif
-                                        <span class="blog-entry-meta-divider"></span>
-                                        <span class="blog-entry-meta-link">{{ $item->created_at->format('M d') }}</span>
                                     </div>
                                 </div>
-                                <div class="blog-end-column">
-                                    <p class="fs-sm">{{ $item->description }}
-                                        <a href="{{ url($item->shortcode) }}" class="blog-entry-meta-link fw-medium">[Read
-                                            more]</a></p>
-                                </div>
-                            </article>
-                        @endif
+                            </div>
+
+                            <a class="blog-entry-thumb mb-3 mt-1" href="{{ url($item->shortcode) }}">
+                                <?php $thumb = $item->thumb ? assert($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
+                                <img @if($key >= 2) class="lazy" data-src="{{ $thumb }}"
+                                     @else src="{{ $thumb }}" @endif alt="{{ $item->title }}"/>
+                            </a>
+
+                            <p class="fs-md">{{ $item->description }}</p>
+                            <div class="d-flex justify-content-end justify-content-sm-between align-content-center">
+                                @include('components.social', ['item' => $item])
+                                <a href="{{ url($item->shortcode) }}" class="btn btn-primary rounded-0">马上围观</a>
+                            </div>
+                        </article>
                     @endforeach
                 </div>
                 {{ $data->render() }}
