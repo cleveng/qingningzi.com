@@ -15,7 +15,7 @@ class SearchController extends BaseController
         $domain = env("APP_DOMAIN");
         $keyword = $request->get("tag");
         if ($keyword) {
-            $tag = Tag::whereHasMorph("taggable", [Post::class, Article::class])->where('name', 'like', "%$keyword%")->first();
+            $tag = Tag::whereHasMorph("taggable", [Post::class, Article::class])->where('name',  $keyword)->first();
             if (!$tag) {
                 $url = "https://www.so.com/s?q=" . $keyword . "&ie=utf8&src=" . $domain . "&site=" . $domain . "&rg=1";
                 return redirect($url, 302);
@@ -30,7 +30,11 @@ class SearchController extends BaseController
             SEOMeta::addKeyword($tag->name);
             SEOMeta::setDescription($tag->name);
             SEOMeta::setCanonical($request->getRequestUri());
-            $data = $tag->taggable()->where('status', true)->select(['title', 'description', 'thumb', 'shortcode', 'qrcode', 'category_id', 'platform_id', 'views_count', 'created_at'])->paginate(15);;
+            $data = $tag->taggable;
+
+            if (!$data->thumb) {
+                $data->thumb = $this->defaultThumb.$data->id;
+            }
 
             return view('pages.tags.index', [
                 'data' => $data,

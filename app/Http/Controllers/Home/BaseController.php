@@ -20,6 +20,8 @@ class BaseController extends Controller
     // idol页面
     protected string $idolURL;
 
+    protected string $defaultThumb;
+
     public function __construct()
     {
         $this->prePage = 12;
@@ -31,5 +33,6 @@ class BaseController extends Controller
         $this->duration = env('APP_DEBUG') ? 0 : 3600 * 24 * 31;
         $this->aboutURL = url('about');
         $this->idolURL = url('idols');
+        $this->defaultThumb = 'https://source.unsplash.com/featured/720x368?t=';
     }
 }

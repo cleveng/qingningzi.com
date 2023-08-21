@@ -32,44 +32,41 @@
                 </div>
 
                 <div>
-                    @foreach ($data as $key => $item)
-                        <article class="@if($key > 0) mt-5 pt-5 border-top @endif">
-                            <div class="d-flex align-items-start">
-                                <div class="blog-entry-meta-label">
-                                    <span class='date'>{{ $item->created_at->format('d') }}</span>
-                                    <span class="year">{{ $item->created_at->format('M') }}</span>
-                                </div>
-                                <div class="blog-entry-meta-title">
-                                    <h2 class="h4 blog-entry-title mb-0">
-                                        <a href="{{ url($item->shortcode) }}">{{ $item->title }}</a>
-                                    </h2>
-                                    <div class="d-flex align-items-center fs-sm">
-                                        @if ($item->platform)
-                                            <span class='fst-italic'>Posted by：</span>
-                                            <span>{{ $item->platform->name }}</span>
-                                            <span class="blog-entry-meta-divider"></span>
-                                        @endif
-                                        @if ($item->rate)
-                                            <span class='fst-italic'>Hot：</span>
-                                            <span class="text-primary">
-                                                {!! $article->rates($item->url, $item->rate) !!}
+                    <article>
+                        <div class="d-flex align-items-start">
+                            <div class="blog-entry-meta-label">
+                                <span class='date'>{{ $data->created_at->format('d') }}</span>
+                                <span class="year">{{ $data->created_at->format('M') }}</span>
+                            </div>
+                            <div class="blog-entry-meta-title">
+                                <h2 class="h4 blog-entry-title mb-0">
+                                    <a href="{{ url($data->shortcode) }}">{{ $data->title }}</a>
+                                </h2>
+                                <div class="d-flex align-items-center fs-sm">
+                                    @if ($data->platform)
+                                        <span class='fst-italic'>Posted by：</span>
+                                        <span>{{ $data->platform->name }}</span>
+                                        <span class="blog-entry-meta-divider"></span>
+                                    @endif
+                                    @if ($data->rate)
+                                        <span class='fst-italic'>Hot：</span>
+                                        <span class="text-primary">
+                                                {!! $article->rates($data->url, $data->rate) !!}
                                             </span>
-                                        @endif
-                                    </div>
+                                    @endif
                                 </div>
                             </div>
-                            <a class="blog-entry-thumb mb-3 mt-1" href="{{ url($item->shortcode) }}">
-                                <img src="{{ $item->thumb }}" alt="{{ $item->title }}">
-                            </a>
-                            <p class="fs-md">{{ $item->description }}</p>
-                            <div class="d-flex justify-content-end justify-content-sm-between align-content-center">
-                                @include('components.social', ['item' => $item])
-                                <a href="{{ url($item->shortcode) }}" class="btn btn-primary rounded-0">马上围观</a>
-                            </div>
-                        </article>
-                    @endforeach
+                        </div>
+                        <a class="blog-entry-thumb mb-3 mt-1 position-relative" href="{{ url($data->shortcode) }}">
+                            <img src="{{ $data->thumb }}" alt="{{ $data->title }}"/>
+                        </a>
+                        <p class="fs-md">{{ $data->description }}</p>
+                        <div class="d-flex justify-content-end justify-content-sm-between align-content-center">
+                            @include('components.social', ['item' => $data])
+                            <a href="{{ url($data->shortcode) }}" class="btn btn-primary rounded-0">马上围观</a>
+                        </div>
+                    </article>
                 </div>
-                {{ $data->render() }}
             </div>
 
             @inject('tags', 'App\Services\TagsService')
