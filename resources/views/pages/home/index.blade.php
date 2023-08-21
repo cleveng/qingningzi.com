@@ -175,7 +175,8 @@
                         <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="{{$item->title}}"
                            href="{{url($item->shortcode)}}"
                            class="card">
-                            <img alt="{{$item->title}}" src="{{asset($item->thumb)}}" class="img-fluid">
+                            <?php $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
+                            <img alt="{{$item->title}}" src="{{ $thumb }}" class="img-fluid">
                             <div
                                 class="position-absolute top-0 start-0 end-0 d-flex justify-content-between align-items-center">
                                 <div class="badge bg-primary rounded-0">{{$item->category->title}}</div>
@@ -196,7 +197,7 @@
                 <div class="tns-carousel tns-controls-static">
                     <div class="tns-carousel-inner"
                          data-carousel-options='{"items": 3, "nav": false, "responsive": {"0":{"items":1},"500":{"items":2, "gutter": 18},"768":{"items":3, "gutter": 20}, "1100":{"gutter": 24}}}'>
-                        @foreach($articles->items(13,6) as $item)
+                        @foreach($articles->items(13,6) as $key=>$item)
                             <div class="card product-card-alt">
                                 <div class="product-thumb">
                                     <a href="{{url('category/'.$item->category_id)}}"
@@ -205,7 +206,9 @@
                                     </a>
                                     <a class="product-thumb-overlay" href="{{url($item->shortcode)}}"
                                        title="{{$item->title}}"></a>
-                                    <img src="{{asset($item->thumb)}}" alt="{{$item->title}}">
+
+                                    <?php $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
+                                    <img src="{{ $thumb }}" alt="{{$item->title}}">
                                 </div>
                                 <div class="card-body mt-n2">
                                     <div class="d-flex flex-wrap justify-content-between align-items-start pb-1 fs-sm">
@@ -264,10 +267,11 @@
             <div class="tns-carousel mt-0 mt-md-4">
                 <div class="tns-carousel-inner"
                      data-carousel-options="{&quot;items&quot;: 2, &quot;nav&quot;: false, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;700&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 20},&quot;991&quot;:{&quot;items&quot;:4, &quot;gutter&quot;: 30}}}">
-                    @foreach($articles->items(15, 10) as $item)
+                    @foreach($articles->items(15, 10) as $key=>$item)
                         <article>
                             <a class="blog-entry-thumb mb-1" href="{{url($item->shortcode)}}">
-                                <img src="{{asset($item->thumb)}}" alt="{{$item->title}}">
+                                <?php $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
+                                <img src="{{ $thumb }}" alt="{{$item->title}}">
                             </a>
                             <h2 class="h6 blog-entry-title mb-0 text-truncate">
                                 <a class="fs-sm" href="{{url($item->shortcode)}}">{{$item->title}}</a>
@@ -322,7 +326,8 @@
                                         <i class="ci-link"></i>
                                     </a>
                                     <a class="card-img-top d-block overflow-hidden" href="{{url($item->shortcode)}}">
-                                        <img alt="{{$item->title}}" data-src="{{$item->thumb}}" class="lazy">
+                                        <?php $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
+                                        <img alt="{{$item->title}}" data-src="{{ $thumb }}" class="lazy">
                                     </a>
                                     <div class="card-body py-2">
                                         @if($item->category)
