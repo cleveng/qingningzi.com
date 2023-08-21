@@ -31,8 +31,8 @@ class ProcessBase implements ShouldQueue
     {
         $this->now = Carbon::now();
 
-        $this->dir_qrcode = "uploadfile/qrcodes";
-        $this->dir_thumb = "uploadfile/" . $this->now->format('Y/md');
+        $this->dir_qrcode = 'uploadfile/qrcodes';
+        $this->dir_thumb = 'uploadfile/' . $this->now->format('Y/md');
 
         $dirs = [
             $this->dir_qrcode,

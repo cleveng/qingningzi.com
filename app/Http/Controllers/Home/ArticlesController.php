@@ -47,7 +47,7 @@ class ArticlesController extends BaseController
                     'content' => url($data->shortcode),
                 ]);
                 $result = $resp->json();
-                ProcessQrcode::dispatch($data, $result["file_url"])->delay(now()->addMinute())->onQueue('qrcode');
+                ProcessQrcode::dispatch($data, $result["data"])->delay(now()->addMinute())->onQueue('qrcode');
             } catch (\Illuminate\Http\Client\RequestException $e) {
                 Log::error("[Articles] RequestException error: " . $e->getMessage());
             } catch (\Exception $e) {
@@ -56,6 +56,7 @@ class ArticlesController extends BaseController
         }
 
         $data->increment('views_count');
+        $data->increment('hit_count');
         $parentId = $data->category->parent_id === 0 ? $data->category->id : $data->category->parent_id;
 
         // get previous and next records

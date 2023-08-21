@@ -52,7 +52,7 @@ class PostsController extends BaseController
                     'content' => url($data->shortcode),
                 ]);
                 $result = $resp->json();
-                ProcessQrcode::dispatch($data, $result["file_url"])->delay(now()->addMinute())->onQueue('qrcode');
+                ProcessQrcode::dispatch($data, $result["data"])->delay(now()->addMinute())->onQueue('qrcode');
             } catch (\Illuminate\Http\Client\RequestException $e) {
                 Log::error("[Posts] RequestException error: " . $e->getMessage());
             } catch (\Exception $e) {

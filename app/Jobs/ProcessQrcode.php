@@ -2,8 +2,10 @@
 
 namespace App\Jobs;
 
+use Exception;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Vinkla\Hashids\Facades\Hashids;
 
 /**
  *
@@ -40,12 +42,12 @@ class ProcessQrcode extends ProcessBase
             // 获取响应状态码
             $statusCode = $response->status();
             if ($statusCode !== 200) {
-                Log::error("Failed to download image ");
+                Log::error('Failed to download image ');
                 return;
             }
 
             // 图片下载成功，保存图片到本地
-            $filename = $this->dir_qrcode . '/' . $record->shortcode . '.jpg';
+            $filename = $this->dir_qrcode . '/' . basename($this->fileURL);
             $filepath = public_path($filename);
 
             // 保存图片数据到本地文件
@@ -53,8 +55,8 @@ class ProcessQrcode extends ProcessBase
                 $record->qrcode = $filename;
                 $record->save();
             }
-        } catch (\Exception $e) {
-            Log::error("An error occurred: " . $e->getMessage());
+        } catch (Exception $e) {
+            Log::error('An error occurred: ' . $e->getMessage());
         }
     }
 }
