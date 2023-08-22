@@ -33,6 +33,8 @@ class IndexController extends Controller
 
         $data = $request->except(['_token', 'signature']);
         $data['uid'] = intval($data['uid']);
+        $data['category_id'] = intval($data['category_id']);
+        $data['platform_id'] = intval($data['platform_id']);
         if (Record::where('uid', $data['uid'])->first()) {
             return Redirect::back()->withErrors(['message' => '数据已经存在!!!']);
         }
