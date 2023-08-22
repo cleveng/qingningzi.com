@@ -46,3 +46,15 @@ Route::group(['namespace' => 'Home'], function () {
 Route::group(['namespace' => 'Webhook'], function () {
     Route::post('/article/callback', [\App\Http\Controllers\Webhook\ArticleController::class, 'callback'])->middleware(WebhookSignature::class);
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| Account Routes
+| Nginx config auth
+|--------------------------------------------------------------------------
+*/
+Route::group(['namespace' => 'Auth'], function () {
+    Route::get('/account', [\App\Http\Controllers\Auth\IndexController::class, 'index']);
+    Route::post('/records', [\App\Http\Controllers\Auth\IndexController::class, 'records']);
+});
