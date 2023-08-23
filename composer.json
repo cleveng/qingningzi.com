@@ -12,6 +12,7 @@
         "ext-pdo": "*",
         "artesaos/seotools": "^1.0",
         "bensampo/laravel-enum": "^6.1",
+        "creativeorange/gravatar": "^1.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.33.0",
         "laravel/sanctum": "^3.0",
@@ -23,6 +24,7 @@
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
         "fakerphp/faker": "^1.9.1",
+        "laravel/breeze": "^1.14",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.23",
         "mockery/mockery": "^1.4.4",
