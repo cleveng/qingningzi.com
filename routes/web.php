@@ -13,7 +13,6 @@ use App\Http\Middleware\WebhookSignature;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::group(['namespace' => 'Home'], function () {
     Route::get('/', [\App\Http\Controllers\Home\IndexController::class, 'index']);
 
@@ -47,14 +46,14 @@ Route::group(['namespace' => 'Webhook'], function () {
     Route::post('/article/callback', [\App\Http\Controllers\Webhook\ArticleController::class, 'callback'])->middleware(WebhookSignature::class);
 });
 
-
 /*
 |--------------------------------------------------------------------------
-| Account Routes
-| Nginx config auth
+| Dashboard Routes
 |--------------------------------------------------------------------------
 */
-Route::group(['namespace' => 'Auth'], function () {
-    Route::get('/account', [\App\Http\Controllers\Auth\IndexController::class, 'index']);
-    Route::post('/records', [\App\Http\Controllers\Auth\IndexController::class, 'records']);
+Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], function () {
+    Route::get('/', [\App\Http\Controllers\Dashboard\IndexController::class, 'index'])->name('dashboard');
+    Route::post('records', [\App\Http\Controllers\Dashboard\RecordsController::class, 'store']);
 });
+
+require_once(__DIR__ . '/auth.php');

@@ -1,40 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Platform;
 use App\Models\Record;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Str;
-use Vinkla\Hashids\Facades\Hashids;
+use Redirect;
 
-class IndexController extends Controller
+class RecordsController extends Controller
 {
-    public function index(Request $request)
+    public function store(Request $request)
     {
-        $signature = Hashids::encode(time());
-        Redis::set('signature', $signature);
-        $platforms = Platform::where('status', 1)->get();
-        return view('account.index', [
-            'platforms' => $platforms,
-            'signature' => $signature,
-        ]);
-    }
-
-    public function records(Request $request)
-    {
-        $signature = Redis::get('signature');
-        if ($signature !== $request->get('signature')) {
-            return Redirect::back()->withErrors(['message' => '参数非法!!!']);
-        }
-
-        $data = $request->except(['_token', 'signature']);
+        $data = $request->except(['_token']);
         $data['uid'] = intval($data['uid']);
         $data['category_id'] = intval($data['category_id']);
         $data['platform_id'] = intval($data['platform_id']);
+
         if (Record::where('uid', $data['uid'])->first()) {
             return Redirect::back()->withErrors(['message' => '数据已经存在!!!']);
         }
@@ -54,6 +36,6 @@ class IndexController extends Controller
             return Redirect::back()->withErrors(['message' => '创建数据失败!!!']);
         }
 
-        return Redirect::back();
+        return Redirect::back()->with(['message' => '创建成功!!!']);
     }
 }
