@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Enums\FileType;
 use App\Jobs\ProcessQrcode;
 use App\Models\Article;
 use Artesaos\SEOTools\Facades\SEOMeta;
@@ -12,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 /**
  * @Controller: ArticlesController
@@ -34,11 +36,18 @@ class ArticlesController extends BaseController
         $tags = $data->tags()->pluck('name');
         $data->tags()->increment('views_count');
 
+        // FIXME: the browser not support .swf video, file_url
+        $attachment = $data->attachment;
+        if ($attachment->file_type === FileType::LINK && Str::contains($attachment->file_url, ".swf")) {
+            $attachment->file_url = "https://www.baidu.com/s?wd=" . urlencode($data->title);
+            $attachment->save();
+        }
+
         // seo
         SEOMeta::setTitle($data->title);
         SEOMeta::addKeyword($tags->join(','));
         SEOMeta::setDescription($data->description);
-        SEOMeta::setCanonical(url($data->shortcode));
+        SEOMeta::setCanonical($request->getRequestUri());
 
         // 处理二维码
         if (!$data->qrcode) {
@@ -74,6 +83,7 @@ class ArticlesController extends BaseController
             'tags' => $tags,
             'previous' => $previous,
             'next' => $next,
+            'attachment' => $attachment,
         ]);
     }
 }

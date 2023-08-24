@@ -70,13 +70,63 @@
                             </div>
                         </div>
                     </div>
-                    <div class="blog-post-media mt-3">
-                        @if ($data->content)
-                            {!! $data->content !!}
-                        @else
-                            {{ $data->description }}
+
+                    <section class="mt-3">
+                        @if($attachment->file_type === \App\Enums\FileType::LINK)
+                            <blockquote class="quote">
+                                <h6>
+                                    <q>
+                                        {{Str::limit($data->description,168)}}
+                                    </q>
+                                </h6>
+                                <p class="d-none d-sm-block text-truncate">
+                                    相关资源：<cite class="text-muted">-
+                                        @if($attachment->file_url)
+                                            <a href="{{$attachment->file_url}}" rel="nofollow" target="_blank">点击获取</a>
+                                        @else
+                                            暂无内容
+                                        @endif
+                                    </cite>
+                                </p>
+                            </blockquote>
                         @endif
-                    </div>
+
+                        @if($attachment->file_type === \App\Enums\FileType::CAROUSEL)
+                            <div class="tns-carousel tns-nav-enabled">
+                                <div class="tns-carousel-inner"
+                                     data-carousel-options='{"mode": "gallery", "speed": 1000}'>
+                                    @foreach($attachment->media as $medium)
+                                        <img alt="{{$medium['display_name']}}"
+                                             src="{{asset($medium['display_url'])}}"
+                                             class="img-fluid">
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
+
+                        @if($attachment->file_type === \App\Enums\FileType::MP4)
+                            <div class="blog-post-media">
+                                <video src="{{$attachment->file_url}}" style="width: 100%;height: auto"
+                                       poster="{{$attachment->thumb}}" controls=""
+                                       webkit-playsinline=""></video>
+                            </div>
+                        @endif
+
+                        <div class="blog-post-media mt-3">
+                            @if ($data->content)
+                                {!! $data->content !!}
+                            @else
+                                {{ $data->description }}
+                            @endif
+                        </div>
+
+                        @if($attachment && in_array($attachment->file_type, [\App\Enums\FileType::LINK, \App\Enums\FileType::BOOK]))
+                            <a href="{{$attachment->file_url}}" rel="nofollow" target="_blank"
+                               class="btn btn-primary rounded-0">
+                                <i class="ci-search"></i> 获取资源
+                            </a>
+                        @endif
+                    </section>
 
                     <!-- Post tags + sharing-->
                     <div class="d-flex flex-wrap justify-content-between pt-2 pb-4 mb-1">
@@ -108,7 +158,8 @@
                     @if ($bottomBar)
                         <a href="{{ url('/redirect?target_id=' . $bottomBar->id) }}" rel="nofollow" target="_blank"
                            class="card" title="{{ $bottomBar->title }}">
-                            <img alt="{{ $bottomBar->title }}" src="{{ asset($bottomBar->cover_image) }}" class="card-img">
+                            <img alt="{{ $bottomBar->title }}" src="{{ asset($bottomBar->cover_image) }}"
+                                 class="card-img">
                         </a>
                     @endif
 
