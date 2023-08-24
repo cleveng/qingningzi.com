@@ -37,4 +37,9 @@ class Article extends Model
     {
         return $this->morphMany('App\Models\Tag', 'taggable');
     }
+
+    public function attachment()
+    {
+        return $this->hasOne('App\Models\Attachment', 'article_id', 'id');
+    }
 }
