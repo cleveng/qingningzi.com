@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Home;
 
 use App\Models\Article;
-use App\Models\Post;
 use App\Models\Tag;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
@@ -15,7 +14,7 @@ class SearchController extends BaseController
         $domain = env("APP_DOMAIN");
         $keyword = $request->get("tag");
         if ($keyword) {
-            $tag = Tag::whereHasMorph("taggable", [Post::class, Article::class])->where('name',  $keyword)->first();
+            $tag = Tag::whereHasMorph("taggable", Article::class)->where('name', $keyword)->first();
             if (!$tag) {
                 $url = "https://www.so.com/s?q=" . $keyword . "&ie=utf8&src=" . $domain . "&site=" . $domain . "&rg=1";
                 return redirect($url, 302);
@@ -33,7 +32,7 @@ class SearchController extends BaseController
             $data = $tag->taggable;
 
             if (!$data->thumb) {
-                $data->thumb = $this->defaultThumb.$data->id;
+                $data->thumb = $this->defaultThumb . $data->id;
             }
 
             return view('pages.tags.index', [

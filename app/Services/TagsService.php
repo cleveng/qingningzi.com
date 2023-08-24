@@ -4,9 +4,7 @@ namespace App\Services;
 
 
 use App\Models\Article;
-use App\Models\Post;
 use App\Models\Tag;
-use App\Models\Video;
 use Illuminate\Support\Facades\Cache;
 
 class TagsService extends BaseService

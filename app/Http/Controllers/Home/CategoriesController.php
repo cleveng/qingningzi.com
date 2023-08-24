@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Home;
 use App\Enums\ContentType;
 use App\Models\Article;
 use App\Models\Category;
-use App\Models\Post;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;

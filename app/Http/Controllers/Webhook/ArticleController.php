@@ -8,7 +8,6 @@ use App\Jobs\ProcessThumb;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Platform;
-use App\Models\Post;
 use Illuminate\Http\JsonResponse;
 
 class ArticleController extends Controller
@@ -48,7 +47,7 @@ class ArticleController extends Controller
         unset($data['platform']);
         $data['platform_id'] = $platform->id;
 
-        $result = $category->id === 13 ? Article::create($data) : Post::create($data);
+        $result = Article::create($data);
         if (!$result) {
             return response()->json([
                 'message' => '创建失败',

@@ -8,13 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Platform extends Model
 {
     use HasFactory;
-
     protected $guarded = [];
-
-    public function posts()
-    {
-        return $this->hasMany('App\Models\Post', 'platform_id', 'id');
-    }
 
     public function articles()
     {
