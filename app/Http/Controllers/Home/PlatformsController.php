@@ -46,7 +46,7 @@ class PlatformsController extends BaseController
 
         // TODO: ContentType::asSelectArray() tabs
         //       articles() right-bar
-        $data = $platform->posts()->orderBy('id', 'desc')->paginate(3);
+        $data = $platform->articles()->orderBy('id', 'desc')->paginate(3);
         return view('pages.platforms.id', [
             'data' => $data,
             'platform' => $platform,
