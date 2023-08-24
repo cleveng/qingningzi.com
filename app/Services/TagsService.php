@@ -45,7 +45,7 @@ class TagsService extends BaseService
     public function lastest(string $url = '', int $number = 3)
     {
         return Cache::remember('lastest_'.$url, $this->duration, function () use ($number) {
-            return Tag::whereHasMorph("taggable", [Post::class, Article::class])->inRandomOrder()->take($number)->get()->unique('taggable_id');
+            return Tag::whereHasMorph("taggable", Article::class)->inRandomOrder()->take($number)->get()->unique('taggable_id');
         });
     }
 
