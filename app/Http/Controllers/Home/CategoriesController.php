@@ -54,11 +54,7 @@ class CategoriesController extends BaseController
         SEOMeta::setCanonical(url($category->url));
 
         $cid = $category->parent_id === 0 ? $category->children()->pluck('id')->toArray() : [$category->id];
-        if ($category->content_type === ContentType::ARTICLE) {
-            $data = Article::whereIn('category_id', $cid)->orderBy('updated_at', 'desc')->paginate();
-        } else {
-            $data = Post::whereIn('category_id', $cid)->orderBy('created_at', 'desc')->paginate();
-        }
+        $data = Article::whereIn('category_id', $cid)->orderBy('updated_at', 'desc')->paginate();
 
         // level 1 category parent_id is itself
         $parent_id = $category->parent_id === 0 ? $category->id : $category->parent_id;

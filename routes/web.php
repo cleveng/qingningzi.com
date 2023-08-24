@@ -28,7 +28,6 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('/idols', [\App\Http\Controllers\Home\IdolsController::class, 'index']);
 
     Route::get('/s/{id?}', [\App\Http\Controllers\Home\ArticlesController::class, 'show']);
-    Route::get('/p/{id?}', [\App\Http\Controllers\Home\PostsController::class, 'show']);
 
     Route::get('/search', [\App\Http\Controllers\Home\SearchController::class, 'index']);
     Route::get('/redirect', [\App\Http\Controllers\Home\RedirectController::class, 'index']);
