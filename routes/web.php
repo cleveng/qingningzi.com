@@ -52,7 +52,14 @@ Route::group(['namespace' => 'Webhook'], function () {
 */
 Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], function () {
     Route::get('/', [\App\Http\Controllers\Dashboard\IndexController::class, 'index'])->name('dashboard');
-    Route::post('records', [\App\Http\Controllers\Dashboard\RecordsController::class, 'store']);
+
+    Route::group(['prefix' => 'records'], function () {
+        Route::get('/', [\App\Http\Controllers\Dashboard\RecordsController::class, 'index']);
+        Route::post('/', [\App\Http\Controllers\Dashboard\RecordsController::class, 'store']);
+        Route::get('/create', [\App\Http\Controllers\Dashboard\RecordsController::class, 'create']);
+        Route::get('/{id}/edit', [\App\Http\Controllers\Dashboard\RecordsController::class, 'edit']);
+        Route::put('/{id}', [\App\Http\Controllers\Dashboard\RecordsController::class, 'update']);
+    });
 });
 
-require_once(__DIR__ . '/auth.php');
+require __DIR__ . '/auth.php';
