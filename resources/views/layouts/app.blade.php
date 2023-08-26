@@ -13,7 +13,7 @@
 <body class="bg-secondary">
 <main class="container-fluid">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3 col-12">
             <section class="ps-lg-4 pe-lg-3 pt-4">
                 <div class="px-3 pt-2">
                     <h2 class="h5 mb-3">当前用户</h2>
@@ -39,7 +39,7 @@
                 </div>
             </section>
         </div>
-        <div class="col-md-9">
+        <div class="col-lg-9 col-12">
             <div class="ps-lg-4 pe-lg-3 pt-4">
                 <div class="px-3 pt-2">
                     @section('content')
