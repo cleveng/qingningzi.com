@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('content')
     @inject('article', 'App\Services\ArticlesService')
+    @inject('prom', 'App\Services\PromotionsService')
     <div class="container space-2">
         <div class="row">
             <div class="col-md-12 col-lg-8">
@@ -26,7 +27,15 @@
                     </nav>
                 </div>
 
-                <div class="mb-5 mb-md-0">
+                <?php $topBar = $prom->item(\App\Enums\PromotionType::TopBar); ?>
+                @if ($topBar)
+                    <a href="{{ url('/redirect?target_id=' . $topBar->id) }}" rel="nofollow" target="_blank"
+                       class="card" title="{{ $topBar->title }}">
+                        <img alt="{{ $topBar->title }}" src="{{ asset($topBar->cover_image) }}" class="card-img">
+                    </a>
+                @endif
+
+                <div class="my-5 mb-md-0">
                     @foreach ($data as $key => $item)
                         <article class="@if($key > 0) mt-5 pt-5 border-top @endif">
                             <div class="d-flex align-items-start">
@@ -73,7 +82,17 @@
                         </article>
                     @endforeach
                 </div>
+
                 {{ $data->render() }}
+
+                <?php $bottomBar = $prom->item(\App\Enums\PromotionType::TopBar, $topBar->id); ?>
+                @if ($bottomBar)
+                    <a href="{{ url('/redirect?target_id=' . $bottomBar->id) }}" rel="nofollow" target="_blank"
+                       class="card mt-5" title="{{ $bottomBar->title }}">
+                        <img alt="{{ $bottomBar->title }}" src="{{ asset($bottomBar->cover_image) }}"
+                             class="card-img">
+                    </a>
+                @endif
             </div>
             @include('components.sidebar')
         </div>
