@@ -53,7 +53,7 @@ class RecordsController extends Controller
             return Redirect::back()->withErrors(['message' => '数据已经存在!!!']);
         }
 
-        $data['is_valid'] = $data['is_valid'] ? $data['is_valid'] === "on" : false;
+        $data['is_valid'] = isset($data['is_valid']) ? $data['is_valid'] === "on" : false;
         if (!Record::create($data)) {
             return Redirect::back()->withErrors(['message' => '创建数据失败!!!']);
         }
@@ -76,7 +76,7 @@ class RecordsController extends Controller
         $record->except_words = $data['except_words'];
         $record->sample_link = $data['sample_link'];
         $record->writer = $data['writer'];
-        $record->is_valid = $data['is_valid'] ? $data['is_valid'] === "on" : false;
+        $record->is_valid = isset($data['is_valid']) ? $data['is_valid'] === "on" : false;
         if (!$record->save()) {
             return Redirect::back()->withErrors(['message' => '更新数据失败!!!']);
         }
