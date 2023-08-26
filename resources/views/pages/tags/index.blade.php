@@ -12,6 +12,7 @@
 @endsection
 
 @section('content')
+    @inject('prom', 'App\Services\PromotionsService')
     @inject('article', 'App\Services\ArticlesService')
     <div class="container space-2">
         <div class="row">
@@ -31,42 +32,33 @@
                     </nav>
                 </div>
 
-                <div>
-                    <article>
-                        <div class="d-flex align-items-start">
-                            <div class="blog-entry-meta-label">
-                                <span class='date'>{{ $data->created_at->format('d') }}</span>
-                                <span class="year">{{ $data->created_at->format('M') }}</span>
-                            </div>
-                            <div class="blog-entry-meta-title">
-                                <h2 class="h4 blog-entry-title mb-0">
-                                    <a href="{{ url($data->shortcode) }}">{{ $data->title }}</a>
-                                </h2>
-                                <div class="d-flex align-items-center fs-sm">
-                                    @if ($data->platform)
-                                        <span class='fst-italic'>Posted by：</span>
-                                        <span>{{ $data->platform->name }}</span>
-                                        <span class="blog-entry-meta-divider"></span>
-                                    @endif
-                                    @if ($data->rate)
-                                        <span class='fst-italic'>Hot：</span>
-                                        <span class="text-primary">
-                                                {!! $article->rates($data->url, $data->rate) !!}
-                                            </span>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                        <a class="blog-entry-thumb mb-3 mt-1 position-relative" href="{{ url($data->shortcode) }}">
-                            <img src="{{ $data->thumb }}" alt="{{ $data->title }}"/>
-                        </a>
-                        <p class="fs-md">{{ $data->description }}</p>
-                        <div class="d-flex justify-content-end justify-content-sm-between align-content-center">
-                            @include('components.social', ['item' => $data])
-                            <a href="{{ url($data->shortcode) }}" class="btn btn-primary rounded-0">马上围观</a>
-                        </div>
-                    </article>
+                <div class="mb-5">
+                    @include('components.article-item', ['data'=>$data, 'key'=>-1])
                 </div>
+
+                <?php $topBar = $prom->item(\App\Enums\PromotionType::TopBar); ?>
+                @if ($topBar)
+                    <a href="{{ url('/redirect?target_id=' . $topBar->id) }}" rel="nofollow" target="_blank"
+                       class="card" title="{{ $topBar->title }}">
+                        <img alt="{{ $topBar->title }}" src="{{ asset($topBar->cover_image) }}" class="card-img">
+                    </a>
+                @endif
+
+                <div class="my-5">
+                    <h2 class="mb-4 pb-md-3 pb-2 h4">推荐内容</h2>
+                    @foreach($article->popular($tag->taggable_id, 3) as $key=>$item)
+                        @include('components.article-item', ['data'=>$item, 'key'=>$key])
+                    @endforeach
+                </div>
+
+                <?php $bottomBar = $prom->item(\App\Enums\PromotionType::TopBar, $topBar->id); ?>
+                @if ($bottomBar)
+                    <a href="{{ url('/redirect?target_id=' . $bottomBar->id) }}" rel="nofollow" target="_blank"
+                       class="card mt-5" title="{{ $bottomBar->title }}">
+                        <img alt="{{ $bottomBar->title }}" src="{{ asset($bottomBar->cover_image) }}"
+                             class="card-img">
+                    </a>
+                @endif
             </div>
 
             @inject('tags', 'App\Services\TagsService')

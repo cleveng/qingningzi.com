@@ -48,6 +48,10 @@ class ArticlesService extends BaseService
         return Cache::remember('count_' . $status, 600, function () use ($status) {
             return Article::where('status', $status)->count();
         });
+    }
 
+    public function popular(int $taggable_id, int $len = 3)
+    {
+        return Article::where('id','<>', $taggable_id)->where('status', true)->inRandomOrder()->take($len)->get();
     }
 }
