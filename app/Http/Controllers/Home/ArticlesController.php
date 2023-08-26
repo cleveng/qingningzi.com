@@ -38,7 +38,7 @@ class ArticlesController extends BaseController
 
         // FIXME: the browser not support .swf video, file_url
         $attachment = $data->attachment;
-        if ($attachment->file_type === FileType::LINK && Str::contains($attachment->file_url, ".swf")) {
+        if ($attachment && $attachment->file_type === FileType::LINK && Str::contains($attachment->file_url, ".swf")) {
             $attachment->file_url = "https://www.baidu.com/s?wd=" . urlencode($data->title);
             $attachment->save();
         }

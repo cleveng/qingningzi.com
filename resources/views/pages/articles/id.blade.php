@@ -72,44 +72,47 @@
                     </div>
 
                     <section class="mt-3">
-                        @if($attachment->file_type === \App\Enums\FileType::LINK)
-                            <blockquote class="quote">
-                                <h6>
-                                    <q>
-                                        {{Str::limit($data->description,168)}}
-                                    </q>
-                                </h6>
-                                <p class="d-none d-sm-block text-truncate">
-                                    相关资源：<cite class="text-muted">-
-                                        @if($attachment->file_url)
-                                            <a href="{{$attachment->file_url}}" rel="nofollow" target="_blank">点击获取</a>
-                                        @else
-                                            暂无内容
-                                        @endif
-                                    </cite>
-                                </p>
-                            </blockquote>
-                        @endif
+                        @if($attachment)
+                            @if($attachment->file_type === \App\Enums\FileType::LINK)
+                                <blockquote class="quote">
+                                    <h6>
+                                        <q>
+                                            {{Str::limit($data->description,168)}}
+                                        </q>
+                                    </h6>
+                                    <p class="d-none d-sm-block text-truncate">
+                                        相关资源：<cite class="text-muted">-
+                                            @if($attachment->file_url)
+                                                <a href="{{$attachment->file_url}}" rel="nofollow"
+                                                   target="_blank">点击获取</a>
+                                            @else
+                                                暂无内容
+                                            @endif
+                                        </cite>
+                                    </p>
+                                </blockquote>
+                            @endif
 
-                        @if($attachment->file_type === \App\Enums\FileType::CAROUSEL)
-                            <div class="tns-carousel tns-nav-enabled">
-                                <div class="tns-carousel-inner"
-                                     data-carousel-options='{"mode": "gallery", "speed": 1000}'>
-                                    @foreach($attachment->media as $medium)
-                                        <img alt="{{$medium['display_name']}}"
-                                             src="{{asset($medium['display_url'])}}"
-                                             class="img-fluid">
-                                    @endforeach
+                            @if($attachment->file_type === \App\Enums\FileType::CAROUSEL)
+                                <div class="tns-carousel tns-nav-enabled">
+                                    <div class="tns-carousel-inner"
+                                         data-carousel-options='{"mode": "gallery", "speed": 1000}'>
+                                        @foreach($attachment->media as $medium)
+                                            <img alt="{{$medium['display_name']}}"
+                                                 src="{{asset($medium['display_url'])}}"
+                                                 class="img-fluid">
+                                        @endforeach
+                                    </div>
                                 </div>
-                            </div>
-                        @endif
+                            @endif
 
-                        @if($attachment->file_type === \App\Enums\FileType::MP4)
-                            <div class="blog-post-media">
-                                <video src="{{$attachment->file_url}}" style="width: 100%;height: auto"
-                                       poster="{{$attachment->thumb}}" controls=""
-                                       webkit-playsinline=""></video>
-                            </div>
+                            @if($attachment->file_type === \App\Enums\FileType::MP4)
+                                <div class="blog-post-media">
+                                    <video src="{{$attachment->file_url}}" style="width: 100%;height: auto"
+                                           poster="{{$attachment->thumb}}" controls=""
+                                           webkit-playsinline=""></video>
+                                </div>
+                            @endif
                         @endif
 
                         <div class="blog-post-media mt-3">
