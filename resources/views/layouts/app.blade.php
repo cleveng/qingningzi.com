@@ -36,6 +36,25 @@
                             </form>
                         </div>
                     </div>
+                    @inject('article', 'App\Services\ArticlesService')
+                    <div class="mt-3 card">
+                        <div class="card-body position-relative">
+                            <span class="badge bg-success position-absolute top-0 start-0">
+                               正常
+                            </span>
+                            <h5 class="card-title">文章数量</h5>
+                            <div>{{$article->count()}}</div>
+                        </div>
+                    </div>
+                    <div class="mt-3 card">
+                        <div class="card-body position-relative">
+                            <span class="badge bg-secondary position-absolute top-0 start-0">
+                               待更新
+                            </span>
+                            <h5 class="card-title">文章数量</h5>
+                            <div>{{$article->count(false)}}</div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>

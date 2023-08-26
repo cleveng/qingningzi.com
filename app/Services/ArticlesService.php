@@ -42,4 +42,12 @@ class ArticlesService extends BaseService
             return Article::find($id);
         });
     }
+
+    public function count(bool $status = true)
+    {
+        return Cache::remember('count_' . $status, 600, function () use ($status) {
+            return Article::where('status', $status)->count();
+        });
+
+    }
 }
