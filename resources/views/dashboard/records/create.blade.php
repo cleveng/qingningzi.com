@@ -38,7 +38,7 @@
                     <label class="form-label" for="platform_id">平台</label>
                     <select class="form-select" id="platform_id" name="platform_id">
                         @foreach($platforms as $item)
-                            <option @if($item->id === 20) selected
+                            <option @if($item->id === 7) selected
                                     @endif value="{{$item->id}}">{{$item->name}}</option>
                         @endforeach
                     </select>
@@ -81,7 +81,7 @@
                 <div class="mt-3">
                     <label class="form-label" for="except_words">排除词 (多个以,分割)</label>
                     <textarea class="form-control" rows="7" id="except_words"
-                              name="except_words"></textarea>
+                              name="except_words">原创,转载</textarea>
                 </div>
                 <div class="mt-3">
                     <label class="form-label" for="sample_link">示例链接</label>
