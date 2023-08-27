@@ -11,12 +11,6 @@ class IndexController extends Controller
 
     public function index(Request $request)
     {
-        // TODO: permission
-        $auth = auth()->user();
-        if (!$auth->is_admin) {
-            return Redirect::to('/');
-        }
-
         return view('dashboard.home.index', []);
     }
 }
