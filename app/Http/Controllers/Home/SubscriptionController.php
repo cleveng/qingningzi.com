@@ -13,6 +13,10 @@ class SubscriptionController extends BaseController
         $data = $request->except('_token');
         $record = Subscription::where('email', $data['email'])->first();
         if ($record) {
+            if (!$record->subscribed) {
+                $record->subscribed = true;
+                $record->save();
+            }
             return response()->json(['message' => '该邮箱已经订阅!!!'], 404);
         }
 
