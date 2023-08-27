@@ -34,6 +34,9 @@ Route::group(['namespace' => 'Home'], function () {
 
     Route::get('/platforms', [\App\Http\Controllers\Home\PlatformsController::class, 'index']);
     Route::get('/platforms/{id}', [\App\Http\Controllers\Home\PlatformsController::class, 'show']);
+
+    Route::post('/subscribe', [\App\Http\Controllers\Home\SubscriptionController::class, 'store']);
+    Route::get('/unsubscribe/{token}/{email}', [\App\Http\Controllers\Home\SubscriptionController::class, 'update']);
 });
 
 /*

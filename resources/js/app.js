@@ -1,5 +1,7 @@
 'use strict'
 
+import './bootstrap' // axios
+
 // [document](https://laravel.com/docs/10.x/vite#blade-processing-static-assets)
 import.meta.glob(['../fonts/**',])
 
@@ -14,3 +16,6 @@ import './modules/lazyload'
 
 // Sentry
 import './modules/sentry'
+
+// alpinejs
+import './modules/alpinejs'

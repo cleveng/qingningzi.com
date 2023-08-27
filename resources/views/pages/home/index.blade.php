@@ -175,7 +175,7 @@
                         <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="{{$item->title}}"
                            href="{{url($item->shortcode)}}"
                            class="card">
-                            <?php $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
+                                <?php $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
                             <img alt="{{$item->title}}" src="{{ $thumb }}" class="img-fluid">
                             <div
                                 class="position-absolute top-0 start-0 end-0 d-flex justify-content-between align-items-center">
@@ -207,7 +207,7 @@
                                     <a class="product-thumb-overlay" href="{{url($item->shortcode)}}"
                                        title="{{$item->title}}"></a>
 
-                                    <?php $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
+                                        <?php $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
                                     <img src="{{ $thumb }}" alt="{{$item->title}}">
                                 </div>
                                 <div class="card-body mt-n2">
@@ -270,7 +270,7 @@
                     @foreach($articles->items(15, 10) as $key=>$item)
                         <article>
                             <a class="blog-entry-thumb mb-1" href="{{url($item->shortcode)}}">
-                                <?php $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
+                                    <?php $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
                                 <img src="{{ $thumb }}" alt="{{$item->title}}">
                             </a>
                             <h2 class="h6 blog-entry-title mb-0 text-truncate">
@@ -326,7 +326,7 @@
                                         <i class="ci-link"></i>
                                     </a>
                                     <a class="card-img-top d-block overflow-hidden" href="{{url($item->shortcode)}}">
-                                        <?php $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
+                                            <?php $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
                                         <img alt="{{$item->title}}" data-src="{{ $thumb }}" class="lazy">
                                     </a>
                                     <div class="card-body py-2">
@@ -398,19 +398,43 @@
             <div class="card-body py-md-4 py-3 px-4 text-center">
                 <h3 class="mb-3">爱情，是否如你臆想的一样？</h3>
                 <p class="mb-4 pb-2">我们会将最新资讯直接发送到您指定的收件箱！</p>
-                <div class="widget mx-auto" style="max-width: 500px;">
-                    <form class="subscription-form validate" autocomplete="off">
+                <div class="widget mx-auto" style="max-width: 500px;" x-data="subscribe">
+                    <form id="subscribeForm" autocomplete="off" method="post" action="{{url('subscribe')}}">
                         @csrf
                         <div class="input-group flex-nowrap">
                             <label for="email" class="sr-only"></label>
                             <i class="ci-mail position-absolute top-50 translate-middle-y text-muted fs-base ms-3"></i>
-                            <input class="form-control rounded-start" type="email" readonly name="email" id="email"
-                                   placeholder="请输入您的邮箱地址....">
-                            <button class="btn btn-primary" disabled type="submit" name="subscribe">邮件订阅*</button>
+                            <input
+                                x-bind:class="{ 'is-invalid': error, 'is-valid': success }"
+                                class="form-control rounded-start"
+                                type="email" readonly name="email" id="email" required placeholder="请输入您的邮箱地址...." x-model="email">
+                            <button class="btn btn-primary" type="button" @click="onSubmit">邮件订阅*</button>
                         </div>
+                        <div class="invalid-feedback text-start d-block" x-show="error" x-text="error"></div>
+                        <div class="valid-feedback text-start d-block" x-show="success" x-text="success"></div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+    <script>
+        function subscribe() {
+            return {
+                email:'',
+                success: '',
+                error: '',
+                async onSubmit() {
+                    const form = document.querySelector('#subscribeForm')
+                    const formData = new FormData(form)
+                    try {
+                        const { data: { message } } = await axios.post('/subscribe', formData)
+                        this.success = message
+                    } catch (e) {
+                        const { message } = e.response.data
+                        this.error = message
+                    }
+                }
+            }
+        }
+    </script>
 @endsection
