@@ -4,8 +4,10 @@
         <div class="accordion-control align-items-center" aria-hidden="true">
             <h4 class="mb-0">帐户登录</h4>
             <div class="fs-sm">
-                <a href="{{ route('register') }}">新用户</a>
-                <span class="blog-entry-meta-divider"></span>
+                @if(Route::has('register'))
+                    <a href="{{ route('register') }}">新用户</a>
+                    <span class="blog-entry-meta-divider"></span>
+                @endif
                 <a href="{{ url('/') }}">首页</a>
             </div>
         </div>
