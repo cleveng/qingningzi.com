@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Requests\Home\SubscriptionRequest;
 use App\Models\Subscription;
-use Redirect;
 
 class SubscriptionController extends BaseController
 {
@@ -18,6 +17,11 @@ class SubscriptionController extends BaseController
                 $record->save();
             }
             return response()->json(['message' => '该邮箱已经订阅!!!'], 404);
+        }
+
+        $site = $request->input('site');
+        if (!$site->subscribed) {
+            return response()->json(['message' => '系统订阅功能暂时停用!!!'], 404);
         }
 
         $data['subscribed'] = true;

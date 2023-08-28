@@ -1,6 +1,8 @@
 @extends('layouts.default')
 @section('content')
     @inject('article', 'App\Services\ArticlesService')
+    @inject('site', 'App\Services\SitesService')
+    <?php $ads_enabled = $site->ads_enabled(); ?>
     <div class="container space-2">
         <div class="row">
             <div class="col-md-12 col-lg-8">
@@ -32,7 +34,7 @@
                 </div>
 
                 @inject('prom', 'App\Services\PromotionsService')
-                <?php $topBar = $prom->item(\App\Enums\PromotionType::TopBar); ?>
+                <?php $topBar = $ads_enabled ? $prom->item(\App\Enums\PromotionType::TopBar) : null; ?>
                 @if ($topBar)
                     <a href="{{ url('/redirect?target_id=' . $topBar->id) }}" rel="nofollow" target="_blank"
                        class="card" title="{{ $topBar->title }}">
@@ -157,7 +159,7 @@
                         </div>
                     </div>
 
-                    <?php $bottomBar = $prom->item(\App\Enums\PromotionType::TopBar, $topBar->id); ?>
+                    <?php $bottomBar = $topBar ? $prom->item(\App\Enums\PromotionType::TopBar, $topBar->id) : null; ?>
                     @if ($bottomBar)
                         <a href="{{ url('/redirect?target_id=' . $bottomBar->id) }}" rel="nofollow" target="_blank"
                            class="card" title="{{ $bottomBar->title }}">

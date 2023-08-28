@@ -2,6 +2,8 @@
 @section('content')
     @inject('article', 'App\Services\ArticlesService')
     @inject('prom', 'App\Services\PromotionsService')
+    @inject('site', 'App\Services\SitesService')
+    <?php $ads_enabled = $site->ads_enabled(); ?>
     <div class="container space-2">
         <div class="row">
             <div class="col-md-12 col-lg-8">
@@ -27,7 +29,7 @@
                     </nav>
                 </div>
 
-                <?php $topBar = $prom->item(\App\Enums\PromotionType::TopBar); ?>
+                <?php $topBar = $ads_enabled ? $prom->item(\App\Enums\PromotionType::TopBar) : null; ?>
                 @if ($topBar)
                     <a href="{{ url('/redirect?target_id=' . $topBar->id) }}" rel="nofollow" target="_blank"
                        class="card" title="{{ $topBar->title }}">
@@ -35,7 +37,7 @@
                     </a>
                 @endif
 
-                <div class="my-5 mb-md-0">
+                <div class="@if($ads_enabled) my-5 @else mb-5 @endif mb-md-0">
                     @foreach ($data as $key => $item)
                         @include('components.article-item', ['data'=>$item, 'key'=>$key])
                     @endforeach
@@ -43,8 +45,8 @@
 
                 {{ $data->render() }}
 
-                <?php $bottomBar = $prom->item(\App\Enums\PromotionType::TopBar, $topBar->id); ?>
-                @if ($bottomBar)
+                <?php $bottomBar = $topBar ? $bottomBar = $prom->item(\App\Enums\PromotionType::TopBar, $topBar->id) : null; ?>
+                @if($bottomBar)
                     <a href="{{ url('/redirect?target_id=' . $bottomBar->id) }}" rel="nofollow" target="_blank"
                        class="card mt-5" title="{{ $bottomBar->title }}">
                         <img alt="{{ $bottomBar->title }}" src="{{ asset($bottomBar->cover_image) }}"
