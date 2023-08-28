@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Home;
 use App\Enums\FileType;
 use App\Jobs\ProcessQrcode;
 use App\Models\Article;
-use App\Models\Comment;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -51,6 +50,7 @@ class ArticlesController extends BaseController
         SEOMeta::setCanonical($request->getRequestUri());
 
         // 处理二维码
+        // TODO: event
         if (!$data->qrcode) {
             try {
                 $resp = Http::post(env('API_QRCODE_URL'), [

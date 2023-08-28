@@ -2,10 +2,10 @@
 
 namespace App\Jobs;
 
+use App\Models\Article;
 use Exception;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
-use Vinkla\Hashids\Facades\Hashids;
 
 /**
  *
@@ -18,12 +18,11 @@ class ProcessQrcode extends ProcessBase
      *
      * @return void
      */
-    public function __construct($record, $fileURL)
+    public function __construct(Article $article, string $file_url)
     {
         parent::__construct();
-
-        $this->record = $record;
-        $this->fileURL = $fileURL;
+        $this->article = $article;
+        $this->file_url = $file_url;
     }
 
     /**
@@ -33,11 +32,9 @@ class ProcessQrcode extends ProcessBase
      */
     public function handle()
     {
-        // TODO: record是一个泛型啊
-        $record = $this->record;
-
+        $article = $this->article;
         try {
-            $response = Http::get($this->fileURL);
+            $response = Http::get($this->file_url);
 
             // 获取响应状态码
             $statusCode = $response->status();
@@ -47,13 +44,13 @@ class ProcessQrcode extends ProcessBase
             }
 
             // 图片下载成功，保存图片到本地
-            $filename = $this->dir_qrcode . '/' . basename($this->fileURL);
+            $filename = $this->dir . '/' . basename($this->file_url);
             $filepath = public_path($filename);
 
             // 保存图片数据到本地文件
             if (file_put_contents($filepath, $response->body())) {
-                $record->qrcode = $filename;
-                $record->save();
+                $article->qrcode = $filename;
+                $article->save();
             }
         } catch (Exception $e) {
             Log::error('An error occurred: ' . $e->getMessage());

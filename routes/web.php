@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\WebhookSignature;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,15 +39,6 @@ Route::group(['namespace' => 'Home'], function () {
 
     // comments middleware auth
     Route::post('/comments', [\App\Http\Controllers\Home\CommentsController::class, 'store'])->middleware(['auth', 'verified']);
-});
-
-/*
-|--------------------------------------------------------------------------
-| Webhook Routes
-|--------------------------------------------------------------------------
-*/
-Route::group(['namespace' => 'Webhook'], function () {
-    Route::post('/article/callback', [\App\Http\Controllers\Webhook\ArticleController::class, 'callback'])->middleware(WebhookSignature::class);
 });
 
 /*
