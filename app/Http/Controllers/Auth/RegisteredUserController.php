@@ -17,10 +17,15 @@ class RegisteredUserController extends Controller
     /**
      * Display the registration view.
      *
-     * @return \Illuminate\View\View
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    public function create()
+    public function create(Request $request)
     {
+        $site = $request->input('site');
+        if (!$site->allow_registration) {
+            return redirect()->to('/login')->with('status', '系统未开放注册!!!');
+        }
+
         return view('auth.register');
     }
 
