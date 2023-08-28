@@ -37,6 +37,9 @@ Route::group(['namespace' => 'Home'], function () {
 
     Route::post('/subscribe', [\App\Http\Controllers\Home\SubscriptionController::class, 'store']);
     Route::get('/unsubscribe/{token}/{email}', [\App\Http\Controllers\Home\SubscriptionController::class, 'update']);
+
+    // comments middleware auth
+    Route::post('/comments', [\App\Http\Controllers\Home\CommentsController::class, 'store'])->middleware(['auth', 'verified']);
 });
 
 /*

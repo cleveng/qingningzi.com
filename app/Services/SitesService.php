@@ -14,11 +14,18 @@ class SitesService extends BaseService
         return Site::first();
     }
 
-    public function ads_enabled() :bool {
+    public function ads_enabled(): bool
+    {
         return $this->config()->ads_enabled;
     }
 
-    public function gtm_code() :string {
+    public function allow_registration(): bool
+    {
+        return $this->config()->allow_registration;
+    }
+
+    public function gtm_code(): string
+    {
         return $this->config()->gtm_code;
     }
 }

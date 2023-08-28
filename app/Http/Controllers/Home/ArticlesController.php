@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Enums\FileType;
 use App\Jobs\ProcessQrcode;
 use App\Models\Article;
+use App\Models\Comment;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -76,6 +77,8 @@ class ArticlesController extends BaseController
             return Article::where('id', '>', $data->id)->orderBy('id', 'asc')->first();
         });
 
+        // comments
+        $comments = $data->comments()->paginate();
         return view('pages.articles.id', [
             'data' => $data,
             'category' => $data->category,
@@ -84,6 +87,7 @@ class ArticlesController extends BaseController
             'previous' => $previous,
             'next' => $next,
             'attachment' => $attachment,
+            'comments' => $comments,
         ]);
     }
 }

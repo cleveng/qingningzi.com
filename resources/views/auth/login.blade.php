@@ -1,10 +1,12 @@
 @extends('layouts.guest')
 @section('content')
+    @inject('site', 'App\Services\SitesService')
+    <?php $allow_registration = $site->allow_registration(); ?>
     <div class="accordion">
         <div class="accordion-control align-items-center" aria-hidden="true">
             <h4 class="mb-0">帐户登录</h4>
             <div class="fs-sm">
-                @if(Route::has('register'))
+                @if($allow_registration)
                     <a href="{{ route('register') }}">新用户</a>
                     <span class="blog-entry-meta-divider"></span>
                 @endif
