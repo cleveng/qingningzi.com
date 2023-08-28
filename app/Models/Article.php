@@ -42,4 +42,9 @@ class Article extends Model
     {
         return $this->hasOne('App\Models\Attachment', 'article_id', 'id');
     }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment', 'article_id', 'id');
+    }
 }

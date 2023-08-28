@@ -191,8 +191,7 @@
                         </a>
                     </nav>
 
-                    @include('components.author')
-                    @include('components.comments')
+                    @include('components.comments', ['data'=>$data, 'comments'=>$comments])
                 </div>
             </div>
             @include('components.sidebar')

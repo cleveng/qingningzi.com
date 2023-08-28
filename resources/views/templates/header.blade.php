@@ -41,12 +41,10 @@
                     </a>
 
                     {{-- account login--}}
-                    @unless(Auth::user())
-                        <a class="navbar-tool ms-1 ms-lg-0 me-n1 me-lg-2" href="{{url('/login')}}" rel="nofollow">
-                            <span class="navbar-tool-tooltip">账户登录</span>
-                            <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-user"></i></div>
-                        </a>
-                    @endunless
+                    <a class="navbar-tool ms-1 ms-lg-0 me-n1 me-lg-2" href="{{url('/login')}}" rel="nofollow">
+                        <span class="navbar-tool-tooltip">账户登录</span>
+                        <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-user"></i></div>
+                    </a>
 
                     <a class="navbar-tool d-none d-lg-flex" data-bs-original-title="微信扫一扫"
                        data-bs-toggle="popover" data-bs-trigger="hover" title="" data-bs-html="true"
