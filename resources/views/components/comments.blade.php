@@ -10,7 +10,7 @@
     @forelse($comments as $key=>$comment)
         <div class="d-flex align-items-start py-4 border-bottom">
             <img class="rounded-circle" src="{{$comment->owner->profile_url}}" width="50"
-                 alt="{$comment->owner->name}}">
+                 alt="{{$comment->owner->name}}">
             <div class="ps-3 w-100">
                 <div class="d-flex justify-content-between align-items-center mb-2">
                     <h6 class="fs-md mb-0">{{$comment->owner->name}}</h6>
