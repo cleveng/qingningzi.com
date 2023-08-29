@@ -18,18 +18,20 @@ class AboutController extends BaseController
      */
     public function index(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
-        $category = Category::where('content_type', ContentType::DEFAULT)->first();
+        $record = Category::where('content_type', ContentType::DEFAULT)->first();
+        if(!$record) {
+            abort(404);
+        }
 
-        SEOMeta::setTitle($category->title);
-        SEOMeta::addKeyword($category->keywords);
-        SEOMeta::setDescription($category->description);
-        SEOMeta::setCanonical(url($category->url));
+        $data = $record->content;
+        SEOMeta::setTitle($data->title);
+        SEOMeta::addKeyword($data->keywords);
+        SEOMeta::setDescription($data->description);
+        SEOMeta::setCanonical($request->getRequestUri());
 
         return view('pages.about.index', [
-            'data' => [],
-            'category' => $category,
-            'url' => $category->url,
-            'parent_id' => $category->parent_id,
+            'data' => $data,
+            'parent_id' => $record->parent_id,
         ]);
     }
 }

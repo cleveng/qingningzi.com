@@ -20,6 +20,9 @@ class IdolsController extends BaseController
     public function index(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $category = Category::where('content_type', ContentType::IDOL)->first();
+        if (!$category) {
+            abort(404);
+        }
 
         SEOMeta::setTitle($category->title);
         SEOMeta::addKeyword($category->keywords);
@@ -27,11 +30,9 @@ class IdolsController extends BaseController
         SEOMeta::setCanonical(url($category->url));
 
         $data = Idol::where('status', true)->orderBy('id', 'desc')->paginate();
-
         return view('pages.idols.index', [
             'data' => $data,
             'category' => $category,
-            'url' => $category->url,
             'parent_id' => $category->parent_id,
         ]);
     }

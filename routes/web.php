@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::group(['namespace' => 'Home'], function () {
-    Route::get('/', [\App\Http\Controllers\Home\IndexController::class, 'index']);
+    Route::get('/', [\App\Http\Controllers\Home\IndexController::class, 'index'])->name('home');
 
-    Route::get('/links', [\App\Http\Controllers\Home\LinksController::class, 'index']);
+    Route::get('/links', [\App\Http\Controllers\Home\LinksController::class, 'index'])->name('links');
 
     Route::get('/emails', [\App\Http\Controllers\Home\MailsController::class, 'index']);
     Route::get('/emails/{id?}', [\App\Http\Controllers\Home\MailsController::class, 'index']);
@@ -23,12 +23,12 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('/categories', [\App\Http\Controllers\Home\CategoriesController::class, 'index']);
     Route::get('/categories/{id}', [\App\Http\Controllers\Home\CategoriesController::class, 'show']);
 
-    Route::get('/about', [\App\Http\Controllers\Home\AboutController::class, 'index']);
-    Route::get('/idols', [\App\Http\Controllers\Home\IdolsController::class, 'index']);
+    Route::get('/about', [\App\Http\Controllers\Home\AboutController::class, 'index'])->name('about');
+    Route::get('/idols', [\App\Http\Controllers\Home\IdolsController::class, 'index'])->name('idols');
 
     Route::get('/s/{id?}', [\App\Http\Controllers\Home\ArticlesController::class, 'show']);
 
-    Route::get('/search', [\App\Http\Controllers\Home\SearchController::class, 'index']);
+    Route::get('/search', [\App\Http\Controllers\Home\SearchController::class, 'index'])->name('search');
     Route::get('/redirect', [\App\Http\Controllers\Home\RedirectController::class, 'index']);
 
     Route::get('/platforms', [\App\Http\Controllers\Home\PlatformsController::class, 'index']);

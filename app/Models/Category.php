@@ -30,4 +30,9 @@ class Category extends Model
             ->select($this->fields);
     }
 
+    public function content()
+    {
+        return $this->hasOne('App\Models\Content', 'category_id', 'id');
+    }
+
 }

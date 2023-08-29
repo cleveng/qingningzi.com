@@ -22,7 +22,7 @@ class CategoriesController extends BaseController
      */
     public function index(Request $request): Redirector|RedirectResponse|Application
     {
-        return redirect('/', 301);
+        return redirect()->route('home');
     }
 
     /**
@@ -37,13 +37,14 @@ class CategoriesController extends BaseController
             abort(404);
         }
 
-        // 免责声明
-        if ($category->content_type === ContentType::IDOL) {
-            return redirect($this->idolURL);
+        // about
+        if ($category->content_type === ContentType::DEFAULT) {
+            return redirect()->route('about');
         }
 
-        if ($category->content_type === ContentType::DEFAULT) {
-            return redirect($this->aboutURL);
+        // idols
+        if ($category->content_type === ContentType::IDOL) {
+            return redirect()->route('idols');
         }
 
         // 设置SEO
@@ -61,7 +62,6 @@ class CategoriesController extends BaseController
         return view('pages.categories.index', [
             'data' => $data,
             'category' => $category,
-            'url' => $category->url,
             'parent_id' => $parent_id,
         ]);
     }

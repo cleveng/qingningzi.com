@@ -88,14 +88,13 @@
             </li>
         </ul>
 
-        @inject('category', 'App\Services\CategoriesService')
         <p class="fs-sm my-1">
             <span class='text-bold text-dark'>Qingningzi v{{getPackageVersion()}}</span>
             &copy; 2015 - {{\Carbon\Carbon::now()->year}}
             <span class="vertical-divider"></span>
-            @if($category->about())
-                <a href='{{url($category->about()->url)}}' rel="nofollow"
-                   class="text-dark">{{$category->about()->title}}</a>
+            @if(Route::has('about'))
+                <a href='{{ route('about') }}' rel="nofollow"
+                   class="text-dark">免责声明</a>
                 <span class="vertical-divider"></span>
             @endif
             <a href="https://www.miitbeian.gov.cn" rel="nofollow" target="_blank" class="text-dark">
