@@ -2,12 +2,12 @@
 
 namespace App\Providers;
 
-use App\Events\UpdateArticle;
-use App\Events\UpdateAttachment;
-use App\Events\UpdateTag;
-use App\Listeners\UpdateArticleListener;
-use App\Listeners\UpdateAttachmentListener;
-use App\Listeners\UpdateTagListener;
+use App\Events\ArticleViewed;
+use App\Listeners\GenerateArticleQrcode;
+use App\Listeners\UpdateArticleCount;
+use App\Listeners\UpdateArticleDetail;
+use App\Listeners\UpdateAttachmentURL;
+use App\Listeners\UpdateTagsCount;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -24,19 +24,13 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
 
-        // 更新article *_count 数据
-        UpdateArticle::class => [
-            UpdateArticleListener::class,
-        ],
-
-        // 更新article tag 数据
-        UpdateTag::class => [
-            UpdateTagListener::class,
-        ],
-
-        // 更新 attachment
-        UpdateAttachment::class => [
-            UpdateAttachmentListener::class,
+        // 阅读文章
+        ArticleViewed::class => [
+            UpdateArticleCount::class,
+            UpdateTagsCount::class,
+            UpdateAttachmentURL::class,
+            UpdateArticleDetail::class,
+            GenerateArticleQrcode::class,
         ],
     ];
 

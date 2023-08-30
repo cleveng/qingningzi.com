@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Events\UpdateArticle;
-use App\Events\UpdateAttachment;
-use App\Events\UpdateDetail;
-use App\Events\UpdateTag;
+use App\Events\ArticleViewed;
 use App\Models\Article;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Contracts\Foundation\Application;
@@ -13,7 +10,6 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Str;
 
 /**
  * @Controller: ArticlesController
@@ -32,18 +28,8 @@ class ArticlesController extends BaseController
             abort(404);
         }
 
-        // update tags views_count
-        $keywords = $request->input('keywords');
         $tags = $data->tags()->pluck('name');
-        if (count($tags) > 0) {
-            UpdateTag::dispatch($data);
-            $keywords = $tags->join(',');
-        }
-
-        $attachment = $data->attachment;
-        if ($attachment) {
-            UpdateAttachment::dispatch($attachment, $data->title);
-        }
+        $keywords = $tags->count() > 0 ? $tags->join(',') : $request->input('keywords');
 
         // seo
         SEOMeta::setTitle($data->title);
@@ -51,8 +37,6 @@ class ArticlesController extends BaseController
         SEOMeta::setDescription($data->description);
         SEOMeta::setCanonical($request->getRequestUri());
 
-        UpdateArticle::dispatch($data);
-        UpdateDetail::dispatch($data->detail);
         $parentId = $data->category->parent_id === 0 ? $data->category->id : $data->category->parent_id;
 
         // get previous and next records
@@ -65,6 +49,10 @@ class ArticlesController extends BaseController
 
         // comments
         $comments = $data->comments()->paginate();
+
+        // event => ArticleViewed
+        event(new ArticleViewed($data));
+
         return view('pages.articles.id', [
             'data' => $data,
             'category' => $data->category,
@@ -72,7 +60,7 @@ class ArticlesController extends BaseController
             'tags' => $tags,
             'previous' => $previous,
             'next' => $next,
-            'attachment' => $attachment,
+            'attachment' => $data->attachment,
             'comments' => $comments,
         ]);
     }

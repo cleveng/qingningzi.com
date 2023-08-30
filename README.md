@@ -42,3 +42,9 @@ REDIS_QUEUE=qrcode,thumb // 队列任务
 php artisan make:job ProcessPodcast
 php artisan queue:work --verbose [systemctl service]
 ```
+
+#### [事件](https://laravel.com/docs/10.x/events)
+```command
+php artisan make:event ArticleViewed
+php artisan make:listener UpdateArticleCount --event=ArticleViewed --queued
+```

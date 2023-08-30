@@ -3,13 +3,15 @@
 namespace App\Listeners;
 
 use App\Enums\FileType;
-use App\Events\UpdateAttachment;
+use App\Events\ArticleViewed;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Str;
 
-class UpdateAttachmentListener
+class UpdateAttachmentURL implements ShouldQueue
 {
+    use InteractsWithQueue;
+
     /**
      * Create the event listener.
      *
@@ -23,18 +25,18 @@ class UpdateAttachmentListener
     /**
      * Handle the event.
      *
-     * @param \App\Events\UpdateAttachment $event
+     * @param App\Events\ArticleViewed $event
      * @return void
      */
-    public function handle(UpdateAttachment $event)
+    public function handle(ArticleViewed $event)
     {
-        $attachment = $event->attachment;
+        $attachment = $event->article->attachment;
         if (!$attachment) {
             return;
         }
 
         if ($attachment->file_type === FileType::LINK && Str::contains($attachment->file_url, ".swf")) {
-            $attachment->file_url = 'https://www.baidu.com/s?wd=' . urlencode($event->title);
+            $attachment->file_url = 'https://www.baidu.com/s?wd=' . urlencode($event->article->title);
             $attachment->save();
         }
     }
