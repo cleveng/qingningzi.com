@@ -6,6 +6,14 @@ vite-build:
 composer-update:
 	composer update
 
+# ide-helper
+ide:
+	php artisan ide-helper:generate
+
+# ide-model
+ide-model:
+	php artisan ide-helper:models
+
 # 删除缓存
 clear-cache:
 	php artisan config:clear #配置缓存
