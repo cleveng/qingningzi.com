@@ -20,6 +20,10 @@
 
                 {!! $data->content !!}
 
+                <p class="fs-sm text-end d-none d-md-block">
+                    更新时间: {{ $data->updated_at->format('Y/m/d') }}
+                </p>
+
                 <hr class="hr-dark my-5">
                 <h4>联系方式：</h4>
                 <dl class="list-style mt-3">
