@@ -33,7 +33,22 @@
         </a>
         <p class="fs-md">{{ $data->description }}</p>
         <div class="d-flex justify-content-end justify-content-sm-between align-content-center">
-            @include('components.social', ['item' => $data])
+            <div class="flex-fill">
+                @if($data->qrcode)
+                    <a class="btn-social bs-wechat me-2" data-bs-original-title="微信扫一扫"
+                       data-bs-toggle="popover" data-bs-trigger="hover" title="" data-bs-html="true"
+                       data-bs-content="<img src='{{asset($data->qrcode)}}' alt='' class='img-fluid'>"
+                       href="javascript:;" data-bs-container="body"
+                       data-bs-placement="bottom">
+                        <i class="ci-wechat"></i>
+                    </a>
+                @endif
+                <a class="btn-social bs-google me-2" href="javascript:;" data-bs-toggle="tooltip"
+                   data-bs-placement="right"
+                   title="阅读数：{{$data->views_count}}">
+                    <i class="ci-heart"></i>
+                </a>
+            </div>
             <a href="{{ url($data->shortcode) }}" class="btn btn-primary rounded-0">马上围观</a>
         </div>
     </article>

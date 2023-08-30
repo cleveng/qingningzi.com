@@ -1485,13 +1485,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jquery@npm:^3.7.0":
-  version: 3.7.0
-  resolution: "jquery@npm:3.7.0"
-  checksum: 907785e133afc427650a131af5fccef66a404885037513b3d4d7d63aee6409bcc32a39836868c60e59b05aa0fb8ace8961c18b2ee3ffdf6ffdb571d6d7cd88ff
-  languageName: node
-  linkType: hard
-
 "js-base64@npm:^2.4.9":
   version: 2.6.4
   resolution: "js-base64@npm:2.6.4"
@@ -2337,7 +2330,6 @@ __metadata:
     axios: ^1.5.0
     bootstrap: ^5.2.2
     http-cache-semantics: ^4.1.1
-    jquery: ^3.7.0
     laravel-vite-plugin: ^0.7.0
     lodash: ^4.17.19
     node-sass: ^9.0.0
