@@ -1,80 +1,29 @@
-@extends('layouts.default')
-@section('content')
-    @inject('article', 'App\Services\ArticlesService')
-    <div class="container space-2">
-        <div class="row">
-            <div class="col-md-12 col-lg-8">
-                <div class="space-1-bottom">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-start">
-                            <li class="breadcrumb-item">
-                                <a href="{{ url('/') }}" class="text-nowrap" rel="nofollow">
-                                    <i class="ci-home"></i> 首页
-                                </a>
-                            </li>
-                            <li class="breadcrumb-item text-nowrap">
-                                <a href="{{url('platforms')}}">合作媒体</a>
-                            </li>
-                            <li class="breadcrumb-item text-nowrap active" aria-current="page">
-                                {{$platform->name}}
-                            </li>
-                        </ol>
-                    </nav>
-                </div>
+@inject('site', 'App\Services\SitesService')
+@inject('article', 'App\Services\ArticlesService')
 
-                <div class="mb-5 mb-md-0">
-                    @forelse($data as $key => $item)
-                        <article class="@if($key > 0) mt-5 pt-5 border-top @endif">
-                            <div class="d-flex align-items-start">
-                                <div class="blog-entry-meta-label">
-                                    <span class='date'>{{ $item->created_at->format('d') }}</span>
-                                    <span class="year">{{ $item->created_at->format('M') }}</span>
-                                </div>
-                                <div class="blog-entry-meta-title">
-                                    <h2 class="h4 blog-entry-title mb-0">
-                                        <a href="{{ url($item->shortcode) }}">{{ $item->title }}</a>
-                                    </h2>
-                                    <div class="d-flex align-items-center fs-sm">
-                                        <div>
-                                            <span class='fst-italic'>Posted by：</span>
-                                            <span>{{ $platform->name }}</span>
-                                        </div>
-                                        @if ($item->rate)
-                                            <div class="d-none d-md-inline-flex">
-                                                <span class="blog-entry-meta-divider"></span>
-                                                <span class='fst-italic'>Hot：</span>
-                                                <span class="text-primary">
-                                                {!! $article->rates($item->url, $item->rate) !!}
-                                            </span>
-                                            </div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="blog-entry-thumb mb-3 mt-1" href="{{ url($item->shortcode) }}">
-                                <img alt="{{ $item->title }}"
-                                     @if($key >= 2) class="lazy" data-src="{{ $item->thumb }}"
-                                     @else src="{{ $item->thumb }}" @endif >
-                            </a>
-                            <p class="fs-md">{{ $item->description }}</p>
-                            <div class="d-flex justify-content-end justify-content-sm-between align-content-center">
-                                @include('components.social', ['item' => $item])
-                                <a href="{{ url($item->shortcode) }}" class="btn btn-primary rounded-0">马上围观</a>
-                            </div>
-                        </article>
-                    @empty
-                        <div class="alert alert-secondary py-5 px-lg-5 text-center mb-5">
-                            <h1 class="h4 pb-2">O(∩_∩)O~</h1>
-                            <p class="fs-md pb-2">列表为空，访问受限</p>
-                            <a class="btn btn-primary rounded-0" href="{{url('/')}}">
-                                <i class="ci-arrow-left mt-n1 me-2"></i> 返回首页
-                            </a>
-                        </div>
-                    @endforelse
-                </div>
-                {{ $data->render() }}
+@extends('layouts.blog')
+@section('breadcrumb')
+    <li class="breadcrumb-item text-nowrap">
+        <a href="{{url('platforms')}}">合作媒体</a>
+    </li>
+    <li class="breadcrumb-item text-nowrap active" aria-current="page">
+        {{$platform->name}}
+    </li>
+@endsection
+
+@section('content')
+    <div class="@if($site->ads_enabled()) my-5 @else mb-5 @endif mb-md-0">
+        @forelse($data as $key => $item)
+            @include('components.article-item', ['data'=>$item, 'key'=>$key])
+        @empty
+            <div class="alert alert-secondary py-5 px-lg-5 text-center mb-5">
+                <h1 class="h4 pb-2">O(∩_∩)O~</h1>
+                <p class="fs-md pb-2">列表为空，访问受限</p>
+                <a class="btn btn-primary rounded-0" href="{{url('/')}}">
+                    <i class="ci-arrow-left mt-n1 me-2"></i> 返回首页
+                </a>
             </div>
-            @include('components.sidebar')
-        </div>
+        @endforelse
     </div>
+    {{ $data->render() }}
 @endsection

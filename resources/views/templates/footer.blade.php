@@ -130,3 +130,7 @@
 <a class="btn-scroll-top" href="#top" data-scroll><span
         class="btn-scroll-top-tooltip text-dark fs-sm me-2">Top</span><i
         class="btn-scroll-top-icon ci-arrow-up"> </i></a>
+
+<!-- Google Tag Manager-->
+@inject('site', 'App\Services\SitesService')
+{!! $site->gtm_code() !!}
