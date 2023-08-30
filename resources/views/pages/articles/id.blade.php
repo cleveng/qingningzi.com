@@ -96,8 +96,8 @@
             @endif
 
             <div class="blog-post-media mt-3">
-                @if ($data->content)
-                    {!! $data->content !!}
+                @if ($data->detail)
+                    {!! $data->detail->content !!}
                 @else
                     {{ $data->description }}
                 @endif

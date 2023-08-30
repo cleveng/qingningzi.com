@@ -16,6 +16,14 @@ use Illuminate\Routing\Redirector;
 class CategoriesController extends BaseController
 {
 
+    private array $fields;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->fields = ['title', 'description', 'thumb', 'qrcode', 'shortcode', 'author', 'category_id', 'platform_id', 'rate', 'views_count', 'hit_count', 'created_at'];
+    }
+
     /**
      * @param Request $request
      * @return Application|RedirectResponse|Redirector
@@ -54,7 +62,7 @@ class CategoriesController extends BaseController
         SEOMeta::setCanonical(url($category->url));
 
         $cid = $category->parent_id === 0 ? $category->children()->pluck('id')->toArray() : [$category->id];
-        $data = Article::whereIn('category_id', $cid)->orderBy('updated_at', 'desc')->paginate();
+        $data = Article::select($this->fields)->whereIn('category_id', $cid)->orderBy('updated_at', 'desc')->paginate();
 
         // level 1 category parent_id is itself
         $parent_id = $category->parent_id === 0 ? $category->id : $category->parent_id;

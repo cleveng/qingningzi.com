@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $thumb 封面
  * @property string|null $qrcode 二维码
  * @property string $shortcode 链接地址
- * @property string|null $content 内容
  * @property string|null $author 作者
  * @property int $category_id 栏目
  * @property int|null $platform_id 平台
@@ -40,7 +39,6 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereAuthor($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereCategoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereCommentsCount($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Article whereContent($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereDescription($value)
@@ -58,6 +56,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereViewsCount($value)
  * @mixin \Eloquent
+ * @property-read \App\Models\Detail|null $detail
  */
 class Article extends Model
 {
@@ -100,5 +99,10 @@ class Article extends Model
     public function comments()
     {
         return $this->hasMany('App\Models\Comment', 'article_id', 'id');
+    }
+
+    public function detail()
+    {
+        return $this->hasOne('App\Models\Detail', 'article_id', 'id');
     }
 }

@@ -35,8 +35,6 @@ class UpdateArticleListener
         $article->increment('views_count');
         $article->increment('hit_count');
 
-        $article->content = str_replace('<p></p>', '', $article->content);
-
         // 处理二维码
         if (!$article->qrcode) {
             try {

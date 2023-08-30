@@ -21,8 +21,7 @@ class RegisteredUserController extends Controller
      */
     public function create(Request $request)
     {
-        $site = $request->input('site');
-        if (!$site->allow_registration) {
+        if (!$request->input('allow_registration')) {
             return redirect()->to('/login')->with('status', '系统未开放注册!!!');
         }
 

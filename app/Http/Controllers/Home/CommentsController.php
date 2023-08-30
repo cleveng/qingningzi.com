@@ -19,7 +19,7 @@ class CommentsController extends BaseController
 
     public function store(CommentRequest $request)
     {
-        $data = $request->except(['_token', 'site']);
+        $data = $request->except(['_token', 'keywords', 'description', 'subscribed', 'allow_registration']);
         $data['article_id'] = intval($data['article_id']);
         $data['user_id'] = auth()->user()->id;
 

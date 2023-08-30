@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Events\UpdateArticle;
 use App\Events\UpdateAttachment;
+use App\Events\UpdateDetail;
 use App\Events\UpdateTag;
 use App\Models\Article;
 use Artesaos\SEOTools\Facades\SEOMeta;
@@ -12,6 +13,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Str;
 
 /**
  * @Controller: ArticlesController
@@ -31,7 +33,7 @@ class ArticlesController extends BaseController
         }
 
         // update tags views_count
-        $keywords = $request->input('site')->keywords;
+        $keywords = $request->input('keywords');
         $tags = $data->tags()->pluck('name');
         if (count($tags) > 0) {
             UpdateTag::dispatch($data);
@@ -50,6 +52,7 @@ class ArticlesController extends BaseController
         SEOMeta::setCanonical($request->getRequestUri());
 
         UpdateArticle::dispatch($data);
+        UpdateDetail::dispatch($data->detail);
         $parentId = $data->category->parent_id === 0 ? $data->category->id : $data->category->parent_id;
 
         // get previous and next records
