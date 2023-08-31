@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Events\ArticleViewed;
+use App\Jobs\ProcessQrcode;
 use App\Models\Article;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Contracts\Foundation\Application;
@@ -50,8 +51,9 @@ class ArticlesController extends BaseController
         // comments
         $comments = $data->comments()->paginate();
 
-        // event => ArticleViewed
+        // event => ArticleViewed || job => qrcode
         event(new ArticleViewed($data));
+        !$data->qrcode && ProcessQrcode::dispatch($data)->delay(now()->addMinute())->onQueue('qrcode');
 
         return view('pages.articles.id', [
             'data' => $data,

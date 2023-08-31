@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Events\ArticleViewed;
-use App\Listeners\GenerateArticleQrcode;
 use App\Listeners\UpdateArticleCount;
 use App\Listeners\UpdateArticleDetail;
 use App\Listeners\UpdateAttachmentURL;
@@ -30,7 +29,6 @@ class EventServiceProvider extends ServiceProvider
             UpdateTagsCount::class,
             UpdateAttachmentURL::class,
             UpdateArticleDetail::class,
-            GenerateArticleQrcode::class,
         ],
     ];
 

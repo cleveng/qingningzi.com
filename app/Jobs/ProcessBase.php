@@ -2,7 +2,6 @@
 
 namespace App\Jobs;
 
-use App\Models\Article;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -17,9 +16,6 @@ class ProcessBase implements ShouldQueue
     use Queueable;
     use SerializesModels;
 
-    protected string $file_url;
-    protected Article $article;
-
     protected string $dir;
 
     /**
@@ -29,9 +25,8 @@ class ProcessBase implements ShouldQueue
      */
     public function __construct()
     {
-        $this->dir = 'uploadfile/qrcodes';
-
         // 需要设置 uploadfile 可读可写
+        $this->dir = 'uploadfile/qrcodes';
         $path = public_path($this->dir);
         if (!File::exists($path)) {
             $isOK = File::makeDirectory($path, 0755, true, true);

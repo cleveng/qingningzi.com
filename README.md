@@ -48,3 +48,5 @@ php artisan queue:work --verbose [systemctl service]
 php artisan make:event ArticleViewed
 php artisan make:listener UpdateArticleCount --event=ArticleViewed --queued
 ```
+
+#### [二维码](https://www.pwmqr.com/qrcodeapi)
