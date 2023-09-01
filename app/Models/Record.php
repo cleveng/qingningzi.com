@@ -38,6 +38,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Record whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Record whereWriter($value)
  * @mixin \Eloquent
+ * @property int|null $articles_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Record whereArticlesCount($value)
  */
 class Record extends Model
 {

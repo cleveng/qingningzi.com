@@ -11,7 +11,7 @@
     {!! SEO::generate() !!}
     <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}"/>
     <link rel="apple-touch-icon-precomposed" href="{{ asset('images/favicon.png') }}">
-    @vite(['resources/scss/theme.scss', 'resources/js/app.js'])
+    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 <body>
 <div class="page">

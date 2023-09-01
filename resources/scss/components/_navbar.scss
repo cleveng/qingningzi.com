@@ -391,20 +391,22 @@
     box-shadow: $navbar-stuck-box-shadow;
     z-index: $zindex-fixed;
 
-    .navbar-stuck-toggler {
-        display: flex;
+    @include media-breakpoint-up(lg) {
+        .navbar-stuck-toggler {
+            display: flex;
+        }
+
+        .navbar-stuck-menu {
+            display: none;
+        }
     }
 
-    .navbar-stuck-barnd {
+    .navbar-stuck-brand {
         display: block !important;
     }
 
-    .navbar-stuck-menu {
-        display: none;
-
-        &.show {
-            display: block;
-        }
+    .navbar-stuck-menu.show {
+        display: block;
     }
 
     &.right-15 {
