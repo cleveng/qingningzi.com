@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 @section('content')
     @inject('navs', 'App\Services\CategoriesService')
     <nav class="mb-4" aria-label="breadcrumb">
