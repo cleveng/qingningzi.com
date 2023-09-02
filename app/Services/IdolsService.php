@@ -11,7 +11,7 @@ class IdolsService extends BaseService
     public function items(int $len)
     {
         return Cache::remember('idols:items', $this->duration, function () use($len){
-            return Idol::inRandomOrder()->take($len)->get();
+            return Idol::where('status', true)->inRandomOrder()->take($len)->get();
         });
     }
 }

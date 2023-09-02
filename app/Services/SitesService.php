@@ -3,8 +3,6 @@
 namespace App\Services;
 
 use App\Models\Site;
-use Illuminate\Support\Facades\Cache;
-use phpDocumentor\Reflection\Types\Boolean;
 
 class SitesService extends BaseService
 {

@@ -40,6 +40,10 @@ class ArticlesController extends BaseController
             abort(404);
         }
 
+        if (!$data->status || !$data->detail) {
+            abort(404);
+        }
+
         // when author is default name and reset the record status
         if ($data->author === $this->author) {
             try {

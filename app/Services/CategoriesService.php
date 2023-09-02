@@ -38,6 +38,4 @@ class CategoriesService extends BaseService
             return Category::whereIn('id', [13, 16, 28, 30])->get();
         });
     }
-
-
 }
