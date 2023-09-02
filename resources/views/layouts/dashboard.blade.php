@@ -7,12 +7,13 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}"/>
     <link rel="apple-touch-icon-precomposed" href="{{ asset('images/favicon.png') }}">
-    @vite(['resources/scss/dashboard.scss', 'resources/js/app.js'])
+    @vite(['resources/scss/dashboard.scss', 'resources/js/dashboard.js'])
 </head>
 <body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-behavior="fixed">
 <div class="wrapper">
-    <nav id="sidebar" class="sidebar" aria-label="Sidebar">
-        <div class="sidebar-content">
+    <?php $hideSidebar = Arr::has(request()->cookie(), 'hideSidebar') ?>
+    <nav id="sidebar" class="sidebar @if($hideSidebar) collapsed @endif" aria-label="Sidebar">
+        <div class="sidebar-content js-simplebar">
             <a class="sidebar-brand" href="{{url('/dashboard')}}">
                 <img src="{{asset('images/logo.png')}}" alt="{{env('APP_NAME')}}"
                      style="height: 25px; filter: brightness(0) invert(1);"/>
@@ -23,19 +24,7 @@
                 </li>
                 <li class="sidebar-item active">
                     <a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                             class="feather feather-sliders align-middle">
-                            <line x1="4" y1="21" x2="4" y2="14"></line>
-                            <line x1="4" y1="10" x2="4" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="12"></line>
-                            <line x1="12" y1="8" x2="12" y2="3"></line>
-                            <line x1="20" y1="21" x2="20" y2="16"></line>
-                            <line x1="20" y1="12" x2="20" y2="3"></line>
-                            <line x1="1" y1="14" x2="7" y2="14"></line>
-                            <line x1="9" y1="8" x2="15" y2="8"></line>
-                            <line x1="17" y1="16" x2="23" y2="16"></line>
-                        </svg>
+                        <i class="align-middle" data-feather="sliders"></i>
                         <span class="align-middle">控制台</span>
                         <span class="badge badge-sidebar-primary">5</span>
                     </a>
@@ -50,7 +39,7 @@
     </nav>
     <div class="main">
         <nav aria-label="nav" class="navbar navbar-expand navbar-light navbar-bg">
-            <a class="sidebar-toggle">
+            <a class="sidebar-switch  @if($hideSidebar) active @endif" href="javascript:;">
                 <i class="hamburger align-self-center"></i>
             </a>
             <form class="d-none d-sm-inline-block">
@@ -98,7 +87,7 @@
         <main class="content">
             <div class="container-fluid p-0">
                 @inject('article', 'App\Services\ArticlesService')
-                <div class="card">
+                <div class="card bg-white">
                     <div class="card-body position-relative">
                             <span class="badge bg-success position-absolute top-0 start-0">
                                正常
@@ -107,7 +96,7 @@
                         <div>{{$article->count()}}</div>
                     </div>
                 </div>
-                <div class="my-3 card">
+                <div class="my-3 card bg-white">
                     <div class="card-body position-relative">
                                     <span class="badge bg-secondary position-absolute top-0 start-0">
                                        待更新
