@@ -1,6 +1,16 @@
 /*
- * Theme styles
+ * Dashboard styles
  */
+$body-bg: #F7F9FC !default;
+
+// Font
+$font-size-base: .825rem;
+$font-size-lg: .95rem !default;
+$font-size-sm: .75rem !default;
+
+// Navbar
+
+
 // User variables
 @import 'user-variables';
 
@@ -16,5 +26,6 @@
 @import 'reboot';
 @import 'components';
 
-// User custom styles
-@import 'user';
+// Dashboard
+@import 'dashboard/wrapper';
+@import 'dashboard/navbar';
