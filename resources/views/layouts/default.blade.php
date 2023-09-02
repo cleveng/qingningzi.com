@@ -1,5 +1,5 @@
 <?php $parent_id = isset($parent_id) ? $parent_id : null; ?>
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -15,12 +15,12 @@
 </head>
 <body>
 <div class="page">
-    @include('templates.header')
+    @include('pages.templates.header')
     <main>
         @section('content')
         @show
     </main>
-    @include('templates.footer')
+    @include('pages.templates.footer')
 </div>
 </body>
 </html>

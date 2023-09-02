@@ -23,7 +23,7 @@
 
 @section('search-result')
     <div class="mb-5">
-        @include('components.article-item', ['data'=>$data, 'key'=>-1])
+        @include('pages.components.article-item', ['data'=>$data, 'key'=>-1])
     </div>
 @endsection
 
@@ -31,7 +31,7 @@
     <div class="my-5">
         <h2 class="mb-4 pb-md-3 pb-2 h4">推荐内容</h2>
         @foreach($article->popular($tag->taggable_id, 3) as $key=>$item)
-            @include('components.article-item', ['data'=>$item, 'key'=>$key])
+            @include('pages.components.article-item', ['data'=>$item, 'key'=>$key])
         @endforeach
     </div>
 @endsection

@@ -1,7 +1,7 @@
 <?php $parent_id = isset($parent_id) ? $parent_id : null; ?>
 @inject('navs', 'App\Services\CategoriesService')
 <header class="page-header shadow-sm" data-scroll-header>
-    @include('components.mood')
+    @include('pages.components.mood')
     <div class="navbar-sticky bg-light">
         <div class="navbar navbar-expand-lg navbar-light">
             <div class="container">

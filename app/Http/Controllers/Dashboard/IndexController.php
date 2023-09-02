@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class IndexController extends BaseController
 {
 
     public function index(Request $request)
     {
-        return view('dashboard.home.index', []);
+        return view($this->tmpl.'home.index', []);
     }
 }

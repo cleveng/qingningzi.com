@@ -29,7 +29,7 @@ class AboutController extends BaseController
         SEOMeta::setDescription($data->description);
         SEOMeta::setCanonical($request->getRequestUri());
 
-        return view('pages.about.index', [
+        return view($this->tmpl.'about.index', [
             'data' => $data,
             'parent_id' => $record->parent_id,
         ]);

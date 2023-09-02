@@ -18,7 +18,7 @@
 @section('content')
     <div class="@if($ads_enabled) my-5 @else mb-5 @endif mb-md-0">
         @foreach ($data as $key => $item)
-            @include('components.article-item', ['data'=>$item, 'key'=>$key])
+            @include('pages.components.article-item', ['data'=>$item, 'key'=>$key])
         @endforeach
     </div>
     {{ $data->render() }}

@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
 use App\Models\Platform;
 use App\Models\Record;
 use Illuminate\Http\Request;
 use Redirect;
 
-class RecordsController extends Controller
+class RecordsController extends BaseController
 {
 
     public function index(Request $request)
     {
         $data = Record::orderBy('updated_at', 'desc')->paginate();
-        return view('dashboard.records.index', [
+        return view($this->tmpl.'records.index', [
             'data' => $data,
         ]);
     }
@@ -22,7 +21,7 @@ class RecordsController extends Controller
     public function create(Request $request)
     {
         $platforms = Platform::where('status', 1)->get();
-        return view('dashboard.records.create', [
+        return view($this->tmpl.'records.create', [
             'platforms' => $platforms,
         ]);
     }
@@ -36,7 +35,7 @@ class RecordsController extends Controller
             return Redirect::to('/dashboard/records', 302);
         }
 
-        return view('dashboard.records.edit', [
+        return view($this->tmpl.'records.edit', [
             'platforms' => $platforms,
             'data' => $data,
         ]);

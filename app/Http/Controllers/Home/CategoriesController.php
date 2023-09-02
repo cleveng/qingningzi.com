@@ -69,7 +69,7 @@ class CategoriesController extends BaseController
         // level 1 category parent_id is itself
         $parent_id = $category->parent_id === 0 ? $category->id : $category->parent_id;
 
-        return view('pages.categories.index', [
+        return view($this->tmpl.'categories.index', [
             'data' => $data,
             'category' => $category,
             'parent_id' => $parent_id,
