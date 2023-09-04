@@ -15,12 +15,12 @@
 </head>
 <body>
 <div class="page">
-    @include('pages.templates.header')
+    @include('app.templates.header')
     <main>
         @section('content')
         @show
     </main>
-    @include('pages.templates.footer')
+    @include('app.templates.footer')
 </div>
 </body>
 </html>

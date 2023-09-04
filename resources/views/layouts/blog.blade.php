@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="page">
-    @include('pages.templates.header')
+    @include('app.templates.header')
     <main>
         <div class="container space-2">
             <div class="row">
@@ -70,19 +70,19 @@
                     <div class="offcanvas offcanvas-collapse offcanvas-end border-start ms-lg-auto">
                         <div class="offcanvas-body py-grid-gutter py-lg-1 px-lg-4">
                             @section('guest-tag')
-                                @include('pages.components.search')
+                                @include('app.components.search')
                             @show
-                            @include('pages.components.ads-rental')
-                            @include('pages.components.ads-product')
-                            @include('pages.components.trending-post')
-                            @include('pages.components.popular-tags')
+                            @include('app.components.ads-rental')
+                            @include('app.components.ads-product')
+                            @include('app.components.trending-post')
+                            @include('app.components.popular-tags')
                         </div>
                     </div>
                 </aside>
             </div>
         </div>
     </main>
-    @include('pages.templates.footer')
+    @include('app.templates.footer')
 </div>
 </body>
 </html>

@@ -165,5 +165,5 @@
 @endsection
 
 @section('comments')
-    @include('pages.components.comments', ['data'=>$data, 'comments'=>$comments])
+    @include('app.components.comments', ['data'=>$data, 'comments'=>$comments])
 @endsection
