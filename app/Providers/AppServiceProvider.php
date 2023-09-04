@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\ServiceProvider;
 
@@ -30,5 +31,8 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrapFive();
         Paginator::useBootstrapFour();
         Carbon::setLocale('zh');
+
+        // FIXME: the page flash hide???
+        view()->share('hideSidebar', Arr::has(request()->cookie(), 'hideSidebar'));
     }
 }

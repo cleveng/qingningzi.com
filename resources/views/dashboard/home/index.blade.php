@@ -1,11 +1,8 @@
 @extends('layouts.dashboard')
 
 @section('breadcrumb')
-    <li class="breadcrumb-item text-nowrap @if(request()->routeIs('dashboard'))active @endif"
-        aria-current="page">
-        <a class="text-nowrap" href="{{ url('dashboard/records/create') }}">
-            创建记录
-        </a>
+    <li class="breadcrumb-item text-nowrap @if(request()->routeIs('dashboard'))active @endif" aria-current="page">
+        数据报表
     </li>
 @endsection
 

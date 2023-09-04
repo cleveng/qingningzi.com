@@ -9,7 +9,7 @@
     <link rel="apple-touch-icon-precomposed" href="{{ asset('images/favicon.png') }}">
     @vite(['resources/scss/dashboard.scss', 'resources/js/dashboard.js'])
 </head>
-<body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-behavior="fixed">
+<body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-behavior="sticky">
 <div class="wrapper">
     @include('dashboard.templates.sidebar')
     <div class="main">

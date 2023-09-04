@@ -12,19 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const sidebarElement = document.getElementsByClassName('sidebar')[0]
         const sidebarSwitchElement = document.getElementsByClassName('sidebar-switch')[0]
 
-
         sidebarSwitchElement.addEventListener('click', () => {
-            sidebarElement.classList.add('ease-in-out')
-            if (Cookies.get('hideSidebar') === undefined) {
-                Cookies.set('hideSidebar', 'true')
-                sidebarSwitchElement.classList.add('active')
-            } else {
-                Cookies.remove('hideSidebar')
-                sidebarSwitchElement.classList.remove('active')
-                // sidebarElement.classList.add('ease-in-out')
-            }
+            Cookies.get('hideSidebar') === undefined ? Cookies.set('hideSidebar', 'true') : Cookies.remove('hideSidebar')
 
+            // 过度效果??? 局部渲染
+            sidebarElement.classList.add('animation')
             sidebarElement.classList.toggle('collapsed')
+            sidebarSwitchElement.classList.toggle('active')
             sidebarElement.addEventListener('transitionend', () => {
                 window.dispatchEvent(new Event('resize'))
             })

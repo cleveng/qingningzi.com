@@ -1,4 +1,3 @@
-<?php $hideSidebar = Arr::has(request()->cookie(), 'hideSidebar') ?>
 <nav aria-label="nav" class="navbar navbar-expand navbar-light navbar-bg">
     <a class="sidebar-switch  @if($hideSidebar) active @endif" href="javascript:;">
         <i class="hamburger align-self-center"></i>
