@@ -30,7 +30,7 @@ class IndexController extends BaseController
         SEOMeta::setDescription($this->description);
         SEOMeta::setCanonical(url('/'));
 
-        return view('pages.home.index', [
+        return view($this->tmpl.'home.index', [
             'catid' => 0
         ]);
     }

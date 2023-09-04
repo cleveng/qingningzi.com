@@ -35,7 +35,7 @@ class SearchController extends BaseController
                 $data->thumb = $this->defaultThumb . $data->id;
             }
 
-            return view('pages.tags.index', [
+            return view($this->tmpl.'tags.index', [
                 'data' => $data,
                 'parent_id' => 0,
                 'tag' => $tag,

@@ -3,14 +3,14 @@
     max-width: $sidebar-width;
     direction: ltr;
     @include theme("background", $sidebar-bg);
-
-    &.ease-in-out {
-        transition: $sidebar-transition;
+    &.animation {
+        &, .sidebar-content {
+            transition: $sidebar-transition;
+        }
     }
 }
 
 .sidebar-content {
-    transition: $sidebar-transition;
     @include theme("background", $sidebar-bg);
 }
 

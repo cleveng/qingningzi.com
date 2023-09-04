@@ -8,3 +8,6 @@ import './modules/sidebar'
 
 // feather-icon
 import './modules/feather'
+
+// alpinejs
+import './modules/alpinejs'

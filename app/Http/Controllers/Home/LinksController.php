@@ -42,7 +42,7 @@ class LinksController extends BaseController
             return $data;
         });
 
-        return view('pages.links.index', [
+        return view($this->tmpl.'links.index', [
             'data' => $data,
         ]);
     }

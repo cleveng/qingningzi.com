@@ -15,6 +15,8 @@ class BaseController extends Controller
     protected int $duration;
     protected string $defaultThumb;
 
+    protected string $tmpl;
+
     public function __construct()
     {
         $this->prePage = 12;
@@ -25,5 +27,6 @@ class BaseController extends Controller
         $this->url = env('APP_URL');
         $this->duration = env('APP_DEBUG') ? 0 : 3600 * 24 * 31;
         $this->defaultThumb = 'https://source.unsplash.com/featured/720x368?t=';
+        $this->tmpl = 'app.';
     }
 }

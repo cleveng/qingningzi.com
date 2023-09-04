@@ -1,7 +1,7 @@
 @inject('site', 'App\Services\SitesService')
 @inject('prom', 'App\Services\PromotionsService')
 <?php $ads_enabled = $site->ads_enabled(); ?>
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="page">
-    @include('templates.header')
+    @include('app.templates.header')
     <main>
         <div class="container space-2">
             <div class="row">
@@ -70,19 +70,19 @@
                     <div class="offcanvas offcanvas-collapse offcanvas-end border-start ms-lg-auto">
                         <div class="offcanvas-body py-grid-gutter py-lg-1 px-lg-4">
                             @section('guest-tag')
-                                @include('components.search')
+                                @include('app.components.search')
                             @show
-                            @include('components.ads-rental')
-                            @include('components.ads-product')
-                            @include('components.trending-post')
-                            @include('components.popular-tags')
+                            @include('app.components.ads-rental')
+                            @include('app.components.ads-product')
+                            @include('app.components.trending-post')
+                            @include('app.components.popular-tags')
                         </div>
                     </div>
                 </aside>
             </div>
         </div>
     </main>
-    @include('templates.footer')
+    @include('app.templates.footer')
 </div>
 </body>
 </html>

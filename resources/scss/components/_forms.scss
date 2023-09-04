@@ -344,13 +344,13 @@ input[type="search"]::-webkit-search-results-decoration {
 .input-group-navbar {
     .form-control,
     .btn {
-        background: darken($body-bg, 1%);
+        background: #f3f6fb;
         box-shadow: none;
         border: 0;
         padding: $input-padding-y-lg $spacer*0.75;
 
         &:focus {
-            background: darken($body-bg, 1%);
+            background: #f3f6fb;
             box-shadow: none;
             outline: 0;
         }

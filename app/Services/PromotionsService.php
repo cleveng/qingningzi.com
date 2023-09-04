@@ -24,4 +24,9 @@ class PromotionsService extends BaseService
             ->inRandomOrder()
             ->first();
     }
+
+    public function paid(int $pos = PromotionType::PaidBar, int $limit = 1)
+    {
+        return Promotion::where('is_visible', true)->where('promotion_type', $pos)->first();
+    }
 }

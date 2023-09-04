@@ -22,7 +22,7 @@ class PlatformsController extends BaseController
             return Platform::where('status', true)->orderBy('id', 'desc')->paginate($this->prePage);
         });
 
-        return view('pages.platforms.index', [
+        return view($this->tmpl.'platforms.index', [
             'title' => $title,
             'data' => $data,
         ]);

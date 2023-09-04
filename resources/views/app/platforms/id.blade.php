@@ -14,7 +14,7 @@
 @section('content')
     <div class="@if($site->ads_enabled()) my-5 @else mb-5 @endif mb-md-0">
         @forelse($data as $key => $item)
-            @include('components.article-item', ['data'=>$item, 'key'=>$key])
+            @include('app.components.article-item', ['data'=>$item, 'key'=>$key])
         @empty
             <div class="alert alert-secondary py-5 px-lg-5 text-center mb-5">
                 <h1 class="h4 pb-2">O(∩_∩)O~</h1>
