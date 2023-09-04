@@ -133,4 +133,6 @@
 
 <!-- Google Tag Manager-->
 @inject('site', 'App\Services\SitesService')
-{!! $site->gtm_code() !!}
+@unless(env('APP_DEBUG'))
+    {!! $site->gtm_code() !!}
+@endunless

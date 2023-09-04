@@ -13,6 +13,7 @@ import './modules/sticky-navbar'
 // Common (optional)
 import './modules/carousel'
 import './modules/lazyload'
+import './modules/debugger'
 
 // Sentry
 import './modules/sentry'
