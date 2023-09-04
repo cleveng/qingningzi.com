@@ -14,6 +14,7 @@ final class PromotionType extends Enum
     const RightBar = 2;
     const BottomBar = 3;
     const LeftBar = 4;
+    const PaidBar = 5; // 右侧 广告位招租，目前限定1个 且是二维码类推广
 
     public static function getDescription($value): string
     {
