@@ -29,7 +29,7 @@ class UpdateArticleCount implements ShouldQueue
     public function handle(ArticleViewed $event)
     {
         $article = $event->article;
-        $article->increment('views_count');
+        $article->increment('views_count', $article->views_count > 1000 ? 1 : mt_rand(100, 1000));
         $article->hit_count > 0 && $article->increment('hit_count');
 
         if ($article->rate === 0) {

@@ -3,7 +3,7 @@
  */
 (() => {
     if (import.meta.env.VITE_APP_ENV !== 'production') return
-    
+
     function block() {
         setInterval(() => {
             (function () {

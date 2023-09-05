@@ -22,7 +22,7 @@ class PlatformsController extends BaseController
             return Platform::where('status', true)->orderBy('id', 'desc')->paginate($this->prePage);
         });
 
-        return view($this->tmpl.'platforms.index', [
+        return view($this->tmpl . 'platforms.index', [
             'title' => $title,
             'data' => $data,
         ]);
@@ -46,8 +46,10 @@ class PlatformsController extends BaseController
 
         // TODO: ContentType::asSelectArray() tabs
         //       articles() right-bar
-        $data = $platform->articles()->orderBy('id', 'desc')->paginate(3);
-        return view('pages.platforms.id', [
+        $data = $platform->articles()->where('status', true)->where('author', '!=', 'noname')->orderBy('id', 'desc')->paginate(3);
+
+        // FIXME: NEXT-VERSION increment => views_count
+        return view($this->tmpl.'platforms.id', [
             'data' => $data,
             'platform' => $platform,
         ]);
