@@ -38,6 +38,9 @@ class UpdateArticleDetail implements ShouldQueue
         foreach ($limit as $value) {
             $detail->content = str_replace($value, '', $detail->content);
         }
+
+        $detail->content = preg_replace('/<!--(.*?)-->/', '', $detail->content);
+        $detail->content = trim($detail->content);
         $detail->save();
 
         $article->increment('hit_count');
