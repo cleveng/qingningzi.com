@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\ArticleViewed;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Facades\Redis;
 
 class UpdateArticleDetail implements ShouldQueue
 {
@@ -34,8 +35,10 @@ class UpdateArticleDetail implements ShouldQueue
         }
 
         $detail = $article->detail;
-        $limit = ['<p></p>', '<p>图片来自网络</p>'];
-        foreach ($limit as $value) {
+
+        // NOTE: key has a prefix likes _database_,
+        // see the config /configs/database.php => REDIS_PREFIX
+        foreach (Redis::smembers(env('DETAIL_EXCEPT_WORDS')) as $value) {
             $detail->content = str_replace($value, '', $detail->content);
         }
 
