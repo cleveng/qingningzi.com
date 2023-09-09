@@ -11,6 +11,7 @@ class UpdateArticleDetail implements ShouldQueue
 {
     use InteractsWithQueue;
 
+    private int $stopValue;
     /**
      * Create the event listener.
      *
@@ -18,7 +19,7 @@ class UpdateArticleDetail implements ShouldQueue
      */
     public function __construct()
     {
-        //
+        $this->stopValue = 666;
     }
 
     /**
@@ -30,7 +31,8 @@ class UpdateArticleDetail implements ShouldQueue
     public function handle(ArticleViewed $event)
     {
         $article = $event->article;
-        if ($article->hit_count > 0) {
+        // FIXME: NEXT VERSION DEAL IT
+        if ($article->hit_count === $this->stopValue) {
             return;
         }
 
