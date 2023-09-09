@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="shortcut icon" href="{{ Vite::image('favicon.ico') }}"/>
-    <link rel="apple-touch-icon-precomposed" href="{{ Vite::image('/favicon.png') }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ Vite::image('favicon.png') }}">
     @vite(['resources/scss/dashboard.scss', 'resources/js/dashboard.js'])
 </head>
 <body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-behavior="sticky">
