@@ -1,6 +1,11 @@
 # Vite 项目打包
 vite-build:
 	yarn && yarn build
+	make upyun
+
+# 静态资源上云操作
+upyun:
+	sh deploy.sh
 
 # Composer 更新依赖
 composer-update:

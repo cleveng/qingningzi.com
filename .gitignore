@@ -141,3 +141,4 @@ yarn-error.log
 _custom.scss
 composer.lock
 .yarn
+deploy.sh
