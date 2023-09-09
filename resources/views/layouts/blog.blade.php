@@ -1,7 +1,9 @@
 @inject('site', 'App\Services\SitesService')
 @inject('prom', 'App\Services\PromotionsService')
-<?php $ads_enabled = $site->ads_enabled(); ?>
-    <!DOCTYPE html>
+@php
+    $ads_enabled = $site->ads_enabled();
+@endphp
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -11,8 +13,8 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {!! SEO::generate() !!}
-    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}"/>
-    <link rel="apple-touch-icon-precomposed" href="{{ asset('images/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ Vite::image('favicon.ico') }}"/>
+    <link rel="apple-touch-icon-precomposed" href="{{ Vite::image('favicon.png') }}">
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 <body>
@@ -39,7 +41,9 @@
                     @show
 
                     <!-- Top ads-->
-                    <?php $top_ads = $ads_enabled ? $prom->item(\App\Enums\PromotionType::TopBar) : null; ?>
+                    @php
+                        $top_ads = $ads_enabled ? $prom->item(\App\Enums\PromotionType::TopBar) : null;
+                    @endphp
                     @if ($top_ads)
                         <a href="{{ url('/redirect?target_id=' . $top_ads->id) }}" rel="nofollow" target="_blank"
                            class="card" title="{{ $top_ads->title }}">
@@ -51,7 +55,9 @@
                     @show
 
                     <!-- Bottom ads-->
-                    <?php $bottom_ads = $top_ads ? $bottom_ads = $prom->item(\App\Enums\PromotionType::TopBar, $top_ads->id) : null; ?>
+                    @php
+                        $bottom_ads = $top_ads ? $bottom_ads = $prom->item(\App\Enums\PromotionType::TopBar, $top_ads->id) : null;
+                    @endphp
                     @if($bottom_ads)
                         <a href="{{ url('/redirect?target_id=' . $bottom_ads->id) }}" rel="nofollow" target="_blank"
                            class="card mt-5" title="{{ $bottom_ads->title }}">

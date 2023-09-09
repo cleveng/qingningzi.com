@@ -1,7 +1,9 @@
 @extends('layouts.guest')
 @section('content')
     @inject('site', 'App\Services\SitesService')
-    <?php $allow_registration = $site->allow_registration(); ?>
+    @php
+        $allow_registration = $site->allow_registration();
+    @endphp
     <div class="accordion">
         <div class="accordion-control align-items-center" aria-hidden="true">
             <h4 class="mb-0">帐户登录</h4>

@@ -15,7 +15,7 @@
 <div class="widget pb-grid-gutter mx-lg-2">
     <h3 class="widget-title">本文编辑</h3>
     <div class="text-start">
-        <img src="{{asset('images/author.jpg')}}" class="d-inline-block rounded mb-3" width="96" alt="{{env('APP_NAME')}}">
+        <img src="{{Vite::image('author.jpg')}}" class="d-inline-block rounded mb-3" width="96" alt="{{env('APP_NAME')}}">
         <h6 class="pt-1 mb-1">{{env('APP_NAME')}}</h6>
         <p class="fs-sm text-muted">
             本栏目所有文章目的在于传递更多信息，并不代表本网赞同其观点和对其真实性负责。凡本网

@@ -2,17 +2,18 @@
 @section('content')
     @inject('articles', 'App\Services\ArticlesService')
     @inject('idols', 'App\Services\IdolsService')
-
     <div class="container">
         <div class="row">
             <div class="col-md-8">
                 <div class="tns-carousel">
                     <div class="tns-carousel-inner"
                          data-carousel-options="{&quot;items&quot;: 1, &quot;nav&quot;: false, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;700&quot;:{&quot;items&quot;:1, &quot;gutter&quot;: 20},&quot;991&quot;:{&quot;items&quot;:1, &quot;gutter&quot;: 30}}}">
-                        <?php $sa = $articles->item(12); ?>
+                       @php
+                           $sa = $articles->item(12);
+                       @endphp
                         @if($sa)
                             <div class="tns-carousel-slide">
-                                <img src="{{asset('uploadfile/2016/0624/PBBSPxhQsp0CzbP2iLMe2kofh3IQZP74.jpg')}}"
+                                <img src="{{env('ASSET_CDN')}}/images/PBBSPxhQsp0CzbP2iLMe2kofh3IQZP74.jpg"
                                      class="w-100"
                                      alt="{{$sa->title}}">
                                 <div class="tns-carousel-caption">
@@ -30,10 +31,12 @@
                                 </div>
                             </div>
                         @endif
-                        <?php $sb = $articles->item(17); ?>
+                        @php
+                            $sb = $articles->item(17);
+                        @endphp
                         @if($sb)
                             <div class="tns-carousel-slide">
-                                <img src="{{asset('uploadfile/2016/0624/diTRvUaksOju3EijkJPfZy1SqAaLf51I.jpg')}}"
+                                <img src="{{env('ASSET_CDN')}}/images/diTRvUaksOju3EijkJPfZy1SqAaLf51I.jpg"
                                      class="w-100"
                                      alt="{{$sb->title}}">
                                 <div class="tns-carousel-caption">
@@ -51,10 +54,12 @@
                                 </div>
                             </div>
                         @endif
-                        <?php $sc = $articles->item(18); ?>
+                        @php
+                            $sc = $articles->item(18);
+                        @endphp
                         @if($sc)
                             <div class="tns-carousel-slide">
-                                <img src="{{asset('uploadfile/2016/0624/xnSkKb1ZZCR4JUEWWqbwUmo3iOlpkYYl.jpg')}}"
+                                <img src="{{env('ASSET_CDN')}}/images/xnSkKb1ZZCR4JUEWWqbwUmo3iOlpkYYl.jpg"
                                      class="w-100"
                                      alt="{{$sc->title}}">
                                 <div class="tns-carousel-caption">
@@ -77,26 +82,30 @@
             <div class="col-md-4">
                 <div class="row">
                     <div class="col-sm-6 col-md-12 d-block d-md-none mt-3 mt-md-0">
-                        <?php $ha = $articles->item(14); ?>
+                        @php
+                            $ha = $articles->item(14);
+                        @endphp
                         @if($ha)
                             <a data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
                                data-bs-placement="bottom"
                                title="{{$ha->title}}"
                                href="{{url($ha->shortcode)}}">
-                                <img alt="{{$ha->title}}" src="{{asset('uploadfile/2016/0624/woman_b.jpg')}}"
+                                <img alt="{{$ha->title}}" src="{{env('ASSET_CDN')}}/images/woman_b.jpg"
                                      class="img-fluid">
                             </a>
                         @endif
                     </div>
                     <div class="col-sm-6 col-md-12 mt-3 mt-md-0">
-                        <?php $hb = $articles->item(10); ?>
+                        @php
+                            $hb = $articles->item(10);
+                        @endphp
                         @if($hb)
                             <a data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
                                data-bs-placement="bottom"
                                title="{{$hb->title}}"
                                href="{{url($hb->shortcode)}}"
                                class="thumbnail-variant-4 d-block">
-                                <img alt="{{$hb->title}}" src="{{asset('uploadfile/2016/0624/woman_a.jpg')}}"
+                                <img alt="{{$hb->title}}" src="{{env('ASSET_CDN')}}/images/woman_a.jpg"
                                      height="336" class="w-100">
                             </a>
                         @endif
@@ -111,23 +120,27 @@
             <h3>情感的森林</h3>
             <div class="row mt-4">
                 <div class="col-md-4 col-sm-6 flex-fill">
-                    <?php $tf = $articles->find(247); ?>
-                    @if($tf)
+                    @php
+                        $jc = $articles->find(247);
+                    @endphp
+                    @if($jc)
                         <a data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="{{$tf->title}}" href="{{url($tf->shortcode)}}"
+                           title="{{$jc->title}}" href="{{url($jc->shortcode)}}"
                            class="d-block">
-                            <img alt="{{$tf->title}}" src="{{asset('uploadfile/2016/0624/lover_a.jpg')}}"
+                            <img alt="{{$jc->title}}" src="{{env('ASSET_CDN')}}/images/lover_a.jpg"
                                  class="img-fluid w-100"/>
                         </a>
                     @endif
                 </div>
                 <div class="col-md-4 col-sm-6 col-md-push-1 flex-fill mt-3 mt-md-0">
-                    <?php $ts = $articles->find(242); ?>
-                    @if($ts)
+                    @php
+                        $jx = $articles->find(242);
+                    @endphp
+                    @if($jx)
                         <a data-bs-toggle="tooltip" data-bs-placement="left"
-                           title="{{$ts->title}}" href="{{url($ts->shortcode)}}"
+                           title="{{$jx->title}}" href="{{url($jx->shortcode)}}"
                            class="d-block">
-                            <img alt="{{$ts->title}}" src="{{asset('/uploadfile/2016/0624/lover_d.jpg')}}"
+                            <img alt="{{$jx->title}}" src="{{env('ASSET_CDN')}}/images/lover_d.jpg"
                                  class="img-fluid w-100">
                         </a>
                     @endif
@@ -135,28 +148,32 @@
                 <div class="col-md-4 flex-fill mt-3 mt-md-0">
                     <div class="row h-100 flex-column">
                         <div class="col-sm-6 col-md-12">
-                            <?php $th = $articles->find(252); ?>
-                            @if($th)
+                            @php
+                                $jq = $articles->find(252);
+                            @endphp
+                            @if($jq)
                                 <a data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
                                    data-bs-placement="right"
-                                   title="{{$th->title}}"
-                                   href="{{url($th->shortcode)}}"
+                                   title="{{$jq->title}}"
+                                   href="{{url($jq->shortcode)}}"
                                    class="d-block">
-                                    <img alt="{{$th->title}}"
-                                         src="{{asset('uploadfile/2016/0624/lover_b.jpg')}}" class="img-fluid w-100">
+                                    <img alt="{{$jq->title}}"
+                                         src="{{env('ASSET_CDN')}}/images/lover_b.jpg" class="img-fluid w-100">
                                 </a>
                             @endif
                         </div>
                         <div class="col-sm-6 col-md-12 mt-3 mt-md-auto">
-                            <?php $ts = $articles->find(2); ?>
-                            @if($ts)
+                            @php
+                                $ju = $articles->find(2);
+                            @endphp
+                            @if($ju)
                                 <a data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
                                    data-bs-placement="bottom"
-                                   title="{{$ts->title}}"
-                                   href="{{url($ts->shortcode)}}"
+                                   title="{{$ju->title}}"
+                                   href="{{url($ju->shortcode)}}"
                                    class="d-block">
-                                    <img alt="{{$ts->title}}"
-                                         src="{{asset('uploadfile/2016/0624/lover_c.jpg')}}" class="img-fluid w-100">
+                                    <img alt="{{$ju->title}}"
+                                         src="{{env('ASSET_CDN')}}/images/lover_c.jpg" class="img-fluid w-100">
                                 </a>
                             @endif
                         </div>
@@ -171,11 +188,13 @@
             <h3>放空心灵去旅行</h3>
             <div class="row mt-0 mt-md-4">
                 @foreach($articles->items(13,4) as $key=>$item)
+                    @php
+                        $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key;
+                    @endphp
                     <div class="col-md-3 col-sm-12 col-xs-12 @if($key > 0) mt-2 mt-md-0 @endif">
                         <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="{{$item->title}}"
                            href="{{url($item->shortcode)}}"
                            class="card">
-                                <?php $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
                             <img alt="{{$item->title}}" src="{{ $thumb }}" class="img-fluid">
                             <div
                                 class="position-absolute top-0 start-0 end-0 d-flex justify-content-between align-items-center">
@@ -198,6 +217,9 @@
                     <div class="tns-carousel-inner"
                          data-carousel-options='{"items": 3, "nav": false, "responsive": {"0":{"items":1},"500":{"items":2, "gutter": 18},"768":{"items":3, "gutter": 20}, "1100":{"gutter": 24}}}'>
                         @foreach($articles->items(13,6) as $key=>$item)
+                            @php
+                                $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key;
+                            @endphp
                             <div class="card product-card-alt">
                                 <div class="product-thumb">
                                     <a href="{{url('category/'.$item->category_id)}}"
@@ -206,8 +228,6 @@
                                     </a>
                                     <a class="product-thumb-overlay" href="{{url($item->shortcode)}}"
                                        title="{{$item->title}}"></a>
-
-                                        <?php $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
                                     <img src="{{ $thumb }}" alt="{{$item->title}}">
                                 </div>
                                 <div class="card-body mt-n2">
@@ -242,7 +262,7 @@
     <section class="space-2-top container text-center">
         <div class="card product-card-alt">
             <div class="product-thumb">
-                <img src="{{asset("uploadfile/2016/0717/20160717115428278.jpg")}}" alt="关于爱情"
+                <img src="{{env('ASSET_CDN')}}/images/20160717115428278.jpg" alt="关于爱情"
                      style="object-fit: cover; max-height: 540px;">
                 <a class="product-thumb-overlay opacity-100"></a>
             </div>
@@ -250,7 +270,9 @@
                 class="position-absolute top-0 start-0 end-0 bottom-0 d-flex justify-content-between align-items-center zindex-5">
                 <div class="mx-auto text-center text-white" style="max-width: 42rem;">
                     <h3 class="text-white">关于爱情</h3>
-                    <?php $l = $articles->item(16) ?>
+                    @php
+                        $l = $articles->item(16);
+                    @endphp
                     <div class="text-regular text-uppercase">
                         有些人的爱，像风，看不到，却感受的到 - <a href="{{url($l->shortcode)}}">{{$l->title}}</a>
                     </div>
@@ -268,9 +290,11 @@
                 <div class="tns-carousel-inner"
                      data-carousel-options="{&quot;items&quot;: 2, &quot;nav&quot;: false, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;700&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 20},&quot;991&quot;:{&quot;items&quot;:4, &quot;gutter&quot;: 30}}}">
                     @foreach($articles->items(15, 10) as $key=>$item)
+                        @php
+                            $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key;
+                        @endphp
                         <article>
                             <a class="blog-entry-thumb mb-1" href="{{url($item->shortcode)}}">
-                                    <?php $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
                                 <img src="{{ $thumb }}" alt="{{$item->title}}">
                             </a>
                             <h2 class="h6 blog-entry-title mb-0 text-truncate">
@@ -317,6 +341,9 @@
                     <div class="tns-carousel-inner"
                          data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: false, &quot;nav&quot;: true, &quot;gutter&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;992&quot;:{&quot;items&quot;:4}}}">
                         @foreach($articles->items(25,8) as $key=>$item)
+                            @php
+                                $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key;
+                            @endphp
                             <article class="mb-4">
                                 <div class="card product-card">
                                     <a class="btn-wishlist btn-sm" href="{{url($item->shortcode)}}"
@@ -326,7 +353,6 @@
                                         <i class="ci-link"></i>
                                     </a>
                                     <a class="card-img-top d-block overflow-hidden" href="{{url($item->shortcode)}}">
-                                            <?php $thumb = $item->thumb ? asset($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
                                         <img alt="{{$item->title}}" data-src="{{ $thumb }}" class="lazy">
                                     </a>
                                     <div class="card-body py-2">

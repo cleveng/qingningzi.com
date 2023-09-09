@@ -22,7 +22,7 @@
 
         <div class="mt-2">
             <a title="{{env('APP_NAME')}}" href="{{env('APP_URL')}}">
-                <img alt="{{env('APP_NAME')}}" src="{{asset('images/logo.png')}}" width="163" height="41"
+                <img alt="{{env('APP_NAME')}}" src="{{Vite::image('logo.png')}}" width="163" height="41"
                      class="d-inline-block img-fluid">
             </a>
             <p class="mt-3 fs-sm d-none d-md-block">{{env('APP_NAME')}}

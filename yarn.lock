@@ -233,6 +233,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^20.6.0":
+  version: 20.6.0
+  resolution: "@types/node@npm:20.6.0"
+  checksum: 52611801af5cf151c6fac1963aa4a8a8ca2e388a9e9ed82b01b70bca762088ded5b32cc789c5564220d5d7dccba2b8dd34446a3d4fc74736805e1f2cf262e29d
+  languageName: node
+  linkType: hard
+
 "@types/normalize-package-data@npm:^2.4.0":
   version: 2.4.1
   resolution: "@types/normalize-package-data@npm:2.4.1"
@@ -2387,6 +2394,7 @@ __metadata:
   dependencies:
     "@popperjs/core": ^2.11.6
     "@sentry/browser": ^7.60.0
+    "@types/node": ^20.6.0
     alpinejs: ^3.13.0
     axios: ^1.5.0
     bootstrap: ^5.2.2

@@ -1,5 +1,7 @@
 @if($data)
-    <?php $key = isset($key) ? $key : \Carbon\Carbon::now() ?>
+    @php
+        $key = isset($key) ? $key : \Carbon\Carbon::now();
+    @endphp
     @inject('article', 'App\Services\ArticlesService')
     <article class="@if($key > 0) mt-5 pt-5 border-top @endif">
         <div class="d-flex align-items-start">
@@ -27,7 +29,9 @@
             </div>
         </div>
         <a class="blog-entry-thumb mb-3 mt-1 position-relative" href="{{ url($data->shortcode) }}">
-            <?php $thumb = $data->thumb ? asset($data->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key; ?>
+            @php
+                $thumb = $data->thumb ? asset($data->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key;
+            @endphp
             <img @if($key >= 2) class="lazy" data-src="{{ $thumb }}"
                  @else src="{{ $thumb }}" @endif alt="{{ $data->title }}"/>
         </a>
