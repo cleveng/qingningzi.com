@@ -8,13 +8,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <meta name="format-detection" content="telephone=no">
     {!! SEO::generate() !!}
-    <link href="{{asset('images/favicon.ico')}}" rel="shortcut icon"/>
-    <link rel="apple-touch-icon-precomposed" href="{{asset('images/favicon.png')}}">
+    <link href="{{ Vite::image('favicon.ico') }}" rel="shortcut icon"/>
+    <link rel="apple-touch-icon-precomposed" href="{{ Vite::image('favicon.png') }}">
     <!--[if mso]>
     <style type="text/css">td, span, a {
         font-family: Arial, sans-serif !important;
     }
-
     a {
         text-decoration: none !important;
     }</style>
@@ -525,7 +524,7 @@
                                                                            href="http://www.jiathis.com/send/?webid=linkedin&amp;url={{Request::url()}}&amp;title={{$data->title}}&amp;summary={{$data->description}}&amp;pic={{$data->thumb}}&amp;uid=2103110"
                                                                            style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; font-size: inherit; text-decoration: none !important">
                                                                             <img
-                                                                                src="{{asset('images/icons/fnt-linkedin.png')}}"
+                                                                                src="{{Vite::image('icons/fnt-linkedin.png')}}"
                                                                                 width="25" alt="facebook"
                                                                                 style="-ms-interpolation-mode: bicubic; display: block !important; height: auto !important; line-height: 100%; max-width: 25px; outline: none; text-decoration: none"></a>
                                                                     </td>
@@ -536,7 +535,7 @@
                                                                            href="https://www.jiathis.com/send/?webid=qzone&amp;url={{Request::url()}}&amp;title={{$data->title}}&amp;summary={{$data->description}}&amp;pic={{$data->thumb}}&amp;uid=2103110"
                                                                            style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; font-size: inherit; text-decoration: none !important">
                                                                             <img
-                                                                                src="{{asset('images/icons/fnt-qq.png')}}"
+                                                                                src="{{Vite::image('icons/fnt-qq.png')}}"
                                                                                 width="25" alt="twitter"
                                                                                 style="-ms-interpolation-mode: bicubic; display: block !important; height: auto !important; line-height: 100%; max-width: 25px; outline: none; text-decoration: none"></a>
                                                                     </td>
@@ -547,7 +546,7 @@
                                                                            href="http://www.jiathis.com/send/?webid=tsina&amp;url={{Request::url()}}&amp;title={{$data->title}}&amp;summary={{$data->description}}&amp;pic={{$data->thumb}}&amp;uid=2103110&amp;appkey=3529509139"
                                                                            style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; font-size: inherit; text-decoration: none !important">
                                                                             <img
-                                                                                src="{{asset('images/icons/fnt-weibo.png')}}"
+                                                                                src="{{Vite::image('icons/fnt-weibo.png')}}"
                                                                                 width="25" alt="googleplus"
                                                                                 style="-ms-interpolation-mode: bicubic; display: block !important; height: auto !important; line-height: 100%; max-width: 25px; outline: none; text-decoration: none"></a>
                                                                     </td>
@@ -558,7 +557,7 @@
                                                                            href="http://www.jiathis.com/send/?webid=renren&amp;url={{Request::url()}}&amp;title={{$data->title}}&amp;summary={{$data->description}}&amp;pic={{$data->thumb}}&amp;uid=2103110"
                                                                            style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; font-size: inherit; text-decoration: none !important">
                                                                             <img
-                                                                                src="{{asset('images/icons/fnt-renren.png')}}"
+                                                                                src="{{Vite::image('icons/fnt-renren.png')}}"
                                                                                 width="25" alt="rss"
                                                                                 style="-ms-interpolation-mode: bicubic; display: block; height: auto !important; line-height: 100%; max-width: 25px; outline: none; text-decoration: none"></a>
                                                                     </td>
@@ -569,7 +568,7 @@
                                                                            href="http://www.jiathis.com/send/?webid=weixin&amp;url={{Request::url()}}&amp;title={{$data->title}}&amp;summary={{$data->description}}&amp;pic={{$data->thumb}}&amp;uid=2103110"
                                                                            style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; font-size: inherit; text-decoration: none !important">
                                                                             <img
-                                                                                src="{{asset('images/icons/fnt-weixin.png')}}"
+                                                                                src="{{Vite::image('icons/fnt-weixin.png')}}"
                                                                                 width="25" alt="linkedin"
                                                                                 style="-ms-interpolation-mode: bicubic; display: block !important; height: auto !important; line-height: 100%; max-width: 25px; outline: none; text-decoration: none"></a>
                                                                     </td>
@@ -644,7 +643,7 @@
                                                             <a href="{{env('APP_URL')}}"
                                                                style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; font-size: inherit; text-decoration: none !important"
                                                                class="vero-editable">
-                                                                <img src="{{asset('images/logo.png')}}"
+                                                                <img src="{{Vite::image('logo.png')}}"
                                                                      width="169"
                                                                      style="-ms-interpolation-mode: bicubic; display: block !important; height: auto !important; line-height: 100%; outline: none; text-decoration: none; width: 169px !important"
                                                                      alt="{{env('APP_NAME')}}网" border="0" hspace="0"
@@ -1393,7 +1392,7 @@
                                                         <td align="left">
                                                             <a href="#" target="_blank">
                                                                 <img border="0"
-                                                                     src="{{asset('images/qrcode_for_gh_a0e3856031fe_1280.jpg')}}"
+                                                                     src="{{ Vite::image('qrcode_for_gh_a0e3856031fe_1280.jpg') }}"
                                                                      style="display: block;max-width: 65px;"></a>
                                                         </td>
                                                     </tr>
@@ -1422,7 +1421,7 @@
                                                         <td align="left">
                                                             <a href="javascript:;" target="_blank">
                                                                 <img border="0"
-                                                                     src="{{asset('images/weibo_qr_code.png')}}"
+                                                                     src="{{Vite::image('weibo_qr_code.png')}}"
                                                                      style="display: block;max-width: 65px;"></a>
                                                         </td>
                                                     </tr>

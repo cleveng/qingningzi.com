@@ -1,5 +1,7 @@
 @inject('site', 'App\Services\SitesService')
-<?php $ads_enabled = $site->ads_enabled(); ?>
+@php
+    $ads_enabled = $site->ads_enabled();
+@endphp
 
 @extends('layouts.blog')
 @section('breadcrumb')

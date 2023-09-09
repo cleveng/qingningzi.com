@@ -2,6 +2,11 @@
 
 import './bootstrap' // axios
 
+import.meta.glob([
+    '../fonts/**',
+    '../images/**',
+])
+
 // Common (required)
 import './modules/bootstrap'
 import './modules/sidebar'

@@ -3,7 +3,10 @@
 import './bootstrap' // axios
 
 // [document](https://laravel.com/docs/10.x/vite#blade-processing-static-assets)
-import.meta.glob(['../fonts/**',])
+import.meta.glob([
+    '../fonts/**',
+    '../images/**',
+])
 
 // Common (required)
 import './modules/bootstrap'

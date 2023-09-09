@@ -5,13 +5,15 @@
 @if($site->ads_enabled())
     <div class="widget mb-grid-gutter pb-grid-gutter border-bottom mx-lg-2">
         <div class="masonry-grid-item">
-            <?php $paid = $prom->paid() ?>
+            @php
+                $paid =$prom->paid();
+            @endphp
             @if($paid)
                 <a class="card" href="{{ url('/redirect?target_id=' . $paid->id) }}" rel="nofollow" target="_blank">
                     <span class="bg-dark badge position-absolute top-0 start-0">{{$paid->title}}</span>
                     <img alt="{{$paid->description}}"
                          class="card-img"
-                         src="{{asset($paid->cover_image)}}">
+                         src="{{url($paid->cover_image)}}">
                 </a>
             @else
                 <div class="card border text-center">

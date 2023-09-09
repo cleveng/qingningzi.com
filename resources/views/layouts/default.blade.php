@@ -1,5 +1,7 @@
-<?php $parent_id = isset($parent_id) ? $parent_id : null; ?>
-        <!DOCTYPE html>
+@php
+    $parent_id = isset($parent_id) ? $parent_id : null;
+@endphp
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -9,8 +11,8 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {!! SEO::generate() !!}
-    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}"/>
-    <link rel="apple-touch-icon-precomposed" href="{{ asset('images/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ Vite::image('favicon.ico') }}"/>
+    <link rel="apple-touch-icon-precomposed" href="{{ Vite::image('favicon.png') }}">
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 <body>
