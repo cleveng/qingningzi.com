@@ -22,7 +22,7 @@
                         <div class="card border-1">
                             <div class="card-img-top position-relative overflow-hidden">
                                 <a class="d-block" href="{{'/platforms/'.$item->id}}">
-                                    <img src="{{asset($item->thumb)}}" alt="{{$item->name}}" class="w-100">
+                                    <img src="{{url($item->thumb)}}" alt="{{$item->name}}" class="w-100">
                                 </a>
                             </div>
                             <div class="badge bg-dark fs-sm position-absolute top-0 end-0 zindex-5 opacity-50">

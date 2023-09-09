@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrapFour();
         Carbon::setLocale('zh');
 
-        Vite::macro('image', fn (string $asset) => $this->asset("resources/images/{$asset}"));
+        Vite::macro('image', fn(string $asset) => $this->asset("resources/images/{$asset}"));
 
         // FIXME: the page flash hide???
         view()->share('hideSidebar', Arr::has(request()->cookie(), 'hideSidebar'));

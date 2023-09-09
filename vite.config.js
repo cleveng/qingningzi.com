@@ -3,7 +3,7 @@ import { defineConfig } from 'vite'
 import laravel from 'laravel-vite-plugin'
 
 export default defineConfig({
-    base: 'https://cdn.qingningzi.com/',
+    base: 'https://cdn.qingningzi.com/build/',
     build: {
         outDir: resolve(__dirname, 'public/build'),
         emptyOutDir: true,

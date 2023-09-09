@@ -2,7 +2,7 @@
     <section class="d-sm-none d-xs-block">
         <div class="space-1-top text-center">
             <div class="img-thumbnail" style="border-radius: 3px;">
-                <img src="{{asset($data->platform->qrcode)}}" alt="微信扫一扫" class="img-fluid"
+                <img src="{{url($data->platform->qrcode)}}" alt="微信扫一扫" class="img-fluid"
                      style="max-width: 214px;">
                 <div>微信扫一扫</div>
             </div>

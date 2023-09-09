@@ -13,7 +13,7 @@
                     <span class="bg-dark badge position-absolute top-0 start-0">{{$paid->title}}</span>
                     <img alt="{{$paid->description}}"
                          class="card-img"
-                         src="{{asset($paid->cover_image)}}">
+                         src="{{url($paid->cover_image)}}">
                 </a>
             @else
                 <div class="card border text-center">

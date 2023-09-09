@@ -28,7 +28,7 @@
                                         <a data-bs-original-title="{{$item->name}}" data-bs-toggle="popover"
                                            data-bs-trigger="hover"
                                            data-bs-html="true"
-                                           data-bs-content="<img src='{{asset($item->logo)}}' alt='{{$item->name}}' class='img-fluid'>"
+                                           data-bs-content="<img src='{{url($item->logo)}}' alt='{{$item->name}}' class='img-fluid'>"
                                            href="{{$item->url}}"
                                            target="_blank"
                                            @if($item->link_type !== \App\Enums\LinkType::EMOTION) rel="nofollow"
@@ -75,7 +75,7 @@
                                 data-bs-original-title="{{env('APP_NAME')}}" data-bs-toggle="popover"
                                 data-bs-trigger="hover"
                                 data-bs-html="true"
-                                data-bs-content="<img src='{{asset("uploadfile/video/qingningzi_logo.jpg")}}' alt='{{env("APP_NAME")}}' class='img-fluid'>"
+                                data-bs-content="<img src='{{url("uploadfile/video/qingningzi_logo.jpg")}}' alt='{{env("APP_NAME")}}' class='img-fluid'>"
                                 href="{{env('APP_URL')}}" target="_blank"
                                 data-bs-placement="top">{{env('APP_NAME')}}</a>
                             <small class="text-muted">鼠标移动</small>

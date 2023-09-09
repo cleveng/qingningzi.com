@@ -79,7 +79,7 @@
                              data-carousel-options='{"mode": "gallery", "speed": 1000}'>
                             @foreach($attachment->media as $medium)
                                 <img alt="{{$medium['display_name']}}"
-                                     src="{{asset($medium['display_url'])}}"
+                                     src="{{url($medium['display_url'])}}"
                                      class="img-fluid">
                             @endforeach
                         </div>
@@ -125,7 +125,7 @@
                 @if ($data->qrcode)
                     <a class="btn-social bs-wechat me-2 mb-2" data-bs-original-title="微信扫一扫"
                        data-bs-toggle="popover" data-bs-trigger="hover" title="" data-bs-html="true"
-                       data-bs-content="<img src='{{ asset($data->qrcode) }}' alt='' class='img-fluid'>"
+                       data-bs-content="<img src='{{ url($data->qrcode) }}' alt='' class='img-fluid'>"
                        href="javascript:;" data-bs-container="body" data-bs-placement="bottom">
                         <i class="ci-wechat"></i>
                     </a>

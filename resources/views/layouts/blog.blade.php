@@ -47,7 +47,7 @@
                     @if ($top_ads)
                         <a href="{{ url('/redirect?target_id=' . $top_ads->id) }}" rel="nofollow" target="_blank"
                            class="card" title="{{ $top_ads->title }}">
-                            <img alt="{{ $top_ads->title }}" src="{{ asset($top_ads->cover_image) }}" class="card-img">
+                            <img alt="{{ $top_ads->title }}" src="{{ url($top_ads->cover_image) }}" class="card-img">
                         </a>
                     @endif
 
@@ -61,7 +61,7 @@
                     @if($bottom_ads)
                         <a href="{{ url('/redirect?target_id=' . $bottom_ads->id) }}" rel="nofollow" target="_blank"
                            class="card mt-5" title="{{ $bottom_ads->title }}">
-                            <img alt="{{ $bottom_ads->title }}" src="{{ asset($bottom_ads->cover_image) }}"
+                            <img alt="{{ $bottom_ads->title }}" src="{{ url($bottom_ads->cover_image) }}"
                                  class="card-img">
                         </a>
                     @endif
