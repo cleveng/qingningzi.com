@@ -13,7 +13,7 @@
                        @endphp
                         @if($sa)
                             <div class="tns-carousel-slide">
-                                <img src="{{env('ASSET_URL')}}/images/PBBSPxhQsp0CzbP2iLMe2kofh3IQZP74.jpg"
+                                <img src="{{asset('images/PBBSPxhQsp0CzbP2iLMe2kofh3IQZP74.jpg')}}"
                                      class="w-100"
                                      alt="{{$sa->title}}">
                                 <div class="tns-carousel-caption">
@@ -36,7 +36,7 @@
                         @endphp
                         @if($sb)
                             <div class="tns-carousel-slide">
-                                <img src="{{env('ASSET_URL')}}/images/diTRvUaksOju3EijkJPfZy1SqAaLf51I.jpg"
+                                <img src="{{asset('images/diTRvUaksOju3EijkJPfZy1SqAaLf51I.jpg')}}"
                                      class="w-100"
                                      alt="{{$sb->title}}">
                                 <div class="tns-carousel-caption">
@@ -59,7 +59,7 @@
                         @endphp
                         @if($sc)
                             <div class="tns-carousel-slide">
-                                <img src="{{env('ASSET_URL')}}/images/xnSkKb1ZZCR4JUEWWqbwUmo3iOlpkYYl.jpg"
+                                <img src="{{asset('images/xnSkKb1ZZCR4JUEWWqbwUmo3iOlpkYYl.jpg')}}"
                                      class="w-100"
                                      alt="{{$sc->title}}">
                                 <div class="tns-carousel-caption">
@@ -90,7 +90,7 @@
                                data-bs-placement="bottom"
                                title="{{$ha->title}}"
                                href="{{url($ha->shortcode)}}">
-                                <img alt="{{$ha->title}}" src="{{env('ASSET_URL')}}/images/woman_b.jpg"
+                                <img alt="{{$ha->title}}" src="{{asset('images/woman_b.jpg')}}"
                                      class="img-fluid">
                             </a>
                         @endif
@@ -105,7 +105,7 @@
                                title="{{$hb->title}}"
                                href="{{url($hb->shortcode)}}"
                                class="thumbnail-variant-4 d-block">
-                                <img alt="{{$hb->title}}" src="{{env('ASSET_URL')}}/images/woman_a.jpg"
+                                <img alt="{{$hb->title}}" src="{{asset('images/woman_a.jpg')}}"
                                      height="336" class="w-100">
                             </a>
                         @endif
@@ -127,7 +127,7 @@
                         <a data-bs-toggle="tooltip" data-bs-placement="top"
                            title="{{$jc->title}}" href="{{url($jc->shortcode)}}"
                            class="d-block">
-                            <img alt="{{$jc->title}}" src="{{env('ASSET_URL')}}/images/lover_a.jpg"
+                            <img alt="{{$jc->title}}" src="{{asset('images/lover_a.jpg')}}"
                                  class="img-fluid w-100"/>
                         </a>
                     @endif
@@ -140,7 +140,7 @@
                         <a data-bs-toggle="tooltip" data-bs-placement="left"
                            title="{{$jx->title}}" href="{{url($jx->shortcode)}}"
                            class="d-block">
-                            <img alt="{{$jx->title}}" src="{{env('ASSET_URL')}}/images/lover_d.jpg"
+                            <img alt="{{$jx->title}}" src="{{asset('images/lover_d.jpg')}}"
                                  class="img-fluid w-100">
                         </a>
                     @endif
@@ -158,7 +158,7 @@
                                    href="{{url($jq->shortcode)}}"
                                    class="d-block">
                                     <img alt="{{$jq->title}}"
-                                         src="{{env('ASSET_URL')}}/images/lover_b.jpg" class="img-fluid w-100">
+                                         src="{{asset('images/lover_b.jpg')}}" class="img-fluid w-100">
                                 </a>
                             @endif
                         </div>
@@ -173,7 +173,7 @@
                                    href="{{url($ju->shortcode)}}"
                                    class="d-block">
                                     <img alt="{{$ju->title}}"
-                                         src="{{env('ASSET_URL')}}/images/lover_c.jpg" class="img-fluid w-100">
+                                         src="{{asset('images/lover_c.jpg')}}" class="img-fluid w-100">
                                 </a>
                             @endif
                         </div>
@@ -262,7 +262,7 @@
     <section class="space-2-top container text-center">
         <div class="card product-card-alt">
             <div class="product-thumb">
-                <img src="{{env('ASSET_URL')}}/images/20160717115428278.jpg" alt="关于爱情"
+                <img src="{{asset('images/20160717115428278.jpg')}}" alt="关于爱情"
                      style="object-fit: cover; max-height: 540px;">
                 <a class="product-thumb-overlay opacity-100"></a>
             </div>

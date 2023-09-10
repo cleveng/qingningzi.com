@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar @if($hideSidebar) collapsed @endif" aria-label="Sidebar">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="{{url('/dashboard')}}">
-            <img src="{{Vite::image('logo.png')}}" alt="{{env('APP_NAME')}}"
+            <img src="{{ asset('images/logo.png') }}" alt="{{env('APP_NAME')}}"
                  style="height: 25px; filter: brightness(0) invert(1);"/>
         </a>
         <ul class="sidebar-nav">

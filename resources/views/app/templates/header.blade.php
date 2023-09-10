@@ -9,10 +9,10 @@
             <div class="container">
                 {{-- logo start --}}
                 <a class="navbar-brand d-none d-sm-block flex-shrink-0" href="{{url('/')}}">
-                    <img src="{{Vite::image('logo.png')}}" alt="{{env('APP_NAME')}}">
+                    <img src="{{asset('images/logo.png')}}" alt="{{env('APP_NAME')}}">
                 </a>
                 <a class="navbar-brand d-sm-none flex-shrink-0 me-2" href="{{url('/')}}">
-                    <img src="{{Vite::image('logo.png')}}" alt="{{env('APP_NAME')}}">
+                    <img src="{{asset('images/logo.png')}}" alt="{{env('APP_NAME')}}">
                 </a>
                 {{-- logo end --}}
                 {{-- search start --}}
@@ -51,7 +51,7 @@
 
                     <a class="navbar-tool d-none d-lg-flex" data-bs-original-title="微信扫一扫"
                        data-bs-toggle="popover" data-bs-trigger="hover" title="" data-bs-html="true"
-                       data-bs-content="<img src='{{ Vite::image("qrcode_for_gh_a0e3856031fe_1280.jpg")}}' alt='微信扫一扫' class='img-fluid'>"
+                       data-bs-content="<img src='{{ asset("images/qrcode_for_gh_a0e3856031fe_1280.jpg")}}' alt='微信扫一扫' class='img-fluid'>"
                        href="javascript:;" data-bs-container="body"
                        data-bs-placement="bottom">
                         <span class="navbar-tool-tooltip">微信分享</span>
@@ -69,7 +69,7 @@
                             <div class="widget widget-cart px-3 pt-2 pb-3" style="width: 20rem;">
                                 <h4>我要投稿</h4>
                                 <div>
-                                    <img alt="扫码联系" src="{{ Vite::image('qq.jpg') }}" class="img-fluid">
+                                    <img alt="扫码联系" src="{{ asset('images/qq.jpg') }}" class="img-fluid">
                                 </div>
                                 <hr class="my-3">
                                 <h4>

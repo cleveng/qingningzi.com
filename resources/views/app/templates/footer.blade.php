@@ -22,7 +22,7 @@
 
         <div class="mt-2">
             <a title="{{env('APP_NAME')}}" href="{{env('APP_URL')}}">
-                <img alt="{{env('APP_NAME')}}" src="{{Vite::image('logo.png')}}" width="163" height="41"
+                <img alt="{{env('APP_NAME')}}" src="{{ asset('images/logo.png') }}" width="163" height="41"
                      class="d-inline-block img-fluid">
             </a>
             <p class="mt-3 fs-sm d-none d-md-block">{{env('APP_NAME')}}
@@ -81,7 +81,7 @@
             <li class="px-3">
                 <a data-bs-original-title="微信打赏" data-bs-toggle="popover"
                    data-bs-trigger="hover" data-bs-html="true"
-                   data-bs-content="<img src='{{Vite::image("weichat_pay.jpg")}}' alt='微信打赏' class='img-fluid'>"
+                   data-bs-content="<img src='{{ asset("images/weichat_pay.jpg") }}' alt='微信打赏' class='img-fluid'>"
                    href="javascript:;" target="_blank" data-bs-placement="top">
                     <i class="text-base ci-wechat"></i>
                 </a>

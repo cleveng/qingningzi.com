@@ -643,7 +643,7 @@
                                                             <a href="{{env('APP_URL')}}"
                                                                style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; font-size: inherit; text-decoration: none !important"
                                                                class="vero-editable">
-                                                                <img src="{{Vite::image('logo.png')}}"
+                                                                <img src="{{ asset('images/logo.png') }}"
                                                                      width="169"
                                                                      style="-ms-interpolation-mode: bicubic; display: block !important; height: auto !important; line-height: 100%; outline: none; text-decoration: none; width: 169px !important"
                                                                      alt="{{env('APP_NAME')}}网" border="0" hspace="0"
@@ -1392,7 +1392,7 @@
                                                         <td align="left">
                                                             <a href="#" target="_blank">
                                                                 <img border="0"
-                                                                     src="{{ Vite::image('qrcode_for_gh_a0e3856031fe_1280.jpg') }}"
+                                                                     src="{{ asset('images/qrcode_for_gh_a0e3856031fe_1280.jpg') }}"
                                                                      style="display: block;max-width: 65px;"></a>
                                                         </td>
                                                     </tr>
@@ -1421,7 +1421,7 @@
                                                         <td align="left">
                                                             <a href="javascript:;" target="_blank">
                                                                 <img border="0"
-                                                                     src="{{Vite::image('weibo_qr_code.png')}}"
+                                                                     src="{{ asset('images/weibo_qr_code.jpg') }}"
                                                                      style="display: block;max-width: 65px;"></a>
                                                         </td>
                                                     </tr>
