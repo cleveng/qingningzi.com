@@ -15,14 +15,16 @@
                 </h2>
                 <div class="d-flex align-items-center fs-sm">
                     @if ($data->platform)
-                        <span class='fst-italic'>Posted by：</span>
-                        <span>{{ $data->platform->name }}</span>
-                        <span class="blog-entry-meta-divider"></span>
+                        <div class="d-none d-md-inline-block">
+                            <span class='fst-italic'>Posted by：</span>
+                            <span>{{ $data->platform->name }}</span>
+                            <span class="blog-entry-meta-divider"></span>
+                        </div>
                     @endif
                     @if ($data->rate)
                         <span class='fst-italic'>Hot：</span>
                         <span class="text-primary">
-                              {!! $article->rates($data->url, $data->rate) !!}
+                               {!! $article->rates($data->url, $data->rate) !!}
                         </span>
                     @endif
                 </div>

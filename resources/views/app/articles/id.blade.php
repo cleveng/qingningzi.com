@@ -14,7 +14,7 @@
             {{ $category->title }}
         </a>
     </li>
-    <li class="breadcrumb-item text-nowrap active">
+    <li class="breadcrumb-item text-nowrap active d-none d-md-inline-block">
         {{ $data->title }}
     </li>
 @endsection

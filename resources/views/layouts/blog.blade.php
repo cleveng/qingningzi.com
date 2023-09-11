@@ -26,7 +26,7 @@
                 <div class="col-md-12 col-lg-8">
                     <div class="space-1-bottom">
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-start">
+                            <ol class="breadcrumb flex-lg-nowrap justify-content-start justify-content-md-center justify-content-lg-start overflow-hidden">
                                 <li class="breadcrumb-item">
                                     <a href="{{ url('/') }}" class="text-nowrap" rel="nofollow">
                                         <i class="ci-home"></i> 首页
