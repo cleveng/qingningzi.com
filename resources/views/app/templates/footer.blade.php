@@ -72,13 +72,6 @@
                 </a>
             </li>
             <li class="px-3">
-                <a data-bs-original-title="合作媒体" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                   href="{{url('platforms')}}"
-                   target="_blank">
-                    <i class="text-base ci-sound-waves"></i>
-                </a>
-            </li>
-            <li class="px-3">
                 <a data-bs-original-title="微信打赏" data-bs-toggle="popover"
                    data-bs-trigger="hover" data-bs-html="true"
                    data-bs-content="<img src='{{ asset("images/weichat_pay.jpg") }}' alt='微信打赏' class='img-fluid'>"
