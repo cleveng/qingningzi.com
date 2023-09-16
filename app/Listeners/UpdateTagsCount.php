@@ -28,9 +28,14 @@ class UpdateTagsCount implements ShouldQueue
      */
     public function handle(ArticleViewed $event)
     {
-        $tags = $event->article->tags();
+        $article = $event->article;
+        $tags = $article->tags();
         if ($tags->count() === 0) {
             return;
+        }
+        if (!$article->keywords) {
+            $article->keywords = $tags->pluck('name')->join(',');
+            $article->save();
         }
 
         $tags->increment('views_count');

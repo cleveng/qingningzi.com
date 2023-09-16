@@ -89,7 +89,7 @@ class ArticlesController extends BaseController
         event(new ArticleViewed($data));
         !$data->qrcode && ProcessQrcode::dispatch($data)->delay(now()->addMinute())->onQueue('qrcode');
 
-        return view($this->tmpl.'articles.id', [
+        return view($this->tmpl . 'articles.id', [
             'data' => $data,
             'category' => $data->category,
             'parent_id' => $parentId,
