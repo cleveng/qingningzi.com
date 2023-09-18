@@ -66,9 +66,13 @@ make:factory
 ```
 
 #### [又拍云CDN](https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral)
+
 ~ 本项目使用又拍云CDN，每个月免费10G存储空间、HTTP(S)CDN流量
-~ 七牛云暂不支持 HTTPS免费流量，建议[又拍云CDN](https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral)
+
+~ [又拍云CDN](https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral)
+
 ~ 又拍云UPX🚀[使用文档](https://github.com/upyun/upx)
+
 ```
   wget -O ~/upx.tar.gz https://collection.b0.upaiyun.com/softwares/upx/upx_0.4.3_Linux_x86_64.tar.gz
   tar -xf ~/upx.tar.gz -C ~

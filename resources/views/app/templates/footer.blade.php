@@ -109,11 +109,11 @@
                 Github
             </a>
             <span class="vertical-divider"></span>
-            {{env('APP_NAME')}}网由 <a
-                href="https://portal.qiniu.com/signup?code=3lid1ik02lidu" rel="nofollow"
-                target="_blank" class="text-dark">七牛云加速</a>、
+            {{env('APP_NAME')}}网由
             <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" rel="nofollow" target="_blank"
-               class="text-dark">又拍云</a>
+               class="text-dark">
+                <img src="{{ Vite::image('upai_logo.svg') }}" alt="又拍云" class="d-inline-block" style="height: 17px">
+            </a>
             提供CDN服务
         </p>
     </div>
