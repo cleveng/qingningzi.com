@@ -41,6 +41,8 @@ class ArticlesController extends BaseController
         }
 
         if (!$data->status || !$data->detail) {
+            $data->status = false;
+            $data->save();
             abort(404);
         }
 

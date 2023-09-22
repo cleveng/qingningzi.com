@@ -80,6 +80,6 @@ make:factory
   mv ~/upx /usr/local/bin
 ```
 
-#### 基于LNP的关键词，标题，描述生成
+#### 基于NLP的关键词，标题，描述生成
 + 待定
 + 
