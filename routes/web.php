@@ -43,6 +43,9 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('/s/{id?}.html', [ArticlesController::class, 'show'])
         ->where('id', '[\w\-]+');
 
+    // NOTE⚠️: 修复已收录的快照跳转
+    Route::get('/s/{id?}', [ArticlesController::class, 'redirect']);
+
     Route::get('/search', [SearchController::class, 'index'])->name('search');
     Route::get('/redirect', [RedirectController::class, 'index']);
 

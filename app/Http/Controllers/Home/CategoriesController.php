@@ -64,6 +64,7 @@ class CategoriesController extends BaseController
         $cid = $category->parent_id === 0 ? $category->children()->pluck('id')->toArray() : [$category->id];
         $data = Article::select($this->fields)->whereIn('category_id', $cid)
             ->where('status', true)
+            ->where('title', '<>', '')
             ->orderBy('created_at', 'desc')->paginate();
 
         // level 1 category parent_id is itself

@@ -11,7 +11,9 @@ use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 
@@ -31,6 +33,17 @@ class ArticlesController extends BaseController
     /**
      * @param Request $request
      * @param $id
+     * @return Redirector|Application|RedirectResponse
+     */
+    public function redirect(Request $request, $id): \Illuminate\Routing\Redirector|Application|\Illuminate\Http\RedirectResponse
+    {
+
+        return redirect()->to("/s/{$id}.html");
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
      * @return Factory|View|Application
      */
     public function show(Request $request, $id): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
@@ -40,7 +53,7 @@ class ArticlesController extends BaseController
             abort(404);
         }
 
-        if (!$data->status || !$data->detail) {
+        if (!$data->status || !$data->detail || !$data->title) {
             $data->status = false;
             $data->save();
             abort(404);
