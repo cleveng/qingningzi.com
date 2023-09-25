@@ -1,5 +1,3 @@
-@inject('article', 'App\Services\ArticlesService')
-
 @extends('layouts.blog')
 @section('breadcrumb')
     @if ($category->parent())
@@ -34,13 +32,11 @@
                         <a href="{{url('/platforms/'.$data->platform_id)}}">{{ $data->platform->name }}</a>
                         <span class="blog-entry-meta-divider"></span>
                     @endif
-                    @if ($data->rate)
-                        <span class='fst-italic'>Hot：</span>
-                        <span class="text-primary">
-                                        {!! $article->rates($data->url, $data->rate) !!}
-                                    </span>
-                        <span class="blog-entry-meta-divider"></span>
-                    @endif
+                    <span class='fst-italic'>Hot：</span>
+                    <span class="text-primary">
+                        {!! getArticleRate($data->rate) !!}
+                    </span>
+                    <span class="blog-entry-meta-divider"></span>
                     <span class='fst-italic'>Views：</span>
                     <span id="hits">{{ $data->views_count }} 次</span>
                     @if ($data->author)
@@ -146,7 +142,7 @@
            data-bs-toggle="tooltip"
            data-bs-trigger="hover" data-bs-container="body" data-bs-placement="top"
            class="entry-navigation-link"
-           href=" {{ $previous ? url($previous->shortcode) : 'javascript:;' }}">
+           href="{{ $previous ? url($previous->shortcode) : 'javascript:;' }}">
             <i class="ci-arrow-left me-2"></i>
             <span class="d-none d-sm-inline">上一条</span>
         </a>

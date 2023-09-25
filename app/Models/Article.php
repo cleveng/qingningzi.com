@@ -81,9 +81,12 @@ class Article extends Model
         return $this->belongsTo('App\Models\Category', 'category_id', 'id');
     }
 
+    /**
+     * @return string
+     */
     public function getShortcodeAttribute(): string
     {
-        return $this->prefix . $this->attributes['shortcode'];
+        return $this->prefix . $this->attributes['shortcode'] . '.html';
     }
 
     public function tags()

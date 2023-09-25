@@ -20,3 +20,16 @@ if (!function_exists('getPackageVersion')) {
         });
     }
 }
+
+if (!function_exists('getArticleRate')) {
+    /**
+     * @param int $value
+     * @return string
+     */
+    function getArticleRate(int $value = 3): string
+    {
+        $result = str_repeat("<i class='ci-star-filled'></i>", $value);
+        $result .= str_repeat("<i class='ci-star'></i>", 5 - $value);
+        return $result;
+    }
+}

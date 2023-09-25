@@ -21,12 +21,10 @@
                             <span class="blog-entry-meta-divider"></span>
                         </div>
                     @endif
-                    @if ($data->rate)
-                        <span class='fst-italic'>Hot：</span>
-                        <span class="text-primary">
-                               {!! $article->rates($data->url, $data->rate) !!}
-                        </span>
-                    @endif
+                    <span class='fst-italic'>Hot：</span>
+                    <span class="text-primary">
+                        {!! getArticleRate($data->rate) !!}
+                    </span>
                 </div>
             </div>
         </div>

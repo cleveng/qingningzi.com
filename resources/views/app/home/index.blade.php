@@ -242,7 +242,7 @@
                                             @if($item->rate)
                                                 <span class='fst-italic'>Hot：</span>
                                                 <div class="text-primary d-inline-block">
-                                                    {!! $articles->rates($item->shortcode,$item->rate) !!}
+                                                    {!! getArticleRate($item->rate) !!}
                                                 </div>
                                             @endif
                                         </div>

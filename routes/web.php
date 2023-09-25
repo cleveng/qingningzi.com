@@ -1,5 +1,18 @@
 <?php
 
+use App\Http\Controllers\Dashboard\RecordsController;
+use App\Http\Controllers\Home\AboutController;
+use App\Http\Controllers\Home\ArticlesController;
+use App\Http\Controllers\Home\CategoriesController;
+use App\Http\Controllers\Home\CommentsController;
+use App\Http\Controllers\Home\IdolsController;
+use App\Http\Controllers\Home\IndexController;
+use App\Http\Controllers\Home\LinksController;
+use App\Http\Controllers\Home\MailsController;
+use App\Http\Controllers\Home\PlatformsController;
+use App\Http\Controllers\Home\RedirectController;
+use App\Http\Controllers\Home\SearchController;
+use App\Http\Controllers\Home\SubscriptionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,32 +26,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::group(['namespace' => 'Home'], function () {
-    Route::get('/', [\App\Http\Controllers\Home\IndexController::class, 'index'])->name('home');
+    Route::get('/', [IndexController::class, 'index'])->name('home');
 
-    Route::get('/links', [\App\Http\Controllers\Home\LinksController::class, 'index'])->name('links');
+    Route::get('/links', [LinksController::class, 'index'])->name('links');
 
-    Route::get('/emails', [\App\Http\Controllers\Home\MailsController::class, 'index']);
-    Route::get('/emails/{id?}', [\App\Http\Controllers\Home\MailsController::class, 'index']);
+    Route::get('/emails', [MailsController::class, 'index']);
+    Route::get('/emails/{id?}', [MailsController::class, 'index']);
 
-    Route::get('/categories', [\App\Http\Controllers\Home\CategoriesController::class, 'index']);
-    Route::get('/categories/{id}', [\App\Http\Controllers\Home\CategoriesController::class, 'show']);
+    Route::get('/categories', [CategoriesController::class, 'index']);
+    Route::get('/categories/{id}', [CategoriesController::class, 'show']);
 
-    Route::get('/about', [\App\Http\Controllers\Home\AboutController::class, 'index'])->name('about');
-    Route::get('/idols', [\App\Http\Controllers\Home\IdolsController::class, 'index'])->name('idols');
+    Route::get('/about', [AboutController::class, 'index'])->name('about');
+    Route::get('/idols', [IdolsController::class, 'index'])->name('idols');
 
-    Route::get('/s/{id?}', [\App\Http\Controllers\Home\ArticlesController::class, 'show']);
+    // support .html
+    Route::get('/s/{id?}.html', [ArticlesController::class, 'show'])
+        ->where('id', '[\w\-]+');
 
-    Route::get('/search', [\App\Http\Controllers\Home\SearchController::class, 'index'])->name('search');
-    Route::get('/redirect', [\App\Http\Controllers\Home\RedirectController::class, 'index']);
+    Route::get('/search', [SearchController::class, 'index'])->name('search');
+    Route::get('/redirect', [RedirectController::class, 'index']);
 
-    Route::get('/platforms', [\App\Http\Controllers\Home\PlatformsController::class, 'index']);
-    Route::get('/platforms/{id}', [\App\Http\Controllers\Home\PlatformsController::class, 'show']);
+    Route::get('/platforms', [PlatformsController::class, 'index']);
+    Route::get('/platforms/{id}', [PlatformsController::class, 'show']);
 
-    Route::post('/subscribe', [\App\Http\Controllers\Home\SubscriptionController::class, 'store']);
-    Route::get('/unsubscribe/{token}/{email}', [\App\Http\Controllers\Home\SubscriptionController::class, 'update']);
+    Route::post('/subscribe', [SubscriptionController::class, 'store']);
+    Route::get('/unsubscribe/{token}/{email}', [SubscriptionController::class, 'update']);
 
     // comments middleware auth
-    Route::post('/comments', [\App\Http\Controllers\Home\CommentsController::class, 'store'])->middleware(['auth', 'verified']);
+    Route::post('/comments', [CommentsController::class, 'store'])->middleware(['auth', 'verified']);
 });
 
 /*
@@ -50,11 +65,11 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'verified'], 
     Route::get('/', [\App\Http\Controllers\Dashboard\IndexController::class, 'index'])->name('dashboard');
 
     Route::group(['prefix' => 'records'], function () {
-        Route::get('/', [\App\Http\Controllers\Dashboard\RecordsController::class, 'index']);
-        Route::post('/', [\App\Http\Controllers\Dashboard\RecordsController::class, 'store']);
-        Route::get('/create', [\App\Http\Controllers\Dashboard\RecordsController::class, 'create']);
-        Route::get('/{id}/edit', [\App\Http\Controllers\Dashboard\RecordsController::class, 'edit']);
-        Route::put('/{id}', [\App\Http\Controllers\Dashboard\RecordsController::class, 'update']);
+        Route::get('/', [RecordsController::class, 'index']);
+        Route::post('/', [RecordsController::class, 'store']);
+        Route::get('/create', [RecordsController::class, 'create']);
+        Route::get('/{id}/edit', [RecordsController::class, 'edit']);
+        Route::put('/{id}', [RecordsController::class, 'update']);
     });
 });
 

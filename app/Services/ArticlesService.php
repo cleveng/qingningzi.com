@@ -8,17 +8,6 @@ use Illuminate\Support\Facades\Cache;
 
 class ArticlesService extends BaseService
 {
-
-    public function rates($url, $rate)
-    {
-        $max = ($rate > 5) ? 5 : $rate;
-        return Cache::remember($url . $rate, $this->duration, function () use ($max) {
-            $result = str_repeat("<i class='ci-star-filled'></i>", $max);
-            $result .= str_repeat("<i class='ci-star'></i>", 5 - $max);
-            return $result;
-        });
-    }
-
     public function item($id)
     {
         $category = Category::find($id);

@@ -1,15 +1,14 @@
 <div class="col-md-12 col-sm-6 col-md-push-6 offset-top-0 offset-sm-top-45 offset-md-top-0">
     @inject('love', 'App\Services\PositionService')
     @inject('url', 'App\Services\UrlService')
-    @inject('hot', 'App\Services\HotService')
     <h4>{{$love->name(25)}}</h4>
     @foreach($love->len(25,6,true) as $cont)
         <div class="space-1-top p fst-italic">
             @if($cont->stars)
                 推荐星级：
                 <span class="text-primary">
-            {!! $hot->stars($cont->stars,$cont->catid,$cont->id) !!}
-            </span>
+                    {!! getArticleRate($cont->stars) !!}
+                </span>
             @endif
         </div>
         <p class="big text-truncate">
