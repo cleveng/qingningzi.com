@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Events\ArticleViewed;
 use App\Jobs\ProcessQrcode;
 use App\Models\Article;
-use App\Models\Record;
 use Artesaos\SEOTools\Facades\SEOMeta;
-use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -15,19 +13,15 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Log;
 
 /**
  * @Controller: ArticlesController
  */
 class ArticlesController extends BaseController
 {
-    private string $author;
-
     public function __construct()
     {
         parent::__construct();
-        $this->author = 'noname';
     }
 
     /**
@@ -57,25 +51,6 @@ class ArticlesController extends BaseController
             $data->status = false;
             $data->save();
             abort(404);
-        }
-
-        // when author is default name and reset the record status
-        if ($data->author === $this->author) {
-            try {
-                $sp = explode("_", $data->source_url);
-                $record = Record::where('uid', intval($sp[1]))->first();
-                $record->is_valid = false;
-                $record->articles_count = 0;
-                $record->fetch_count = 0;
-                $record->save();
-                // update record is_valid status => golang/gin
-            } catch (Exception $e) {
-                Log::error($e->getMessage());
-            } finally {
-                $data->status = false;
-                $data->save();
-                abort(404);
-            }
         }
 
         $tags = $data->tags()->pluck('name');

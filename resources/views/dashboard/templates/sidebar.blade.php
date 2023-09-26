@@ -14,11 +14,6 @@
                     <span class="align-middle">控制台</span>
                     <span class="badge badge-sidebar-primary">5</span>
                 </a>
-                <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{url('dashboard/records')}}">记录列表</a>
-                    </li>
-                </ul>
             </li>
         </ul>
     </div>

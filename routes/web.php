@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Dashboard\RecordsController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\ArticlesController;
 use App\Http\Controllers\Home\CategoriesController;
@@ -66,14 +65,6 @@ Route::group(['namespace' => 'Home'], function () {
 */
 Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], function () {
     Route::get('/', [\App\Http\Controllers\Dashboard\IndexController::class, 'index'])->name('dashboard');
-
-    Route::group(['prefix' => 'records'], function () {
-        Route::get('/', [RecordsController::class, 'index']);
-        Route::post('/', [RecordsController::class, 'store']);
-        Route::get('/create', [RecordsController::class, 'create']);
-        Route::get('/{id}/edit', [RecordsController::class, 'edit']);
-        Route::put('/{id}', [RecordsController::class, 'update']);
-    });
 });
 
 require __DIR__ . '/auth.php';
