@@ -50,14 +50,22 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Platform whereUrl($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Platform whereViewsCount($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Channel[] $channels
+ * @property-read int|null $channels_count
  */
 class Platform extends Model
 {
     use HasFactory;
+
     protected $guarded = [];
 
     public function articles()
     {
         return $this->hasMany('App\Models\Article', 'platform_id', 'id');
+    }
+
+    public function channels()
+    {
+        return $this->hasMany('App\Models\Channel', 'platform_id', 'id');
     }
 }

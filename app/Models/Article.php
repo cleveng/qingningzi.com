@@ -57,6 +57,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereViewsCount($value)
  * @mixin \Eloquent
  * @property-read \App\Models\Detail|null $detail
+ * @property string|null $keywords
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereKeywords($value)
  */
 class Article extends Model
 {

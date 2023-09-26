@@ -22,6 +22,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Subscription whereSubscribed($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Subscription whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string|null $email_verified_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Subscription whereEmailVerifiedAt($value)
  */
 class Subscription extends Model
 {
