@@ -2206,7 +2206,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.18, postcss@npm:^8.4.6":
+"postcss@npm:^8.4.18":
   version: 8.4.28
   resolution: "postcss@npm:8.4.28"
   dependencies:
@@ -2214,6 +2214,17 @@ __metadata:
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
   checksum: f605c24a36f7e400bad379735fbfc893ccb8d293ad6d419bb824db77cdcb69f43d614ef35f9f7091f32ca588d130ec60dbcf53b366e6bf88a8a64bbeb3c05f6d
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.4.31":
+  version: 8.4.31
+  resolution: "postcss@npm:8.4.31"
+  dependencies:
+    nanoid: ^3.3.6
+    picocolors: ^1.0.0
+    source-map-js: ^1.0.2
+  checksum: 1d8611341b073143ad90486fcdfeab49edd243377b1f51834dc4f6d028e82ce5190e4f11bb2633276864503654fb7cab28e67abdc0fbf9d1f88cad4a0ff0beea
   languageName: node
   linkType: hard
 
@@ -2404,7 +2415,7 @@ __metadata:
     laravel-vite-plugin: ^0.7.0
     lodash: ^4.17.19
     node-sass: ^9.0.0
-    postcss: ^8.4.6
+    postcss: ^8.4.31
     sass: ^1.55.0
     semver: ^7.5.3
     simplebar: ^6.2.5
