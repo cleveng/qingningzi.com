@@ -16,7 +16,7 @@
     "@sentry/browser": "^7.60.0",
     "@types/node": "^20.6.0",
     "alpinejs": "^3.13.0",
-    "axios": "1.6.1",
+    "axios": "^1.6.2",
     "bootstrap": "^5.2.2",
     "feather-icons": "^4.29.1",
     "http-cache-semantics": "^4.1.1",
