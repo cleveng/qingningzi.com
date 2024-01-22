@@ -69,7 +69,7 @@ class ArticlesController extends BaseController
             return Article::where('id', '<', $data->id)->orderBy('id', 'desc')->first();
         });
         $next = Cache::remember('next_article_' . $data->shortcode, $this->duration, function () use ($data) {
-            return Article::where('id', '>', $data->id)->orderBy('id', 'asc')->first();
+            return Article::where('id', '>', $data->id)->orderBy('id')->first();
         });
 
         // comments
