@@ -142,3 +142,6 @@ _custom.scss
 composer.lock
 .yarn
 deploy.sh
+
+# bun
+bun.lockb
