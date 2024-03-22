@@ -1,6 +1,6 @@
 # Vite 项目打包
 vite-build:
-	yarn && yarn build
+	bun install && bun run build
 	make upyun
 
 # 静态资源上云操作
