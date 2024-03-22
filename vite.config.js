@@ -1,9 +1,10 @@
-const {resolve} = require('path')
+import { resolve } from 'path'
+
 import { defineConfig, loadEnv } from 'vite'
 import laravel from 'laravel-vite-plugin'
 
-export default ({mode}) => {
-    process.env = {...process.env, ...loadEnv(mode, process.cwd())}
+export default ({ mode }) => {
+    process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }
     const isDev = process.env.VITE_APP_ENV !== 'production'
 
     return defineConfig({
@@ -12,17 +13,17 @@ export default ({mode}) => {
             outDir: resolve(__dirname, 'public/build'),
             emptyOutDir: true,
             manifest: true,
-            target: 'es2018',
+            target: 'es2018'
         },
         plugins: [
             laravel({
                 input: ['resources/scss/app.scss', 'resources/scss/dashboard.scss', 'resources/js/app.js', 'resources/js/dashboard.js'],
-                refresh: true,
-            }),
+                refresh: true
+            })
         ],
         resolve: {
             alias: {
-                '@': resolve(__dirname, 'resources'),
+                '@': resolve(__dirname, 'resources')
             }
         },
         optimizeDeps: {
@@ -32,7 +33,7 @@ export default ({mode}) => {
                 'smooth-scroll',
                 'axios',
                 'alpinejs',
-                'sentry',
+                'sentry'
             ]
         }
     })
