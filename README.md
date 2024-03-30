@@ -80,6 +80,8 @@ make:factory
   mv ~/upx /usr/local/bin
 ```
 
+#### [livewire](https://laravel-livewire.com/docs/2.x/quickstart)
+
 #### 基于NLP的关键词，标题，描述生成
 + 待定
 + 
