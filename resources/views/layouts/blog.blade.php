@@ -37,13 +37,13 @@
                     @show
 
                     <!-- Top ads-->
-                    <a id="prev-ads" class="loader card" rel="nofollow" target="_blank"></a>
+                    @livewire('item-promotion', ['type'=> 1, 'limit' => 1])
 
                     @section('content')
                     @show
 
                     <!-- Bottom ads-->
-                    <a id="next-ads" class="loader card" rel="nofollow" target="_blank"></a>
+                    @livewire('item-promotion', ['type'=> 1, 'limit' => 1])
 
                     @section('post-navigation')
                     @show
