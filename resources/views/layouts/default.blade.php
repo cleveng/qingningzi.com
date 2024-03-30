@@ -14,6 +14,7 @@
     <link rel="shortcut icon" href="{{ Vite::image('favicon.ico') }}"/>
     <link rel="apple-touch-icon-precomposed" href="{{ Vite::image('favicon.png') }}">
     @vite(['resources/scss/app.scss', 'resources/js/main.js'])
+    @livewireStyles
 </head>
 <body>
 <div class="page">
@@ -24,5 +25,6 @@
     </main>
     @include('app.templates.footer')
 </div>
+@livewireScripts
 </body>
 </html>
