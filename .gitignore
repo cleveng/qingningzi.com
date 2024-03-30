@@ -146,3 +146,6 @@ deploy.sh
 
 # bun
 bun.lockb
+
+# qrcode
+public/uploadfile/qrcodes

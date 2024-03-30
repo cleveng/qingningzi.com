@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'asset_url' => env('APP_URL', 'http://localhost'),
+    'asset_url' => env('APP_DEBUG') ? env('APP_URL', 'http://localhost') : env('ASSET_URL'),
 
     /*
     |--------------------------------------------------------------------------
