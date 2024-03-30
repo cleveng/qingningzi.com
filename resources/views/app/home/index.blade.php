@@ -262,8 +262,7 @@
     <section class="space-2-top container text-center">
         <div class="card product-card-alt">
             <div class="product-thumb">
-                <img src="{{asset('images/20160717115428278.jpg')}}" alt="关于爱情"
-                     style="object-fit: cover; max-height: 540px;">
+                <img src="{{asset('images/20160717115428278.jpg')}}" alt="关于爱情" style="object-fit: cover; max-height: 540px;">
                 <a class="product-thumb-overlay opacity-100"></a>
             </div>
             <div

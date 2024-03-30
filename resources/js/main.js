@@ -23,3 +23,4 @@ import './modules/sentry'
 
 // alpinejs
 import './modules/alpinejs'
+import './modules/promotion'

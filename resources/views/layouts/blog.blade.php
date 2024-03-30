@@ -1,8 +1,3 @@
-@inject('site', 'App\Services\SitesService')
-@inject('prom', 'App\Services\PromotionsService')
-@php
-    $ads_enabled = $site->ads_enabled();
-@endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -15,12 +10,12 @@
     {!! SEO::generate() !!}
     <link rel="shortcut icon" href="{{ Vite::image('favicon.ico') }}"/>
     <link rel="apple-touch-icon-precomposed" href="{{ Vite::image('favicon.png') }}">
-    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
+    @vite(['resources/scss/app.scss', 'resources/js/main.js'])
 </head>
 <body>
 <div class="page">
     @include('app.templates.header')
-    <main>
+    <main x-data="{}">
         <div class="container space-2">
             <div class="row">
                 <div class="col-md-12 col-lg-8">
@@ -41,30 +36,13 @@
                     @show
 
                     <!-- Top ads-->
-                    @php
-                        $top_ads = $ads_enabled ? $prom->item(\App\Enums\PromotionType::TopBar) : null;
-                    @endphp
-                    @if ($top_ads)
-                        <a href="{{ url('/redirect?target_id=' . $top_ads->id) }}" rel="nofollow" target="_blank"
-                           class="card" title="{{ $top_ads->title }}">
-                            <img alt="{{ $top_ads->title }}" src="{{ url($top_ads->cover_image) }}" class="card-img">
-                        </a>
-                    @endif
+                    <a id="prev-ads" class="loader card" rel="nofollow" target="_blank"></a>
 
                     @section('content')
                     @show
 
                     <!-- Bottom ads-->
-                    @php
-                        $bottom_ads = $top_ads ? $bottom_ads = $prom->item(\App\Enums\PromotionType::TopBar, $top_ads->id) : null;
-                    @endphp
-                    @if($bottom_ads)
-                        <a href="{{ url('/redirect?target_id=' . $bottom_ads->id) }}" rel="nofollow" target="_blank"
-                           class="card mt-5" title="{{ $bottom_ads->title }}">
-                            <img alt="{{ $bottom_ads->title }}" src="{{ url($bottom_ads->cover_image) }}"
-                                 class="card-img">
-                        </a>
-                    @endif
+                    <a id="next-ads" class="loader card" rel="nofollow" target="_blank"></a>
 
                     @section('post-navigation')
                     @show

@@ -47,3 +47,21 @@
 .list-marked > li + li {
     margin-top: 8px
 }
+
+.loader {
+    background: linear-gradient(-90deg, #eee 0%, #f9f9f9 50%, #eee 100%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 5px;
+    height: 100px; /* Adjust height as needed */
+    margin: 20px 0;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}

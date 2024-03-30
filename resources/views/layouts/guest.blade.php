@@ -7,7 +7,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="shortcut icon" href="{{ Vite::image('favicon.ico') }}"/>
     <link rel="apple-touch-icon-precomposed" href="{{ Vite::image('favicon.png') }}">
-    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
+    @vite(['resources/scss/app.scss', 'resources/js/main.js'])
 </head>
 <body>
 <div class="position-relative overflow-hidden vh-100">
