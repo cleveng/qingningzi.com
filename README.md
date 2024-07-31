@@ -1,3 +1,13 @@
+#### 感谢
+
+感谢 JetBrains 提供的开源授权，使我们能够使用他们的优秀开发工具来开发此项目。
+
+[![JetBrains](https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg)](https://www.jetbrains.com/?from=your_project_name)
+
+JetBrains 为开源项目提供免费的全功能 IDE 许可证。了解更多信息，请访问 [JetBrains 开源支持页面](https://www.jetbrains.com/opensource/).
+
+<hr />
+
 #### 阿里云 Composer 全量镜像
 + 全局配置
 ```
