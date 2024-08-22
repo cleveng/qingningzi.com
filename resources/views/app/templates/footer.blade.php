@@ -105,7 +105,7 @@
                 v{{app()->version()}}
             </a>
             <span class="vertical-divider"></span>
-            <a href="https://github.com/cleveng/qingningzi.com" rel="nofollow" target="_blank" class="text-dark">
+            <a href="https://github.com/qingningzi/qingningzi.com" rel="nofollow" target="_blank" class="text-dark">
                 Github
             </a>
             <span class="vertical-divider"></span>
