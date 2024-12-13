@@ -6,7 +6,7 @@
     @foreach ($tags->lastest(Request::getRequestUri(), 5) as $key=>$tag)
         <div class="d-flex align-items-start mb-3">
             @php
-                $thumb = $tag->taggable->thumb ? url($tag->taggable->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key;
+                $thumb = $tag->taggable->thumb ? url($tag->taggable->thumb) : "https://loremflickr.com/720/368?random=1&key=" . $key;
             @endphp
             <a class="flex-shrink-0" href="{{url($tag->taggable->shortcode)}}"
                title="{{$tag->taggable->title}}">

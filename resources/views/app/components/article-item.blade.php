@@ -1,6 +1,7 @@
+@php use Carbon\Carbon; @endphp
 @if($data)
     @php
-        $key = isset($key) ? $key : \Carbon\Carbon::now();
+        $key = isset($key) ? $key : Carbon::now();
     @endphp
     @inject('article', 'App\Services\ArticlesService')
     <article class="@if($key > 0) mt-5 pt-5 border-top @endif">
@@ -30,10 +31,10 @@
         </div>
         <a class="blog-entry-thumb mb-3 mt-1 position-relative" href="{{ url($data->shortcode) }}">
             @php
-                $thumb = $data->thumb ? url($data->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key;
+                $thumb = $data->thumb ? url($data->thumb) : "https://loremflickr.com/720/368?random=1&key=" . $key;
             @endphp
             <img @if($key >= 2) class="lazy" data-src="{{ $thumb }}"
-                 @else src="{{ $thumb }}" @endif alt="{{ $data->title }}"/>
+                 @else src="{{ $thumb }}" @endif alt="{{ $data->title }}" />
         </a>
         <p class="fs-md">{{ $data->description }}</p>
         <div class="d-flex justify-content-end justify-content-sm-between align-content-center">
@@ -42,12 +43,12 @@
                     <a class="btn-social bs-wechat me-2" data-bs-original-title="微信扫一扫"
                        data-bs-toggle="popover" data-bs-trigger="hover" title="" data-bs-html="true"
                        data-bs-content="<img src='{{url($data->qrcode)}}' alt='' class='img-fluid'>"
-                       href="javascript:;" data-bs-container="body"
+                       href="javascript:" data-bs-container="body"
                        data-bs-placement="bottom">
                         <i class="ci-wechat"></i>
                     </a>
                 @endif
-                <a class="btn-social bs-google me-2" href="javascript:;" data-bs-toggle="tooltip"
+                <a class="btn-social bs-google me-2" href="javascript:" data-bs-toggle="tooltip"
                    data-bs-placement="right"
                    title="阅读数：{{$data->views_count}}">
                     <i class="ci-heart"></i>
