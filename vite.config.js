@@ -5,10 +5,9 @@ import laravel from 'laravel-vite-plugin'
 
 export default ({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }
-  const isDev = process.env.VITE_APP_ENV !== 'production'
 
   return defineConfig({
-    base: isDev ? './' : 'https://cdn.qingningzi.com/build/',
+    base: './',
     build: {
       outDir: resolve(__dirname, 'public/build'),
       emptyOutDir: true,

@@ -1,4 +1,6 @@
-<!-- Footer-->
+@php use App\Enums\LinkType; @endphp
+@php use Carbon\Carbon; @endphp
+    <!-- Footer-->
 <footer class="footer pt-5 border-top">
     <div class="container text-center">
         <div class="widget widget-links d-none d-md-block">
@@ -9,7 +11,7 @@
                 @inject('links', 'App\Services\LinksService')
                 @foreach($links->items() as $item)
                     <li class="widget-list-item me-2">
-                        <a @if($item->link_type != \App\Enums\LinkType::EMOTION) rel="nofollow"
+                        <a @if($item->link_type != LinkType::EMOTION) rel="nofollow"
                            @endif data-bs-original-title="{{$item->introduce}}"
                            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
                            href="{{$item->url}}" target="_blank" class="widget-list-link">
@@ -22,7 +24,7 @@
 
         <div class="mt-2">
             <a title="{{env('APP_NAME')}}" href="{{env('APP_URL')}}">
-                <img alt="{{env('APP_NAME')}}" src="{{ asset('images/logo.png') }}" width="163" height="41"
+                <img alt="{{env('APP_NAME')}}" src="{{ Vite::image('logo.png') }}" width="163" height="41"
                      class="d-inline-block img-fluid">
             </a>
             <p class="mt-3 fs-sm d-none d-md-block">{{env('APP_NAME')}}
@@ -53,8 +55,8 @@
             <li class="px-3">
                 <a data-bs-original-title="微信打赏" data-bs-toggle="popover"
                    data-bs-trigger="hover" data-bs-html="true"
-                   data-bs-content="<img src='{{ asset("images/weichat_pay.jpg") }}' alt='微信打赏' class='img-fluid'>"
-                   href="javascript:;" target="_blank" data-bs-placement="top">
+                   data-bs-content="<img src='{{ Vite::image("weichat_pay.jpg") }}' alt='微信打赏' class='img-fluid'>"
+                   href="javascript:" target="_blank" data-bs-placement="top">
                     <i class="text-base ci-wechat"></i>
                 </a>
             </li>
@@ -62,7 +64,7 @@
 
         <p class="fs-sm my-1">
             <span class='text-bold text-dark'>Qingningzi v{{getPackageVersion()}}</span>
-            &copy; 2015 - {{\Carbon\Carbon::now()->year}}
+            &copy; 2015 - {{Carbon::now()->year}}
             <span class="vertical-divider"></span>
             @if(Route::has('about'))
                 <a href='{{ route('about') }}' rel="nofollow"
