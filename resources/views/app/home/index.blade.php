@@ -13,7 +13,7 @@
                        @endphp
                         @if($sa)
                             <div class="tns-carousel-slide">
-                                <img src="{{asset('images/PBBSPxhQsp0CzbP2iLMe2kofh3IQZP74.jpg')}}"
+                                <img src="{{Vite::image('PBBSPxhQsp0CzbP2iLMe2kofh3IQZP74.jpg')}}"
                                      class="w-100"
                                      alt="{{$sa->title}}">
                                 <div class="tns-carousel-caption">
@@ -36,7 +36,7 @@
                         @endphp
                         @if($sb)
                             <div class="tns-carousel-slide">
-                                <img src="{{asset('images/diTRvUaksOju3EijkJPfZy1SqAaLf51I.jpg')}}"
+                                <img src="{{Vite::image('diTRvUaksOju3EijkJPfZy1SqAaLf51I.jpg')}}"
                                      class="w-100"
                                      alt="{{$sb->title}}">
                                 <div class="tns-carousel-caption">
@@ -59,7 +59,7 @@
                         @endphp
                         @if($sc)
                             <div class="tns-carousel-slide">
-                                <img src="{{asset('images/xnSkKb1ZZCR4JUEWWqbwUmo3iOlpkYYl.jpg')}}"
+                                <img src="{{Vite::image('xnSkKb1ZZCR4JUEWWqbwUmo3iOlpkYYl.jpg')}}"
                                      class="w-100"
                                      alt="{{$sc->title}}">
                                 <div class="tns-carousel-caption">
@@ -90,7 +90,7 @@
                                data-bs-placement="bottom"
                                title="{{$ha->title}}"
                                href="{{url($ha->shortcode)}}">
-                                <img alt="{{$ha->title}}" src="{{asset('images/woman_b.jpg')}}"
+                                <img alt="{{$ha->title}}" src="{{Vite::image('woman_b.jpg')}}"
                                      class="img-fluid">
                             </a>
                         @endif
@@ -105,7 +105,7 @@
                                title="{{$hb->title}}"
                                href="{{url($hb->shortcode)}}"
                                class="thumbnail-variant-4 d-block">
-                                <img alt="{{$hb->title}}" src="{{asset('images/woman_a.jpg')}}"
+                                <img alt="{{$hb->title}}" src="{{Vite::image('woman_a.jpg')}}"
                                      height="336" class="w-100">
                             </a>
                         @endif
@@ -127,7 +127,7 @@
                         <a data-bs-toggle="tooltip" data-bs-placement="top"
                            title="{{$jc->title}}" href="{{url($jc->shortcode)}}"
                            class="d-block">
-                            <img alt="{{$jc->title}}" src="{{asset('images/lover_a.jpg')}}"
+                            <img alt="{{$jc->title}}" src="{{Vite::image('lover_a.jpg')}}"
                                  class="img-fluid w-100"/>
                         </a>
                     @endif
@@ -140,7 +140,7 @@
                         <a data-bs-toggle="tooltip" data-bs-placement="left"
                            title="{{$jx->title}}" href="{{url($jx->shortcode)}}"
                            class="d-block">
-                            <img alt="{{$jx->title}}" src="{{asset('images/lover_d.jpg')}}"
+                            <img alt="{{$jx->title}}" src="{{Vite::image('lover_d.jpg')}}"
                                  class="img-fluid w-100">
                         </a>
                     @endif
@@ -158,7 +158,7 @@
                                    href="{{url($jq->shortcode)}}"
                                    class="d-block">
                                     <img alt="{{$jq->title}}"
-                                         src="{{asset('images/lover_b.jpg')}}" class="img-fluid w-100">
+                                         src="{{Vite::image('lover_b.jpg')}}" class="img-fluid w-100">
                                 </a>
                             @endif
                         </div>
@@ -173,7 +173,7 @@
                                    href="{{url($ju->shortcode)}}"
                                    class="d-block">
                                     <img alt="{{$ju->title}}"
-                                         src="{{asset('images/lover_c.jpg')}}" class="img-fluid w-100">
+                                         src="{{Vite::image('lover_c.jpg')}}" class="img-fluid w-100">
                                 </a>
                             @endif
                         </div>
@@ -189,7 +189,7 @@
             <div class="row mt-0 mt-md-4">
                 @foreach($articles->items(13,4) as $key=>$item)
                     @php
-                        $thumb = $item->thumb ? url($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key;
+                        $thumb = $item->thumb ? url($item->thumb) : "https://loremflickr.com/720/368?random=1&key=" . $key;
                     @endphp
                     <div class="col-md-3 col-sm-12 col-xs-12 @if($key > 0) mt-2 mt-md-0 @endif">
                         <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="{{$item->title}}"
@@ -218,7 +218,7 @@
                          data-carousel-options='{"items": 3, "nav": false, "responsive": {"0":{"items":1},"500":{"items":2, "gutter": 18},"768":{"items":3, "gutter": 20}, "1100":{"gutter": 24}}}'>
                         @foreach($articles->items(13,6) as $key=>$item)
                             @php
-                                $thumb = $item->thumb ? url($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key;
+                                $thumb = $item->thumb ? url($item->thumb) : "https://loremflickr.com/720/368?random=1&key=" . $key;
                             @endphp
                             <div class="card product-card-alt">
                                 <div class="product-thumb">
@@ -262,7 +262,7 @@
     <section class="space-2-top container text-center">
         <div class="card product-card-alt">
             <div class="product-thumb">
-                <img src="{{asset('images/20160717115428278.jpg')}}" alt="关于爱情" style="object-fit: cover; max-height: 540px;">
+                <img src="{{Vite::image('20160717115428278.jpg')}}" alt="关于爱情" style="object-fit: cover; max-height: 540px;">
                 <a class="product-thumb-overlay opacity-100"></a>
             </div>
             <div
@@ -290,7 +290,7 @@
                      data-carousel-options="{&quot;items&quot;: 2, &quot;nav&quot;: false, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;700&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 20},&quot;991&quot;:{&quot;items&quot;:4, &quot;gutter&quot;: 30}}}">
                     @foreach($articles->items(15, 10) as $key=>$item)
                         @php
-                            $thumb = $item->thumb ? url($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key;
+                            $thumb = $item->thumb ? url($item->thumb) : "https://loremflickr.com/720/368?random=1&key=" . $key;
                         @endphp
                         <article>
                             <a class="blog-entry-thumb mb-1" href="{{url($item->shortcode)}}">
@@ -341,7 +341,7 @@
                          data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: false, &quot;nav&quot;: true, &quot;gutter&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;992&quot;:{&quot;items&quot;:4}}}">
                         @foreach($articles->items(25,8) as $key=>$item)
                             @php
-                                $thumb = $item->thumb ? url($item->thumb) : "https://source.unsplash.com/featured/720x368?t=" . $key;
+                                $thumb = $item->thumb ? url($item->thumb) : "https://loremflickr.com/720/368?random=1&key=" . $key;
                             @endphp
                             <article class="mb-4">
                                 <div class="card product-card">

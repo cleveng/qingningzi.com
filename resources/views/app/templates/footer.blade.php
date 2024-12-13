@@ -1,4 +1,6 @@
-<!-- Footer-->
+@php use App\Enums\LinkType; @endphp
+@php use Carbon\Carbon; @endphp
+    <!-- Footer-->
 <footer class="footer pt-5 border-top">
     <div class="container text-center">
         <div class="widget widget-links d-none d-md-block">
@@ -9,7 +11,7 @@
                 @inject('links', 'App\Services\LinksService')
                 @foreach($links->items() as $item)
                     <li class="widget-list-item me-2">
-                        <a @if($item->link_type != \App\Enums\LinkType::EMOTION) rel="nofollow"
+                        <a @if($item->link_type != LinkType::EMOTION) rel="nofollow"
                            @endif data-bs-original-title="{{$item->introduce}}"
                            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
                            href="{{$item->url}}" target="_blank" class="widget-list-link">
@@ -22,41 +24,20 @@
 
         <div class="mt-2">
             <a title="{{env('APP_NAME')}}" href="{{env('APP_URL')}}">
-                <img alt="{{env('APP_NAME')}}" src="{{ asset('images/logo.png') }}" width="163" height="41"
+                <img alt="{{env('APP_NAME')}}" src="{{ Vite::image('logo.png') }}" width="163" height="41"
                      class="d-inline-block img-fluid">
             </a>
             <p class="mt-3 fs-sm d-none d-md-block">{{env('APP_NAME')}}
                 网上提供的所有内容（除有注明原创之外）均由网络转载或网友提供，{{env('APP_NAME')}}网只是一个展示方，
                 <br class='d-none d-md-inline-block'>
                 仅为社交团体提供健康、合理、绿色等方面的内容，不承担任何法律责任。
-                <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="nofollow" target="_blank">CC BY-NC-ND
-                    4.0</a>
+                <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="nofollow" target="_blank">
+                    CC BY-NC-ND 4.0
+                </a>
             </p>
         </div>
 
         <ul class="d-none d-md-flex justify-content-center list-unstyled">
-            <li class="px-3">
-                <a data-bs-original-title="Tiktok" data-bs-toggle="tooltip" data-bs-trigger="hover" target="_blank">
-                    <i class="text-base ci-tiktok"></i>
-                </a>
-            </li>
-            <li class="px-3">
-                <a data-bs-original-title="Pinterest" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                   target="_blank">
-                    <i class="text-base ci-pinterest"></i>
-                </a>
-            </li>
-            <li class="px-3">
-                <a data-bs-original-title="Google" data-bs-toggle="tooltip" data-bs-trigger="hover" target="_blank">
-                    <i class="text-base ci-google"></i>
-                </a>
-            </li>
-            <li class="px-3">
-                <a data-bs-original-title="Linkedin" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                   target="_blank">
-                    <i class="text-base ci-linkedin"></i>
-                </a>
-            </li>
             <li class="px-3">
                 <a target="_blank" data-bs-original-title="给我打赏" data-bs-toggle="tooltip"
                    data-bs-trigger="hover"
@@ -74,8 +55,8 @@
             <li class="px-3">
                 <a data-bs-original-title="微信打赏" data-bs-toggle="popover"
                    data-bs-trigger="hover" data-bs-html="true"
-                   data-bs-content="<img src='{{ asset("images/weichat_pay.jpg") }}' alt='微信打赏' class='img-fluid'>"
-                   href="javascript:;" target="_blank" data-bs-placement="top">
+                   data-bs-content="<img src='{{ Vite::image("weichat_pay.jpg") }}' alt='微信打赏' class='img-fluid'>"
+                   href="javascript:" target="_blank" data-bs-placement="top">
                     <i class="text-base ci-wechat"></i>
                 </a>
             </li>
@@ -83,7 +64,7 @@
 
         <p class="fs-sm my-1">
             <span class='text-bold text-dark'>Qingningzi v{{getPackageVersion()}}</span>
-            &copy; 2015 - {{\Carbon\Carbon::now()->year}}
+            &copy; 2015 - {{Carbon::now()->year}}
             <span class="vertical-divider"></span>
             @if(Route::has('about'))
                 <a href='{{ route('about') }}' rel="nofollow"
